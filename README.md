@@ -496,13 +496,27 @@ real target domain, and real merchant strings (UPI payee names) with categories 
 
 ## Deployment
 
-Live demo: not deployed yet.
-Repository: not published yet.
+- **Live demo:** https://spendlens-anirudh-ed2c.vercel.app
+- **API:** https://spendlens-api-kcqz.onrender.com/api/health
+- **Repository:** https://github.com/anirudhleetcode-max/spendlens
 
 Production setup: React build on **Vercel** (`frontend/vercel.json` rewrites `/api/*` to the API),
 FastAPI in **Docker on Render** (`render.yaml`, `backend/Dockerfile`), data in **MongoDB Atlas**.
 Step-by-step instructions, environment variables and measured memory use are in
 [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
+The API runs on Render's **free** instance, which sleeps after ~15 minutes idle: the first request
+after that takes roughly a minute while the container starts. Verified in production on
+2026-09-17: health `ok`, database connected, model loaded, and CORS restricted to the Vercel
+origin above (other origins get no `Access-Control-Allow-Origin` header).
+
+Checked live with `samples/receipt_dmart.jpg`: merchant **DMart** (0.96), date **2026-09-01**
+(0.91), total **497.00** (0.95) and tax **23.64** (0.83) were all read correctly by Tesseract 5.5.0
+in the container; **line items were not extracted** from this photo (3 expected, 0 found).
+
+**Free-tier caveat, measured not estimated:** that scan took **123 s** end to end on Render's free
+shared CPU, against a few seconds locally. `OCR_TIMEOUT_S` is therefore raised to 120 in production
+(the default stays 30). Receipt scanning works, but it is not interactive at this tier.
 
 ## Limitations
 
