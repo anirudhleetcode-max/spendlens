@@ -2,7 +2,7 @@ from datetime import date as Date
 
 from pydantic import BaseModel, Field, field_validator
 
-from .categories import CATEGORIES, PAYMENT_MODES
+from .categories import CATEGORIES, MODEL_CATEGORIES, PAYMENT_MODES
 
 
 def check_category(v: str | None) -> str | None:
@@ -65,7 +65,7 @@ class BudgetIn(BaseModel):
     @field_validator("category")
     @classmethod
     def _cat(cls, v):
-        if v not in CATEGORIES:
+        if v not in MODEL_CATEGORIES:
             raise ValueError("unknown category")
         return v
 

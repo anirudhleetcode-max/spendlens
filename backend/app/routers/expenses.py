@@ -25,7 +25,9 @@ def public(e: dict) -> dict:
         "notes": e.get("notes", ""), "source": e.get("source", "manual"),
         "receipt_id": str(e["receipt_id"]) if e.get("receipt_id") else None,
         "suggested_category": e.get("suggested_category"),
+        "created_at": e["created_at"].isoformat() if e.get("created_at") else None,
         "anomaly": e.get("anomaly"),
+        "demo": bool(e.get("demo")),
     }
 
 
@@ -89,7 +91,8 @@ async def create(body: ExpenseIn, user: dict = Depends(current_user)):
     category = body.category
     if category is None:
         s = await classifier.suggest(db, uid, body.merchant, item_names)
-        category = suggested = s["category"]
+        suggested = s["category"] if s["status"] != "unavailable" else None
+        category = classifier.resolved_category(s)
     elif suggested and suggested != category:
         await classifier.record_correction(db, uid, body.merchant, item_names, category, suggested)
     now = datetime.now(timezone.utc)
@@ -103,6 +106,9 @@ async def create(body: ExpenseIn, user: dict = Depends(current_user)):
     }
     res = await db.expenses.insert_one(doc)
     doc["_id"] = res.inserted_id
+    if doc["receipt_id"]:
+        from .receipts import mark_attached
+        await mark_attached(doc["receipt_id"])
     return public(doc)
 
 

@@ -1,0 +1,11 @@
+# Same as category_main but item words are shared between splits (the phase-1 setting).
+# Shows how much the easier split inflates the score.
+name: category_shared_items
+task: category_classifier
+seed: 7
+per_merchant: 30
+holdout_items: false
+models: [majority, keyword_rules, complement_nb, logreg]
+selected: auto          # chosen on validation macro-F1 (logreg vs complement_nb)
+target_accuracy: 0.9
+save_model: false

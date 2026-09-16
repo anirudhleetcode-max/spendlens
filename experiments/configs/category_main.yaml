@@ -1,0 +1,11 @@
+# Expense category classifier on SYNTHETIC data (no labelled real Indian expense data is available).
+# Merchants and item words are disjoint across train / val / test.
+name: category_main
+task: category_classifier
+seed: 7
+per_merchant: 30
+holdout_items: true
+models: [majority, keyword_rules, complement_nb, logreg]
+selected: auto          # chosen on validation macro-F1 (logreg vs complement_nb)
+target_accuracy: 0.9     # abstention threshold = smallest confidence reaching this accuracy on VALIDATION
+save_model: true          # refit on all synthetic merchants and write the production artifact + model card
