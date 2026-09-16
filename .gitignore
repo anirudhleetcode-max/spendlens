@@ -9,3 +9,10 @@ __pycache__/
 *.log
 backend/ml/artifacts/*.tmp
 test-results/
+# downloaded datasets are never committed (see data/README.md)
+data/raw/
+data/cache/
+.vite/
+coverage/
+*.tsbuildinfo
+backend/ml/artifacts/*.joblib.bak
