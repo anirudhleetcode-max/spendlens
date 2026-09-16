@@ -52,7 +52,7 @@ The most confident mistakes are mostly the lexicon's fault, not the model's:
 - "Sapna Book House" is an Education merchant, and "Sapna Book House Stationery" is a Shopping
   merchant. The model can't separate them.
 - "Amazon Prime" (Entertainment) vs "Amazon" (Shopping). "Swiggy" (Food) vs "Swiggy Instamart"
-  (Groceries): a bare "Swiggy" gets 31%.
+  (Groceries).
 - "Delhi Jal Board" → Transport (shares character n-grams with "Delhi Metro"). "Blue Dart" → Food
   (close to "Blue Tokai").
 - Top confusions: Entertainment → Bills & Utilities (35) and → Groceries (34). The held-out

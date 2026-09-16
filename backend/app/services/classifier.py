@@ -76,7 +76,7 @@ class CategoryModel:
         log.warning("category model unavailable: %s", reason)
 
     def _rebuild(self) -> None:
-        """Pickles are tied to the scikit-learn version: retrain locally (~10-30 s) instead of failing."""
+        """Pickles are tied to the scikit-learn version: retrain locally (seconds) instead of failing."""
         try:
             with self._lock:
                 self.status = "rebuilding"
