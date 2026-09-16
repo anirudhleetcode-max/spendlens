@@ -92,4 +92,49 @@ Written before any Phase 2 change, from a fresh read of the code at the baseline
 
 ## Resolution
 
-*(filled in at the end of Phase 2)*
+| # | status | what was done |
+|---|---|---|
+| B1 | done | Scans are stored with `metadata.status = pending` and marked `attached` on save. Adds `DELETE /api/receipts/{id}` (used by "Discard scan") and an hourly cleanup of pending scans older than `ORPHAN_RECEIPT_HOURS`. Tested. |
+| B2 | done | `app/pipeline/validate.py` returns `checks` (pass/warn/fail/info with a message); the scan review lists them. |
+| B3 | done | Temperature-scaled probability, threshold chosen on validation (0.65), `status: low_confidence` → "Uncategorised" in API and UI. |
+| B4 | done | Top contributing tokens (`tfidf × weight`) returned as `explanation` and shown as "because of: …". |
+| B5 | done | Retrain is admin-only (`ADMIN_EMAILS`, 403 otherwise) and runs in the thread pool; the model card records user corrections and that the retrained model isn't re-evaluated. |
+| B6 | done | Missing, corrupt or incompatible model → `status: unavailable` with the reason and a background rebuild (can be disabled). Tested with missing and corrupt files; the rebuild path was exercised manually. |
+| B7 | done | `/api/health` has `status: ok/degraded`, `degraded: [...]` and `model {status, version, error}`. |
+| B8 | done | `category_model.card.json` sidecar, `GET /api/model`, Models page. |
+| S1 | done | `app/pipeline/` with one module per stage; confidence constants centralised in `confidence.py`; behaviour unchanged (all 52 existing tests passed after the move). |
+| S2 | done | Lexicon moved to `app/pipeline/lexicon.py`; `ml/dataset.py` imports it. |
+| S3 | done | `experiments/` with configs, runner, recorded environment, dataset hashes and results; stale `ml/metrics.json` and `ml/eval_ocr.py` removed. |
+| S4 | done | README rewritten in the required order; LICENSE and CI added. |
+| D1 | done | "synthetic data" badges on the Models page; model card `training_data.synthetic: true`; README keeps real and synthetic results in separate tables. |
+| D2 | done | Demo user `is_demo`, expenses `demo: true`; "Demo data" badge, demo notice on Overview, "demo" pill on rows. |
+| D3 | done | Seeded rows no longer claim a model suggestion (`suggested_category: null`) or zero-priced items. |
+| D4 | kept | Static copy on the sign-in page, not presented as data. |
+| M1 | done | SROIE (200 test + 150 train-as-dev) and CORD (100) evaluations with field exact/normalised match, CER and word recall. |
+| M2 | done | Synthetic dev (seed 42) and held-out test (seed 1234) sets are separate; the parser was frozen before the real-data runs. The later parser 1.2 fix was checked on the SROIE train split; the re-scored test number is labelled post-hoc. |
+| M3 | done | Strict split (merchants and item words disjoint) is now the reported one; the shared-item split is kept as a comparison (0.848 → 0.562 macro-F1 for LogReg). |
+| M4 | done | Majority and keyword-rule baselines on the same split. |
+| M5 | done | Reliability tables, ECE, Brier, log-loss; temperature scaling fitted on validation; threshold chosen on validation (first 90% target attempt kept and documented). |
+| M6 | done | Confusion matrix CSV, most-confident-mistake dumps, receipt error files with an automatic cause breakdown, written analysis. |
+| M7 | done | Formula documented in `confidence.py` and the README; usefulness measured (unflagged vs flagged total accuracy). Not calibrated: no labelled Indian data. |
+| M8 | done | CER and word recall on SROIE and CORD. |
+| M9 | done | PSM 4/6/11 and preprocessing ablation on 60 SROIE receipts, raw vs preprocessed on CORD. |
+| M10 | done | `AnomalyRule` dataclass, boundary tests, `detail` explanation string; rule exposed on `/api/model`. |
+| X1 | done | `ENV=production` refuses placeholder or short secrets; development generates a random per-process secret with a warning; `.env.example` explains generation. |
+| X2 | done | Magic-byte sniffing, 40 MP pixel limit (and Pillow's bomb error handled), spooled upload always closed, stored file name no longer client-controlled, `nosniff` on image responses. |
+| X3 | done | Failed-login sliding window per email + IP, 429 with `Retry-After`. In-process only (noted). |
+| X4 | done | See B5. |
+| X5 | done | Request log line (method, path, status, ms), no bodies, headers or query strings; scan log contains sizes and confidences, not receipt text. |
+| X6 | kept | Already fine; CORS methods and headers narrowed. |
+| U1 | done | Abstention and explanation UI (see B3/B4). |
+| U2 | done | Checks list on the scan review. |
+| U3 | done | Models page. |
+| U4 | done | "What OCR read" view: cleaned image with per-word boxes, low-confidence words highlighted. |
+| U5 | done | Confirm dialog, toasts, skeleton loaders. |
+| U6 | done | See D2. |
+| T1 | done | vitest + Testing Library: 16 tests. |
+| T2 | done | `tests/test_robustness.py` and additions to the ML/parser tests. |
+| T3 | done, not run | `.github/workflows/ci.yml` (MongoDB service, Tesseract from apt, pytest; npm test + build). It couldn't be run from the build machine. |
+
+Not done: learned merchant-line classifier, stricter arithmetic confirmation, locale-aware amounts
+(future work, from the error analysis); a labelled Indian receipt set (data not available).
