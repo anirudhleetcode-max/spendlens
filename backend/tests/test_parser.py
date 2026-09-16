@@ -2,8 +2,10 @@ from datetime import date
 
 import pytest
 
-from app.services.ocr import OcrLine
-from app.services.parser import amounts_in, find_dates, match_known_merchant, parse_receipt
+from app.pipeline.ocr import OcrLine
+from app.pipeline.extract import match_known_merchant
+from app.pipeline.normalise import amounts_in, find_dates
+from app.pipeline.receipt import parse_lines as parse_receipt
 
 
 def L(*texts):
@@ -92,7 +94,7 @@ def test_fuel_receipt():
 
 
 def test_item_row_with_ocr_punctuation():
-    from app.services.parser import parse_items
+    from app.pipeline.extract import extract_items as parse_items
     items = parse_items(L("Item Qty Rate Amount", "AMUL TAAZA 1L 3) 68.00 204.00", "EGGS 6PC 1 48.00 48.00",
                           "PARLE G 800G 2 x 90.00 180.00", "Sub Total 432.00"))
     assert [(i["name"], i["qty"], i["price"]) for i in items] == [

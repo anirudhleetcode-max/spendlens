@@ -4,7 +4,7 @@ from datetime import date, timedelta
 import pytest
 from PIL import Image
 
-from app.services.ocr import tesseract_version
+from app.pipeline.ocr import tesseract_version
 from app.utils import current_month
 from ml.receipts_synth import generate
 

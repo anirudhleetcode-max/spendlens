@@ -1,63 +1,41 @@
-"""Receipt image -> text lines with confidences.
+"""Stage 1 - image preprocessing.
 
-Pipeline (each step is a small pure function so it can be unit-tested and explained):
-  decode (EXIF-aware) -> resize -> perspective crop of the largest 4-point contour (if any)
-  -> grayscale -> denoise -> deskew (text-line blobs + minAreaRect, Hough fallback)
-  -> adaptive threshold -> Tesseract (image_to_data, word confidences) -> lines
+decode (EXIF-aware, pixel-limit guarded) -> resize (long side <= 2000 px, short side >= 900 px)
+-> perspective crop of the largest 4-point contour, when the paper is visible against a background
+-> grayscale -> non-local-means denoise -> deskew (text-line blobs + minAreaRect, Hough fallback)
+-> adaptive Gaussian threshold.
+
+Every step is a small pure function on numpy arrays so it can be unit-tested and ablated.
+Bump PREPROCESS_VERSION whenever the output of `preprocess()` changes; it is written into model cards
+and experiment results.
 """
 from __future__ import annotations
 
 import io
-import logging
-import shutil
 import time
-from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
-from functools import lru_cache
 
 import cv2
 import numpy as np
 from PIL import Image, ImageOps
 
-from ..config import get_settings
-
-log = logging.getLogger(__name__)
-
-
-# ---------- tesseract availability ----------
-
-def _configure_tesseract() -> None:
-    import pytesseract
-    cmd = get_settings().tesseract_cmd.strip()
-    if cmd:
-        pytesseract.pytesseract.tesseract_cmd = cmd
-
-
-@lru_cache
-def tesseract_version() -> str | None:
-    """Cached: None when Tesseract is not installed / not found."""
-    try:
-        import pytesseract
-        _configure_tesseract()
-        return str(pytesseract.get_tesseract_version())
-    except Exception as e:  # TesseractNotFoundError, ImportError, OSError
-        log.warning("Tesseract not available: %s (set TESSERACT_CMD in .env)", e)
-        return None
-
-
-def ocr_status() -> dict:
-    v = tesseract_version()
-    return {"available": v is not None, "version": v,
-            "cmd": get_settings().tesseract_cmd or shutil.which("tesseract") or None}
-
-
-# ---------- image steps ----------
+PREPROCESS_VERSION = "1.0"
+# Decompression-bomb guard: a 30 MP phone photo is fine, a 20000x20000 PNG "zip bomb" is not.
+# Pillow raises DecompressionBombError above 2x this value and warns above it; we refuse above it.
+MAX_PIXELS = 40_000_000
+Image.MAX_IMAGE_PIXELS = MAX_PIXELS
 
 def decode(data: bytes) -> np.ndarray:
     """Bytes -> BGR array, honouring phone EXIF rotation."""
     try:
         img = Image.open(io.BytesIO(data))
+        if img.width * img.height > MAX_PIXELS:
+            raise ValueError(f"Image is too large ({img.width}x{img.height} px). Limit is {MAX_PIXELS // 1_000_000} MP.")
         img = ImageOps.exif_transpose(img).convert("RGB")
+    except ValueError:
+        raise
+    except (Image.DecompressionBombError, Image.DecompressionBombWarning):
+        raise ValueError(f"Image is too large. Limit is {MAX_PIXELS // 1_000_000} MP.")
     except Exception:
         raise ValueError("Could not read the image. Upload a JPG, PNG or WebP photo.")
     return cv2.cvtColor(np.asarray(img), cv2.COLOR_RGB2BGR)
@@ -189,56 +167,3 @@ def preprocess(img: np.ndarray, crop: bool = True) -> Prepared:
     return Prepared(gray=gray, binary=binary, skew=round(skew, 2), cropped=cropped, steps_ms=ms)
 
 
-# ---------- OCR ----------
-
-@dataclass
-class OcrLine:
-    text: str
-    conf: float  # 0-100 mean word confidence
-
-
-def run_tesseract(img: np.ndarray, psm: int = 6) -> list[OcrLine]:
-    import pytesseract
-    _configure_tesseract()
-    data = pytesseract.image_to_data(img, lang="eng", config=f"--oem 1 --psm {psm} -c preserve_interword_spaces=1",
-                                     output_type=pytesseract.Output.DICT)
-    groups: dict[tuple, list[tuple[str, float, int]]] = {}
-    for i, word in enumerate(data["text"]):
-        word = (word or "").strip()
-        conf = float(data["conf"][i])
-        if not word or conf < 0:
-            continue
-        key = (data["block_num"][i], data["par_num"][i], data["line_num"][i])
-        groups.setdefault(key, []).append((word, conf, data["left"][i]))
-    lines = []
-    for key in sorted(groups):
-        words = sorted(groups[key], key=lambda w: w[2])
-        text = " ".join(w[0] for w in words)
-        lines.append(OcrLine(text=text, conf=round(sum(w[1] for w in words) / len(words), 1)))
-    return lines
-
-
-def mean_conf(lines: list[OcrLine]) -> float:
-    return round(sum(l.conf for l in lines) / len(lines), 1) if lines else 0.0
-
-
-def ocr_image(data: bytes, preprocess_enabled: bool = True) -> dict:
-    """Full pipeline. Returns lines + diagnostics. Raises ValueError for unreadable images."""
-    t0 = time.perf_counter()
-    img = decode(data)
-    if not preprocess_enabled:
-        lines = run_tesseract(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))
-        return {"lines": lines, "mean_conf": mean_conf(lines), "skew": 0.0, "cropped": False,
-                "variant": "raw", "ms": round((time.perf_counter() - t0) * 1000)}
-    prep = preprocess(img)
-    # Adaptive threshold rescues shadows and uneven light but can eat faint thermal print; the denoised
-    # grayscale keeps thin strokes. Read both (two tesseract processes in parallel) and keep the read
-    # Tesseract itself is more confident about.
-    with ThreadPoolExecutor(max_workers=2) as pool:
-        bin_f = pool.submit(run_tesseract, prep.binary)
-        gray_f = pool.submit(run_tesseract, prep.gray)
-        reads = {"binary": bin_f.result(), "gray": gray_f.result()}
-    variant = max(reads, key=lambda k: mean_conf(reads[k]))
-    lines = reads[variant]
-    return {"lines": lines, "mean_conf": mean_conf(lines), "skew": prep.skew, "cropped": prep.cropped,
-            "variant": variant, "steps_ms": prep.steps_ms, "ms": round((time.perf_counter() - t0) * 1000)}

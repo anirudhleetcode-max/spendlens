@@ -10,8 +10,9 @@ from ..db import get_bucket, get_db
 from ..security import current_user
 from ..services import classifier
 from ..services.images import shrink_jpeg
-from ..services.ocr import decode, ocr_image, ocr_status
-from ..services.parser import parse_receipt
+from ..pipeline.ocr import ocr_status, run_ocr
+from ..pipeline.preprocess import decode
+from ..pipeline.receipt import parse_lines
 from ..utils import oid
 
 router = APIRouter(prefix="/api/receipts", tags=["receipts"])
@@ -28,11 +29,12 @@ def _process(data: bytes, ocr_on: bool) -> tuple[bytes, dict | None]:
     stored = shrink_jpeg(data)
     if not ocr_on:
         return stored, None
-    ocr = ocr_image(data)
-    parsed = parse_receipt(ocr["lines"])
+    ocr = run_ocr(data, want_preview=True)
+    parsed = parse_lines(ocr["lines"])
     parsed["ocr"] = {"mean_conf": ocr["mean_conf"], "skew": ocr["skew"], "cropped": ocr["cropped"],
                      "variant": ocr["variant"], "ms": ocr["ms"],
-                     "lines": [{"text": l.text, "conf": l.conf} for l in ocr["lines"]]}
+                     "lines": [{"text": l.text, "conf": l.conf} for l in ocr["lines"]],
+                     "preview": ocr.get("preview")}
     return stored, parsed
 
 

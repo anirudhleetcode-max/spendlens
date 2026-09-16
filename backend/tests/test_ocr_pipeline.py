@@ -3,8 +3,9 @@ import cv2
 import numpy as np
 import pytest
 
-from app.services.ocr import decode, estimate_skew, find_document, ocr_image, rotate, tesseract_version
-from app.services.parser import parse_receipt
+from app.pipeline.ocr import run_ocr as ocr_image, tesseract_version
+from app.pipeline.preprocess import decode, estimate_skew, find_document, rotate
+from app.pipeline.receipt import parse_lines as parse_receipt
 from app.utils import merchant_key
 from ml.receipts_synth import SHOPS, generate, make_receipt, render
 

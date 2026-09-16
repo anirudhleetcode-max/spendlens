@@ -12,7 +12,7 @@ from .config import get_settings
 from .db import close_client, ensure_indexes, get_db
 from .routers import budgets, categories, expenses, insights, receipts
 from .services.classifier import get_model
-from .services.ocr import ocr_status, tesseract_version
+from .pipeline.ocr import ocr_status, tesseract_version
 
 log = logging.getLogger("spendlens")
 
