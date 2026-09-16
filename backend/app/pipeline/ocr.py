@@ -14,6 +14,7 @@ from __future__ import annotations
 import base64
 import io
 import logging
+import os
 import shutil
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -29,7 +30,9 @@ from .preprocess import decode, preprocess
 
 log = logging.getLogger(__name__)
 DEFAULT_PSM = 6
-OCR_TIMEOUT_S = 30  # per Tesseract call; a pathological image must not hang a worker
+# Per Tesseract call; a pathological image must not hang a worker. Raise it on slow shared
+# CPUs (Render's free instance needs more than 30 s for a full-size photo).
+OCR_TIMEOUT_S = float(os.getenv("OCR_TIMEOUT_S", "30"))
 
 
 def _configure_tesseract() -> None:
