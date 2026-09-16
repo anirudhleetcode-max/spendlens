@@ -494,6 +494,16 @@ real target domain, and real merchant strings (UPI payee names) with categories 
 - Monitoring of the flag rate and abstention rate as drift signals.
 - Money stored as integer paise.
 
+## Deployment
+
+Live demo: not deployed yet.
+Repository: not published yet.
+
+Production setup: React build on **Vercel** (`frontend/vercel.json` rewrites `/api/*` to the API),
+FastAPI in **Docker on Render** (`render.yaml`, `backend/Dockerfile`), data in **MongoDB Atlas**.
+Step-by-step instructions, environment variables and measured memory use are in
+[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+
 ## Limitations
 
 - No labelled Indian receipts: Indian-specific accuracy is only measured on synthetic bills.
@@ -545,6 +555,8 @@ Last full run (2026-09-16), all passing:
 
 CI (`.github/workflows/ci.yml`) runs the backend tests with a MongoDB service container and
 Tesseract from apt, and the frontend unit tests and build.
+
+On Windows, run the e2e script from **Git Bash** with the backend virtual environment active, and point it at that interpreter: `PYTHON=python bash e2e/run_e2e.sh`. Install the browser once with `python -m playwright install chromium`.
 
 ## License
 

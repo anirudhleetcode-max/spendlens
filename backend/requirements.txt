@@ -11,6 +11,6 @@ numpy>=1.26
 opencv-python-headless>=4.8,<5  # 5.x changed HoughLinesP output shape; untested here
 pytesseract>=0.3.10
 Pillow>=10.0
-scikit-learn>=1.4
+scikit-learn>=1.8,<1.9  # the committed model was saved with 1.8
 joblib>=1.3
 pyyaml>=6.0
