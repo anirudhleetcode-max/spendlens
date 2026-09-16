@@ -1,0 +1,76 @@
+{
+  "dataset": {
+    "name": "cord",
+    "title": "CORD v2 (Clova), test split",
+    "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7",
+    "licence": "CC-BY-4.0",
+    "synthetic": false,
+    "region": "Indonesia (IDR, '.' as thousands separator, no decimals)",
+    "n_selected": 100,
+    "subset_ids_sha256_16": "94acab96a1159652"
+  },
+  "variants": {
+    "preprocess_dual_psm6": {
+      "n_receipts": 100,
+      "total": {
+        "n_labelled": 95,
+        "exact": 0.2421,
+        "normalised": 0.2737,
+        "coverage": 0.5368,
+        "accuracy_when_not_flagged": 0.5714,
+        "accuracy_when_flagged": 0.05,
+        "share_flagged": 0.6316
+      },
+      "items": {
+        "n_labelled": 100,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.5345,
+        "cer_median": 0.4455,
+        "word_recall_mean": 0.5299
+      },
+      "ocr_seconds_mean": 1.13,
+      "ocr_failures": 0,
+      "parser_version": "1.2",
+      "wall_seconds": 1.5,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "raw_gray_psm6": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.1915,
+        "normalised": 0.2553,
+        "coverage": 0.4043,
+        "accuracy_when_not_flagged": 0.4615,
+        "accuracy_when_flagged": 0.0882,
+        "share_flagged": 0.7234
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.9261,
+        "cer_median": 0.7822,
+        "word_recall_mean": 0.372
+      },
+      "ocr_seconds_mean": 0.71,
+      "ocr_failures": 0,
+      "parser_version": "1.2",
+      "wall_seconds": 0.7,
+      "ocr_settings": {
+        "preprocess": false,
+        "dual": false,
+        "psm": 6
+      }
+    }
+  },
+  "run_id": "cord_main-20260916-r2",
+  "seconds": 3.0
+}

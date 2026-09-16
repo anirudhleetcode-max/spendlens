@@ -1,0 +1,11 @@
+{
+  "n_errors": 2,
+  "by_field_and_cause": {
+    "total": {
+      "ocr_digit": 2
+    }
+  },
+  "confidently_wrong_(conf>=0.6)": {
+    "total": 2
+  }
+}

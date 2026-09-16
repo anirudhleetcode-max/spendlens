@@ -1,0 +1,2 @@
+{"field": "total", "expected": "750.00", "got": 750.66, "confidence": 0.95, "source": "keyword:sale amount", "ocr_snippet": "Vehicle No: KA19AB2201 | SALE AMOUNT: Rs. 750.66 | Payment Mode: PAID VIA UPI", "id": "synth-1234-033"}
+{"field": "total", "expected": "2000.00", "got": 2000.6, "confidence": 0.95, "source": "keyword:amount", "ocr_snippet": "Vehicle No: KA52AB4109 | AMOUNT: Rs. 2,000.60 | Payment Mode: PAID VIA UPI", "id": "synth-1234-034"}

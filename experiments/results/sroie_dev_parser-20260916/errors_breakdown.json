@@ -1,0 +1,28 @@
+{
+  "n_errors": 162,
+  "by_field_and_cause": {
+    "date": {
+      "not_found": 19,
+      "ocr_digit": 8,
+      "wrong_date_line": 5
+    },
+    "merchant": {
+      "wrong_header_line": 57,
+      "ocr_garbled": 14,
+      "not_found": 11,
+      "lexicon_false_match": 1
+    },
+    "total": {
+      "wrong_keyword_line": 18,
+      "ocr_digit": 12,
+      "fallback_largest": 8,
+      "not_found": 8,
+      "amount_format": 1
+    }
+  },
+  "confidently_wrong_(conf>=0.6)": {
+    "date": 10,
+    "merchant": 1,
+    "total": 25
+  }
+}

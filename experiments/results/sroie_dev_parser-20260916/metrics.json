@@ -1,0 +1,96 @@
+{
+  "dataset": {
+    "name": "sroie_train",
+    "title": "ICDAR 2019 SROIE (deduplicated v2 mirror), train split - used as a DEVELOPMENT set",
+    "sha256": "b03df42c8743ab1749d77b345998ac6e6cded5f4bd779e271c739fba53439e92",
+    "licence": "Same as sroie. Used to check parser changes without touching the test split.",
+    "synthetic": false,
+    "region": "Malaysia (MYR, English receipts)",
+    "n_selected": 150,
+    "subset_ids_sha256_16": "680eb23a4304a753"
+  },
+  "variants": {
+    "parser_1_2": {
+      "n_receipts": 150,
+      "merchant": {
+        "n_labelled": 150,
+        "exact": 0.26,
+        "normalised": 0.2867,
+        "partial": 0.4467,
+        "coverage": 0.9267
+      },
+      "date": {
+        "n_labelled": 150,
+        "exact": 0.7867,
+        "normalised": 0.7867,
+        "coverage": 0.8733,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 150,
+        "exact": 0.6867,
+        "normalised": 0.6933,
+        "coverage": 0.9467,
+        "accuracy_when_not_flagged": 0.7984,
+        "accuracy_when_flagged": 0.1538,
+        "share_flagged": 0.1733
+      },
+      "ocr": {
+        "cer_mean": 0.1886,
+        "cer_median": 0.1437,
+        "word_recall_mean": 0.7646
+      },
+      "ocr_seconds_mean": 1.92,
+      "ocr_failures": 0,
+      "parser_version": "1.2",
+      "wall_seconds": 279.1,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "parser_1_1": {
+      "n_receipts": 150,
+      "merchant": {
+        "n_labelled": 150,
+        "exact": 0.26,
+        "normalised": 0.2867,
+        "partial": 0.4467,
+        "coverage": 0.9267
+      },
+      "date": {
+        "n_labelled": 150,
+        "exact": 0.7867,
+        "normalised": 0.7867,
+        "coverage": 0.8733,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 150,
+        "exact": 0.56,
+        "normalised": 0.5667,
+        "coverage": 0.9467,
+        "accuracy_when_not_flagged": 0.7423,
+        "accuracy_when_flagged": 0.2264,
+        "share_flagged": 0.3533
+      },
+      "ocr": {
+        "cer_mean": 0.1886,
+        "cer_median": 0.1437,
+        "word_recall_mean": 0.7646
+      },
+      "ocr_seconds_mean": 1.92,
+      "ocr_failures": 0,
+      "parser_version": "1.1",
+      "wall_seconds": 3.8,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    }
+  },
+  "run_id": "sroie_dev_parser-20260916",
+  "seconds": 284.1
+}

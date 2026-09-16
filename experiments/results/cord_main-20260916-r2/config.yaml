@@ -1,0 +1,9 @@
+# CORD v2 test split (Indonesian receipts): totals, line-item counts and OCR CER. No merchant/date labels.
+name: cord_main
+task: receipt_extraction
+dataset: cord
+n: 100
+seed: 0
+variants:
+  - {name: preprocess_dual_psm6, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: raw_gray_psm6, n: 50, ocr: {preprocess: false, dual: false, psm: 6}}

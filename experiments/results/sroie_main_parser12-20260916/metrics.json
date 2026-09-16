@@ -1,0 +1,56 @@
+{
+  "dataset": {
+    "name": "sroie",
+    "title": "ICDAR 2019 SROIE (deduplicated v2 mirror), test split",
+    "sha256": "695057e834bc72fdd84c2f09d0a7e93ecdd439cbda16318bc17eb1d0a5e9a893",
+    "licence": "Mirror card declares CC-BY-2.0; the original ICDAR 2019 RRC data is distributed for research use after registration. Used here for evaluation only; not redistributed.",
+    "synthetic": false,
+    "region": "Malaysia (MYR, English receipts)",
+    "n_selected": 200,
+    "subset_ids_sha256_16": "4d54f37c189f915c"
+  },
+  "variants": {
+    "preprocess_dual_psm6": {
+      "n_receipts": 200,
+      "merchant": {
+        "n_labelled": 200,
+        "exact": 0.235,
+        "normalised": 0.245,
+        "partial": 0.35,
+        "coverage": 0.89
+      },
+      "date": {
+        "n_labelled": 200,
+        "exact": 0.785,
+        "normalised": 0.785,
+        "coverage": 0.88,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 200,
+        "exact": 0.575,
+        "normalised": 0.58,
+        "coverage": 0.965,
+        "accuracy_when_not_flagged": 0.6818,
+        "accuracy_when_flagged": 0.2174,
+        "share_flagged": 0.23
+      },
+      "ocr": {
+        "cer_mean": 0.1965,
+        "cer_median": 0.1537,
+        "word_recall_mean": 0.748
+      },
+      "ocr_seconds_mean": 1.8,
+      "ocr_failures": 0,
+      "parser_version": "1.2",
+      "wall_seconds": 5.3,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    }
+  },
+  "run_id": "sroie_main_parser12-20260916",
+  "seconds": 6.0
+}
