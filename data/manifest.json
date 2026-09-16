@@ -1,0 +1,26 @@
+{
+  "sroie": {
+    "name": "ICDAR 2019 SROIE (deduplicated v2 mirror), test split",
+    "url": "https://huggingface.co/datasets/rth/sroie-2019-v2/resolve/main/data/test-00000-of-00001.parquet",
+    "page": "https://huggingface.co/datasets/rth/sroie-2019-v2",
+    "original": "https://rrc.cvc.uab.es/?ch=13",
+    "licence": "Mirror card declares CC-BY-2.0; the original ICDAR 2019 RRC data is distributed for research use after registration. Used here for evaluation only; not redistributed.",
+    "file": "sroie_test.parquet",
+    "sha256": "695057e834bc72fdd84c2f09d0a7e93ecdd439cbda16318bc17eb1d0a5e9a893",
+    "rows": 347,
+    "region": "Malaysia (MYR, English receipts)",
+    "bytes": 182810878
+  },
+  "cord": {
+    "name": "CORD v2 (Clova), test split",
+    "url": "https://huggingface.co/datasets/naver-clova-ix/cord-v2/resolve/main/data/test-00000-of-00001-9c204eb3f4e11791.parquet",
+    "page": "https://huggingface.co/datasets/naver-clova-ix/cord-v2",
+    "original": "https://github.com/clovaai/cord",
+    "licence": "CC-BY-4.0",
+    "file": "cord_test.parquet",
+    "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7",
+    "rows": 100,
+    "region": "Indonesia (IDR, '.' as thousands separator, no decimals)",
+    "bytes": 234202795
+  }
+}

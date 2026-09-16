@@ -95,8 +95,7 @@ def write_manifest() -> None:
     out = {}
     for name, src in SOURCES.items():
         p = path_for(name)
-        out[name] = {k: v for k, v in src.items()} | {
-            "present_locally": p.exists(), "bytes": p.stat().st_size if p.exists() else None}
+        out[name] = {k: v for k, v in src.items()} | {"bytes": p.stat().st_size if p.exists() else None}
     MANIFEST.write_text(json.dumps(out, indent=2) + "\n")
 
 
