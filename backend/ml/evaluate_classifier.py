@@ -30,7 +30,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from app.categories import MODEL_CATEGORIES as CATEGORIES
 from ml import dataset
 from ml.baselines import KeywordRules
-from ml.calibration import brier, fit_temperature, pick_threshold, reliability, softmax
+from ml.calibration import brier, fit_temperature, pick_threshold, reliability, softmax, threshold_reaches
 from ml.pipeline import make_cnb, make_logreg
 
 ART = Path(__file__).resolve().parent / "artifacts"
@@ -159,6 +159,7 @@ def run(cfg: dict, run_dir: Path) -> dict:
     out["abstention"] = {
         "target_accuracy_on_val": cfg.get("target_accuracy", 0.9),
         "threshold": tau,
+        "target_reached_on_val": threshold_reaches(rc_val, tau, cfg.get("target_accuracy", 0.9)),
         "val_risk_coverage": rc_val,
         "test_risk_coverage": rc_test,
         "test_at_threshold": {"coverage": round(float(keep.mean()), 4),

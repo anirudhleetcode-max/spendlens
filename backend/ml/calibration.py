@@ -54,7 +54,9 @@ def reliability(conf: np.ndarray, correct: np.ndarray, bins: int = 10) -> tuple[
 
 def pick_threshold(conf: np.ndarray, correct: np.ndarray, target_accuracy: float) -> tuple[float, list[dict]]:
     """Smallest confidence threshold whose accepted predictions reach the target accuracy (on the
-    validation split). Returns the threshold and the full risk-coverage table."""
+    validation split). If no threshold reaches it, the one with the highest accuracy (lowest threshold
+    on ties) is returned - check `target_reached` via threshold_reaches(). Returns the threshold and
+    the full risk-coverage table."""
     rows, chosen = [], None
     for t in np.round(np.arange(0.0, 0.96, 0.05), 2):
         keep = conf >= t
@@ -63,4 +65,12 @@ def pick_threshold(conf: np.ndarray, correct: np.ndarray, target_accuracy: float
         rows.append({"threshold": float(t), "coverage": round(cov, 4), "accuracy": None if acc is None else round(acc, 4)})
         if chosen is None and acc is not None and acc >= target_accuracy:
             chosen = float(t)
-    return (chosen if chosen is not None else 0.95), rows
+    if chosen is None:
+        best = max((r for r in rows if r["accuracy"] is not None), key=lambda r: (r["accuracy"], -r["threshold"]))
+        chosen = best["threshold"]
+    return chosen, rows
+
+
+def threshold_reaches(rows: list[dict], threshold: float, target_accuracy: float) -> bool:
+    row = next(r for r in rows if r["threshold"] == threshold)
+    return row["accuracy"] is not None and row["accuracy"] >= target_accuracy
