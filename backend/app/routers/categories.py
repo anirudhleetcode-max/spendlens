@@ -53,7 +53,11 @@ async def retrain(user: dict = Depends(current_user)):
 
 
 def _latest(prefix: str) -> dict | None:
-    runs = sorted(RESULTS.glob(f"{prefix}-*/metrics.json")) if RESULTS.exists() else []
+    """Most recent run of an experiment (run ids are name-YYYYMMDD[-rN])."""
+    import re
+    pat = re.compile(re.escape(prefix) + r"-\d{8}(-r(\d+))?$")
+    runs = [p for p in RESULTS.glob(f"{prefix}-*/metrics.json") if pat.match(p.parent.name)] if RESULTS.exists() else []
+    runs.sort(key=lambda p: (p.parent.name[len(prefix) + 1: len(prefix) + 9], int(pat.match(p.parent.name).group(2) or 1)))
     if not runs:
         return None
     try:
@@ -62,7 +66,7 @@ def _latest(prefix: str) -> dict | None:
         return None
 
 
-def _receipt_summary(prefix: str, variant: str = "preprocess_dual_psm6") -> dict | None:
+def _receipt_summary(prefix: str, variant: str = "preprocess_dual_psm6", note: str = "") -> dict | None:
     m = _latest(prefix)
     if not m:
         return None
@@ -73,7 +77,8 @@ def _receipt_summary(prefix: str, variant: str = "preprocess_dual_psm6") -> dict
             "merchant_exact": (v.get("merchant") or {}).get("exact"),
             "date_exact": (v.get("date") or {}).get("exact"),
             "total_exact": (v.get("total") or {}).get("exact"),
-            "cer": (v.get("ocr") or {}).get("cer_mean")}
+            "cer": (v.get("ocr") or {}).get("cer_mean"),
+            "parser_version": v.get("parser_version", "1.1"), "note": note}
 
 
 @model_router.get("/model")
@@ -88,7 +93,10 @@ async def model_info():
         },
         "anomaly_rule": anomaly.RULE.__dict__,
         "evaluations": {
-            "receipts_real_sroie": _receipt_summary("sroie_main"),
+            "receipts_real_sroie": _receipt_summary(
+                "sroie_main", note="SROIE test subset, scored blind with parser 1.1 (before the fix it motivated)"),
+            "receipts_real_sroie_dev": _receipt_summary(
+                "sroie_dev_parser", variant="parser_1_2", note="SROIE train split used as a dev set, current parser"),
             "receipts_real_cord": _receipt_summary("cord_main"),
             "receipts_synthetic_test": _receipt_summary("synthetic_test"),
         },

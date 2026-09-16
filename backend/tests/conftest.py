@@ -14,6 +14,31 @@ if _src.with_name("category_model.card.json").exists():
     shutil.copy(_src.with_name("category_model.card.json"), _tmp / "model.card.json")
 os.environ["MODEL_PATH"] = str(_tmp / "model.joblib")
 
+
+def _ensure_compatible_model() -> None:
+    """If this environment's scikit-learn differs from the one that saved the artifact (e.g. in CI),
+    rebuild the temporary copy up front instead of racing the app's background rebuild."""
+    import json
+
+    import joblib
+    import sklearn
+    path = _tmp / "model.joblib"
+    try:
+        ok = joblib.load(path).get("sklearn") == sklearn.__version__
+    except Exception:
+        ok = False
+    if ok:
+        return
+    from ml.evaluate_classifier import save_production_model
+    card_path = _tmp / "model.card.json"
+    card = json.loads(card_path.read_text()) if card_path.exists() else {}
+    save_production_model(card.get("run_config") or {"seed": 7}, card.get("evaluation") or {}, card.get("kind", "logreg"),
+                          (card.get("calibration") or {}).get("temperature", 1.0),
+                          (card.get("abstention") or {}).get("threshold", 0.5), path=path)
+
+
+_ensure_compatible_model()
+
 import pytest
 from fastapi.testclient import TestClient
 

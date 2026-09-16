@@ -93,15 +93,23 @@ def test_full_journey(page: Page, receipt):
     expect(page.locator("#scan-category")).to_have_value(truth.category)
     expect(page.get_by_test_id("suggestion")).to_contain_text(f"Suggested {truth.category}")
     expect(review.locator(".items-table tbody tr")).to_have_count(len(truth.items))
+    # validation checks explain the confidence; the receipt adds up
+    expect(page.get_by_test_id("checks")).to_contain_text("matches subtotal")
+    expect(page.get_by_test_id("suggestion-why")).to_be_visible()
     page.mouse.move(0, 0)
     shot(page, "scan-review.png")
+    # what OCR read: cleaned image with word boxes
+    page.get_by_role("tab", name="What OCR read").click()
+    expect(page.get_by_test_id("ocr-overlay")).to_contain_text("words read")
+    assert page.locator("[data-testid=ocr-overlay] rect").count() > 20
+    page.get_by_role("tab", name="Your photo").click()
 
     # --- correct the category, save
     page.locator("#scan-category").select_option("Shopping")
     expect(page.get_by_test_id("suggestion")).to_contain_text("you changed it")
     page.get_by_role("button", name="Save expense").click()
     expect(page.get_by_text("Saved to your ledger")).to_be_visible()
-    expect(page.get_by_role("status")).to_contain_text("Shopping")
+    expect(page.locator(".saved")).to_contain_text("Shopping")
 
     # --- manual expense, category suggested by the model while typing
     page.get_by_role("navigation").get_by_role("link", name="Expenses").click()
@@ -114,6 +122,27 @@ def test_full_journey(page: Page, receipt):
     expect(rows).to_have_count(2)
     expect(page.get_by_test_id("expense-table")).to_contain_text(truth.merchant)
     expect(page.get_by_test_id("expense-table")).to_contain_text("Uber")
+
+    # --- the model abstains on an ambiguous name: saved as Uncategorised, flagged in the list
+    page.get_by_role("button", name="Add expense").click()
+    page.locator("#exp-merchant").fill("Kumar Tiffin Centre")
+    page.locator("#exp-amount").fill("90")
+    expect(page.get_by_test_id("suggestion")).to_have_attribute("data-status", "low_confidence")
+    expect(page.locator("#exp-category")).to_have_value("Uncategorised")
+    page.get_by_role("button", name="Save expense").click()
+    expect(rows).to_have_count(3)
+    kumar = rows.filter(has_text="Kumar Tiffin Centre")
+    expect(kumar).to_contain_text("Needs a category")
+    # delete asks first, and cancel keeps the row
+    kumar.get_by_role("button", name="Delete Kumar Tiffin Centre").click()
+    dialog = page.get_by_role("dialog", name="Delete this expense?")
+    expect(dialog).to_be_visible()
+    dialog.get_by_role("button", name="Cancel").click()
+    expect(rows).to_have_count(3)
+    kumar.get_by_role("button", name="Delete Kumar Tiffin Centre").click()
+    dialog.get_by_role("button", name="Delete").click()
+    expect(page.get_by_text("Deleted Kumar Tiffin Centre")).to_be_visible()
+    expect(rows).to_have_count(2)
 
     # --- filter works
     page.get_by_label("Category").select_option("Transport & Fuel")
@@ -174,6 +203,8 @@ def test_demo_account_screens(page: Page, browser):
     page.get_by_role("button", name="Sign in").click()
     expect(page.get_by_test_id("month-total")).to_be_visible()
     expect(page.get_by_test_id("anomalies").locator("li").first).to_be_visible()
+    expect(page.locator(".topbar")).to_contain_text("Demo data")
+    expect(page.get_by_text("You're looking at the demo account")).to_be_visible()
     page.wait_for_timeout(300)
     shot(page, "overview.png")
     if EXTRA_SHOTS:
@@ -184,6 +215,27 @@ def test_demo_account_screens(page: Page, browser):
     page.mouse.move(0, 0)
     shot(page, "expenses.png")
 
+    page.get_by_role("navigation").get_by_role("link", name="Models").click()
+    card = page.get_by_test_id("model-card")
+    expect(card).to_contain_text("synthetic data")
+    expect(card).to_contain_text("in use")
+    evals = page.get_by_test_id("receipt-evals")
+    expect(evals).to_contain_text("SROIE")
+    expect(evals).to_contain_text("real data")
+    page.wait_for_timeout(200)
+    shot(page, "models.png")
+
+    # one phone-width screenshot for the README
+    token = page.evaluate("localStorage.getItem('spendlens.token')")
+    mctx = browser.new_context(viewport={"width": 375, "height": 812}, device_scale_factor=2)
+    mctx.add_init_script(f"localStorage.setItem('spendlens.token', {token!r})")
+    mp = mctx.new_page()
+    mp.goto(f"{BASE}/")
+    expect(mp.get_by_test_id("month-total")).to_be_visible()
+    mp.wait_for_timeout(600)
+    mp.screenshot(path=str(SHOTS / "mobile-overview.png"))
+    mctx.close()
+
     page.get_by_role("navigation").get_by_role("link", name="Budgets").click()
     expect(page.get_by_test_id("budget-table")).to_contain_text("Groceries")
     if EXTRA_SHOTS:
@@ -192,7 +244,8 @@ def test_demo_account_screens(page: Page, browser):
         ctx = browser.new_context(viewport={"width": 375, "height": 812}, device_scale_factor=2)
         ctx.add_init_script(f"localStorage.setItem('spendlens.token', {token!r})")
         m = ctx.new_page()
-        for path, name in [("/", "m-overview"), ("/expenses", "m-expenses"), ("/scan", "m-scan"), ("/budgets", "m-budgets")]:
+        for path, name in [("/", "m-overview"), ("/expenses", "m-expenses"), ("/scan", "m-scan"), ("/budgets", "m-budgets"),
+                           ("/models", "m-models")]:
             m.goto(f"{BASE}{path}")
             m.wait_for_timeout(1200)
             m.screenshot(path=str(EXTRA_SHOTS / f"{name}.png"), full_page=True)

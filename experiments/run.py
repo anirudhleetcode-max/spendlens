@@ -106,6 +106,10 @@ def main() -> None:
     cfg_path = Path(a.config)
     cfg = yaml.safe_load(cfg_path.read_text())
     run_id = f"{cfg['name']}-{datetime.now().strftime('%Y%m%d')}"
+    n = 2
+    while (RESULTS / run_id).exists():  # never overwrite an earlier run from the same day
+        run_id = f"{cfg['name']}-{datetime.now().strftime('%Y%m%d')}-r{n}"
+        n += 1
     run_dir = RESULTS / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy(cfg_path, run_dir / "config.yaml")
