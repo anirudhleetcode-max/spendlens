@@ -97,7 +97,8 @@ export type Health = { status: string; db: string; classifier: boolean; degraded
   model?: { status: string; version: string | null; error: string | null } };
 
 export type ReceiptEval = { run_id: string | null; dataset: string; synthetic: boolean; n: number;
-  merchant_exact: number | null; date_exact: number | null; total_exact: number | null; cer: number | null } | null;
+  merchant_exact: number | null; date_exact: number | null; total_exact: number | null; cer: number | null;
+  parser_version?: string; note?: string } | null;
 
 export type ModelCard = {
   model: string; version: string; trained_at: string; algorithm: string; kind: string;
@@ -120,6 +121,7 @@ export type ModelInfo = {
   receipt_pipeline: { ocr: Health["ocr"]; preprocess_version: string; parser_version: string;
     review_threshold: number; method: string };
   anomaly_rule: { z_threshold: number; min_ratio: number; min_history: number; window_days: number };
-  evaluations: { receipts_real_sroie: ReceiptEval; receipts_real_cord: ReceiptEval; receipts_synthetic_test: ReceiptEval };
+  evaluations: { receipts_real_sroie: ReceiptEval; receipts_real_sroie_dev?: ReceiptEval; receipts_real_cord: ReceiptEval;
+    receipts_synthetic_test: ReceiptEval };
   notes: string[];
 };

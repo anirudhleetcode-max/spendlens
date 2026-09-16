@@ -102,6 +102,8 @@ def test_full_journey(page: Page, receipt):
     page.get_by_role("tab", name="What OCR read").click()
     expect(page.get_by_test_id("ocr-overlay")).to_contain_text("words read")
     assert page.locator("[data-testid=ocr-overlay] rect").count() > 20
+    if EXTRA_SHOTS:
+        page.screenshot(path=str(EXTRA_SHOTS / "ocr-view.png"))
     page.get_by_role("tab", name="Your photo").click()
 
     # --- correct the category, save

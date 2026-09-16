@@ -312,7 +312,8 @@ dialog.viewer .viewer-body { padding: var(--s3); max-height: 80vh; overflow: aut
 @media (max-width: 720px) {
   .topbar-inner { padding: 0 var(--s4); gap: var(--s3); height: auto; flex-wrap: wrap; padding-top: 10px; }
   .nav { order: 3; width: 100%; overflow-x: auto; height: 42px; margin: 0 calc(-1 * var(--s2)); }
-  .nav a { padding: 0 var(--s2); }
+  .nav { gap: 0; }
+  .nav a { padding: 0 7px; font-size: 13px; }
   .topbar-user .who { display: none; }
   .page { padding: var(--s5) var(--s4) var(--s7); }
   h1 { font-size: 28px; }

@@ -27,11 +27,11 @@ function EvalRow({ label, e, note }: { label: string; e: ReceiptEval; note: stri
     <tr>
       <td>{label} <DataBadge synthetic={e.synthetic} /></td>
       <td className="amt num">{e.n}</td>
-      <td className="amt num">{e.merchant_exact === null ? "—" : p(e.merchant_exact)}</td>
-      <td className="amt num">{e.date_exact === null ? "—" : p(e.date_exact)}</td>
-      <td className="amt num">{p(e.total_exact)}</td>
+      <td className="amt num">{e.merchant_exact === null ? "—" : p(e.merchant_exact, 1)}</td>
+      <td className="amt num">{e.date_exact === null ? "—" : p(e.date_exact, 1)}</td>
+      <td className="amt num">{p(e.total_exact, 1)}</td>
       <td className="amt num">{e.cer === null ? "—" : e.cer.toFixed(2)}</td>
-      <td className="small muted">{note}<br /><code>{e.run_id}</code></td>
+      <td className="small muted">{note} Parser {e.parser_version ?? "?"}.<br /><code>{e.run_id}</code></td>
     </tr>
   );
 }
@@ -79,7 +79,10 @@ export default function Models() {
                 <table className="ledger" data-testid="receipt-evals">
                   <thead><tr><th>Test set</th><th className="amt">Receipts</th><th className="amt">Merchant</th><th className="amt">Date</th><th className="amt">Total</th><th className="amt">CER</th><th>Notes</th></tr></thead>
                   <tbody>
-                    <EvalRow label="SROIE" e={info.evaluations.receipts_real_sroie} note="Real Malaysian receipts; merchants aren't in our Indian list." />
+                    <EvalRow label="SROIE test" e={info.evaluations.receipts_real_sroie} note="Real Malaysian receipts, scored blind before the total-line fix; merchants aren't in our Indian list." />
+                    {info.evaluations.receipts_real_sroie_dev !== undefined && (
+                      <EvalRow label="SROIE dev" e={info.evaluations.receipts_real_sroie_dev ?? null} note="Different SROIE receipts used to check the fix." />
+                    )}
                     <EvalRow label="CORD" e={info.evaluations.receipts_real_cord} note="Real Indonesian receipts; totals use '.' for thousands." />
                     <EvalRow label="Generated Indian bills" e={info.evaluations.receipts_synthetic_test} note="Our own generator — easier than real photos." />
                   </tbody>
