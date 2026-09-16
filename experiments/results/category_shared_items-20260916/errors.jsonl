@@ -1,0 +1,195 @@
+{"text": "Sapna Book House", "true": "Education", "predicted": "Shopping", "confidence": 0.995, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": false}
+{"text": "Sapna Book House", "true": "Education", "predicted": "Shopping", "confidence": 0.995, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": false}
+{"text": "apna Book House", "true": "Education", "predicted": "Shopping", "confidence": 0.974, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": false}
+{"text": "SAPNA BOOK HOSE", "true": "Education", "predicted": "Shopping", "confidence": 0.972, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": false}
+{"text": "Sapna Book House rd sharma", "true": "Education", "predicted": "Shopping", "confidence": 0.967, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": false}
+{"text": "Reliance Digita", "true": "Shopping", "predicted": "Groceries", "confidence": 0.938, "kind": "merchant_only", "merchant": "Reliance Digital", "abstained": false}
+{"text": "Reliance Digital", "true": "Shopping", "predicted": "Groceries", "confidence": 0.912, "kind": "merchant_only", "merchant": "Reliance Digital", "abstained": false}
+{"text": "Reliance Digital", "true": "Shopping", "predicted": "Groceries", "confidence": 0.912, "kind": "merchant_only", "merchant": "Reliance Digital", "abstained": false}
+{"text": "Delhi Pulic Shool", "true": "Education", "predicted": "Transport & Fuel", "confidence": 0.895, "kind": "merchant_only", "merchant": "Delhi Public School", "abstained": false}
+{"text": "Swiggy Instamart", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.828, "kind": "merchant_only", "merchant": "Swiggy Instamart", "abstained": false}
+{"text": "SWIGGY INSTAMART", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.828, "kind": "merchant_only", "merchant": "Swiggy Instamart", "abstained": false}
+{"text": "Swiggy Instamart", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.828, "kind": "merchant_only", "merchant": "Swiggy Instamart", "abstained": false}
+{"text": "LAKME ALON SERVICE", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.822, "kind": "merchant_items", "merchant": "Lakme Salon", "abstained": false}
+{"text": "SonyLIV subscription", "true": "Entertainment", "predicted": "Education", "confidence": 0.821, "kind": "merchant_items", "merchant": "SonyLIV", "abstained": false}
+{"text": "Sapna Book House uniform textbook", "true": "Education", "predicted": "Shopping", "confidence": 0.794, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": false}
+{"text": "Reliance Digital saree", "true": "Shopping", "predicted": "Groceries", "confidence": 0.712, "kind": "merchant_items", "merchant": "Reliance Digital", "abstained": false}
+{"text": "Delhi Public School", "true": "Education", "predicted": "Transport & Fuel", "confidence": 0.711, "kind": "merchant_only", "merchant": "Delhi Public School", "abstained": false}
+{"text": "Delhi Public School", "true": "Education", "predicted": "Transport & Fuel", "confidence": 0.711, "kind": "merchant_only", "merchant": "Delhi Public School", "abstained": false}
+{"text": "Delhi Public School", "true": "Education", "predicted": "Transport & Fuel", "confidence": 0.711, "kind": "merchant_only", "merchant": "Delhi Public School", "abstained": false}
+{"text": "Reliance Digital power bank", "true": "Shopping", "predicted": "Groceries", "confidence": 0.667, "kind": "merchant_items", "merchant": "Reliance Digital", "abstained": false}
+{"text": "Sapna o0k House textbook 1irary fine", "true": "Education", "predicted": "Shopping", "confidence": 0.64, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": false}
+{"text": "Kingdom of Dreams subscription", "true": "Entertainment", "predicted": "Education", "confidence": 0.625, "kind": "merchant_items", "merchant": "Kingdom of Dreams", "abstained": false}
+{"text": "Housejoy", "true": "Other", "predicted": "Shopping", "confidence": 0.615, "kind": "merchant_only", "merchant": "Housejoy", "abstained": false}
+{"text": "Housejoy", "true": "Other", "predicted": "Shopping", "confidence": 0.615, "kind": "merchant_only", "merchant": "Housejoy", "abstained": false}
+{"text": "Housejoy", "true": "Other", "predicted": "Shopping", "confidence": 0.615, "kind": "merchant_only", "merchant": "Housejoy", "abstained": false}
+{"text": "HOUSEJOY", "true": "Other", "predicted": "Shopping", "confidence": 0.615, "kind": "merchant_only", "merchant": "Housejoy", "abstained": false}
+{"text": "Housejoy", "true": "Other", "predicted": "Shopping", "confidence": 0.615, "kind": "merchant_only", "merchant": "Housejoy", "abstained": false}
+{"text": "Housejoy", "true": "Other", "predicted": "Shopping", "confidence": 0.615, "kind": "merchant_only", "merchant": "Housejoy", "abstained": false}
+{"text": "Tailor Shop", "true": "Other", "predicted": "Shopping", "confidence": 0.599, "kind": "merchant_only", "merchant": "Tailor Shop", "abstained": false}
+{"text": "Tailor Shop", "true": "Other", "predicted": "Shopping", "confidence": 0.599, "kind": "merchant_only", "merchant": "Tailor Shop", "abstained": false}
+{"text": "Tailor Shop", "true": "Other", "predicted": "Shopping", "confidence": 0.599, "kind": "merchant_only", "merchant": "Tailor Shop", "abstained": false}
+{"text": "Tailor Shop", "true": "Other", "predicted": "Shopping", "confidence": 0.599, "kind": "merchant_only", "merchant": "Tailor Shop", "abstained": false}
+{"text": "Tailor Shop", "true": "Other", "predicted": "Shopping", "confidence": 0.599, "kind": "merchant_only", "merchant": "Tailor Shop", "abstained": false}
+{"text": "Sanjeevani Chemist", "true": "Health", "predicted": "Food & Dining", "confidence": 0.573, "kind": "merchant_only", "merchant": "Sanjeevani Chemist", "abstained": false}
+{"text": "Sanjeevani Chemist", "true": "Health", "predicted": "Food & Dining", "confidence": 0.573, "kind": "merchant_only", "merchant": "Sanjeevani Chemist", "abstained": false}
+{"text": "Sanjeevani Chemist", "true": "Health", "predicted": "Food & Dining", "confidence": 0.573, "kind": "merchant_only", "merchant": "Sanjeevani Chemist", "abstained": false}
+{"text": "Sanjeevani Chemist", "true": "Health", "predicted": "Food & Dining", "confidence": 0.573, "kind": "merchant_only", "merchant": "Sanjeevani Chemist", "abstained": false}
+{"text": "Theobroma", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.572, "kind": "merchant_only", "merchant": "Theobroma", "abstained": false}
+{"text": "Theobroma", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.572, "kind": "merchant_only", "merchant": "Theobroma", "abstained": false}
+{"text": "Booking.com", "true": "Travel", "predicted": "Bills & Utilities", "confidence": 0.559, "kind": "merchant_only", "merchant": "Booking.com", "abstained": false}
+{"text": "Key Maker", "true": "Other", "predicted": "Shopping", "confidence": 0.533, "kind": "merchant_only", "merchant": "Key Maker", "abstained": false}
+{"text": "Key Maker", "true": "Other", "predicted": "Shopping", "confidence": 0.533, "kind": "merchant_only", "merchant": "Key Maker", "abstained": false}
+{"text": "Key Maker", "true": "Other", "predicted": "Shopping", "confidence": 0.533, "kind": "merchant_only", "merchant": "Key Maker", "abstained": false}
+{"text": "KE MAKER", "true": "Other", "predicted": "Shopping", "confidence": 0.522, "kind": "merchant_only", "merchant": "Key Maker", "abstained": false}
+{"text": "BYJU'S", "true": "Education", "predicted": "Food & Dining", "confidence": 0.514, "kind": "merchant_only", "merchant": "BYJU'S", "abstained": false}
+{"text": "BYJU'S", "true": "Education", "predicted": "Food & Dining", "confidence": 0.514, "kind": "merchant_only", "merchant": "BYJU'S", "abstained": false}
+{"text": "BYJU'S", "true": "Education", "predicted": "Food & Dining", "confidence": 0.514, "kind": "merchant_only", "merchant": "BYJU'S", "abstained": false}
+{"text": "Sapna Book House hc verma uniform pen", "true": "Education", "predicted": "Shopping", "confidence": 0.512, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": false}
+{"text": "FA5Tag Recharge", "true": "Transport & Fuel", "predicted": "Bills & Utilities", "confidence": 0.495, "kind": "merchant_only", "merchant": "FASTag Recharge", "abstained": false}
+{"text": "Swiggy Instamart kurkure", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.484, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": false}
+{"text": "Sri Venkateshwara Medicals", "true": "Health", "predicted": "Transport & Fuel", "confidence": 0.479, "kind": "merchant_only", "merchant": "Sri Venkateshwara Medicals", "abstained": false}
+{"text": "Sri Venkateshwara Medicals", "true": "Health", "predicted": "Transport & Fuel", "confidence": 0.479, "kind": "merchant_only", "merchant": "Sri Venkateshwara Medicals", "abstained": false}
+{"text": "Max Healthcare", "true": "Health", "predicted": "Shopping", "confidence": 0.476, "kind": "merchant_only", "merchant": "Max Healthcare", "abstained": false}
+{"text": "Max Healthcare", "true": "Health", "predicted": "Shopping", "confidence": 0.476, "kind": "merchant_only", "merchant": "Max Healthcare", "abstained": false}
+{"text": "Max Healthcare", "true": "Health", "predicted": "Shopping", "confidence": 0.476, "kind": "merchant_only", "merchant": "Max Healthcare", "abstained": false}
+{"text": "Max Healthcare", "true": "Health", "predicted": "Shopping", "confidence": 0.476, "kind": "merchant_only", "merchant": "Max Healthcare", "abstained": false}
+{"text": "Max Healthcare", "true": "Health", "predicted": "Shopping", "confidence": 0.476, "kind": "merchant_only", "merchant": "Max Healthcare", "abstained": false}
+{"text": "Maruti Suzki Scrvice", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.449, "kind": "merchant_only", "merchant": "Maruti Suzuki Service", "abstained": false}
+{"text": "Gift Shop", "true": "Other", "predicted": "Shopping", "confidence": 0.396, "kind": "merchant_only", "merchant": "Gift Shop", "abstained": false}
+{"text": "Gift Shop", "true": "Other", "predicted": "Shopping", "confidence": 0.396, "kind": "merchant_only", "merchant": "Gift Shop", "abstained": false}
+{"text": "Gift Shop", "true": "Other", "predicted": "Shopping", "confidence": 0.396, "kind": "merchant_only", "merchant": "Gift Shop", "abstained": false}
+{"text": "Dish TV", "true": "Bills & Utilities", "predicted": "Entertainment", "confidence": 0.396, "kind": "merchant_only", "merchant": "Dish TV", "abstained": false}
+{"text": "Dish TV", "true": "Bills & Utilities", "predicted": "Entertainment", "confidence": 0.396, "kind": "merchant_only", "merchant": "Dish TV", "abstained": false}
+{"text": "Dish TV", "true": "Bills & Utilities", "predicted": "Entertainment", "confidence": 0.396, "kind": "merchant_only", "merchant": "Dish TV", "abstained": false}
+{"text": "DISH TV", "true": "Bills & Utilities", "predicted": "Entertainment", "confidence": 0.396, "kind": "merchant_only", "merchant": "Dish TV", "abstained": false}
+{"text": "Dish TV", "true": "Bills & Utilities", "predicted": "Entertainment", "confidence": 0.396, "kind": "merchant_only", "merchant": "Dish TV", "abstained": false}
+{"text": "Dish TV", "true": "Bills & Utilities", "predicted": "Entertainment", "confidence": 0.396, "kind": "merchant_only", "merchant": "Dish TV", "abstained": false}
+{"text": "LAKME SAL0N", "true": "Other", "predicted": "Shopping", "confidence": 0.395, "kind": "merchant_only", "merchant": "Lakme Salon", "abstained": false}
+{"text": "Lakme Saln", "true": "Other", "predicted": "Shopping", "confidence": 0.392, "kind": "merchant_only", "merchant": "Lakme Salon", "abstained": false}
+{"text": "LAKME SALON", "true": "Other", "predicted": "Shopping", "confidence": 0.376, "kind": "merchant_only", "merchant": "Lakme Salon", "abstained": false}
+{"text": "Lakme Salon", "true": "Other", "predicted": "Shopping", "confidence": 0.376, "kind": "merchant_only", "merchant": "Lakme Salon", "abstained": false}
+{"text": "Lakme Salon", "true": "Other", "predicted": "Shopping", "confidence": 0.376, "kind": "merchant_only", "merchant": "Lakme Salon", "abstained": false}
+{"text": "Lakme Salon", "true": "Other", "predicted": "Shopping", "confidence": 0.376, "kind": "merchant_only", "merchant": "Lakme Salon", "abstained": false}
+{"text": "Lakme Salon", "true": "Other", "predicted": "Shopping", "confidence": 0.376, "kind": "merchant_only", "merchant": "Lakme Salon", "abstained": false}
+{"text": "Bounce", "true": "Transport & Fuel", "predicted": "Education", "confidence": 0.349, "kind": "merchant_only", "merchant": "Bounce", "abstained": false}
+{"text": "Bounce", "true": "Transport & Fuel", "predicted": "Education", "confidence": 0.349, "kind": "merchant_only", "merchant": "Bounce", "abstained": false}
+{"text": "Netflix", "true": "Entertainment", "predicted": "Health", "confidence": 0.349, "kind": "merchant_only", "merchant": "Netflix", "abstained": false}
+{"text": "Netflix", "true": "Entertainment", "predicted": "Health", "confidence": 0.349, "kind": "merchant_only", "merchant": "Netflix", "abstained": false}
+{"text": "Netflix", "true": "Entertainment", "predicted": "Health", "confidence": 0.349, "kind": "merchant_only", "merchant": "Netflix", "abstained": false}
+{"text": "Netflix", "true": "Entertainment", "predicted": "Health", "confidence": 0.349, "kind": "merchant_only", "merchant": "Netflix", "abstained": false}
+{"text": "Truffles", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.347, "kind": "merchant_only", "merchant": "Truffles", "abstained": false}
+{"text": "Truffles", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.347, "kind": "merchant_only", "merchant": "Truffles", "abstained": false}
+{"text": "Truffles", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.347, "kind": "merchant_only", "merchant": "Truffles", "abstained": false}
+{"text": "BYU'", "true": "Education", "predicted": "Food & Dining", "confidence": 0.342, "kind": "merchant_only", "merchant": "BYJU'S", "abstained": false}
+{"text": "apido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.339, "kind": "merchant_only", "merchant": "Rapido", "abstained": false}
+{"text": "OXFORD HOOK STORE", "true": "Education", "predicted": "Entertainment", "confidence": 0.309, "kind": "merchant_only", "merchant": "Oxford Book Store", "abstained": false}
+{"text": "Netf1ix", "true": "Entertainment", "predicted": "Health", "confidence": 0.308, "kind": "merchant_only", "merchant": "Netflix", "abstained": false}
+{"text": "NETF1IX", "true": "Entertainment", "predicted": "Health", "confidence": 0.308, "kind": "merchant_only", "merchant": "Netflix", "abstained": false}
+{"text": "Swigg In5tomort", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.306, "kind": "merchant_only", "merchant": "Swiggy Instamart", "abstained": false}
+{"text": "Rameshwaram Cae", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.301, "kind": "merchant_only", "merchant": "Rameshwaram Cafe", "abstained": false}
+{"text": "Excitel", "true": "Bills & Utilities", "predicted": "Travel", "confidence": 0.288, "kind": "merchant_only", "merchant": "Excitel", "abstained": true}
+{"text": "Excitel", "true": "Bills & Utilities", "predicted": "Travel", "confidence": 0.288, "kind": "merchant_only", "merchant": "Excitel", "abstained": true}
+{"text": "FoSTag echarge", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.282, "kind": "merchant_only", "merchant": "FASTag Recharge", "abstained": true}
+{"text": "Myntra", "true": "Shopping", "predicted": "Travel", "confidence": 0.275, "kind": "merchant_only", "merchant": "Myntra", "abstained": true}
+{"text": "Myntra", "true": "Shopping", "predicted": "Travel", "confidence": 0.275, "kind": "merchant_only", "merchant": "Myntra", "abstained": true}
+{"text": "IKEA", "true": "Shopping", "predicted": "Travel", "confidence": 0.273, "kind": "merchant_only", "merchant": "IKEA", "abstained": true}
+{"text": "IKEA", "true": "Shopping", "predicted": "Travel", "confidence": 0.273, "kind": "merchant_only", "merchant": "IKEA", "abstained": true}
+{"text": "IKEA", "true": "Shopping", "predicted": "Travel", "confidence": 0.273, "kind": "merchant_only", "merchant": "IKEA", "abstained": true}
+{"text": "IKEA", "true": "Shopping", "predicted": "Travel", "confidence": 0.273, "kind": "merchant_only", "merchant": "IKEA", "abstained": true}
+{"text": "IKEA", "true": "Shopping", "predicted": "Travel", "confidence": 0.273, "kind": "merchant_only", "merchant": "IKEA", "abstained": true}
+{"text": "IKEA", "true": "Shopping", "predicted": "Travel", "confidence": 0.273, "kind": "merchant_only", "merchant": "IKEA", "abstained": true}
+{"text": "IKEA", "true": "Shopping", "predicted": "Travel", "confidence": 0.273, "kind": "merchant_only", "merchant": "IKEA", "abstained": true}
+{"text": "Kingdom of Dreams", "true": "Entertainment", "predicted": "Food & Dining", "confidence": 0.27, "kind": "merchant_only", "merchant": "Kingdom of Dreams", "abstained": true}
+{"text": "Kingdom of Dreams", "true": "Entertainment", "predicted": "Food & Dining", "confidence": 0.27, "kind": "merchant_only", "merchant": "Kingdom of Dreams", "abstained": true}
+{"text": "Exltel", "true": "Bills & Utilities", "predicted": "Education", "confidence": 0.268, "kind": "merchant_only", "merchant": "Excitel", "abstained": true}
+{"text": "SonyLIV water pork", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.266, "kind": "merchant_items", "merchant": "SonyLIV", "abstained": true}
+{"text": "Gaana Plus", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.265, "kind": "merchant_only", "merchant": "Gaana Plus", "abstained": true}
+{"text": "Gaana Plus", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.265, "kind": "merchant_only", "merchant": "Gaana Plus", "abstained": true}
+{"text": "Gaana Plus", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.265, "kind": "merchant_only", "merchant": "Gaana Plus", "abstained": true}
+{"text": "Gaana Plus", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.265, "kind": "merchant_only", "merchant": "Gaana Plus", "abstained": true}
+{"text": "Bata", "true": "Shopping", "predicted": "Groceries", "confidence": 0.258, "kind": "merchant_only", "merchant": "Bata", "abstained": true}
+{"text": "Bata", "true": "Shopping", "predicted": "Groceries", "confidence": 0.258, "kind": "merchant_only", "merchant": "Bata", "abstained": true}
+{"text": "Bata", "true": "Shopping", "predicted": "Groceries", "confidence": 0.258, "kind": "merchant_only", "merchant": "Bata", "abstained": true}
+{"text": "Bata", "true": "Shopping", "predicted": "Groceries", "confidence": 0.258, "kind": "merchant_only", "merchant": "Bata", "abstained": true}
+{"text": "Bata", "true": "Shopping", "predicted": "Groceries", "confidence": 0.258, "kind": "merchant_only", "merchant": "Bata", "abstained": true}
+{"text": "RTO Office", "true": "Other", "predicted": "Food & Dining", "confidence": 0.256, "kind": "merchant_only", "merchant": "RTO Office", "abstained": true}
+{"text": "RTO OFFICE", "true": "Other", "predicted": "Food & Dining", "confidence": 0.256, "kind": "merchant_only", "merchant": "RTO Office", "abstained": true}
+{"text": "Oxford Book Store", "true": "Education", "predicted": "Groceries", "confidence": 0.253, "kind": "merchant_only", "merchant": "Oxford Book Store", "abstained": true}
+{"text": "OXFORD BOOK STORE", "true": "Education", "predicted": "Groceries", "confidence": 0.253, "kind": "merchant_only", "merchant": "Oxford Book Store", "abstained": true}
+{"text": "Zostel", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.251, "kind": "merchant_only", "merchant": "Zostel", "abstained": true}
+{"text": "Zostel", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.251, "kind": "merchant_only", "merchant": "Zostel", "abstained": true}
+{"text": "Zostel", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.251, "kind": "merchant_only", "merchant": "Zostel", "abstained": true}
+{"text": "Wow! rnomo", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.246, "kind": "merchant_only", "merchant": "Wow! Momo", "abstained": true}
+{"text": "IOCFuel Statin", "true": "Transport & Fuel", "predicted": "Entertainment", "confidence": 0.236, "kind": "merchant_only", "merchant": "IOCL Fuel Station", "abstained": true}
+{"text": "Lifestyle", "true": "Shopping", "predicted": "Education", "confidence": 0.23, "kind": "merchant_only", "merchant": "Lifestyle", "abstained": true}
+{"text": "Lifestyle", "true": "Shopping", "predicted": "Education", "confidence": 0.23, "kind": "merchant_only", "merchant": "Lifestyle", "abstained": true}
+{"text": "Oxford Bok Stoe", "true": "Education", "predicted": "Shopping", "confidence": 0.227, "kind": "merchant_only", "merchant": "Oxford Book Store", "abstained": true}
+{"text": "Ola", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.221, "kind": "merchant_only", "merchant": "Ola", "abstained": true}
+{"text": "Ola", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.221, "kind": "merchant_only", "merchant": "Ola", "abstained": true}
+{"text": "Ola", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.221, "kind": "merchant_only", "merchant": "Ola", "abstained": true}
+{"text": "Ola", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.221, "kind": "merchant_only", "merchant": "Ola", "abstained": true}
+{"text": "Ola", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.221, "kind": "merchant_only", "merchant": "Ola", "abstained": true}
+{"text": "RAPIDO", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.22, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Rapido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.22, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Rapido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.22, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Rapido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.22, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Wonderla", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.219, "kind": "merchant_only", "merchant": "Wonderla", "abstained": true}
+{"text": "Wonderla", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.219, "kind": "merchant_only", "merchant": "Wonderla", "abstained": true}
+{"text": "WOW! MOM0", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.218, "kind": "merchant_only", "merchant": "Wow! Momo", "abstained": true}
+{"text": "Great 1earning", "true": "Education", "predicted": "Health", "confidence": 0.212, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Treebo", "true": "Travel", "predicted": "Shopping", "confidence": 0.211, "kind": "merchant_only", "merchant": "Treebo", "abstained": true}
+{"text": "Treebo", "true": "Travel", "predicted": "Shopping", "confidence": 0.211, "kind": "merchant_only", "merchant": "Treebo", "abstained": true}
+{"text": "Treebo", "true": "Travel", "predicted": "Shopping", "confidence": 0.211, "kind": "merchant_only", "merchant": "Treebo", "abstained": true}
+{"text": "Treebo", "true": "Travel", "predicted": "Shopping", "confidence": 0.211, "kind": "merchant_only", "merchant": "Treebo", "abstained": true}
+{"text": "Treebo", "true": "Travel", "predicted": "Shopping", "confidence": 0.211, "kind": "merchant_only", "merchant": "Treebo", "abstained": true}
+{"text": "r al PathLabs", "true": "Health", "predicted": "Food & Dining", "confidence": 0.209, "kind": "merchant_only", "merchant": "Dr Lal PathLabs", "abstained": true}
+{"text": "Keventers", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.204, "kind": "merchant_only", "merchant": "Keventers", "abstained": true}
+{"text": "Keventers", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.204, "kind": "merchant_only", "merchant": "Keventers", "abstained": true}
+{"text": "Keventers", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.204, "kind": "merchant_only", "merchant": "Keventers", "abstained": true}
+{"text": "Keventers", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.204, "kind": "merchant_only", "merchant": "Keventers", "abstained": true}
+{"text": "Keventers", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.204, "kind": "merchant_only", "merchant": "Keventers", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.2, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.2, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.2, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.2, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.2, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Torrent owcr", "true": "Bills & Utilities", "predicted": "Groceries", "confidence": 0.199, "kind": "merchant_only", "merchant": "Torrent Power", "abstained": true}
+{"text": "SONYLIV", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.184, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "SonyLIV", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.184, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "SonyLIV", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.184, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "SONYLIV", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.184, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "Decathlon", "true": "Shopping", "predicted": "Education", "confidence": 0.182, "kind": "merchant_only", "merchant": "Decathlon", "abstained": true}
+{"text": "KFC", "true": "Food & Dining", "predicted": "Travel", "confidence": 0.181, "kind": "merchant_only", "merchant": "KFC", "abstained": true}
+{"text": "KFC", "true": "Food & Dining", "predicted": "Travel", "confidence": 0.181, "kind": "merchant_only", "merchant": "KFC", "abstained": true}
+{"text": "KFC", "true": "Food & Dining", "predicted": "Travel", "confidence": 0.181, "kind": "merchant_only", "merchant": "KFC", "abstained": true}
+{"text": "KFC", "true": "Food & Dining", "predicted": "Travel", "confidence": 0.181, "kind": "merchant_only", "merchant": "KFC", "abstained": true}
+{"text": "Great Learning", "true": "Education", "predicted": "Other", "confidence": 0.181, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Great Learning", "true": "Education", "predicted": "Other", "confidence": 0.181, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Great Learning", "true": "Education", "predicted": "Other", "confidence": 0.181, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Great Learning", "true": "Education", "predicted": "Other", "confidence": 0.181, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Dr Lal PathLabs", "true": "Health", "predicted": "Food & Dining", "confidence": 0.176, "kind": "merchant_only", "merchant": "Dr Lal PathLabs", "abstained": true}
+{"text": "Dr Lal PathLabs", "true": "Health", "predicted": "Food & Dining", "confidence": 0.176, "kind": "merchant_only", "merchant": "Dr Lal PathLabs", "abstained": true}
+{"text": "Dr Lal PathLabs", "true": "Health", "predicted": "Food & Dining", "confidence": 0.176, "kind": "merchant_only", "merchant": "Dr Lal PathLabs", "abstained": true}
+{"text": "Dr Lal PathLabs", "true": "Health", "predicted": "Food & Dining", "confidence": 0.176, "kind": "merchant_only", "merchant": "Dr Lal PathLabs", "abstained": true}
+{"text": "Vodafone Idea", "true": "Bills & Utilities", "predicted": "Education", "confidence": 0.175, "kind": "merchant_only", "merchant": "Vodafone Idea", "abstained": true}
+{"text": "Vodafone Idea", "true": "Bills & Utilities", "predicted": "Education", "confidence": 0.175, "kind": "merchant_only", "merchant": "Vodafone Idea", "abstained": true}
+{"text": "Vodafone Idea", "true": "Bills & Utilities", "predicted": "Education", "confidence": 0.175, "kind": "merchant_only", "merchant": "Vodafone Idea", "abstained": true}
+{"text": "H&M", "true": "Shopping", "predicted": "Entertainment", "confidence": 0.173, "kind": "merchant_only", "merchant": "H&M", "abstained": true}
+{"text": "H&M", "true": "Shopping", "predicted": "Entertainment", "confidence": 0.173, "kind": "merchant_only", "merchant": "H&M", "abstained": true}
+{"text": "H&M", "true": "Shopping", "predicted": "Entertainment", "confidence": 0.173, "kind": "merchant_only", "merchant": "H&M", "abstained": true}
+{"text": "H&M", "true": "Shopping", "predicted": "Entertainment", "confidence": 0.173, "kind": "merchant_only", "merchant": "H&M", "abstained": true}
+{"text": "H&M", "true": "Shopping", "predicted": "Entertainment", "confidence": 0.173, "kind": "merchant_only", "merchant": "H&M", "abstained": true}
+{"text": "Yulu", "true": "Transport & Fuel", "predicted": "Travel", "confidence": 0.17, "kind": "merchant_only", "merchant": "Yulu", "abstained": true}
+{"text": "Yulu", "true": "Transport & Fuel", "predicted": "Travel", "confidence": 0.17, "kind": "merchant_only", "merchant": "Yulu", "abstained": true}
+{"text": "Yulu", "true": "Transport & Fuel", "predicted": "Travel", "confidence": 0.17, "kind": "merchant_only", "merchant": "Yulu", "abstained": true}
+{"text": "Yulu", "true": "Transport & Fuel", "predicted": "Travel", "confidence": 0.17, "kind": "merchant_only", "merchant": "Yulu", "abstained": true}
+{"text": "Yulu", "true": "Transport & Fuel", "predicted": "Travel", "confidence": 0.17, "kind": "merchant_only", "merchant": "Yulu", "abstained": true}
+{"text": "Yulu", "true": "Transport & Fuel", "predicted": "Travel", "confidence": 0.17, "kind": "merchant_only", "merchant": "Yulu", "abstained": true}
+{"text": "Rpido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.169, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Vistara", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.15, "kind": "merchant_only", "merchant": "Vistara", "abstained": true}
+{"text": "Vistara", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.15, "kind": "merchant_only", "merchant": "Vistara", "abstained": true}
+{"text": "Vistara", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.15, "kind": "merchant_only", "merchant": "Vistara", "abstained": true}
+{"text": "Vistara", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.15, "kind": "merchant_only", "merchant": "Vistara", "abstained": true}
+{"text": "Coding Ninjas", "true": "Education", "predicted": "Food & Dining", "confidence": 0.141, "kind": "merchant_only", "merchant": "Coding Ninjas", "abstained": true}
+{"text": "Coding Ninjas", "true": "Education", "predicted": "Food & Dining", "confidence": 0.141, "kind": "merchant_only", "merchant": "Coding Ninjas", "abstained": true}

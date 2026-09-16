@@ -1,0 +1,1115 @@
+{
+  "dataset": {
+    "name": "synthetic-indian-merchants",
+    "synthetic": true,
+    "generator": "backend/ml/dataset.py (lexicon: backend/app/pipeline/lexicon.py)",
+    "split": "merchants and item words disjoint across train/val/test",
+    "sizes": {
+      "train": 5460,
+      "val": 945,
+      "test": 1245
+    },
+    "sha256": {
+      "train": "9651ea06723e3b826231888e71c949061b2bf5af7983e642421892344772a605",
+      "val": "0da004e3df2b66edc609dbcc4432eb7925a4c6e17480448e927ad68f1efedd64",
+      "test": "bd9b1c93cf20fc2e28dea9ed6d6a3c052cb1c00dd0b662e393f334047f19a109"
+    },
+    "seed": 7
+  },
+  "models": {
+    "majority": {
+      "fit_seconds": 0.0,
+      "val": {
+        "accuracy": 0.127,
+        "macro_f1": 0.0225,
+        "log_loss": 24.1223,
+        "brier": 1.746,
+        "ece": 0.873,
+        "mean_confidence": 1.0,
+        "by_input_kind": {
+          "items_only": {
+            "n": 88,
+            "accuracy": 0.0682
+          },
+          "merchant_items": {
+            "n": 616,
+            "accuracy": 0.1364
+          },
+          "merchant_only": {
+            "n": 241,
+            "accuracy": 0.1245
+          }
+        },
+        "per_class": {
+          "Groceries": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90.0
+          },
+          "Food & Dining": {
+            "precision": 0.127,
+            "recall": 1.0,
+            "f1-score": 0.225,
+            "support": 120.0
+          },
+          "Transport & Fuel": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90.0
+          },
+          "Shopping": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 105.0
+          },
+          "Health": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90.0
+          },
+          "Bills & Utilities": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90.0
+          },
+          "Entertainment": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90.0
+          },
+          "Travel": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90.0
+          },
+          "Education": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90.0
+          },
+          "Other": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 90.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.1205,
+        "macro_f1": 0.0215,
+        "log_loss": 24.302,
+        "brier": 1.759,
+        "ece": 0.8795,
+        "mean_confidence": 1.0,
+        "by_input_kind": {
+          "items_only": {
+            "n": 116,
+            "accuracy": 0.1121
+          },
+          "merchant_items": {
+            "n": 819,
+            "accuracy": 0.1282
+          },
+          "merchant_only": {
+            "n": 310,
+            "accuracy": 0.1032
+          }
+        },
+        "per_class": {
+          "Groceries": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 120.0
+          },
+          "Food & Dining": {
+            "precision": 0.12,
+            "recall": 1.0,
+            "f1-score": 0.215,
+            "support": 150.0
+          },
+          "Transport & Fuel": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 120.0
+          },
+          "Shopping": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 135.0
+          },
+          "Health": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 120.0
+          },
+          "Bills & Utilities": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 120.0
+          },
+          "Entertainment": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 120.0
+          },
+          "Travel": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 120.0
+          },
+          "Education": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 120.0
+          },
+          "Other": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 120.0
+          }
+        }
+      }
+    },
+    "keyword_rules": {
+      "fit_seconds": 0.0,
+      "val": {
+        "accuracy": 0.4656,
+        "macro_f1": 0.496,
+        "log_loss": 14.7303,
+        "brier": 1.0995,
+        "ece": 0.5648,
+        "mean_confidence": 0.9633,
+        "by_input_kind": {
+          "items_only": {
+            "n": 88,
+            "accuracy": 0.2841
+          },
+          "merchant_items": {
+            "n": 616,
+            "accuracy": 0.5373
+          },
+          "merchant_only": {
+            "n": 241,
+            "accuracy": 0.3485
+          }
+        },
+        "per_class": {
+          "Groceries": {
+            "precision": 1.0,
+            "recall": 0.411,
+            "f1-score": 0.583,
+            "support": 90.0
+          },
+          "Food & Dining": {
+            "precision": 0.195,
+            "recall": 1.0,
+            "f1-score": 0.327,
+            "support": 120.0
+          },
+          "Transport & Fuel": {
+            "precision": 1.0,
+            "recall": 0.8,
+            "f1-score": 0.889,
+            "support": 90.0
+          },
+          "Shopping": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 105.0
+          },
+          "Health": {
+            "precision": 1.0,
+            "recall": 0.433,
+            "f1-score": 0.605,
+            "support": 90.0
+          },
+          "Bills & Utilities": {
+            "precision": 0.983,
+            "recall": 0.633,
+            "f1-score": 0.77,
+            "support": 90.0
+          },
+          "Entertainment": {
+            "precision": 1.0,
+            "recall": 0.589,
+            "f1-score": 0.741,
+            "support": 90.0
+          },
+          "Travel": {
+            "precision": 0.55,
+            "recall": 0.122,
+            "f1-score": 0.2,
+            "support": 90.0
+          },
+          "Education": {
+            "precision": 1.0,
+            "recall": 0.422,
+            "f1-score": 0.594,
+            "support": 90.0
+          },
+          "Other": {
+            "precision": 1.0,
+            "recall": 0.144,
+            "f1-score": 0.252,
+            "support": 90.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.4594,
+        "macro_f1": 0.4698,
+        "log_loss": 13.5737,
+        "brier": 1.0121,
+        "ece": 0.5256,
+        "mean_confidence": 0.9523,
+        "by_input_kind": {
+          "items_only": {
+            "n": 116,
+            "accuracy": 0.431
+          },
+          "merchant_items": {
+            "n": 819,
+            "accuracy": 0.5336
+          },
+          "merchant_only": {
+            "n": 310,
+            "accuracy": 0.2742
+          }
+        },
+        "per_class": {
+          "Groceries": {
+            "precision": 0.606,
+            "recall": 0.642,
+            "f1-score": 0.623,
+            "support": 120.0
+          },
+          "Food & Dining": {
+            "precision": 0.184,
+            "recall": 0.807,
+            "f1-score": 0.3,
+            "support": 150.0
+          },
+          "Transport & Fuel": {
+            "precision": 1.0,
+            "recall": 0.775,
+            "f1-score": 0.873,
+            "support": 120.0
+          },
+          "Shopping": {
+            "precision": 1.0,
+            "recall": 0.17,
+            "f1-score": 0.291,
+            "support": 135.0
+          },
+          "Health": {
+            "precision": 1.0,
+            "recall": 0.425,
+            "f1-score": 0.596,
+            "support": 120.0
+          },
+          "Bills & Utilities": {
+            "precision": 0.63,
+            "recall": 0.708,
+            "f1-score": 0.667,
+            "support": 120.0
+          },
+          "Entertainment": {
+            "precision": 0.186,
+            "recall": 0.067,
+            "f1-score": 0.098,
+            "support": 120.0
+          },
+          "Travel": {
+            "precision": 0.824,
+            "recall": 0.117,
+            "f1-score": 0.204,
+            "support": 120.0
+          },
+          "Education": {
+            "precision": 1.0,
+            "recall": 0.717,
+            "f1-score": 0.835,
+            "support": 120.0
+          },
+          "Other": {
+            "precision": 1.0,
+            "recall": 0.117,
+            "f1-score": 0.209,
+            "support": 120.0
+          }
+        }
+      }
+    },
+    "complement_nb": {
+      "fit_seconds": 0.4,
+      "val": {
+        "accuracy": 0.5153,
+        "macro_f1": 0.4825,
+        "log_loss": 1.8176,
+        "brier": 0.6579,
+        "ece": 0.1826,
+        "mean_confidence": 0.6883,
+        "by_input_kind": {
+          "items_only": {
+            "n": 88,
+            "accuracy": 0.4318
+          },
+          "merchant_items": {
+            "n": 616,
+            "accuracy": 0.5714
+          },
+          "merchant_only": {
+            "n": 241,
+            "accuracy": 0.4025
+          }
+        },
+        "per_class": {
+          "Groceries": {
+            "precision": 0.345,
+            "recall": 0.222,
+            "f1-score": 0.27,
+            "support": 90.0
+          },
+          "Food & Dining": {
+            "precision": 0.513,
+            "recall": 0.667,
+            "f1-score": 0.58,
+            "support": 120.0
+          },
+          "Transport & Fuel": {
+            "precision": 0.533,
+            "recall": 0.8,
+            "f1-score": 0.64,
+            "support": 90.0
+          },
+          "Shopping": {
+            "precision": 0.225,
+            "recall": 0.086,
+            "f1-score": 0.124,
+            "support": 105.0
+          },
+          "Health": {
+            "precision": 0.69,
+            "recall": 0.889,
+            "f1-score": 0.777,
+            "support": 90.0
+          },
+          "Bills & Utilities": {
+            "precision": 0.827,
+            "recall": 0.689,
+            "f1-score": 0.752,
+            "support": 90.0
+          },
+          "Entertainment": {
+            "precision": 0.414,
+            "recall": 0.611,
+            "f1-score": 0.493,
+            "support": 90.0
+          },
+          "Travel": {
+            "precision": 0.25,
+            "recall": 0.078,
+            "f1-score": 0.119,
+            "support": 90.0
+          },
+          "Education": {
+            "precision": 0.604,
+            "recall": 0.611,
+            "f1-score": 0.608,
+            "support": 90.0
+          },
+          "Other": {
+            "precision": 0.416,
+            "recall": 0.522,
+            "f1-score": 0.463,
+            "support": 90.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.5815,
+        "macro_f1": 0.5747,
+        "log_loss": 1.3654,
+        "brier": 0.5343,
+        "ece": 0.1012,
+        "mean_confidence": 0.6827,
+        "by_input_kind": {
+          "items_only": {
+            "n": 116,
+            "accuracy": 0.5862
+          },
+          "merchant_items": {
+            "n": 819,
+            "accuracy": 0.6801
+          },
+          "merchant_only": {
+            "n": 310,
+            "accuracy": 0.3194
+          }
+        },
+        "per_class": {
+          "Groceries": {
+            "precision": 0.411,
+            "recall": 0.65,
+            "f1-score": 0.503,
+            "support": 120.0
+          },
+          "Food & Dining": {
+            "precision": 0.609,
+            "recall": 0.56,
+            "f1-score": 0.583,
+            "support": 150.0
+          },
+          "Transport & Fuel": {
+            "precision": 0.648,
+            "recall": 0.692,
+            "f1-score": 0.669,
+            "support": 120.0
+          },
+          "Shopping": {
+            "precision": 0.36,
+            "recall": 0.296,
+            "f1-score": 0.325,
+            "support": 135.0
+          },
+          "Health": {
+            "precision": 0.643,
+            "recall": 0.75,
+            "f1-score": 0.692,
+            "support": 120.0
+          },
+          "Bills & Utilities": {
+            "precision": 0.546,
+            "recall": 0.742,
+            "f1-score": 0.629,
+            "support": 120.0
+          },
+          "Entertainment": {
+            "precision": 0.595,
+            "recall": 0.208,
+            "f1-score": 0.309,
+            "support": 120.0
+          },
+          "Travel": {
+            "precision": 0.696,
+            "recall": 0.667,
+            "f1-score": 0.681,
+            "support": 120.0
+          },
+          "Education": {
+            "precision": 0.776,
+            "recall": 0.633,
+            "f1-score": 0.697,
+            "support": 120.0
+          },
+          "Other": {
+            "precision": 0.658,
+            "recall": 0.658,
+            "f1-score": 0.658,
+            "support": 120.0
+          }
+        }
+      }
+    },
+    "logreg": {
+      "fit_seconds": 1.58,
+      "val": {
+        "accuracy": 0.4952,
+        "macro_f1": 0.4764,
+        "log_loss": 1.501,
+        "brier": 0.6282,
+        "ece": 0.1028,
+        "mean_confidence": 0.438,
+        "by_input_kind": {
+          "items_only": {
+            "n": 88,
+            "accuracy": 0.3523
+          },
+          "merchant_items": {
+            "n": 616,
+            "accuracy": 0.5455
+          },
+          "merchant_only": {
+            "n": 241,
+            "accuracy": 0.4191
+          }
+        },
+        "per_class": {
+          "Groceries": {
+            "precision": 0.44,
+            "recall": 0.244,
+            "f1-score": 0.314,
+            "support": 90.0
+          },
+          "Food & Dining": {
+            "precision": 0.56,
+            "recall": 0.817,
+            "f1-score": 0.664,
+            "support": 120.0
+          },
+          "Transport & Fuel": {
+            "precision": 0.371,
+            "recall": 0.7,
+            "f1-score": 0.485,
+            "support": 90.0
+          },
+          "Shopping": {
+            "precision": 0.25,
+            "recall": 0.152,
+            "f1-score": 0.189,
+            "support": 105.0
+          },
+          "Health": {
+            "precision": 0.697,
+            "recall": 0.589,
+            "f1-score": 0.639,
+            "support": 90.0
+          },
+          "Bills & Utilities": {
+            "precision": 0.744,
+            "recall": 0.678,
+            "f1-score": 0.709,
+            "support": 90.0
+          },
+          "Entertainment": {
+            "precision": 0.491,
+            "recall": 0.578,
+            "f1-score": 0.531,
+            "support": 90.0
+          },
+          "Travel": {
+            "precision": 0.415,
+            "recall": 0.189,
+            "f1-score": 0.26,
+            "support": 90.0
+          },
+          "Education": {
+            "precision": 0.662,
+            "recall": 0.544,
+            "f1-score": 0.598,
+            "support": 90.0
+          },
+          "Other": {
+            "precision": 0.346,
+            "recall": 0.411,
+            "f1-score": 0.376,
+            "support": 90.0
+          }
+        }
+      },
+      "test": {
+        "accuracy": 0.5727,
+        "macro_f1": 0.5618,
+        "log_loss": 1.366,
+        "brier": 0.5509,
+        "ece": 0.107,
+        "mean_confidence": 0.5018,
+        "by_input_kind": {
+          "items_only": {
+            "n": 116,
+            "accuracy": 0.569
+          },
+          "merchant_items": {
+            "n": 819,
+            "accuracy": 0.6606
+          },
+          "merchant_only": {
+            "n": 310,
+            "accuracy": 0.3419
+          }
+        },
+        "per_class": {
+          "Groceries": {
+            "precision": 0.467,
+            "recall": 0.758,
+            "f1-score": 0.578,
+            "support": 120.0
+          },
+          "Food & Dining": {
+            "precision": 0.543,
+            "recall": 0.547,
+            "f1-score": 0.545,
+            "support": 150.0
+          },
+          "Transport & Fuel": {
+            "precision": 0.765,
+            "recall": 0.65,
+            "f1-score": 0.703,
+            "support": 120.0
+          },
+          "Shopping": {
+            "precision": 0.213,
+            "recall": 0.222,
+            "f1-score": 0.217,
+            "support": 135.0
+          },
+          "Health": {
+            "precision": 0.641,
+            "recall": 0.7,
+            "f1-score": 0.669,
+            "support": 120.0
+          },
+          "Bills & Utilities": {
+            "precision": 0.699,
+            "recall": 0.792,
+            "f1-score": 0.742,
+            "support": 120.0
+          },
+          "Entertainment": {
+            "precision": 0.257,
+            "recall": 0.075,
+            "f1-score": 0.116,
+            "support": 120.0
+          },
+          "Travel": {
+            "precision": 0.734,
+            "recall": 0.667,
+            "f1-score": 0.699,
+            "support": 120.0
+          },
+          "Education": {
+            "precision": 0.645,
+            "recall": 0.758,
+            "f1-score": 0.697,
+            "support": 120.0
+          },
+          "Other": {
+            "precision": 0.702,
+            "recall": 0.608,
+            "f1-score": 0.652,
+            "support": 120.0
+          }
+        }
+      }
+    }
+  },
+  "selection": {
+    "rule": "highest validation macro-F1 among logreg, complement_nb",
+    "val_macro_f1": {
+      "logreg": 0.4764,
+      "complement_nb": 0.4825
+    }
+  },
+  "calibration": {
+    "method": "temperature scaling fitted on validation (NLL)",
+    "temperature": 1.9594,
+    "test_before": {
+      "ece": 0.1012,
+      "brier": 0.5343,
+      "log_loss": 1.3654,
+      "mean_confidence": 0.6827
+    },
+    "test_after": {
+      "ece": 0.0914,
+      "brier": 0.5398,
+      "log_loss": 1.3329,
+      "mean_confidence": 0.4937
+    },
+    "reliability_test_before": [
+      {
+        "bin": "0.0-0.1",
+        "n": 0,
+        "mean_confidence": null,
+        "accuracy": null
+      },
+      {
+        "bin": "0.1-0.2",
+        "n": 39,
+        "mean_confidence": 0.1639,
+        "accuracy": 0.1026
+      },
+      {
+        "bin": "0.2-0.3",
+        "n": 170,
+        "mean_confidence": 0.2521,
+        "accuracy": 0.1824
+      },
+      {
+        "bin": "0.3-0.4",
+        "n": 126,
+        "mean_confidence": 0.3474,
+        "accuracy": 0.2937
+      },
+      {
+        "bin": "0.4-0.5",
+        "n": 94,
+        "mean_confidence": 0.455,
+        "accuracy": 0.3511
+      },
+      {
+        "bin": "0.5-0.6",
+        "n": 90,
+        "mean_confidence": 0.5472,
+        "accuracy": 0.3667
+      },
+      {
+        "bin": "0.6-0.7",
+        "n": 61,
+        "mean_confidence": 0.6471,
+        "accuracy": 0.4754
+      },
+      {
+        "bin": "0.7-0.8",
+        "n": 72,
+        "mean_confidence": 0.7524,
+        "accuracy": 0.4028
+      },
+      {
+        "bin": "0.8-0.9",
+        "n": 73,
+        "mean_confidence": 0.8536,
+        "accuracy": 0.8082
+      },
+      {
+        "bin": "0.9-1.0",
+        "n": 520,
+        "mean_confidence": 0.9788,
+        "accuracy": 0.9019
+      }
+    ],
+    "reliability_test_after": [
+      {
+        "bin": "0.0-0.1",
+        "n": 0,
+        "mean_confidence": null,
+        "accuracy": null
+      },
+      {
+        "bin": "0.1-0.2",
+        "n": 246,
+        "mean_confidence": 0.1672,
+        "accuracy": 0.1748
+      },
+      {
+        "bin": "0.2-0.3",
+        "n": 248,
+        "mean_confidence": 0.2462,
+        "accuracy": 0.3548
+      },
+      {
+        "bin": "0.3-0.4",
+        "n": 89,
+        "mean_confidence": 0.3466,
+        "accuracy": 0.382
+      },
+      {
+        "bin": "0.4-0.5",
+        "n": 94,
+        "mean_confidence": 0.4451,
+        "accuracy": 0.5532
+      },
+      {
+        "bin": "0.5-0.6",
+        "n": 97,
+        "mean_confidence": 0.5508,
+        "accuracy": 0.866
+      },
+      {
+        "bin": "0.6-0.7",
+        "n": 81,
+        "mean_confidence": 0.6483,
+        "accuracy": 0.8519
+      },
+      {
+        "bin": "0.7-0.8",
+        "n": 106,
+        "mean_confidence": 0.7525,
+        "accuracy": 0.8679
+      },
+      {
+        "bin": "0.8-0.9",
+        "n": 139,
+        "mean_confidence": 0.8477,
+        "accuracy": 0.9209
+      },
+      {
+        "bin": "0.9-1.0",
+        "n": 145,
+        "mean_confidence": 0.9396,
+        "accuracy": 0.9241
+      }
+    ]
+  },
+  "abstention": {
+    "target_accuracy_on_val": 0.9,
+    "threshold": 0.95,
+    "val_risk_coverage": [
+      {
+        "threshold": 0.0,
+        "coverage": 1.0,
+        "accuracy": 0.5153
+      },
+      {
+        "threshold": 0.05,
+        "coverage": 1.0,
+        "accuracy": 0.5153
+      },
+      {
+        "threshold": 0.1,
+        "coverage": 1.0,
+        "accuracy": 0.5153
+      },
+      {
+        "threshold": 0.15,
+        "coverage": 0.9492,
+        "accuracy": 0.5307
+      },
+      {
+        "threshold": 0.2,
+        "coverage": 0.8063,
+        "accuracy": 0.5971
+      },
+      {
+        "threshold": 0.25,
+        "coverage": 0.7206,
+        "accuracy": 0.6461
+      },
+      {
+        "threshold": 0.3,
+        "coverage": 0.6497,
+        "accuracy": 0.6792
+      },
+      {
+        "threshold": 0.35,
+        "coverage": 0.6074,
+        "accuracy": 0.6916
+      },
+      {
+        "threshold": 0.4,
+        "coverage": 0.5429,
+        "accuracy": 0.7057
+      },
+      {
+        "threshold": 0.45,
+        "coverage": 0.4857,
+        "accuracy": 0.7342
+      },
+      {
+        "threshold": 0.5,
+        "coverage": 0.4466,
+        "accuracy": 0.7607
+      },
+      {
+        "threshold": 0.55,
+        "coverage": 0.3894,
+        "accuracy": 0.769
+      },
+      {
+        "threshold": 0.6,
+        "coverage": 0.3534,
+        "accuracy": 0.7754
+      },
+      {
+        "threshold": 0.65,
+        "coverage": 0.3196,
+        "accuracy": 0.8013
+      },
+      {
+        "threshold": 0.7,
+        "coverage": 0.2931,
+        "accuracy": 0.8087
+      },
+      {
+        "threshold": 0.75,
+        "coverage": 0.2646,
+        "accuracy": 0.816
+      },
+      {
+        "threshold": 0.8,
+        "coverage": 0.2243,
+        "accuracy": 0.8255
+      },
+      {
+        "threshold": 0.85,
+        "coverage": 0.1735,
+        "accuracy": 0.7988
+      },
+      {
+        "threshold": 0.9,
+        "coverage": 0.1259,
+        "accuracy": 0.7731
+      },
+      {
+        "threshold": 0.95,
+        "coverage": 0.054,
+        "accuracy": 0.7059
+      }
+    ],
+    "test_risk_coverage": [
+      {
+        "threshold": 0.0,
+        "coverage": 1.0,
+        "accuracy": 0.5815
+      },
+      {
+        "threshold": 0.05,
+        "coverage": 1.0,
+        "accuracy": 0.5815
+      },
+      {
+        "threshold": 0.1,
+        "coverage": 1.0,
+        "accuracy": 0.5815
+      },
+      {
+        "threshold": 0.15,
+        "coverage": 0.9655,
+        "accuracy": 0.5982
+      },
+      {
+        "threshold": 0.2,
+        "coverage": 0.8024,
+        "accuracy": 0.6817
+      },
+      {
+        "threshold": 0.25,
+        "coverage": 0.6972,
+        "accuracy": 0.7362
+      },
+      {
+        "threshold": 0.3,
+        "coverage": 0.6032,
+        "accuracy": 0.7896
+      },
+      {
+        "threshold": 0.35,
+        "coverage": 0.5631,
+        "accuracy": 0.8188
+      },
+      {
+        "threshold": 0.4,
+        "coverage": 0.5317,
+        "accuracy": 0.8444
+      },
+      {
+        "threshold": 0.45,
+        "coverage": 0.4876,
+        "accuracy": 0.883
+      },
+      {
+        "threshold": 0.5,
+        "coverage": 0.4562,
+        "accuracy": 0.8926
+      },
+      {
+        "threshold": 0.55,
+        "coverage": 0.4169,
+        "accuracy": 0.9037
+      },
+      {
+        "threshold": 0.6,
+        "coverage": 0.3783,
+        "accuracy": 0.8981
+      },
+      {
+        "threshold": 0.65,
+        "coverage": 0.343,
+        "accuracy": 0.8993
+      },
+      {
+        "threshold": 0.7,
+        "coverage": 0.3133,
+        "accuracy": 0.9077
+      },
+      {
+        "threshold": 0.75,
+        "coverage": 0.2763,
+        "accuracy": 0.9099
+      },
+      {
+        "threshold": 0.8,
+        "coverage": 0.2281,
+        "accuracy": 0.9225
+      },
+      {
+        "threshold": 0.85,
+        "coverage": 0.1671,
+        "accuracy": 0.9327
+      },
+      {
+        "threshold": 0.9,
+        "coverage": 0.1165,
+        "accuracy": 0.9241
+      },
+      {
+        "threshold": 0.95,
+        "coverage": 0.0394,
+        "accuracy": 0.898
+      }
+    ],
+    "test_at_threshold": {
+      "coverage": 0.0394,
+      "accuracy_on_accepted": 0.898,
+      "accuracy_on_abstained": 0.5686
+    }
+  },
+  "top_confusions": [
+    {
+      "true": "Entertainment",
+      "predicted": "Bills & Utilities",
+      "count": 35
+    },
+    {
+      "true": "Entertainment",
+      "predicted": "Groceries",
+      "count": 34
+    },
+    {
+      "true": "Education",
+      "predicted": "Shopping",
+      "count": 27
+    },
+    {
+      "true": "Food & Dining",
+      "predicted": "Groceries",
+      "count": 25
+    },
+    {
+      "true": "Shopping",
+      "predicted": "Travel",
+      "count": 24
+    },
+    {
+      "true": "Shopping",
+      "predicted": "Health",
+      "count": 23
+    },
+    {
+      "true": "Shopping",
+      "predicted": "Groceries",
+      "count": 20
+    },
+    {
+      "true": "Groceries",
+      "predicted": "Food & Dining",
+      "count": 18
+    }
+  ],
+  "selected": "complement_nb",
+  "run_id": "category_main-20260916",
+  "artifact": {
+    "path": "category_model.joblib",
+    "version": "cat-20260916-140425",
+    "bytes": 2598443
+  },
+  "seconds": 5.0
+}

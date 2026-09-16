@@ -1,0 +1,91 @@
+{
+  "dataset": {
+    "name": "synthetic",
+    "generator": "backend/ml/receipts_synth.py",
+    "seed": 1234,
+    "synthetic": true,
+    "note": "held-out synthetic seed; same generator as the dev set, so still easier than real photos",
+    "n_selected": 60,
+    "subset_ids_sha256_16": "e9b351b52e36ac0a"
+  },
+  "variants": {
+    "preprocess_dual_psm6": {
+      "n_receipts": 60,
+      "merchant": {
+        "n_labelled": 60,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "partial": 1.0,
+        "coverage": 1.0
+      },
+      "date": {
+        "n_labelled": 60,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 60,
+        "exact": 0.9667,
+        "normalised": 0.9667,
+        "coverage": 1.0,
+        "accuracy_when_not_flagged": 0.9667,
+        "accuracy_when_flagged": null,
+        "share_flagged": 0.0
+      },
+      "items": {
+        "n_labelled": 60,
+        "count_exact": 0.9667
+      },
+      "ocr_seconds_mean": 1.11,
+      "ocr_failures": 0,
+      "wall_seconds": 67.1,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "raw_gray_psm6": {
+      "n_receipts": 60,
+      "merchant": {
+        "n_labelled": 60,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "partial": 1.0,
+        "coverage": 1.0
+      },
+      "date": {
+        "n_labelled": 60,
+        "exact": 0.9833,
+        "normalised": 0.9833,
+        "coverage": 0.9833,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 60,
+        "exact": 0.9833,
+        "normalised": 0.9833,
+        "coverage": 1.0,
+        "accuracy_when_not_flagged": 0.9831,
+        "accuracy_when_flagged": 1.0,
+        "share_flagged": 0.0167
+      },
+      "items": {
+        "n_labelled": 60,
+        "count_exact": 0.8333
+      },
+      "ocr_seconds_mean": 0.63,
+      "ocr_failures": 0,
+      "wall_seconds": 38.4,
+      "ocr_settings": {
+        "preprocess": false,
+        "dual": false,
+        "psm": 6
+      }
+    }
+  },
+  "run_id": "synthetic_test-20260916",
+  "seconds": 112.5
+}

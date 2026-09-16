@@ -1,0 +1,91 @@
+{
+  "model": "expense category classifier",
+  "version": "cat-20260916-140536",
+  "trained_at": "2026-09-16T14:05:36+00:00",
+  "algorithm": "TF-IDF (word 1-2 grams + char_wb 2-4 grams) -> ComplementNB",
+  "kind": "complement_nb",
+  "hyperparameters": {
+    "alpha": 0.3,
+    "class_prior": null,
+    "fit_prior": true,
+    "force_alpha": true,
+    "norm": false
+  },
+  "features_version": "tfidf-word12-char24-v1",
+  "seed": 7,
+  "classes": [
+    "Groceries",
+    "Food & Dining",
+    "Transport & Fuel",
+    "Shopping",
+    "Health",
+    "Bills & Utilities",
+    "Entertainment",
+    "Travel",
+    "Education",
+    "Other"
+  ],
+  "training_data": {
+    "name": "synthetic-indian-merchants",
+    "synthetic": true,
+    "size": 9840,
+    "user_corrections": 0,
+    "sha256": "56bd677046d75a6d75a134e14067b2d9bc135e3428b6c3666c47281ded48eac3",
+    "description": "Generated from a hand-written lexicon of Indian merchants and bill items (backend/app/pipeline/lexicon.py) with simulated OCR noise."
+  },
+  "calibration": {
+    "method": "temperature scaling",
+    "temperature": 1.9594,
+    "fitted_on": "validation split of the evaluation run (train-split model); reused for this refit"
+  },
+  "run_config": {
+    "name": "category_main",
+    "seed": 7,
+    "per_merchant": 30,
+    "holdout_items": true,
+    "target_accuracy": 0.8
+  },
+  "abstention": {
+    "threshold": 0.65,
+    "rule": "suggest 'Uncategorised' when calibrated top probability < threshold",
+    "chosen_for": "validation accuracy >= 0.8 on accepted predictions"
+  },
+  "evaluation": {
+    "run_id": "category_main-20260916",
+    "dataset": "synthetic; merchants and item words disjoint across train/val/test",
+    "test_size": 1245,
+    "test_accuracy": 0.5815,
+    "test_macro_f1": 0.5747,
+    "test_merchant_only_accuracy": 0.3194,
+    "test_ece_before_calibration": 0.1012,
+    "test_ece_after_calibration": 0.0914,
+    "test_coverage_at_threshold": 0.343,
+    "test_accuracy_at_threshold": 0.8993,
+    "selection": {
+      "rule": "highest validation macro-F1 among logreg, complement_nb",
+      "val_macro_f1": {
+        "logreg": 0.4764,
+        "complement_nb": 0.4825
+      }
+    },
+    "baselines_test_macro_f1": {
+      "majority": 0.0215,
+      "keyword_rules": 0.4698,
+      "complement_nb": 0.5747,
+      "logreg": 0.5618
+    }
+  },
+  "libraries": {
+    "scikit-learn": "1.8.0",
+    "numpy": "2.4.4"
+  },
+  "intended_use": "Suggest a spending category for a personal expense from merchant name and item text. The user confirms every suggestion.",
+  "limitations": [
+    "Trained and evaluated on synthetic data only - no real labelled Indian expense data was available.",
+    "An unseen merchant name with no item text is often ambiguous; expect many abstentions there.",
+    "English/romanised text only.",
+    "Per-user corrections override the model for known merchants; the global model only changes on retrain."
+  ],
+  "fit_seconds": 1.06,
+  "artifact_bytes": 2598444
+}

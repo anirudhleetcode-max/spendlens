@@ -1,0 +1,521 @@
+{"text": "Sapna Book House", "true": "Education", "predicted": "Shopping", "confidence": 0.996, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": false}
+{"text": "Sapna Book House", "true": "Education", "predicted": "Shopping", "confidence": 0.996, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": false}
+{"text": "Sapna Bok House", "true": "Education", "predicted": "Shopping", "confidence": 0.978, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": false}
+{"text": "SAPNA BOOK HOUSE COACHING FEE NERT COURSE ENROLMCNT", "true": "Education", "predicted": "Shopping", "confidence": 0.954, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": false}
+{"text": "SapnBook House", "true": "Education", "predicted": "Shopping", "confidence": 0.95, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": false}
+{"text": "Sapna Book House ncert course enrolment coaching fee", "true": "Education", "predicted": "Shopping", "confidence": 0.943, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": true}
+{"text": "Sapna Book House reference book course enrolment coaching fee ncert", "true": "Education", "predicted": "Shopping", "confidence": 0.922, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": true}
+{"text": "Amazon Prime", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.921, "kind": "merchant_only", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Amazon Prime", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.921, "kind": "merchant_only", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Amazon Prime", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.921, "kind": "merchant_only", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Sapna Book House ncert coaching fee reference book course enrolment a4 sheets", "true": "Education", "predicted": "Shopping", "confidence": 0.92, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": true}
+{"text": "Amazon Prime water park", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.863, "kind": "merchant_items", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Amazon Prime game purchase", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.862, "kind": "merchant_items", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Amazon Prime game purchase", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.862, "kind": "merchant_items", "merchant": "Amazon Prime", "abstained": true}
+{"text": "DELHI JL BOORD", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.84, "kind": "merchant_only", "merchant": "Delhi Jal Board", "abstained": true}
+{"text": "Max ashin", "true": "Shopping", "predicted": "Health", "confidence": 0.83, "kind": "merchant_only", "merchant": "Max Fashion", "abstained": true}
+{"text": "Amazon Prime row f water park", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.828, "kind": "merchant_items", "merchant": "Amazon Prime", "abstained": true}
+{"text": "AMAZON PRIME ROW F GAME PRCHASE", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.826, "kind": "merchant_items", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Sapna hook House reference book coaching fee ncert exam fee a4 sheets", "true": "Education", "predicted": "Shopping", "confidence": 0.825, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": true}
+{"text": "Sapna Boo Hose", "true": "Education", "predicted": "Shopping", "confidence": 0.822, "kind": "merchant_only", "merchant": "Sapna Book House", "abstained": true}
+{"text": "Delhi Jal Board", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.813, "kind": "merchant_only", "merchant": "Delhi Jal Board", "abstained": true}
+{"text": "DELHI JAL BOARD", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.813, "kind": "merchant_only", "merchant": "Delhi Jal Board", "abstained": true}
+{"text": "Delhi Jal Board due date", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.772, "kind": "merchant_items", "merchant": "Delhi Jal Board", "abstained": true}
+{"text": "SWIGGY INSTAMART SUGAR AML BUTTER POATO LAY5 CHIPS AASHIRVAAD ATTA", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.763, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "Udupi Grand tandoori roti jeera rice", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.762, "kind": "merchant_items", "merchant": "Udupi Grand", "abstained": true}
+{"text": "Blue Dart", "true": "Other", "predicted": "Food & Dining", "confidence": 0.761, "kind": "merchant_only", "merchant": "Blue Dart", "abstained": true}
+{"text": "Blue Dart", "true": "Other", "predicted": "Food & Dining", "confidence": 0.761, "kind": "merchant_only", "merchant": "Blue Dart", "abstained": true}
+{"text": "Blue Dart", "true": "Other", "predicted": "Food & Dining", "confidence": 0.761, "kind": "merchant_only", "merchant": "Blue Dart", "abstained": true}
+{"text": "Sapna Book House exam fee coaching fee reference book a4 sheets ncert course enrolment", "true": "Education", "predicted": "Shopping", "confidence": 0.76, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": true}
+{"text": "Sapna Book House coaching fee course enrolment exam fee ncert reference book a4 sheets", "true": "Education", "predicted": "Shopping", "confidence": 0.76, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": true}
+{"text": "CONULTATION FEELIPID PROFILE OINTMENTDENTAL CLEANING VITAMIN D3", "true": "Health", "predicted": "Other", "confidence": 0.754, "kind": "items_only", "merchant": "Frank Ross Pharmacy", "abstained": true}
+{"text": "VITMIN D3 OINTMENT DNTAL CLEANING BANDAE LIPID PROFILE", "true": "Health", "predicted": "Other", "confidence": 0.74, "kind": "items_only", "merchant": "Netmeds", "abstained": true}
+{"text": "1mg ointment dcntal cleaning vitamin d3", "true": "Health", "predicted": "Other", "confidence": 0.711, "kind": "merchant_items", "merchant": "1mg", "abstained": true}
+{"text": "Max Fashion", "true": "Shopping", "predicted": "Health", "confidence": 0.711, "kind": "merchant_only", "merchant": "Max Fashion", "abstained": true}
+{"text": "Amazon Prime game purchase amusement park bowling lane water park", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.705, "kind": "merchant_items", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Blue Dart msc", "true": "Other", "predicted": "Food & Dining", "confidence": 0.703, "kind": "merchant_items", "merchant": "Blue Dart", "abstained": true}
+{"text": "Delhi Jal Board sewerage charges", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.7, "kind": "merchant_items", "merchant": "Delhi Jal Board", "abstained": true}
+{"text": "Blue Dart misc", "true": "Other", "predicted": "Food & Dining", "confidence": 0.689, "kind": "merchant_items", "merchant": "Blue Dart", "abstained": true}
+{"text": "Yatra", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.683, "kind": "merchant_only", "merchant": "Yatra", "abstained": true}
+{"text": "Yatra", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.683, "kind": "merchant_only", "merchant": "Yatra", "abstained": true}
+{"text": "Yatra", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.683, "kind": "merchant_only", "merchant": "Yatra", "abstained": true}
+{"text": "Amazon Prime bowling lane row f water park game purchase amusement park", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.678, "kind": "merchant_items", "merchant": "Amazon Prime", "abstained": true}
+{"text": "aashirvaad atta amul butter", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.667, "kind": "items_only", "merchant": "Star Bazaar", "abstained": true}
+{"text": "MTR jeera rice", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.64, "kind": "merchant_items", "merchant": "MTR", "abstained": true}
+{"text": "YATRA NR", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.629, "kind": "merchant_items", "merchant": "Yatra", "abstained": true}
+{"text": "Delhi Jal Board account no due date", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.627, "kind": "merchant_items", "merchant": "Delhi Jal Board", "abstained": true}
+{"text": "Sapna Book House coaching fee exam fee ncert course enolrnent", "true": "Education", "predicted": "Shopping", "confidence": 0.62, "kind": "merchant_items", "merchant": "Sapna Book House", "abstained": true}
+{"text": "Blue Dart flowers bouquet", "true": "Other", "predicted": "Food & Dining", "confidence": 0.61, "kind": "merchant_items", "merchant": "Blue Dart", "abstained": true}
+{"text": "brownie lassi cheesecake jeera rice", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.586, "kind": "items_only", "merchant": "MTR", "abstained": true}
+{"text": "Nature's Basket sugar lays chips aashirvaad atta amul butter", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.58, "kind": "merchant_items", "merchant": "Nature's Basket", "abstained": true}
+{"text": "Haldiram's tandoori roti", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.547, "kind": "merchant_items", "merchant": "Haldiram's", "abstained": true}
+{"text": "Haldiram's jeera rice mc aloo tikki cheesecake tandoori roti butter naan", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.543, "kind": "merchant_items", "merchant": "Haldiram's", "abstained": true}
+{"text": "Mainland China jeer rice cheesecake mc aloo tiki", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.538, "kind": "merchant_items", "merchant": "Mainland China", "abstained": true}
+{"text": "MTR jeera rice brownie cheesecake mc aloo tikki", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.536, "kind": "merchant_items", "merchant": "MTR", "abstained": true}
+{"text": "kurkure sugar", "true": "Groceries", "predicted": "Shopping", "confidence": 0.532, "kind": "items_only", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "wiggy Istamart aashirvaad atta amul butter", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.529, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "Max Fashion charger bedsheet", "true": "Shopping", "predicted": "Health", "confidence": 0.521, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "MTR jeera rice mc aloo tikki cheesecake lassi brownie", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.516, "kind": "merchant_items", "merchant": "MTR", "abstained": true}
+{"text": "Delhivcry", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.516, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "Blinkit aashirvaad atta kurkure amul butter", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.515, "kind": "merchant_items", "merchant": "Blinkit", "abstained": true}
+{"text": "Max Fa5hion earphones curtains", "true": "Shopping", "predicted": "Health", "confidence": 0.509, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "Netmeds dental cleaning ointment", "true": "Health", "predicted": "Other", "confidence": 0.491, "kind": "merchant_items", "merchant": "Netmeds", "abstained": true}
+{"text": "Max Fashion bedsheet curtains", "true": "Shopping", "predicted": "Health", "confidence": 0.486, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "bandage dental cleaning lipid profile", "true": "Health", "predicted": "Other", "confidence": 0.484, "kind": "items_only", "merchant": "1mg", "abstained": true}
+{"text": "Swiggy Instamart potato amul butter sugar chana dal aashirvaad atta tomato", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.478, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "FabIndia keyboard", "true": "Shopping", "predicted": "Travel", "confidence": 0.476, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "Nature's Basket chana dal tomato lays chips amul butter", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.475, "kind": "merchant_items", "merchant": "Nature's Basket", "abstained": true}
+{"text": "sugar amul butter surf excel lays chips", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.475, "kind": "items_only", "merchant": "Star Bazaar", "abstained": true}
+{"text": "Nature's Basket sugar lays chips surf excel aashirvaad atta kurkure amul butter", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.474, "kind": "merchant_items", "merchant": "Nature's Basket", "abstained": true}
+{"text": "Haldiram's brownie jeera rice chicken biryani tandoori roti lassi", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.469, "kind": "merchant_items", "merchant": "Haldiram's", "abstained": true}
+{"text": "Max Fashion charger mixer grinder curtains", "true": "Shopping", "predicted": "Health", "confidence": 0.452, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "Haldiram's", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.448, "kind": "merchant_only", "merchant": "Haldiram's", "abstained": true}
+{"text": "Haldiram's", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.448, "kind": "merchant_only", "merchant": "Haldiram's", "abstained": true}
+{"text": "Haldiram's", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.448, "kind": "merchant_only", "merchant": "Haldiram's", "abstained": true}
+{"text": "Haldiram's", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.448, "kind": "merchant_only", "merchant": "Haldiram's", "abstained": true}
+{"text": "Bharat Gas", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.445, "kind": "merchant_only", "merchant": "Bharat Gas", "abstained": true}
+{"text": "Bharat Gas", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.445, "kind": "merchant_only", "merchant": "Bharat Gas", "abstained": true}
+{"text": "Bharat Gas", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.445, "kind": "merchant_only", "merchant": "Bharat Gas", "abstained": true}
+{"text": "Bharat Gas", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.445, "kind": "merchant_only", "merchant": "Bharat Gas", "abstained": true}
+{"text": "Wellness Forever dental cleaning ointment", "true": "Health", "predicted": "Other", "confidence": 0.441, "kind": "merchant_items", "merchant": "Wellness Forever", "abstained": true}
+{"text": "Nature's Bosket potato aashirvaad atta kurkure lays hips haa dal amul butter", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.436, "kind": "merchant_items", "merchant": "Nature's Basket", "abstained": true}
+{"text": "Starbucks tandoori roti chicken birani bronie chesecake jeera rice", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.432, "kind": "merchant_items", "merchant": "Starbucks", "abstained": true}
+{"text": "KHAN SATIONERY MART A4 SHEETS", "true": "Education", "predicted": "Groceries", "confidence": 0.43, "kind": "merchant_items", "merchant": "Khan Stationery Mart", "abstained": true}
+{"text": "Blinkit amul butter chana dal kurkure", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.425, "kind": "merchant_items", "merchant": "Blinkit", "abstained": true}
+{"text": "dental cleaning ointment consultation fee", "true": "Health", "predicted": "Other", "confidence": 0.424, "kind": "items_only", "merchant": "Cult.fit", "abstained": true}
+{"text": "chana dal surf excel lays chips amul butter", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.423, "kind": "items_only", "merchant": "Star Bazaar", "abstained": true}
+{"text": "Max Fashion smartphone curtains storage box keyboard earphones", "true": "Shopping", "predicted": "Health", "confidence": 0.417, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "Blue Dart stitching charges plumbing work flowers bouquet", "true": "Other", "predicted": "Food & Dining", "confidence": 0.415, "kind": "merchant_items", "merchant": "Blue Dart", "abstained": true}
+{"text": "Delhivery", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.413, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "Delhivery", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.413, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "Delhivery", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.413, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "Delhivery", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.413, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "Delhivery", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.413, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "DELHIVERY", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.413, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "Delhivery", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.413, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "Delhivery", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.413, "kind": "merchant_only", "merchant": "Delhivery", "abstained": true}
+{"text": "Udupi Grand", "true": "Food & Dining", "predicted": "Other", "confidence": 0.403, "kind": "merchant_only", "merchant": "Udupi Grand", "abstained": true}
+{"text": "Udupi Grand", "true": "Food & Dining", "predicted": "Other", "confidence": 0.403, "kind": "merchant_only", "merchant": "Udupi Grand", "abstained": true}
+{"text": "Udupi Grand", "true": "Food & Dining", "predicted": "Other", "confidence": 0.403, "kind": "merchant_only", "merchant": "Udupi Grand", "abstained": true}
+{"text": "Udupi Grand", "true": "Food & Dining", "predicted": "Other", "confidence": 0.403, "kind": "merchant_only", "merchant": "Udupi Grand", "abstained": true}
+{"text": "Udupi Grand", "true": "Food & Dining", "predicted": "Other", "confidence": 0.403, "kind": "merchant_only", "merchant": "Udupi Grand", "abstained": true}
+{"text": "Max Fashion curtains smartphone keyboard charger", "true": "Shopping", "predicted": "Health", "confidence": 0.401, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "Max Fashion curtains earphones keyboard smartphone charger", "true": "Shopping", "predicted": "Health", "confidence": 0.401, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "bandage consultation fee ointment", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.398, "kind": "items_only", "merchant": "1mg", "abstained": true}
+{"text": "Mainland China", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.397, "kind": "merchant_only", "merchant": "Mainland China", "abstained": true}
+{"text": "Mainland China", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.397, "kind": "merchant_only", "merchant": "Mainland China", "abstained": true}
+{"text": "Sri Sai Service Station", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.396, "kind": "merchant_only", "merchant": "Sri Sai Service Station", "abstained": true}
+{"text": "Sri Sai Service Station", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.396, "kind": "merchant_only", "merchant": "Sri Sai Service Station", "abstained": true}
+{"text": "Sri Sai Service Station", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.396, "kind": "merchant_only", "merchant": "Sri Sai Service Station", "abstained": true}
+{"text": "Irani Cafe lassi jeera rice mc aloo tikki", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.391, "kind": "merchant_items", "merchant": "Irani Cafe", "abstained": true}
+{"text": "Max Fashion keyboard mixer grinder smartphone curtains storage box", "true": "Shopping", "predicted": "Health", "confidence": 0.388, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "Max Fashion mixer grinder bedsheet smartphone earphones curtains", "true": "Shopping", "predicted": "Health", "confidence": 0.387, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "Sri Sai Service Station tyre puncture parking fee", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.382, "kind": "merchant_items", "merchant": "Sri Sai Service Station", "abstained": true}
+{"text": "Sri Sai Service Station parking fee tyre puncture", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.382, "kind": "merchant_items", "merchant": "Sri Sai Service Station", "abstained": true}
+{"text": "Bharat Gas lpg cylinder", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.38, "kind": "merchant_items", "merchant": "Bharat Gas", "abstained": true}
+{"text": "ASEMYTRIP", "true": "Travel", "predicted": "Health", "confidence": 0.379, "kind": "merchant_only", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "Mainland China tandoori roti butter nan brownie cheesecae lassi jeera rice", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.378, "kind": "merchant_items", "merchant": "Mainland China", "abstained": true}
+{"text": "Swiggy Instamart sugar lays chips amul butter surf excel", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.375, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "Max Fashion keyboard smartphone bedsheet curtains", "true": "Shopping", "predicted": "Health", "confidence": 0.374, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "Goibibo tour package", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.364, "kind": "merchant_items", "merchant": "Goibibo", "abstained": true}
+{"text": "GOIBIBO TOUR PACKAGE", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.364, "kind": "merchant_items", "merchant": "Goibibo", "abstained": true}
+{"text": "Netflix bowling lane amuement prk", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.362, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "Max Fashion storage box smartphone curtains mixer grinder bedsheet keyboard", "true": "Shopping", "predicted": "Health", "confidence": 0.355, "kind": "merchant_items", "merchant": "Max Fashion", "abstained": true}
+{"text": "Uniqlo", "true": "Shopping", "predicted": "Education", "confidence": 0.354, "kind": "merchant_only", "merchant": "Uniqlo", "abstained": true}
+{"text": "Uniqlo", "true": "Shopping", "predicted": "Education", "confidence": 0.354, "kind": "merchant_only", "merchant": "Uniqlo", "abstained": true}
+{"text": "tyre puncture nozzle", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.352, "kind": "items_only", "merchant": "Metro Parking", "abstained": true}
+{"text": "Netmeds ointment consultation fee", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.35, "kind": "merchant_items", "merchant": "Netmeds", "abstained": true}
+{"text": "Croma", "true": "Shopping", "predicted": "Health", "confidence": 0.35, "kind": "merchant_only", "merchant": "Croma", "abstained": true}
+{"text": "Croma", "true": "Shopping", "predicted": "Health", "confidence": 0.35, "kind": "merchant_only", "merchant": "Croma", "abstained": true}
+{"text": "Croma", "true": "Shopping", "predicted": "Health", "confidence": 0.35, "kind": "merchant_only", "merchant": "Croma", "abstained": true}
+{"text": "Croma", "true": "Shopping", "predicted": "Health", "confidence": 0.35, "kind": "merchant_only", "merchant": "Croma", "abstained": true}
+{"text": "kurkure potato sugar lays chips", "true": "Groceries", "predicted": "Shopping", "confidence": 0.346, "kind": "items_only", "merchant": "Apna Bazaar", "abstained": true}
+{"text": "LIC account no lpg cylinder", "true": "Bills & Utilities", "predicted": "Groceries", "confidence": 0.342, "kind": "merchant_items", "merchant": "LIC", "abstained": true}
+{"text": "Meghana Foods", "true": "Food & Dining", "predicted": "Other", "confidence": 0.338, "kind": "merchant_only", "merchant": "Meghana Foods", "abstained": true}
+{"text": "Meghana Foods", "true": "Food & Dining", "predicted": "Other", "confidence": 0.338, "kind": "merchant_only", "merchant": "Meghana Foods", "abstained": true}
+{"text": "MEGHANA FOODS", "true": "Food & Dining", "predicted": "Other", "confidence": 0.338, "kind": "merchant_only", "merchant": "Meghana Foods", "abstained": true}
+{"text": "Swiggy Instamart lays chips tomato kurkure aashirvaad atta", "true": "Groceries", "predicted": "Shopping", "confidence": 0.334, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "FabIndia bedsheet", "true": "Shopping", "predicted": "Travel", "confidence": 0.329, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "ncert refeence book", "true": "Education", "predicted": "Shopping", "confidence": 0.323, "kind": "items_only", "merchant": "IELTS IDP", "abstained": true}
+{"text": "SRI SAI SERVICE STATON TYRE PUNCTURE NOZZLE AUTO RIDE PARKNGFEE", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.319, "kind": "merchant_items", "merchant": "Sri Sai Service Station", "abstained": true}
+{"text": "Great Learning", "true": "Education", "predicted": "Other", "confidence": 0.319, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Great Learning", "true": "Education", "predicted": "Other", "confidence": 0.319, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Great Learning", "true": "Education", "predicted": "Other", "confidence": 0.319, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Great Learning", "true": "Education", "predicted": "Other", "confidence": 0.319, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "Yatra train ticket", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.319, "kind": "merchant_items", "merchant": "Yatra", "abstained": true}
+{"text": "SpiceJet tour package pnr", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.316, "kind": "merchant_items", "merchant": "SpiceJet", "abstained": true}
+{"text": "TATA CLQ BEDSHEE SMARTPHONE CHARGER MIXCR GINDER EARPHONES EYBOARD", "true": "Shopping", "predicted": "Groceries", "confidence": 0.314, "kind": "merchant_items", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "NPTEL a4 sheets ncert reference book", "true": "Education", "predicted": "Shopping", "confidence": 0.311, "kind": "merchant_items", "merchant": "NPTEL", "abstained": true}
+{"text": "Oxford Book Stoe coahing fee", "true": "Education", "predicted": "Shopping", "confidence": 0.307, "kind": "merchant_items", "merchant": "Oxford Book Store", "abstained": true}
+{"text": "tyre puncture rate/ltr", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.307, "kind": "items_only", "merchant": "Essar Petrol Pump", "abstained": true}
+{"text": "Yatra pnr tour package", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.307, "kind": "merchant_items", "merchant": "Yatra", "abstained": true}
+{"text": "Neteds", "true": "Health", "predicted": "Groceries", "confidence": 0.306, "kind": "merchant_only", "merchant": "Netmeds", "abstained": true}
+{"text": "Netmeds ointment", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.306, "kind": "merchant_items", "merchant": "Netmeds", "abstained": true}
+{"text": "NETMEDS", "true": "Health", "predicted": "Groceries", "confidence": 0.305, "kind": "merchant_only", "merchant": "Netmeds", "abstained": true}
+{"text": "Sri Sai Service Station tyre puncture nozzle", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.304, "kind": "merchant_items", "merchant": "Sri Sai Service Station", "abstained": true}
+{"text": "charer bedshee keyboard storage box", "true": "Shopping", "predicted": "Travel", "confidence": 0.304, "kind": "items_only", "merchant": "Max Fashion", "abstained": true}
+{"text": "Go Mechanic tyre puncture nozzle", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.303, "kind": "merchant_items", "merchant": "Go Mechanic", "abstained": true}
+{"text": "MAINLAND CHINA TANDOORI OTL JEERA RIC", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.301, "kind": "merchant_items", "merchant": "Mainland China", "abstained": true}
+{"text": "Rapido tyre puncture rate/ltr nozzle", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.293, "kind": "merchant_items", "merchant": "Rapido", "abstained": true}
+{"text": "amulbutter surf excel uar tomato", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.293, "kind": "items_only", "merchant": "Nature's Basket", "abstained": true}
+{"text": "Swiggy Instamart", "true": "Groceries", "predicted": "Education", "confidence": 0.292, "kind": "merchant_only", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "Swiggy Instamart", "true": "Groceries", "predicted": "Education", "confidence": 0.292, "kind": "merchant_only", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "our package room charges", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.291, "kind": "items_only", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "MAKEMYTRIP", "true": "Travel", "predicted": "Health", "confidence": 0.29, "kind": "merchant_only", "merchant": "MakeMyTrip", "abstained": true}
+{"text": "MakeMyTrip", "true": "Travel", "predicted": "Health", "confidence": 0.29, "kind": "merchant_only", "merchant": "MakeMyTrip", "abstained": true}
+{"text": "MakeMyTrip", "true": "Travel", "predicted": "Health", "confidence": 0.29, "kind": "merchant_only", "merchant": "MakeMyTrip", "abstained": true}
+{"text": "Reliance Jlop", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.288, "kind": "merchant_only", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Netmeds ointment vitamin d3 consultation fee", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.288, "kind": "merchant_items", "merchant": "Netmeds", "abstained": true}
+{"text": "Yatra tour package pnr tatkal", "true": "Travel", "predicted": "Transport & Fuel", "confidence": 0.288, "kind": "merchant_items", "merchant": "Yatra", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.28, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.28, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.28, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.28, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.28, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Great Learning ncert", "true": "Education", "predicted": "Other", "confidence": 0.28, "kind": "merchant_items", "merchant": "Great Learning", "abstained": true}
+{"text": "Blnkit", "true": "Groceries", "predicted": "Shopping", "confidence": 0.277, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "REFERENCE BOOK COACHING FEE A SHEETS", "true": "Education", "predicted": "Shopping", "confidence": 0.276, "kind": "items_only", "merchant": "NPTEL", "abstained": true}
+{"text": "FABINDIA", "true": "Shopping", "predicted": "Travel", "confidence": 0.275, "kind": "merchant_only", "merchant": "FabIndia", "abstained": true}
+{"text": "FabIndia", "true": "Shopping", "predicted": "Travel", "confidence": 0.275, "kind": "merchant_only", "merchant": "FabIndia", "abstained": true}
+{"text": "FabIndia", "true": "Shopping", "predicted": "Travel", "confidence": 0.275, "kind": "merchant_only", "merchant": "FabIndia", "abstained": true}
+{"text": "Wonderla water park", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.272, "kind": "merchant_items", "merchant": "Wonderla", "abstained": true}
+{"text": "CINEPOLIS", "true": "Entertainment", "predicted": "Health", "confidence": 0.272, "kind": "merchant_only", "merchant": "Cinepolis", "abstained": true}
+{"text": "Cinepolis", "true": "Entertainment", "predicted": "Health", "confidence": 0.272, "kind": "merchant_only", "merchant": "Cinepolis", "abstained": true}
+{"text": "Cinepolis", "true": "Entertainment", "predicted": "Health", "confidence": 0.272, "kind": "merchant_only", "merchant": "Cinepolis", "abstained": true}
+{"text": "Cinepolis", "true": "Entertainment", "predicted": "Health", "confidence": 0.272, "kind": "merchant_only", "merchant": "Cinepolis", "abstained": true}
+{"text": "Cinepolis", "true": "Entertainment", "predicted": "Health", "confidence": 0.272, "kind": "merchant_only", "merchant": "Cinepolis", "abstained": true}
+{"text": "CINEPOLIS", "true": "Entertainment", "predicted": "Health", "confidence": 0.272, "kind": "merchant_only", "merchant": "Cinepolis", "abstained": true}
+{"text": "Cinepolis", "true": "Entertainment", "predicted": "Health", "confidence": 0.272, "kind": "merchant_only", "merchant": "Cinepolis", "abstained": true}
+{"text": "Cinepolis", "true": "Entertainment", "predicted": "Health", "confidence": 0.272, "kind": "merchant_only", "merchant": "Cinepolis", "abstained": true}
+{"text": "GREAT 1ERNING", "true": "Education", "predicted": "Other", "confidence": 0.271, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "IELTS IDP a4 sheets reference book coaching fee", "true": "Education", "predicted": "Shopping", "confidence": 0.27, "kind": "merchant_items", "merchant": "IELTS IDP", "abstained": true}
+{"text": "KFC cheesecake mc aloo tikki", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.27, "kind": "merchant_items", "merchant": "KFC", "abstained": true}
+{"text": "Khan Stationery Mart", "true": "Education", "predicted": "Groceries", "confidence": 0.27, "kind": "merchant_only", "merchant": "Khan Stationery Mart", "abstained": true}
+{"text": "Passport Seva", "true": "Other", "predicted": "Shopping", "confidence": 0.269, "kind": "merchant_only", "merchant": "Passport Seva", "abstained": true}
+{"text": "Passport Seva", "true": "Other", "predicted": "Shopping", "confidence": 0.269, "kind": "merchant_only", "merchant": "Passport Seva", "abstained": true}
+{"text": "Tata CLiQ keyboard", "true": "Shopping", "predicted": "Travel", "confidence": 0.269, "kind": "merchant_items", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "Reliance Jio-bp parking ee", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.268, "kind": "merchant_items", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Nature's Basket tomato aashirvaad atta", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.268, "kind": "merchant_items", "merchant": "Nature's Basket", "abstained": true}
+{"text": "EaseMyTrip", "true": "Travel", "predicted": "Health", "confidence": 0.268, "kind": "merchant_only", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "EaseMyTrip", "true": "Travel", "predicted": "Health", "confidence": 0.268, "kind": "merchant_only", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "EaseMyTrip", "true": "Travel", "predicted": "Health", "confidence": 0.268, "kind": "merchant_only", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "EaseMyTrip", "true": "Travel", "predicted": "Health", "confidence": 0.268, "kind": "merchant_only", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "EaseMyTrip", "true": "Travel", "predicted": "Health", "confidence": 0.268, "kind": "merchant_only", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "EaseMyTrip", "true": "Travel", "predicted": "Health", "confidence": 0.268, "kind": "merchant_only", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "PharmEasy ointment bandage lipid profile consultation fee vitamin d3", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.268, "kind": "merchant_items", "merchant": "PharmEasy", "abstained": true}
+{"text": "Yulu rate/ltr tyre puncture", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.268, "kind": "merchant_items", "merchant": "Yulu", "abstained": true}
+{"text": "Myntra keyboard bedsheet curtains", "true": "Shopping", "predicted": "Travel", "confidence": 0.265, "kind": "merchant_items", "merchant": "Myntra", "abstained": true}
+{"text": "Passport Seva misc", "true": "Other", "predicted": "Shopping", "confidence": 0.263, "kind": "merchant_items", "merchant": "Passport Seva", "abstained": true}
+{"text": "Tata CLiQ bedsheet storage box mixer grinder", "true": "Shopping", "predicted": "Groceries", "confidence": 0.262, "kind": "merchant_items", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "Theobroma", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.261, "kind": "merchant_only", "merchant": "Theobroma", "abstained": true}
+{"text": "THEOBROMA", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.261, "kind": "merchant_only", "merchant": "Theobroma", "abstained": true}
+{"text": "Theobroma", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.261, "kind": "merchant_only", "merchant": "Theobroma", "abstained": true}
+{"text": "Theobroma", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.261, "kind": "merchant_only", "merchant": "Theobroma", "abstained": true}
+{"text": "Theobroma", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.261, "kind": "merchant_only", "merchant": "Theobroma", "abstained": true}
+{"text": "Cult.fit vitamin d3 consultation fee ointment", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.261, "kind": "merchant_items", "merchant": "Cult.fit", "abstained": true}
+{"text": "lassi brownle jeera rice buter naanmc aloo tikki", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.259, "kind": "items_only", "merchant": "Haldiram's", "abstained": true}
+{"text": "Heo1thians lipid profile", "true": "Health", "predicted": "Shopping", "confidence": 0.259, "kind": "merchant_items", "merchant": "Healthians", "abstained": true}
+{"text": "EoseMyTrip room chargc pnr our package tatkal", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.258, "kind": "merchant_items", "merchant": "EaseMyTrip", "abstained": true}
+{"text": "Blinkit aashirvaad atta", "true": "Groceries", "predicted": "Shopping", "confidence": 0.257, "kind": "merchant_items", "merchant": "Blinkit", "abstained": true}
+{"text": "Raymond", "true": "Shopping", "predicted": "Health", "confidence": 0.256, "kind": "merchant_only", "merchant": "Raymond", "abstained": true}
+{"text": "Raymond", "true": "Shopping", "predicted": "Health", "confidence": 0.256, "kind": "merchant_only", "merchant": "Raymond", "abstained": true}
+{"text": "Raymond", "true": "Shopping", "predicted": "Health", "confidence": 0.256, "kind": "merchant_only", "merchant": "Raymond", "abstained": true}
+{"text": "Raymond", "true": "Shopping", "predicted": "Health", "confidence": 0.256, "kind": "merchant_only", "merchant": "Raymond", "abstained": true}
+{"text": "Tata CLiQ bedsheet storage box mixer grinder earphones", "true": "Shopping", "predicted": "Groceries", "confidence": 0.255, "kind": "merchant_items", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "Mainland China cheesecake", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.253, "kind": "merchant_items", "merchant": "Mainland China", "abstained": true}
+{"text": "bandage vitamin d3 consultation fee ointment glucometer strips", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.252, "kind": "items_only", "merchant": "Frank Ross Pharmacy", "abstained": true}
+{"text": "Oxford Book Store", "true": "Education", "predicted": "Shopping", "confidence": 0.25, "kind": "merchant_only", "merchant": "Oxford Book Store", "abstained": true}
+{"text": "OXFORD BOOK STORE", "true": "Education", "predicted": "Shopping", "confidence": 0.25, "kind": "merchant_only", "merchant": "Oxford Book Store", "abstained": true}
+{"text": "IELS IDP reference book a4 sheets coaching fee", "true": "Education", "predicted": "Shopping", "confidence": 0.25, "kind": "merchant_items", "merchant": "IELTS IDP", "abstained": true}
+{"text": "Khan Stationery Mart ncert", "true": "Education", "predicted": "Groceries", "confidence": 0.248, "kind": "merchant_items", "merchant": "Khan Stationery Mart", "abstained": true}
+{"text": "Yul rate/1tr tyre puncture auto rlde", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.248, "kind": "merchant_items", "merchant": "Yulu", "abstained": true}
+{"text": "PAYTM TRANSFE", "true": "Other", "predicted": "Entertainment", "confidence": 0.246, "kind": "merchant_only", "merchant": "Paytm Transfer", "abstained": true}
+{"text": "keyboard curtains", "true": "Shopping", "predicted": "Other", "confidence": 0.243, "kind": "items_only", "merchant": "Raymond", "abstained": true}
+{"text": "Oxford Book Store reference book coaching fee ncert", "true": "Education", "predicted": "Shopping", "confidence": 0.24, "kind": "merchant_items", "merchant": "Oxford Book Store", "abstained": true}
+{"text": "LIC lpg cylinder", "true": "Bills & Utilities", "predicted": "Groceries", "confidence": 0.24, "kind": "merchant_items", "merchant": "LIC", "abstained": true}
+{"text": "Croma storage box keyboard", "true": "Shopping", "predicted": "Travel", "confidence": 0.239, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "Wonderla", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.239, "kind": "merchant_only", "merchant": "Wonderla", "abstained": true}
+{"text": "Wonderla", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.239, "kind": "merchant_only", "merchant": "Wonderla", "abstained": true}
+{"text": "Wonderla", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.239, "kind": "merchant_only", "merchant": "Wonderla", "abstained": true}
+{"text": "Wonderla", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.239, "kind": "merchant_only", "merchant": "Wonderla", "abstained": true}
+{"text": "Wonderla", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.239, "kind": "merchant_only", "merchant": "Wonderla", "abstained": true}
+{"text": "Wonderla", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.239, "kind": "merchant_only", "merchant": "Wonderla", "abstained": true}
+{"text": "Tata CLiQ bedsheet keyboard curtains", "true": "Shopping", "predicted": "Travel", "confidence": 0.237, "kind": "merchant_items", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "Lifestyle keyboard mixer grinder earphones curtains", "true": "Shopping", "predicted": "Other", "confidence": 0.237, "kind": "merchant_items", "merchant": "Lifestyle", "abstained": true}
+{"text": "Go Mechanic parking fee nozzle tyre puncture", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.237, "kind": "merchant_items", "merchant": "Go Mechanic", "abstained": true}
+{"text": "Great Learning coaching fee", "true": "Education", "predicted": "Other", "confidence": 0.235, "kind": "merchant_items", "merchant": "Great Learning", "abstained": true}
+{"text": "Reliance Jio-bp", "true": "Transport & Fuel", "predicted": "Bills & Utilities", "confidence": 0.235, "kind": "merchant_only", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Reliance Jio-bp", "true": "Transport & Fuel", "predicted": "Bills & Utilities", "confidence": 0.235, "kind": "merchant_only", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Reliance Jio-bp", "true": "Transport & Fuel", "predicted": "Bills & Utilities", "confidence": 0.235, "kind": "merchant_only", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Reliance Jio-bp", "true": "Transport & Fuel", "predicted": "Bills & Utilities", "confidence": 0.235, "kind": "merchant_only", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Crossword Bookstore refcrence book coachln fee", "true": "Education", "predicted": "Shopping", "confidence": 0.235, "kind": "merchant_items", "merchant": "Crossword Bookstore", "abstained": true}
+{"text": "Delhivery plumbing work", "true": "Other", "predicted": "Transport & Fuel", "confidence": 0.235, "kind": "merchant_items", "merchant": "Delhivery", "abstained": true}
+{"text": "Reliance Jio-bp nozzle", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.234, "kind": "merchant_items", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Yulu tyre puncture parking fee nozzle", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.234, "kind": "merchant_items", "merchant": "Yulu", "abstained": true}
+{"text": "ZEE5 WATER PARK ROW F AMUSMENT PARK", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.234, "kind": "merchant_items", "merchant": "Zee5", "abstained": true}
+{"text": "ZEE5 AMUSEMENT PARK", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.233, "kind": "merchant_items", "merchant": "Zee5", "abstained": true}
+{"text": "GEAT LCARNING", "true": "Education", "predicted": "Entertainment", "confidence": 0.233, "kind": "merchant_only", "merchant": "Great Learning", "abstained": true}
+{"text": "RELANCE JIO-BP", "true": "Transport & Fuel", "predicted": "Bills & Utilities", "confidence": 0.233, "kind": "merchant_only", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Relance Jio-bp", "true": "Transport & Fuel", "predicted": "Bills & Utilities", "confidence": 0.233, "kind": "merchant_only", "merchant": "Reliance Jio-bp", "abstained": true}
+{"text": "Karim's tandoori roti brownie mc aloo tikki", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.232, "kind": "merchant_items", "merchant": "Karim's", "abstained": true}
+{"text": "Starbucks tandoori roti", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.231, "kind": "merchant_items", "merchant": "Starbucks", "abstained": true}
+{"text": "NETFLIX ROW F GAME PURCHASE WATER PARK AMUSEMENT PARK BOWLING LANE", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.23, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "Netflix game purchase row f amusement park water park bowling lane", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.23, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "Karim's cheesecake", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.228, "kind": "merchant_items", "merchant": "Karim's", "abstained": true}
+{"text": "Great Learning coaching fee reference book ncert a4 sheets cours enrolment", "true": "Education", "predicted": "Shopping", "confidence": 0.227, "kind": "merchant_items", "merchant": "Great Learning", "abstained": true}
+{"text": "Meghana Foods mc aloo tikki", "true": "Food & Dining", "predicted": "Other", "confidence": 0.227, "kind": "merchant_items", "merchant": "Meghana Foods", "abstained": true}
+{"text": "Paytm Transfer", "true": "Other", "predicted": "Entertainment", "confidence": 0.227, "kind": "merchant_only", "merchant": "Paytm Transfer", "abstained": true}
+{"text": "Paytm Transfer", "true": "Other", "predicted": "Entertainment", "confidence": 0.227, "kind": "merchant_only", "merchant": "Paytm Transfer", "abstained": true}
+{"text": "Paytm Transfer", "true": "Other", "predicted": "Entertainment", "confidence": 0.227, "kind": "merchant_only", "merchant": "Paytm Transfer", "abstained": true}
+{"text": "bowling lane amusement park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.227, "kind": "items_only", "merchant": "Amazon Prime", "abstained": true}
+{"text": "mc aloo tikki tandoori roti", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.226, "kind": "items_only", "merchant": "Irani Cafe", "abstained": true}
+{"text": "misc offering", "true": "Other", "predicted": "Food & Dining", "confidence": 0.226, "kind": "items_only", "merchant": "Archies Gallery", "abstained": true}
+{"text": "Crossword Bookstore coaching fee reference book", "true": "Education", "predicted": "Shopping", "confidence": 0.226, "kind": "merchant_items", "merchant": "Crossword Bookstore", "abstained": true}
+{"text": "BESCOM", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.225, "kind": "merchant_only", "merchant": "BESCOM", "abstained": true}
+{"text": "BESCOM", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.225, "kind": "merchant_only", "merchant": "BESCOM", "abstained": true}
+{"text": "BESCOM", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.225, "kind": "merchant_only", "merchant": "BESCOM", "abstained": true}
+{"text": "BESCOM", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.225, "kind": "merchant_only", "merchant": "BESCOM", "abstained": true}
+{"text": "BESCOM", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.225, "kind": "merchant_only", "merchant": "BESCOM", "abstained": true}
+{"text": "SURF EXCEL CHANA DAL LAYS CHIPS", "true": "Groceries", "predicted": "Travel", "confidence": 0.225, "kind": "items_only", "merchant": "More Supermarket", "abstained": true}
+{"text": "Cinepolis bowling lan water parkro f amusernent park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.223, "kind": "merchant_items", "merchant": "Cinepolis", "abstained": true}
+{"text": "Karim' cheesecak tandoori roti lassi chicken birani mc aloo tikki jeera ice", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.223, "kind": "merchant_items", "merchant": "Karim's", "abstained": true}
+{"text": "Yulu parking fee rate/ltr tyre puncture nozzle", "true": "Transport & Fuel", "predicted": "Food & Dining", "confidence": 0.223, "kind": "merchant_items", "merchant": "Yulu", "abstained": true}
+{"text": "Netflix", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.222, "kind": "merchant_only", "merchant": "Netflix", "abstained": true}
+{"text": "Netflix", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.222, "kind": "merchant_only", "merchant": "Netflix", "abstained": true}
+{"text": "Netflix", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.222, "kind": "merchant_only", "merchant": "Netflix", "abstained": true}
+{"text": "Haldiram's lassi mc aloo tikki cheesecake", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.222, "kind": "merchant_items", "merchant": "Haldiram's", "abstained": true}
+{"text": "Swiggy Instamart aashirvaad atta sugar", "true": "Groceries", "predicted": "Education", "confidence": 0.22, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "LIC due date", "true": "Bills & Utilities", "predicted": "Other", "confidence": 0.22, "kind": "merchant_items", "merchant": "LIC", "abstained": true}
+{"text": "Irani Cafe brownie tandoori roti", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.219, "kind": "merchant_items", "merchant": "Irani Cafe", "abstained": true}
+{"text": "FabIndia storage box", "true": "Shopping", "predicted": "Travel", "confidence": 0.219, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "WONDERLA WATER PARK BOWLING LANE", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.217, "kind": "merchant_items", "merchant": "Wonderla", "abstained": true}
+{"text": "Imagica water park amusement park", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.215, "kind": "merchant_items", "merchant": "Imagica", "abstained": true}
+{"text": "Udupi Grand tandoori r0ti", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.215, "kind": "merchant_items", "merchant": "Udupi Grand", "abstained": true}
+{"text": "RYMONDBEDSHEET STORAGE BOX MIXER GRINDER", "true": "Shopping", "predicted": "Groceries", "confidence": 0.214, "kind": "merchant_items", "merchant": "Raymond", "abstained": true}
+{"text": "Irani Cafe lassi", "true": "Food & Dining", "predicted": "Entertainment", "confidence": 0.214, "kind": "merchant_items", "merchant": "Irani Cafe", "abstained": true}
+{"text": "lue Dart sitching charges", "true": "Other", "predicted": "Bills & Utilities", "confidence": 0.213, "kind": "merchant_items", "merchant": "Blue Dart", "abstained": true}
+{"text": "Swiggy Instamart sur excel potato lays chips", "true": "Groceries", "predicted": "Travel", "confidence": 0.212, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "KRIMS MC ALOO TIKKITANDOORL ROTI", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.212, "kind": "merchant_items", "merchant": "Karim's", "abstained": true}
+{"text": "Archies Gallery flowers bouquet", "true": "Other", "predicted": "Groceries", "confidence": 0.209, "kind": "merchant_items", "merchant": "Archies Gallery", "abstained": true}
+{"text": "Imagia water park bowling lane game purchae amu5ement park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.209, "kind": "merchant_items", "merchant": "Imagica", "abstained": true}
+{"text": "Great Learning coaching fee ncert", "true": "Education", "predicted": "Other", "confidence": 0.209, "kind": "merchant_items", "merchant": "Great Learning", "abstained": true}
+{"text": "FabIndia storage box keyboard charger smartphone earphones", "true": "Shopping", "predicted": "Travel", "confidence": 0.208, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "Lifestyle bedsheet mixer grinder keyboard earphones smartphone", "true": "Shopping", "predicted": "Groceries", "confidence": 0.208, "kind": "merchant_items", "merchant": "Lifestyle", "abstained": true}
+{"text": "CROMA EARPHONES", "true": "Shopping", "predicted": "Health", "confidence": 0.207, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "BWSSB due date account no", "true": "Bills & Utilities", "predicted": "Groceries", "confidence": 0.207, "kind": "merchant_items", "merchant": "BWSSB", "abstained": true}
+{"text": "Croma bedsheet storage box charger smartphone keyboard", "true": "Shopping", "predicted": "Travel", "confidence": 0.207, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "Xerox Pint", "true": "Other", "predicted": "Entertainment", "confidence": 0.205, "kind": "merchant_only", "merchant": "Xerox Point", "abstained": true}
+{"text": "BESCOM dth recharge due date", "true": "Bills & Utilities", "predicted": "Transport & Fuel", "confidence": 0.205, "kind": "merchant_items", "merchant": "BESCOM", "abstained": true}
+{"text": "MYNTRA EARPHONES BEDSHEETMIXERGRINDER", "true": "Shopping", "predicted": "Groceries", "confidence": 0.204, "kind": "merchant_items", "merchant": "Myntra", "abstained": true}
+{"text": "Uniqlo storage box bedsheet mixer grinder", "true": "Shopping", "predicted": "Groceries", "confidence": 0.204, "kind": "merchant_items", "merchant": "Uniqlo", "abstained": true}
+{"text": "Netflix row f game purchase bowling lane amusement park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.204, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "Theobroma cheesecake tandoori roti", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.203, "kind": "merchant_items", "merchant": "Theobroma", "abstained": true}
+{"text": "misc ntary chares", "true": "Other", "predicted": "Bills & Utilities", "confidence": 0.203, "kind": "items_only", "merchant": "Blue Dart", "abstained": true}
+{"text": "bedsheet earphones keyboard smartphone", "true": "Shopping", "predicted": "Travel", "confidence": 0.203, "kind": "items_only", "merchant": "Raymond", "abstained": true}
+{"text": "PYTM TRANSFER PLUMBINGWORK FLOWERS BOUQUET MISC", "true": "Other", "predicted": "Groceries", "confidence": 0.202, "kind": "merchant_items", "merchant": "Paytm Transfer", "abstained": true}
+{"text": "Tata CLiQ bedsheet", "true": "Shopping", "predicted": "Groceries", "confidence": 0.202, "kind": "merchant_items", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "FabIndia kcyboard mixer rinder sorage box curtains charger martphone", "true": "Shopping", "predicted": "Travel", "confidence": 0.201, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "Netflix game purchase amusement park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.2, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "PlayStation Store water park amusement park", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.2, "kind": "merchant_items", "merchant": "PlayStation Store", "abstained": true}
+{"text": "STARBUCKS TANDOORI ROTI 1SSI", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.199, "kind": "merchant_items", "merchant": "Starbucks", "abstained": true}
+{"text": "KFC", "true": "Food & Dining", "predicted": "Travel", "confidence": 0.199, "kind": "merchant_only", "merchant": "KFC", "abstained": true}
+{"text": "Theobroma lassi", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.198, "kind": "merchant_items", "merchant": "Theobroma", "abstained": true}
+{"text": "MTR mc aloo tikki", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.198, "kind": "merchant_items", "merchant": "MTR", "abstained": true}
+{"text": "Imagica bowling lane game purchase amusement park water park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.197, "kind": "merchant_items", "merchant": "Imagica", "abstained": true}
+{"text": "NTFLIX BOWLING LANE WATER PARK ROW F", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.197, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "Netflix water park row f game purchase amusement park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.197, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "Wondcrla game purchase", "true": "Entertainment", "predicted": "Food & Dining", "confidence": 0.197, "kind": "merchant_items", "merchant": "Wonderla", "abstained": true}
+{"text": "Cult.fit consultation fee lipid profile bandage", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.195, "kind": "merchant_items", "merchant": "Cult.fit", "abstained": true}
+{"text": "KFC m aloo tikki tandoori roti lassi", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.195, "kind": "merchant_items", "merchant": "KFC", "abstained": true}
+{"text": "Raymond keyboard curtains bedsheet charger mixer grinder", "true": "Shopping", "predicted": "Other", "confidence": 0.194, "kind": "merchant_items", "merchant": "Raymond", "abstained": true}
+{"text": "SpiceJet tourpackae", "true": "Travel", "predicted": "Food & Dining", "confidence": 0.194, "kind": "merchant_items", "merchant": "SpiceJet", "abstained": true}
+{"text": "Xerox Point", "true": "Other", "predicted": "Entertainment", "confidence": 0.194, "kind": "merchant_only", "merchant": "Xerox Point", "abstained": true}
+{"text": "Xerox Point", "true": "Other", "predicted": "Entertainment", "confidence": 0.194, "kind": "merchant_only", "merchant": "Xerox Point", "abstained": true}
+{"text": "Xerox Point", "true": "Other", "predicted": "Entertainment", "confidence": 0.194, "kind": "merchant_only", "merchant": "Xerox Point", "abstained": true}
+{"text": "XEROX POINT", "true": "Other", "predicted": "Entertainment", "confidence": 0.194, "kind": "merchant_only", "merchant": "Xerox Point", "abstained": true}
+{"text": "UNIQLO SARTPHON STORAEB0X KEYBOARD", "true": "Shopping", "predicted": "Travel", "confidence": 0.194, "kind": "merchant_items", "merchant": "Uniqlo", "abstained": true}
+{"text": "Khan Stationery Mart reference book coachng fee", "true": "Education", "predicted": "Shopping", "confidence": 0.193, "kind": "merchant_items", "merchant": "Khan Stationery Mart", "abstained": true}
+{"text": "LIFESTY1E SMARTPHONE CURTAINS STORAGE BOX MIXER GRINDER", "true": "Shopping", "predicted": "Groceries", "confidence": 0.193, "kind": "merchant_items", "merchant": "Lifestyle", "abstained": true}
+{"text": "amusement park row f bowling lane", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.192, "kind": "items_only", "merchant": "Netflix", "abstained": true}
+{"text": "Myntra", "true": "Shopping", "predicted": "Transport & Fuel", "confidence": 0.192, "kind": "merchant_only", "merchant": "Myntra", "abstained": true}
+{"text": "Myntra", "true": "Shopping", "predicted": "Transport & Fuel", "confidence": 0.192, "kind": "merchant_only", "merchant": "Myntra", "abstained": true}
+{"text": "Myntra", "true": "Shopping", "predicted": "Transport & Fuel", "confidence": 0.192, "kind": "merchant_only", "merchant": "Myntra", "abstained": true}
+{"text": "Myntra", "true": "Shopping", "predicted": "Transport & Fuel", "confidence": 0.192, "kind": "merchant_only", "merchant": "Myntra", "abstained": true}
+{"text": "Myntra", "true": "Shopping", "predicted": "Transport & Fuel", "confidence": 0.192, "kind": "merchant_only", "merchant": "Myntra", "abstained": true}
+{"text": "ZEE5 AMUSEMENT PAR GME PURCHASE ROW F BOWLING LANE WATER PARK", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.191, "kind": "merchant_items", "merchant": "Zee5", "abstained": true}
+{"text": "Rapido rate/lt tyre puncture parking fee trip fore nozzle auto rie", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.191, "kind": "merchant_items", "merchant": "Rapido", "abstained": true}
+{"text": "vitamin d3 consultation fee bandage lipid profile", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.189, "kind": "items_only", "merchant": "Netmeds", "abstained": true}
+{"text": "Myntra mixer grinder charger smartphone bedsheet storage box curtains", "true": "Shopping", "predicted": "Groceries", "confidence": 0.189, "kind": "merchant_items", "merchant": "Myntra", "abstained": true}
+{"text": "Passport Seva flowers bouquet plumbing work", "true": "Other", "predicted": "Groceries", "confidence": 0.188, "kind": "merchant_items", "merchant": "Passport Seva", "abstained": true}
+{"text": "THEOBROM CHESECAKE MC ALOO TIKKI BROWNIE", "true": "Food & Dining", "predicted": "Bills & Utilities", "confidence": 0.188, "kind": "merchant_items", "merchant": "Theobroma", "abstained": true}
+{"text": "MA FASHION", "true": "Shopping", "predicted": "Transport & Fuel", "confidence": 0.188, "kind": "merchant_only", "merchant": "Max Fashion", "abstained": true}
+{"text": "SonyLIV", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.188, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "SonyLIV", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.188, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "SONYLIV", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.188, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "SonyLIV", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.188, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "SonyLIV", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.188, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "SonyLIV", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.188, "kind": "merchant_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "RAYMOND MIXER GRINDER CURTAINS", "true": "Shopping", "predicted": "Other", "confidence": 0.187, "kind": "merchant_items", "merchant": "Raymond", "abstained": true}
+{"text": "Tata CLiQ storage box bedsheet charger", "true": "Shopping", "predicted": "Groceries", "confidence": 0.187, "kind": "merchant_items", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "Netmeds consultation fee", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.187, "kind": "merchant_items", "merchant": "Netmeds", "abstained": true}
+{"text": "WONDERLA ROW F BOW1ING 1ANE WATER PARK", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.186, "kind": "merchant_items", "merchant": "Wonderla", "abstained": true}
+{"text": "Uniqlo mixer grinder earphones charger keyboard", "true": "Shopping", "predicted": "Other", "confidence": 0.185, "kind": "merchant_items", "merchant": "Uniqlo", "abstained": true}
+{"text": "Blinkit t0mato", "true": "Groceries", "predicted": "Shopping", "confidence": 0.185, "kind": "merchant_items", "merchant": "Blinkit", "abstained": true}
+{"text": "KFC MC ALOO TIKKI BROWNIE", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.185, "kind": "merchant_items", "merchant": "KFC", "abstained": true}
+{"text": "Cult.fit bandage consultation fee", "true": "Health", "predicted": "Education", "confidence": 0.185, "kind": "merchant_items", "merchant": "Cult.fit", "abstained": true}
+{"text": "Lifestyle charger mixer grinder eyboard", "true": "Shopping", "predicted": "Travel", "confidence": 0.184, "kind": "merchant_items", "merchant": "Lifestyle", "abstained": true}
+{"text": "FabIndia mixer grinder", "true": "Shopping", "predicted": "Other", "confidence": 0.184, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "Raymond curtains charger keyboard", "true": "Shopping", "predicted": "Other", "confidence": 0.183, "kind": "merchant_items", "merchant": "Raymond", "abstained": true}
+{"text": "parking fee nozzle", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.183, "kind": "items_only", "merchant": "Sri Sai Service Station", "abstained": true}
+{"text": "row f amusement park water park bowling lane game purchase", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.182, "kind": "items_only", "merchant": "Zee5", "abstained": true}
+{"text": "game purchase row f amusement park bowling lane water park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.182, "kind": "items_only", "merchant": "Zee5", "abstained": true}
+{"text": "bowling lane amusement park row f game purchase water park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.182, "kind": "items_only", "merchant": "Imagica", "abstained": true}
+{"text": "amusement park row f bowling lane water park game purchase", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.182, "kind": "items_only", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Wellnes5 Forever vitamln d3 bandage glucmeter strips ointment", "true": "Health", "predicted": "Bills & Utilities", "confidence": 0.182, "kind": "merchant_items", "merchant": "Wellness Forever", "abstained": true}
+{"text": "Uniqlo bedsheet keyboard mixer grinder smartphone curtains", "true": "Shopping", "predicted": "Other", "confidence": 0.181, "kind": "merchant_items", "merchant": "Uniqlo", "abstained": true}
+{"text": "KARIM'5", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.181, "kind": "merchant_only", "merchant": "Karim's", "abstained": true}
+{"text": "Crma earphones bedsheet mixergrinder curtains charger storage box", "true": "Shopping", "predicted": "Groceries", "confidence": 0.181, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "Swiggy Instamart surf excel", "true": "Groceries", "predicted": "Education", "confidence": 0.18, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "bowling lane water park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.18, "kind": "items_only", "merchant": "SonyLIV", "abstained": true}
+{"text": "Imagica amusement park row f game purchase bowling lane water park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.179, "kind": "merchant_items", "merchant": "Imagica", "abstained": true}
+{"text": "Imagica water park bowling lane row f game purchase amusement park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.179, "kind": "merchant_items", "merchant": "Imagica", "abstained": true}
+{"text": "Imagica amusement park row f bowling lane game purchase water park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.179, "kind": "merchant_items", "merchant": "Imagica", "abstained": true}
+{"text": "Imagica amusement park bowling lane water park game purchase row f", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.179, "kind": "merchant_items", "merchant": "Imagica", "abstained": true}
+{"text": "Zee5", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.179, "kind": "merchant_only", "merchant": "Zee5", "abstained": true}
+{"text": "ZEE5", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.179, "kind": "merchant_only", "merchant": "Zee5", "abstained": true}
+{"text": "BECOM due date", "true": "Bills & Utilities", "predicted": "Other", "confidence": 0.179, "kind": "merchant_items", "merchant": "BESCOM", "abstained": true}
+{"text": "Passport Seva offerng", "true": "Other", "predicted": "Shopping", "confidence": 0.178, "kind": "merchant_items", "merchant": "Passport Seva", "abstained": true}
+{"text": "howlinglane amusement park watcr park game pucase", "true": "Entertainment", "predicted": "Shopping", "confidence": 0.178, "kind": "items_only", "merchant": "PlayStation Store", "abstained": true}
+{"text": "GAME PURCHASE AMUSEMENT PARK ROW F WATER PARK BOWLING LONE", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.178, "kind": "items_only", "merchant": "Amazon Prime", "abstained": true}
+{"text": "Archies Gallcry flowrs bouqutstitching charges", "true": "Other", "predicted": "Bills & Utilities", "confidence": 0.178, "kind": "merchant_items", "merchant": "Archies Gallery", "abstained": true}
+{"text": "Karim's lassi brownie tandoori roti", "true": "Food & Dining", "predicted": "Groceries", "confidence": 0.178, "kind": "merchant_items", "merchant": "Karim's", "abstained": true}
+{"text": "Paytm Transfer flowers bouquet", "true": "Other", "predicted": "Groceries", "confidence": 0.177, "kind": "merchant_items", "merchant": "Paytm Transfer", "abstained": true}
+{"text": "LIFESTYLE SORAGEHOX CHARGER", "true": "Shopping", "predicted": "Food & Dining", "confidence": 0.177, "kind": "merchant_items", "merchant": "Lifestyle", "abstained": true}
+{"text": "Uniqlo mixer grinder smartphone keyboard charger curtains storage box", "true": "Shopping", "predicted": "Other", "confidence": 0.177, "kind": "merchant_items", "merchant": "Uniqlo", "abstained": true}
+{"text": "Blinkit sugar potato", "true": "Groceries", "predicted": "Shopping", "confidence": 0.176, "kind": "merchant_items", "merchant": "Blinkit", "abstained": true}
+{"text": "SpiceJet", "true": "Travel", "predicted": "Health", "confidence": 0.176, "kind": "merchant_only", "merchant": "SpiceJet", "abstained": true}
+{"text": "GOIBIBO PNR TATKAL TOUR PACAGE ROOM CHARGES", "true": "Travel", "predicted": "Bills & Utilities", "confidence": 0.176, "kind": "merchant_items", "merchant": "Goibibo", "abstained": true}
+{"text": "aashirvaad atta potato sugar", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.175, "kind": "items_only", "merchant": "Apna Bazaar", "abstained": true}
+{"text": "Xerox Point stitching charges flowers bouquet", "true": "Other", "predicted": "Bills & Utilities", "confidence": 0.175, "kind": "merchant_items", "merchant": "Xerox Point", "abstained": true}
+{"text": "Yulu parking fee", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.175, "kind": "merchant_items", "merchant": "Yulu", "abstained": true}
+{"text": "Lifestyle bedsheet storage box curtains charger keyboard earphones", "true": "Shopping", "predicted": "Travel", "confidence": 0.174, "kind": "merchant_items", "merchant": "Lifestyle", "abstained": true}
+{"text": "Wonderla bowling lane game purchase amusement park row f water park", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.174, "kind": "merchant_items", "merchant": "Wonderla", "abstained": true}
+{"text": "Wonderla water park amusement park row f game purchase bowling lane", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.174, "kind": "merchant_items", "merchant": "Wonderla", "abstained": true}
+{"text": "Wonderla water park amusement park bowling lane game purchase row f", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.174, "kind": "merchant_items", "merchant": "Wonderla", "abstained": true}
+{"text": "chrger earphones", "true": "Shopping", "predicted": "Food & Dining", "confidence": 0.174, "kind": "items_only", "merchant": "Lifestyle", "abstained": true}
+{"text": "SpiceJet tatkal pnr room charges", "true": "Travel", "predicted": "Bills & Utilities", "confidence": 0.173, "kind": "merchant_items", "merchant": "SpiceJet", "abstained": true}
+{"text": "ARCHIES GALLERY FLOWERSB0UQUET STITCHING CHARGES", "true": "Other", "predicted": "Bills & Utilities", "confidence": 0.172, "kind": "merchant_items", "merchant": "Archies Gallery", "abstained": true}
+{"text": "Croma keyboard smartphone mixer grinder", "true": "Shopping", "predicted": "Other", "confidence": 0.172, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "SONYLIV GAME PURCHASE BOWLING LANE WATR PARK", "true": "Entertainment", "predicted": "Food & Dining", "confidence": 0.172, "kind": "merchant_items", "merchant": "SonyLIV", "abstained": true}
+{"text": "PlayStation Store water park game purchase amusement park", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.171, "kind": "merchant_items", "merchant": "PlayStation Store", "abstained": true}
+{"text": "Mynta bedsheet", "true": "Shopping", "predicted": "Travel", "confidence": 0.171, "kind": "merchant_items", "merchant": "Myntra", "abstained": true}
+{"text": "Zee5 water park row f bowling lane amusement park game purchase", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.171, "kind": "merchant_items", "merchant": "Zee5", "abstained": true}
+{"text": "Zee5 water park row f amusement park bowling lane game purchase", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.171, "kind": "merchant_items", "merchant": "Zee5", "abstained": true}
+{"text": "Zee5 game purchase water park amusement park bowling lane row f", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.171, "kind": "merchant_items", "merchant": "Zee5", "abstained": true}
+{"text": "Myntra mixer grinder bedsheet earphones keyboard smartphone curtains", "true": "Shopping", "predicted": "Other", "confidence": 0.17, "kind": "merchant_items", "merchant": "Myntra", "abstained": true}
+{"text": "Croma earphones smartphone keyboard bedsheet mixer grinder charger", "true": "Shopping", "predicted": "Groceries", "confidence": 0.17, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "Raymond charger curtains smartphone keyboard bedsheet", "true": "Shopping", "predicted": "Travel", "confidence": 0.17, "kind": "merchant_items", "merchant": "Raymond", "abstained": true}
+{"text": "CROMA CHARGEREARPHONES", "true": "Shopping", "predicted": "Health", "confidence": 0.17, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "Blinkit tomato surf excel", "true": "Groceries", "predicted": "Travel", "confidence": 0.17, "kind": "merchant_items", "merchant": "Blinkit", "abstained": true}
+{"text": "Blinkit chana dal lays chips potato sugar aashirvaad atta", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.169, "kind": "merchant_items", "merchant": "Blinkit", "abstained": true}
+{"text": "Tata CLiQ storage box", "true": "Shopping", "predicted": "Entertainment", "confidence": 0.169, "kind": "merchant_items", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "SonyLIV row f bowling lane water park game purchase amusement park", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.167, "kind": "merchant_items", "merchant": "SonyLIV", "abstained": true}
+{"text": "SonyLIV row f water park bowling lane amusement park game purchase", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.167, "kind": "merchant_items", "merchant": "SonyLIV", "abstained": true}
+{"text": "charger storage box mixer grinder earphones", "true": "Shopping", "predicted": "Groceries", "confidence": 0.166, "kind": "items_only", "merchant": "Poorvika Mobiles", "abstained": true}
+{"text": "Theobroma mc aloo tikki", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.166, "kind": "merchant_items", "merchant": "Theobroma", "abstained": true}
+{"text": "RAYMOND CURTAINS BCDSHEET CHARGER MIXER GRINDER STORAGE BOX SMARTPHONE", "true": "Shopping", "predicted": "Groceries", "confidence": 0.165, "kind": "merchant_items", "merchant": "Raymond", "abstained": true}
+{"text": "MTR MC ALOOTIKKI", "true": "Food & Dining", "predicted": "Transport & Fuel", "confidence": 0.165, "kind": "merchant_items", "merchant": "MTR", "abstained": true}
+{"text": "Imagica game purchase bowling lane", "true": "Entertainment", "predicted": "Food & Dining", "confidence": 0.165, "kind": "merchant_items", "merchant": "Imagica", "abstained": true}
+{"text": "Croma keyboard smartphone charger", "true": "Shopping", "predicted": "Travel", "confidence": 0.164, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "FabIndia storage box curtains", "true": "Shopping", "predicted": "Travel", "confidence": 0.164, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "Cult.fit", "true": "Health", "predicted": "Education", "confidence": 0.164, "kind": "merchant_only", "merchant": "Cult.fit", "abstained": true}
+{"text": "Cult.fit", "true": "Health", "predicted": "Education", "confidence": 0.164, "kind": "merchant_only", "merchant": "Cult.fit", "abstained": true}
+{"text": "Cult.fit", "true": "Health", "predicted": "Education", "confidence": 0.164, "kind": "merchant_only", "merchant": "Cult.fit", "abstained": true}
+{"text": "CULT.FIT", "true": "Health", "predicted": "Education", "confidence": 0.164, "kind": "merchant_only", "merchant": "Cult.fit", "abstained": true}
+{"text": "Cult.fit", "true": "Health", "predicted": "Education", "confidence": 0.164, "kind": "merchant_only", "merchant": "Cult.fit", "abstained": true}
+{"text": "Cult.fit", "true": "Health", "predicted": "Education", "confidence": 0.164, "kind": "merchant_only", "merchant": "Cult.fit", "abstained": true}
+{"text": "MTR", "true": "Food & Dining", "predicted": "Transport & Fuel", "confidence": 0.163, "kind": "merchant_only", "merchant": "MTR", "abstained": true}
+{"text": "MTR", "true": "Food & Dining", "predicted": "Transport & Fuel", "confidence": 0.163, "kind": "merchant_only", "merchant": "MTR", "abstained": true}
+{"text": "potato aashirvaad atta", "true": "Groceries", "predicted": "Food & Dining", "confidence": 0.163, "kind": "items_only", "merchant": "Apna Bazaar", "abstained": true}
+{"text": "FabIndia earphones storage box mixer grinder charger curtains", "true": "Shopping", "predicted": "Other", "confidence": 0.163, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "UDUI GAN ROWNIE CHESECAKE TAND0ORI ROTL", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.163, "kind": "merchant_items", "merchant": "Udupi Grand", "abstained": true}
+{"text": "vitamin d3 lipid profile", "true": "Health", "predicted": "Entertainment", "confidence": 0.163, "kind": "items_only", "merchant": "Netmeds", "abstained": true}
+{"text": "PlayStation Store water park amusement park game purchase bowling lane", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.162, "kind": "merchant_items", "merchant": "PlayStation Store", "abstained": true}
+{"text": "PlayStation Store bowling lane amusement park water park game purchase", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.162, "kind": "merchant_items", "merchant": "PlayStation Store", "abstained": true}
+{"text": "PlayStation Store amusement park water park game purchase bowling lane", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.162, "kind": "merchant_items", "merchant": "PlayStation Store", "abstained": true}
+{"text": "PlayStation Store", "true": "Entertainment", "predicted": "Education", "confidence": 0.162, "kind": "merchant_only", "merchant": "PlayStation Store", "abstained": true}
+{"text": "PlayStation Store", "true": "Entertainment", "predicted": "Education", "confidence": 0.162, "kind": "merchant_only", "merchant": "PlayStation Store", "abstained": true}
+{"text": "PlayStation Store", "true": "Entertainment", "predicted": "Education", "confidence": 0.162, "kind": "merchant_only", "merchant": "PlayStation Store", "abstained": true}
+{"text": "PlayStation Store", "true": "Entertainment", "predicted": "Education", "confidence": 0.162, "kind": "merchant_only", "merchant": "PlayStation Store", "abstained": true}
+{"text": "Lifestyle", "true": "Shopping", "predicted": "Groceries", "confidence": 0.162, "kind": "merchant_only", "merchant": "Lifestyle", "abstained": true}
+{"text": "Lifestyle", "true": "Shopping", "predicted": "Groceries", "confidence": 0.162, "kind": "merchant_only", "merchant": "Lifestyle", "abstained": true}
+{"text": "KFC lassi", "true": "Food & Dining", "predicted": "Travel", "confidence": 0.162, "kind": "merchant_items", "merchant": "KFC", "abstained": true}
+{"text": "STAR BZAR", "true": "Groceries", "predicted": "Entertainment", "confidence": 0.161, "kind": "merchant_only", "merchant": "Star Bazaar", "abstained": true}
+{"text": "Raymond besheet charger smartphonekeyboard storage box", "true": "Shopping", "predicted": "Transport & Fuel", "confidence": 0.161, "kind": "merchant_items", "merchant": "Raymond", "abstained": true}
+{"text": "FabIndia storage box earphones", "true": "Shopping", "predicted": "Travel", "confidence": 0.16, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "MYNTA STORAGE HOX SMARTPHONE CURINS KEYBOARD EARPHONES MIXER GRINDER", "true": "Shopping", "predicted": "Groceries", "confidence": 0.16, "kind": "merchant_items", "merchant": "Myntra", "abstained": true}
+{"text": "NETFLLX", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.159, "kind": "merchant_only", "merchant": "Netflix", "abstained": true}
+{"text": "Imagica", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.159, "kind": "merchant_only", "merchant": "Imagica", "abstained": true}
+{"text": "Imagica", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.159, "kind": "merchant_only", "merchant": "Imagica", "abstained": true}
+{"text": "Imagica", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.159, "kind": "merchant_only", "merchant": "Imagica", "abstained": true}
+{"text": "Imagica", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.159, "kind": "merchant_only", "merchant": "Imagica", "abstained": true}
+{"text": "Imagica", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.159, "kind": "merchant_only", "merchant": "Imagica", "abstained": true}
+{"text": "Imagica", "true": "Entertainment", "predicted": "Groceries", "confidence": 0.159, "kind": "merchant_only", "merchant": "Imagica", "abstained": true}
+{"text": "Siggy Instamart tomato aashirvaad atta sugar surf excc", "true": "Groceries", "predicted": "Shopping", "confidence": 0.158, "kind": "merchant_items", "merchant": "Swiggy Instamart", "abstained": true}
+{"text": "MakeMyTrip pnr volvo ac slceper", "true": "Travel", "predicted": "Health", "confidence": 0.158, "kind": "merchant_items", "merchant": "MakeMyTrip", "abstained": true}
+{"text": "POTATO TOMATO", "true": "Groceries", "predicted": "Entertainment", "confidence": 0.157, "kind": "items_only", "merchant": "Star Bazaar", "abstained": true}
+{"text": "porklng fee rte/l", "true": "Transport & Fuel", "predicted": "Education", "confidence": 0.157, "kind": "items_only", "merchant": "Essar Petrol Pump", "abstained": true}
+{"text": "Blinit", "true": "Groceries", "predicted": "Health", "confidence": 0.156, "kind": "merchant_only", "merchant": "Blinkit", "abstained": true}
+{"text": "Go Mechanc", "true": "Transport & Fuel", "predicted": "Bills & Utilities", "confidence": 0.155, "kind": "merchant_only", "merchant": "Go Mechanic", "abstained": true}
+{"text": "Mntra", "true": "Shopping", "predicted": "Transport & Fuel", "confidence": 0.155, "kind": "merchant_only", "merchant": "Myntra", "abstained": true}
+{"text": "Blinkit aashirvaad atta lays chips chana dal sugar surf excel tomato", "true": "Groceries", "predicted": "Shopping", "confidence": 0.154, "kind": "merchant_items", "merchant": "Blinkit", "abstained": true}
+{"text": "Starbucks lassi", "true": "Food & Dining", "predicted": "Entertainment", "confidence": 0.154, "kind": "merchant_items", "merchant": "Starbucks", "abstained": true}
+{"text": "Croma mixer grinder smartphone keyboard storage box earphones", "true": "Shopping", "predicted": "Groceries", "confidence": 0.153, "kind": "merchant_items", "merchant": "Croma", "abstained": true}
+{"text": "keyboard smartphone mixer grinder charger storage box", "true": "Shopping", "predicted": "Other", "confidence": 0.153, "kind": "items_only", "merchant": "Lifestyle", "abstained": true}
+{"text": "charger bedsheet", "true": "Shopping", "predicted": "Travel", "confidence": 0.152, "kind": "items_only", "merchant": "Tata CLiQ", "abstained": true}
+{"text": "Archies Gallery", "true": "Other", "predicted": "Food & Dining", "confidence": 0.152, "kind": "merchant_only", "merchant": "Archies Gallery", "abstained": true}
+{"text": "Goibibo", "true": "Travel", "predicted": "Groceries", "confidence": 0.152, "kind": "merchant_only", "merchant": "Goibibo", "abstained": true}
+{"text": "Goibibo", "true": "Travel", "predicted": "Groceries", "confidence": 0.152, "kind": "merchant_only", "merchant": "Goibibo", "abstained": true}
+{"text": "Goibibo", "true": "Travel", "predicted": "Groceries", "confidence": 0.152, "kind": "merchant_only", "merchant": "Goibibo", "abstained": true}
+{"text": "Goibibo", "true": "Travel", "predicted": "Groceries", "confidence": 0.152, "kind": "merchant_only", "merchant": "Goibibo", "abstained": true}
+{"text": "Goibibo", "true": "Travel", "predicted": "Groceries", "confidence": 0.152, "kind": "merchant_only", "merchant": "Goibibo", "abstained": true}
+{"text": "Agoda", "true": "Travel", "predicted": "Education", "confidence": 0.151, "kind": "merchant_only", "merchant": "Agoda", "abstained": true}
+{"text": "Agoda", "true": "Travel", "predicted": "Education", "confidence": 0.151, "kind": "merchant_only", "merchant": "Agoda", "abstained": true}
+{"text": "MakeMyTri", "true": "Travel", "predicted": "Other", "confidence": 0.149, "kind": "merchant_only", "merchant": "MakeMyTrip", "abstained": true}
+{"text": "KFC cheesecake brownie lassi", "true": "Food & Dining", "predicted": "Entertainment", "confidence": 0.149, "kind": "merchant_items", "merchant": "KFC", "abstained": true}
+{"text": "Spiceet tatkal", "true": "Travel", "predicted": "Education", "confidence": 0.148, "kind": "merchant_items", "merchant": "SpiceJet", "abstained": true}
+{"text": "Goihibo", "true": "Travel", "predicted": "Groceries", "confidence": 0.147, "kind": "merchant_only", "merchant": "Goibibo", "abstained": true}
+{"text": "Udupi Grand brownie tandoori roti mc aloo tikki lassi", "true": "Food & Dining", "predicted": "Shopping", "confidence": 0.145, "kind": "merchant_items", "merchant": "Udupi Grand", "abstained": true}
+{"text": "PLOYSTATION STORE R0W F WATER PARK AUSEMENT PAK AME PURCHASE BOWLING LANE", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.144, "kind": "merchant_items", "merchant": "PlayStation Store", "abstained": true}
+{"text": "FabIndia charger smartphone", "true": "Shopping", "predicted": "Food & Dining", "confidence": 0.143, "kind": "merchant_items", "merchant": "FabIndia", "abstained": true}
+{"text": "Netflix game purchase", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.142, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "Netflix game purchase", "true": "Entertainment", "predicted": "Bills & Utilities", "confidence": 0.142, "kind": "merchant_items", "merchant": "Netflix", "abstained": true}
+{"text": "1g bandage", "true": "Health", "predicted": "Food & Dining", "confidence": 0.142, "kind": "merchant_items", "merchant": "1mg", "abstained": true}
+{"text": "storage box charger bedsheet curtains", "true": "Shopping", "predicted": "Groceries", "confidence": 0.14, "kind": "items_only", "merchant": "Uniqlo", "abstained": true}
+{"text": "Oxford Bok Store", "true": "Education", "predicted": "Shopping", "confidence": 0.14, "kind": "merchant_only", "merchant": "Oxford Book Store", "abstained": true}
+{"text": "pnr tatkal", "true": "Travel", "predicted": "Shopping", "confidence": 0.14, "kind": "items_only", "merchant": "Yatra", "abstained": true}
+{"text": "BWSS", "true": "Bills & Utilities", "predicted": "Travel", "confidence": 0.139, "kind": "merchant_only", "merchant": "BWSSB", "abstained": true}
+{"text": "IELTS IDP", "true": "Education", "predicted": "Bills & Utilities", "confidence": 0.139, "kind": "merchant_only", "merchant": "IELTS IDP", "abstained": true}
+{"text": "IELTS IDP", "true": "Education", "predicted": "Bills & Utilities", "confidence": 0.139, "kind": "merchant_only", "merchant": "IELTS IDP", "abstained": true}
+{"text": "IELTS IDP", "true": "Education", "predicted": "Bills & Utilities", "confidence": 0.139, "kind": "merchant_only", "merchant": "IELTS IDP", "abstained": true}
+{"text": "IELTS IDP", "true": "Education", "predicted": "Bills & Utilities", "confidence": 0.139, "kind": "merchant_only", "merchant": "IELTS IDP", "abstained": true}
+{"text": "Agoda tatkal", "true": "Travel", "predicted": "Education", "confidence": 0.136, "kind": "merchant_items", "merchant": "Agoda", "abstained": true}
+{"text": "Goibibo pnr tatkal", "true": "Travel", "predicted": "Groceries", "confidence": 0.133, "kind": "merchant_items", "merchant": "Goibibo", "abstained": true}
+{"text": "Go Mechanic rate/ltr", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.132, "kind": "merchant_items", "merchant": "Go Mechanic", "abstained": true}
+{"text": "GO MECHANIC", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.127, "kind": "merchant_only", "merchant": "Go Mechanic", "abstained": true}
+{"text": "Go Mechanic", "true": "Transport & Fuel", "predicted": "Groceries", "confidence": 0.127, "kind": "merchant_only", "merchant": "Go Mechanic", "abstained": true}
+{"text": "NPTEL", "true": "Education", "predicted": "Travel", "confidence": 0.123, "kind": "merchant_only", "merchant": "NPTEL", "abstained": true}
+{"text": "MINLAND CHINA", "true": "Food & Dining", "predicted": "Travel", "confidence": 0.119, "kind": "merchant_only", "merchant": "Mainland China", "abstained": true}
+{"text": "LIC", "true": "Bills & Utilities", "predicted": "Food & Dining", "confidence": 0.118, "kind": "merchant_only", "merchant": "LIC", "abstained": true}
+{"text": "LIC", "true": "Bills & Utilities", "predicted": "Food & Dining", "confidence": 0.118, "kind": "merchant_only", "merchant": "LIC", "abstained": true}
+{"text": "LIC", "true": "Bills & Utilities", "predicted": "Food & Dining", "confidence": 0.118, "kind": "merchant_only", "merchant": "LIC", "abstained": true}
+{"text": "LIC", "true": "Bills & Utilities", "predicted": "Food & Dining", "confidence": 0.118, "kind": "merchant_only", "merchant": "LIC", "abstained": true}
+{"text": "LIC", "true": "Bills & Utilities", "predicted": "Food & Dining", "confidence": 0.118, "kind": "merchant_only", "merchant": "LIC", "abstained": true}
+{"text": "BWSSB", "true": "Bills & Utilities", "predicted": "Travel", "confidence": 0.118, "kind": "merchant_only", "merchant": "BWSSB", "abstained": true}
+{"text": "BWSSB", "true": "Bills & Utilities", "predicted": "Travel", "confidence": 0.118, "kind": "merchant_only", "merchant": "BWSSB", "abstained": true}
+{"text": "BWSSB", "true": "Bills & Utilities", "predicted": "Travel", "confidence": 0.118, "kind": "merchant_only", "merchant": "BWSSB", "abstained": true}
+{"text": "Rapido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.115, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Rapido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.115, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Rapido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.115, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Rapido", "true": "Transport & Fuel", "predicted": "Health", "confidence": 0.115, "kind": "merchant_only", "merchant": "Rapido", "abstained": true}
+{"text": "Llfesyle", "true": "Shopping", "predicted": "Other", "confidence": 0.113, "kind": "merchant_only", "merchant": "Lifestyle", "abstained": true}

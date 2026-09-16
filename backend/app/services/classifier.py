@@ -137,17 +137,22 @@ class CategoryModel:
         if not hasattr(clf, "coef_"):  # NB weights are all negative-ish; rank relative to the class mean
             contrib = vals * (np.asarray(weights)[idx] - np.asarray(clf.feature_log_prob_)[:, idx].mean(0))
         order = np.argsort(-contrib)
-        words, chars = [], []
+        words: list[dict] = []
+        chars: dict[str, dict] = {}
         for j in order:
             if contrib[j] <= 0:
                 break
-            name = str(names[idx[j]])
-            kind, _, tok = name.partition("__")
-            item = {"token": tok.strip(), "weight": round(float(contrib[j]), 3), "type": kind}
-            (words if kind == "word" else chars).append(item)
+            kind, _, tok = str(names[idx[j]]).partition("__")
+            tok = tok.strip()
+            item = {"token": tok, "weight": round(float(contrib[j]), 3), "type": kind}
+            if kind == "word":
+                words.append(item)
+            elif len(tok) >= 3 and tok not in chars:
+                chars[tok] = item
         out = words[:k]
-        if len(out) < 2:
-            out += [c for c in chars if c["token"]][: k - len(out)]
+        if len(out) < 2:  # e.g. a single unseen word: show the word pieces that carried the decision
+            shown = " ".join(w["token"] for w in out)
+            out += [c for t, c in chars.items() if t not in shown][: k - len(out)]
         return out
 
 

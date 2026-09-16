@@ -1,0 +1,10 @@
+# Fresh synthetic receipts (seed 1234) never looked at during development.
+name: synthetic_test
+task: receipt_extraction
+dataset: synthetic
+note: held-out synthetic seed; same generator as the dev set, so still easier than real photos
+n: 60
+seed: 1234
+variants:
+  - {name: preprocess_dual_psm6, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: raw_gray_psm6, ocr: {preprocess: false, dual: false, psm: 6}}

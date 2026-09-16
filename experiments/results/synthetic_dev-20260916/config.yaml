@@ -1,0 +1,11 @@
+# The 30 synthetic receipts (seed 42) the parser was developed against in phase 1.
+# This is a DEVELOPMENT set: the parser was debugged on it, so its scores are optimistic.
+name: synthetic_dev
+task: receipt_extraction
+dataset: synthetic
+note: development set - parser rules were fixed while looking at these receipts
+n: 30
+seed: 42
+variants:
+  - {name: preprocess_dual_psm6, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: raw_gray_psm6, ocr: {preprocess: false, dual: false, psm: 6}}

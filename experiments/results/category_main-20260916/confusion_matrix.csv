@@ -1,0 +1,11 @@
+true \ predicted,Groceries,Food & Dining,Transport & Fuel,Shopping,Health,Bills & Utilities,Entertainment,Travel,Education,Other
+Groceries,78,18,0,14,1,0,2,3,4,0
+Food & Dining,25,84,3,13,0,10,3,3,0,9
+Transport & Fuel,14,9,83,0,6,7,0,0,1,0
+Shopping,20,3,8,40,23,0,1,24,2,14
+Health,2,1,0,1,90,11,1,0,7,7
+Bills & Utilities,3,5,17,0,0,89,0,4,0,2
+Entertainment,34,3,0,11,8,35,25,0,4,0
+Travel,7,6,7,1,12,2,0,80,4,1
+Education,3,0,0,27,0,4,1,1,76,8
+Other,4,9,10,4,0,5,9,0,0,79

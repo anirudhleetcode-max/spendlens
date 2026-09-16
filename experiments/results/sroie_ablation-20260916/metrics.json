@@ -1,0 +1,250 @@
+{
+  "dataset": {
+    "name": "sroie",
+    "title": "ICDAR 2019 SROIE (deduplicated v2 mirror), test split",
+    "sha256": "695057e834bc72fdd84c2f09d0a7e93ecdd439cbda16318bc17eb1d0a5e9a893",
+    "licence": "Mirror card declares CC-BY-2.0; the original ICDAR 2019 RRC data is distributed for research use after registration. Used here for evaluation only; not redistributed.",
+    "synthetic": false,
+    "region": "Malaysia (MYR, English receipts)",
+    "n_selected": 200,
+    "subset_ids_sha256_16": "4d54f37c189f915c"
+  },
+  "variants": {
+    "preprocess_dual_psm6": {
+      "n_receipts": 60,
+      "merchant": {
+        "n_labelled": 60,
+        "exact": 0.4667,
+        "normalised": 0.4667,
+        "partial": 0.5167,
+        "coverage": 0.9833
+      },
+      "date": {
+        "n_labelled": 60,
+        "exact": 0.8,
+        "normalised": 0.8,
+        "coverage": 0.9167,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 60,
+        "exact": 0.4833,
+        "normalised": 0.5,
+        "coverage": 1.0,
+        "accuracy_when_not_flagged": 0.561,
+        "accuracy_when_flagged": 0.3158,
+        "share_flagged": 0.3167
+      },
+      "ocr": {
+        "cer_mean": 0.1735,
+        "cer_median": 0.1343,
+        "word_recall_mean": 0.7489
+      },
+      "ocr_seconds_mean": 1.61,
+      "ocr_failures": 0,
+      "wall_seconds": 1.6,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "raw_gray_psm6": {
+      "n_receipts": 60,
+      "merchant": {
+        "n_labelled": 60,
+        "exact": 0.4167,
+        "normalised": 0.4167,
+        "partial": 0.4833,
+        "coverage": 0.9667
+      },
+      "date": {
+        "n_labelled": 60,
+        "exact": 0.75,
+        "normalised": 0.75,
+        "coverage": 0.85,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 60,
+        "exact": 0.5333,
+        "normalised": 0.5333,
+        "coverage": 0.9833,
+        "accuracy_when_not_flagged": 0.65,
+        "accuracy_when_flagged": 0.3,
+        "share_flagged": 0.3333
+      },
+      "ocr": {
+        "cer_mean": 0.2078,
+        "cer_median": 0.1407,
+        "word_recall_mean": 0.734
+      },
+      "ocr_seconds_mean": 0.77,
+      "ocr_failures": 0,
+      "wall_seconds": 48.1,
+      "ocr_settings": {
+        "preprocess": false,
+        "dual": false,
+        "psm": 6
+      }
+    },
+    "preprocess_binary_only_psm6": {
+      "n_receipts": 60,
+      "merchant": {
+        "n_labelled": 60,
+        "exact": 0.3667,
+        "normalised": 0.3667,
+        "partial": 0.5,
+        "coverage": 1.0
+      },
+      "date": {
+        "n_labelled": 60,
+        "exact": 0.75,
+        "normalised": 0.75,
+        "coverage": 0.85,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 60,
+        "exact": 0.4833,
+        "normalised": 0.5,
+        "coverage": 1.0,
+        "accuracy_when_not_flagged": 0.5476,
+        "accuracy_when_flagged": 0.3333,
+        "share_flagged": 0.3
+      },
+      "ocr": {
+        "cer_mean": 0.1994,
+        "cer_median": 0.1615,
+        "word_recall_mean": 0.7207
+      },
+      "ocr_seconds_mean": 2.01,
+      "ocr_failures": 0,
+      "wall_seconds": 122.3,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": false,
+        "psm": 6
+      }
+    },
+    "preprocess_dual_psm4": {
+      "n_receipts": 60,
+      "merchant": {
+        "n_labelled": 60,
+        "exact": 0.4167,
+        "normalised": 0.4167,
+        "partial": 0.4833,
+        "coverage": 0.9833
+      },
+      "date": {
+        "n_labelled": 60,
+        "exact": 0.75,
+        "normalised": 0.75,
+        "coverage": 0.8833,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 60,
+        "exact": 0.5333,
+        "normalised": 0.5333,
+        "coverage": 1.0,
+        "accuracy_when_not_flagged": 0.6216,
+        "accuracy_when_flagged": 0.3913,
+        "share_flagged": 0.3833
+      },
+      "ocr": {
+        "cer_mean": 0.2103,
+        "cer_median": 0.1577,
+        "word_recall_mean": 0.7211
+      },
+      "ocr_seconds_mean": 1.89,
+      "ocr_failures": 0,
+      "wall_seconds": 114.9,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 4
+      }
+    },
+    "preprocess_dual_psm11": {
+      "n_receipts": 60,
+      "merchant": {
+        "n_labelled": 60,
+        "exact": 0.4333,
+        "normalised": 0.4333,
+        "partial": 0.5,
+        "coverage": 0.9833
+      },
+      "date": {
+        "n_labelled": 60,
+        "exact": 0.8167,
+        "normalised": 0.8167,
+        "coverage": 0.9,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 60,
+        "exact": 0.4833,
+        "normalised": 0.4833,
+        "coverage": 1.0,
+        "accuracy_when_not_flagged": 0.5946,
+        "accuracy_when_flagged": 0.3043,
+        "share_flagged": 0.3833
+      },
+      "ocr": {
+        "cer_mean": 0.3139,
+        "cer_median": 0.2544,
+        "word_recall_mean": 0.7187
+      },
+      "ocr_seconds_mean": 1.96,
+      "ocr_failures": 0,
+      "wall_seconds": 119.0,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 11
+      }
+    },
+    "raw_gray_psm4": {
+      "n_receipts": 60,
+      "merchant": {
+        "n_labelled": 60,
+        "exact": 0.4333,
+        "normalised": 0.45,
+        "partial": 0.5333,
+        "coverage": 0.9667
+      },
+      "date": {
+        "n_labelled": 60,
+        "exact": 0.6833,
+        "normalised": 0.6833,
+        "coverage": 0.7833,
+        "labels_unparseable": 0
+      },
+      "total": {
+        "n_labelled": 60,
+        "exact": 0.5167,
+        "normalised": 0.5333,
+        "coverage": 0.9833,
+        "accuracy_when_not_flagged": 0.6571,
+        "accuracy_when_flagged": 0.32,
+        "share_flagged": 0.4167
+      },
+      "ocr": {
+        "cer_mean": 0.2139,
+        "cer_median": 0.1677,
+        "word_recall_mean": 0.7176
+      },
+      "ocr_seconds_mean": 0.78,
+      "ocr_failures": 0,
+      "wall_seconds": 48.2,
+      "ocr_settings": {
+        "preprocess": false,
+        "dual": false,
+        "psm": 4
+      }
+    }
+  },
+  "run_id": "sroie_ablation-20260916",
+  "seconds": 454.8
+}
