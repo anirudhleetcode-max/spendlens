@@ -1,11 +1,12 @@
 import { Navigate, NavLink, Route, Routes, Link, useLocation } from "react-router-dom";
-import { LayoutGrid, ScanLine, BookOpen, PiggyBank, LogOut, Loader2 } from "lucide-react";
+import { LayoutGrid, ScanLine, BookOpen, PiggyBank, LogOut, Loader2, FlaskConical } from "lucide-react";
 import { useAuth } from "./lib/auth";
 import Login from "./pages/Login";
 import Overview from "./pages/Overview";
 import Scan from "./pages/Scan";
 import Expenses from "./pages/Expenses";
 import Budgets from "./pages/Budgets";
+import Models from "./pages/Models";
 import { Logo } from "./components/Logo";
 
 function Shell({ children }: { children: React.ReactNode }) {
@@ -23,8 +24,10 @@ function Shell({ children }: { children: React.ReactNode }) {
             <NavLink to="/scan"><ScanLine aria-hidden />Scan</NavLink>
             <NavLink to="/expenses"><BookOpen aria-hidden />Expenses</NavLink>
             <NavLink to="/budgets"><PiggyBank aria-hidden />Budgets</NavLink>
+            <NavLink to="/models"><FlaskConical aria-hidden />Models</NavLink>
           </nav>
           <div className="topbar-user">
+            {user?.is_demo && <span className="pill demo" title="This account is filled with generated demo data">Demo data</span>}
             <span className="who">{user?.name}</span>
             <button className="btn btn-ghost btn-sm" onClick={logout} title="Sign out">
               <LogOut aria-hidden /> <span className="hide-sm">Sign out</span>
@@ -60,6 +63,7 @@ export default function App() {
         <Route path="/scan" element={<Scan />} />
         <Route path="/expenses" element={<Expenses />} />
         <Route path="/budgets" element={<Budgets />} />
+        <Route path="/models" element={<Models />} />
         <Route path="/login" element={<AfterLogin />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

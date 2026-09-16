@@ -1,9 +1,18 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import { AlertTriangle, Loader2, Sparkles } from "lucide-react";
+import { AlertTriangle, Loader2 } from "lucide-react";
 import { api } from "../lib/api";
-import { CATEGORIES, PAYMENT_MODES, type Category, type LineItem, type Suggestion } from "../lib/types";
+import { CATEGORIES, PAYMENT_MODES, UNCATEGORISED, type Category, type LineItem, type Suggestion } from "../lib/types";
 import { pct, todayISO } from "../lib/format";
 import { ItemsEditor } from "./ItemsEditor";
+import { SuggestionNote } from "./SuggestionNote";
+
+/** What the form should pre-select for a suggestion: nothing is guessed when the model abstains. */
+// eslint-disable-next-line react-refresh/only-export-components
+export function preselect(s: Suggestion | null | undefined): Category | "" {
+  if (!s) return "";
+  if (s.abstained || s.status === "low_confidence" || s.status === "unavailable") return UNCATEGORISED;
+  return s.category;
+}
 
 export type Draft = {
   merchant: string;
@@ -65,7 +74,7 @@ export function ExpenseForm({ initial, confidence, suggestion: initialSuggestion
       api<Suggestion>("/api/categories/suggest", { method: "POST", json: { merchant, items: d.items.map((i) => i.name).filter(Boolean) } })
         .then((s) => {
           setSuggestion(s);
-          if (!touchedCategory) setD((p) => ({ ...p, category: s.category }));
+          if (!touchedCategory) setD((p) => ({ ...p, category: preselect(s) }));
         })
         .catch(() => undefined);
     }, 350);
@@ -82,14 +91,16 @@ export function ExpenseForm({ initial, confidence, suggestion: initialSuggestion
     if (!d.merchant.trim()) return setError("Add the merchant name.");
     if (!(amount > 0)) return setError("Amount must be more than zero.");
     if (!d.date) return setError("Pick the date on the bill.");
-    const category = (d.category || suggestion?.category || "Other") as Category;
+    const category = (d.category || preselect(suggestion) || UNCATEGORISED) as Category;
     setBusy(true);
     try {
       await onSubmit({
         merchant: d.merchant.trim(), amount, date: d.date, category, tax: Number(d.tax) || 0,
         payment_mode: d.payment_mode, notes: d.notes.trim(),
         items: d.items.filter((i) => i.name.trim()).map((i) => ({ name: i.name.trim(), qty: Number(i.qty) || 0, price: Number(i.price) || 0 })),
-        suggested_category: suggestion?.category ?? null,
+        // the model's best guess (even when it abstained) - a different choice is learned as a correction
+        suggested_category: suggestion && suggestion.status !== "unavailable" && suggestion.category !== UNCATEGORISED
+          ? suggestion.category : null,
       });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not save");
@@ -99,7 +110,6 @@ export function ExpenseForm({ initial, confidence, suggestion: initialSuggestion
   }
 
   const id = (s: string) => `${idPrefix}-${s}`;
-  const corrected = suggestion && d.category && d.category !== suggestion.category;
 
   return (
     <form onSubmit={submit} noValidate>
@@ -119,25 +129,16 @@ export function ExpenseForm({ initial, confidence, suggestion: initialSuggestion
           <input id={id("date")} className="input" type="date" value={d.date} max={todayISO()}
             onChange={(e) => set("date", e.target.value)} />
         </label>
-        <div className="field wide">
+        <div className={`field wide${d.category === UNCATEGORISED ? " flag" : ""}`}>
           <label htmlFor={id("category")} style={{ fontSize: 13, fontWeight: 500, color: "var(--ink-2)" }}>Category</label>
           <select id={id("category")} className="select" value={d.category}
             onChange={(e) => { setTouchedCategory(true); set("category", e.target.value as Category); }}>
             {!d.category && <option value="">Choose…</option>}
             {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
           </select>
-          {suggestion && suggestion.confidence > 0 && (
-            <div className="suggest-line" data-testid="suggestion">
-              <Sparkles size={12} aria-hidden />
-              {suggestion.source === "your correction"
-                ? <>Using your earlier choice for this merchant: <b>{suggestion.category}</b></>
-                : <>Suggested <b>{suggestion.category}</b> ({pct(suggestion.confidence)} sure)</>}
-              {corrected && <span>· you changed it — we'll remember this merchant</span>}
-              {!corrected && suggestion.alternatives.slice(1).filter((a) => a.p >= 0.08).map((a) => (
-                <button type="button" key={a.category} className="chip"
-                  onClick={() => { setTouchedCategory(true); set("category", a.category); }}>{a.category}</button>
-              ))}
-            </div>
+          {suggestion && (
+            <SuggestionNote suggestion={suggestion} chosen={d.category}
+              onPick={(c) => { setTouchedCategory(true); set("category", c); }} />
           )}
         </div>
         <label className={`field${flag("tax")}`} htmlFor={id("tax")}>

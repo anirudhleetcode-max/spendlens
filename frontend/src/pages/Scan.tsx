@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { AlertTriangle, Camera, Check, CheckCircle2, FileImage, Loader2, PenLine, RotateCcw, ScanLine } from "lucide-react";
 import { api } from "../lib/api";
 import type { Expense, Health, ScanResult } from "../lib/types";
-import { ExpenseForm, emptyDraft, type Draft, type SubmitBody } from "../components/ExpenseForm";
+import { ExpenseForm, emptyDraft, preselect, type Draft, type SubmitBody } from "../components/ExpenseForm";
+import { Checks } from "../components/Checks";
+import { OcrOverlay } from "../components/OcrOverlay";
+import { useToast } from "../components/Toast";
 import { dateLabel, inr, todayISO } from "../lib/format";
 
 const STEPS = ["Straightening and cleaning the photo", "Reading the text", "Finding merchant, date and total", "Suggesting a category"];
@@ -24,6 +27,7 @@ export default function Scan() {
   const [step, setStep] = useState(0);
   const fileRef = useRef<HTMLInputElement>(null);
   const camRef = useRef<HTMLInputElement>(null);
+  const { notify } = useToast();
 
   useEffect(() => { api<Health>("/api/health").then(setHealth).catch(() => undefined); }, []);
   useEffect(() => {
@@ -61,6 +65,10 @@ export default function Scan() {
   }
 
   function reset() {
+    if (stage.kind === "review") {
+      // unsaved scan: delete the stored photo now instead of waiting for the cleanup job
+      api(`/api/receipts/${stage.result.receipt_id}`, { method: "DELETE" }).catch(() => undefined);
+    }
     if (stage.kind === "review" || stage.kind === "reading") URL.revokeObjectURL(stage.preview);
     setStage({ kind: "idle" });
     setError(null);
@@ -72,6 +80,7 @@ export default function Scan() {
     const expense = await api<Expense>("/api/expenses", { method: "POST", json: { ...body, receipt_id: receiptId ?? null } });
     if (stage.kind === "review") URL.revokeObjectURL(stage.preview);
     setStage({ kind: "saved", expense });
+    notify(`Saved ${expense.merchant} to your ledger`);
   }
 
   return (
@@ -82,7 +91,9 @@ export default function Scan() {
           <p className="muted">Printed bills work best — supermarket, restaurant, pharmacy, fuel.</p>
         </div>
         {stage.kind !== "idle" && stage.kind !== "reading" && (
-          <button className="btn" onClick={reset}><RotateCcw aria-hidden />Start over</button>
+          <button className="btn" onClick={reset}>
+            <RotateCcw aria-hidden />{stage.kind === "review" ? "Discard scan" : "Start over"}
+          </button>
         )}
       </div>
 
@@ -173,13 +184,13 @@ function Review({ stage, onSave, onCancel }: {
   onSave: (b: SubmitBody, receiptId: string) => Promise<void>;
   onCancel: () => void;
 }) {
-  const { result: r, preview } = stage;
+  const { result: r, preview: photo } = stage;
   const f = r.fields;
   const initial: Draft = {
     merchant: f.merchant.value ?? "",
     amount: f.total.value != null ? f.total.value.toFixed(2) : "",
     date: f.date.value ?? todayISO(),
-    category: r.ocr_available ? r.category.category : "",
+    category: preselect(r.category),
     tax: (f.tax.value ?? 0).toFixed(2),
     payment_mode: f.payment_mode.value ?? "Unknown",
     notes: "",
@@ -189,12 +200,25 @@ function Review({ stage, onSave, onCancel }: {
     merchant: f.merchant.confidence, amount: f.total.confidence, date: f.date.confidence,
     tax: f.tax.confidence, payment_mode: f.payment_mode.confidence,
   } : undefined;
-  const flagged = confidence ? Object.values(confidence).filter((c) => c < 0.6).length : 0;
+  const threshold = r.review_threshold ?? 0.6;
+  const flagged = confidence ? Object.values(confidence).filter((c) => c < threshold).length : 0;
+  const [view, setView] = useState<"photo" | "ocr">("photo");
+  const preview = r.ocr?.preview;
 
   return (
     <div className="review" data-testid="review">
       <div className="receipt-pane">
-        <div className="receipt-frame"><img src={preview} alt="Uploaded receipt" /></div>
+        {preview && (
+          <div className="segmented" role="tablist" aria-label="Receipt view">
+            <button role="tab" aria-selected={view === "photo"} className={view === "photo" ? "on" : ""}
+              onClick={() => setView("photo")}>Your photo</button>
+            <button role="tab" aria-selected={view === "ocr"} className={view === "ocr" ? "on" : ""}
+              onClick={() => setView("ocr")}>What OCR read</button>
+          </div>
+        )}
+        {view === "ocr" && preview
+          ? <OcrOverlay preview={preview} />
+          : <div className="receipt-frame"><img src={photo} alt="Uploaded receipt" /></div>}
         {r.ocr && (
           <>
             <div className="ocr-meta num">
@@ -214,12 +238,14 @@ function Review({ stage, onSave, onCancel }: {
       </div>
       <div>
         <h2>Check the details</h2>
-        <p className="muted small" style={{ margin: "4px 0 20px" }}>
+        <p className="muted small" style={{ margin: "4px 0 12px" }}>
           {!r.ocr_available ? "Fill these in from the photo."
             : flagged ? `${flagged} field${flagged > 1 ? "s" : ""} marked in orange — we weren't sure about ${flagged > 1 ? "them" : "it"}.`
             : "Everything read cleanly. Give it a glance and save."}
+          {" "}Nothing is saved until you press Save; an unsaved photo is deleted within {r.expires_hours ?? 24} h.
         </p>
-        <ExpenseForm initial={initial} confidence={confidence} suggestion={r.ocr_available ? r.category : null}
+        <Checks checks={r.checks ?? []} />
+        <ExpenseForm initial={initial} confidence={confidence} suggestion={r.category}
           autoSuggest={!r.ocr_available} submitLabel="Save expense" idPrefix="scan"
           onSubmit={(b) => onSave(b, r.receipt_id)} onCancel={onCancel} />
       </div>

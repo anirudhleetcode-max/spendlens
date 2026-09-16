@@ -4,6 +4,9 @@ import { api, downloadFile } from "../lib/api";
 import { CATEGORIES, type Expense, type ExpensePage } from "../lib/types";
 import { ExpenseForm, emptyDraft, type SubmitBody } from "../components/ExpenseForm";
 import { ReceiptImage } from "../components/ReceiptImage";
+import { ConfirmDialog } from "../components/ConfirmDialog";
+import { SkeletonRows } from "../components/Skeleton";
+import { useToast } from "../components/Toast";
 import { dateLabel, dayMonth, inr, monthLabel, shiftMonth, thisMonth } from "../lib/format";
 
 const LIMIT = 15;
@@ -21,7 +24,9 @@ export default function Expenses() {
   const [editing, setEditing] = useState<Expense | "new" | null>(null);
   const [viewing, setViewing] = useState<Expense | null>(null);
   const [exporting, setExporting] = useState(false);
+  const [confirming, setConfirming] = useState<Expense | null>(null);
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const { notify } = useToast();
 
   useEffect(() => {
     const t = window.setTimeout(() => { setQuery(q.trim()); setPage(1); }, 300);
@@ -61,18 +66,24 @@ export default function Expenses() {
       void _s;
       await api(`/api/expenses/${editing.id}`, { method: "PATCH", json: patch });
     }
+    notify(editing === "new" ? `Added ${body.merchant}` : `Updated ${body.merchant}`);
     setEditing(null);
     await load();
   }
 
-  async function remove(e: Expense) {
-    if (!window.confirm(`Delete ${e.merchant} (${inr(e.amount)}) from ${dateLabel(e.date)}?`)) return;
+  function remove(e: Expense) {
+    setConfirming(e);
+  }
+
+  async function reallyRemove(e: Expense) {
+    setConfirming(null);
     try {
       await api(`/api/expenses/${e.id}`, { method: "DELETE" });
       if (editing !== "new" && editing?.id === e.id) setEditing(null);
+      notify(`Deleted ${e.merchant}${e.receipt_id ? " and its receipt photo" : ""}`);
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not delete");
+      notify(err instanceof Error ? err.message : "Could not delete", "error");
     }
   }
 
@@ -80,6 +91,7 @@ export default function Expenses() {
     setExporting(true);
     try {
       await downloadFile(`/api/expenses/export?month=${month || thisMonth()}`, `spendlens-${month}.csv`);
+      notify(`Exported ${monthLabel(month)} as CSV`);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Export failed");
     } finally {
@@ -174,22 +186,29 @@ export default function Expenses() {
               </tr>
             </thead>
             <tbody>
-              {!data && loading && <tr><td colSpan={6} className="muted"><Loader2 className="spin" size={14} aria-hidden /> Loading…</td></tr>}
+              {!data && loading && <tr><td colSpan={6}><SkeletonRows rows={8} label="Loading expenses" /></td></tr>}
               {data?.items.map((e) => (
                 <tr key={e.id} className="clickable" onClick={() => setEditing(e)} data-testid="expense-row">
                   <td className="num muted col-date">{dayMonth(e.date)}</td>
                   <td>
                     <div className="merchant-cell">
-                      <span className="merchant-name">{e.merchant}</span>
+                      <span className="merchant-name">
+                        {e.merchant}
+                        {e.demo && <span className="pill demo" title="Seeded demo data, not a real purchase">demo</span>}
+                      </span>
                       <span className="small muted show-sm">{e.category}</span>
                       {e.anomaly && (
-                        <span className="anomaly-note" title={`Typical: ${inr(e.anomaly.median)}`}>
+                        <span className="anomaly-note" title={e.anomaly.detail ?? `Typical: ${inr(e.anomaly.median)}`}>
                           <AlertTriangle aria-hidden />{e.anomaly.reason}
                         </span>
                       )}
                     </div>
                   </td>
-                  <td className="hide-sm"><span className="tag">{e.category}</span></td>
+                  <td className="hide-sm">
+                    {e.category === "Uncategorised"
+                      ? <span className="pill warn">Needs a category</span>
+                      : <span className="tag">{e.category}</span>}
+                  </td>
                   <td className="hide-sm muted small">{e.payment_mode === "Unknown" ? "—" : e.payment_mode}</td>
                   <td className="amt">{inr(e.amount)}</td>
                   <td className="actions" onClick={(ev) => ev.stopPropagation()}>
@@ -217,6 +236,15 @@ export default function Expenses() {
           </div>
         </div>
       )}
+
+      <ConfirmDialog
+        open={confirming !== null}
+        title="Delete this expense?"
+        body={confirming ? `${confirming.merchant}, ${inr(confirming.amount)} on ${dateLabel(confirming.date)}${confirming.receipt_id ? ". The receipt photo is deleted too." : "."} This can't be undone.` : ""}
+        confirmLabel="Delete"
+        onConfirm={() => confirming && reallyRemove(confirming)}
+        onCancel={() => setConfirming(null)}
+      />
 
       <dialog ref={dialogRef} className="viewer" onClose={() => setViewing(null)} aria-label="Receipt">
         {viewing?.receipt_id && (

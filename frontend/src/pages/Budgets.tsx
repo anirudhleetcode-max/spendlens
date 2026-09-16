@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState, type FormEvent } from "react";
-import { AlertTriangle, Loader2, X } from "lucide-react";
+import { AlertTriangle, X } from "lucide-react";
 import { api } from "../lib/api";
-import { CATEGORIES, type BudgetRow, type Category } from "../lib/types";
+import { MODEL_CATEGORIES, type BudgetRow, type Category } from "../lib/types";
 import { MonthPicker } from "../components/MonthPicker";
 import { BudgetBar, BudgetStatus } from "../components/Status";
 import { inr, inr0, monthName, thisMonth } from "../lib/format";
+import { SkeletonRows } from "../components/Skeleton";
+import { useToast } from "../components/Toast";
 
 type Resp = { month: string; days_elapsed: number; days_in_month: number; budgets: BudgetRow[] };
 
@@ -45,7 +47,7 @@ export default function Budgets() {
       {error && <div className="notice error" role="alert" style={{ marginBottom: 16 }}><AlertTriangle aria-hidden />{error}</div>}
 
       {!data ? (
-        <div className="loading"><Loader2 className="spin" aria-hidden />Loading…</div>
+        <SkeletonRows rows={10} label="Loading budgets" />
       ) : (
         <div className="table-scroll">
           <table className="ledger budget-table" data-testid="budget-table">
@@ -60,7 +62,7 @@ export default function Budgets() {
               </tr>
             </thead>
             <tbody>
-              {CATEGORIES.map((c) => (
+              {MODEL_CATEGORIES.map((c) => (
                 <Row key={c} category={c} row={byCat.get(c)} current={current} onChange={load} onError={setError} />
               ))}
             </tbody>
@@ -88,6 +90,7 @@ function Row({ category, row, current, onChange, onError }: {
 }) {
   const [value, setValue] = useState(row ? String(row.budget) : "");
   const [busy, setBusy] = useState(false);
+  const { notify } = useToast();
   useEffect(() => { setValue(row ? String(row.budget) : ""); }, [row]);
   const dirty = value !== (row ? String(row.budget) : "");
 
@@ -98,6 +101,7 @@ function Row({ category, row, current, onChange, onError }: {
     setBusy(true);
     try {
       await api("/api/budgets", { method: "PUT", json: { category, amount } });
+      notify(`${category} budget set to ${inr0(amount)} a month`);
       onChange();
     } catch (err) {
       onError(err instanceof Error ? err.message : "Could not save");
@@ -110,6 +114,7 @@ function Row({ category, row, current, onChange, onError }: {
     setBusy(true);
     try {
       await api(`/api/budgets/${encodeURIComponent(category)}`, { method: "DELETE" });
+      notify(`Removed the ${category} budget`);
       onChange();
     } finally {
       setBusy(false);
