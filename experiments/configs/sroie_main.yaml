@@ -1,0 +1,9 @@
+# Real-data evaluation of the full receipt pipeline (the settings the API uses).
+name: sroie_main
+task: receipt_extraction
+dataset: sroie          # ICDAR 2019 SROIE test split, Malaysian receipts (see data/README.md)
+n: 200                  # deterministic random subset of the 347 test receipts
+seed: 0
+variants:
+  - name: preprocess_dual_psm6      # production setting
+    ocr: {preprocess: true, dual: true, psm: 6}

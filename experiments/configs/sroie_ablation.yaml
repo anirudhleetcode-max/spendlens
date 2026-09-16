@@ -1,0 +1,13 @@
+# Which OCR settings matter? Same 60 receipts for every variant (first 60 of the 200-receipt subset).
+name: sroie_ablation
+task: receipt_extraction
+dataset: sroie
+n: 200
+seed: 0
+variants:
+  - {name: preprocess_dual_psm6, n: 60, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: raw_gray_psm6,        n: 60, ocr: {preprocess: false, dual: false, psm: 6}}
+  - {name: preprocess_binary_only_psm6, n: 60, ocr: {preprocess: true, dual: false, psm: 6}}
+  - {name: preprocess_dual_psm4, n: 60, ocr: {preprocess: true, dual: true, psm: 4}}
+  - {name: preprocess_dual_psm11, n: 60, ocr: {preprocess: true, dual: true, psm: 11}}
+  - {name: raw_gray_psm4,        n: 60, ocr: {preprocess: false, dual: false, psm: 4}}
