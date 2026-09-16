@@ -131,3 +131,15 @@ def test_field_evidence_points_at_source_line():
     assert f["merchant"]["line"] == 0 and f["merchant"]["source"] == "lexicon"
     assert f["date"]["line"] == 1 and f["total"]["line"] == 2
     assert f["total"]["source"] == "keyword:grand total"
+
+
+def test_tax_inclusive_total_line_is_a_total_candidate():
+    lines = L("SOME TRADING SDN BHD", "Date: 12/03/2018", "Item 1 22.44", "SUBTOTAL 22.44",
+              "TOTAL (GST INCL) 22.45", "GST Summary Amount Tax", "SR 21.17 1.27", "CASH 50.00")
+    new = parse_receipt(lines)["fields"]["total"]
+    assert new["value"] == 22.45 and new["source"].startswith("keyword:")
+    old = parse_receipt(lines, legacy_total_rule=True)
+    assert old["fields"]["total"]["source"].startswith("fallback")  # 1.1 skipped the line and guessed 50.00
+    assert old["parser_version"] == "1.1"
+    # a GST summary line is still not a total
+    assert parse_receipt(L("X", "Total GST 1.27", "NET AMOUNT 22.45"))["fields"]["total"]["value"] == 22.45

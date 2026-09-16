@@ -224,20 +224,23 @@ def summarise(rows: list[dict]) -> dict:
     return out
 
 
-def evaluate(records: list[dict], dataset: str, ocr_cfg: dict, progress: bool = True) -> tuple[dict, list[dict], list[dict]]:
+def evaluate(records: list[dict], dataset: str, ocr_cfg: dict, progress: bool = True,
+             parser_cfg: dict | None = None) -> tuple[dict, list[dict], list[dict]]:
     from app.pipeline.confidence import REVIEW_THRESHOLD
     from app.pipeline.receipt import parse_lines
     rows, errors = [], []
     t0 = time.time()
     for i, rec in enumerate(records):
         ocr = cached_ocr(dataset, rec, ocr_cfg)
-        parsed = parse_lines(ocr["lines_obj"])
+        parsed = parse_lines(ocr["lines_obj"], **(parser_cfg or {}))
         row, errs = score_one(rec, parsed, ocr, REVIEW_THRESHOLD)
         rows.append(row)
         errors += errs
         if progress and (i + 1) % 20 == 0:
             print(f"  [{ocr_key(ocr_cfg)}] {i + 1}/{len(records)}  {time.time() - t0:.0f}s", flush=True)
-    return summarise(rows), rows, errors
+    summary = summarise(rows)
+    summary["parser_version"] = parsed["parser_version"] if records else None
+    return summary, rows, errors
 
 
 def ids_hash(records: list[dict]) -> str:

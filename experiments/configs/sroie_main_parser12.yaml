@@ -1,0 +1,10 @@
+# Re-score the SROIE test subset with parser 1.2, reusing the cached OCR of sroie_main.
+# POST-HOC: the 1.2 change was found by looking at sroie_main's test errors, so this number is
+# optimistic. The dev-split check (sroie_dev_parser) is the fair before/after comparison.
+name: sroie_main_parser12
+task: receipt_extraction
+dataset: sroie
+n: 200
+seed: 0
+variants:
+  - {name: preprocess_dual_psm6, ocr: {preprocess: true, dual: true, psm: 6}}

@@ -42,6 +42,17 @@ SOURCES = {
         "rows": 347,
         "region": "Malaysia (MYR, English receipts)",
     },
+    "sroie_train": {
+        "name": "ICDAR 2019 SROIE (deduplicated v2 mirror), train split - used as a DEVELOPMENT set",
+        "url": "https://huggingface.co/datasets/rth/sroie-2019-v2/resolve/main/data/train-00000-of-00001.parquet",
+        "page": "https://huggingface.co/datasets/rth/sroie-2019-v2",
+        "original": "https://rrc.cvc.uab.es/?ch=13",
+        "licence": "Same as sroie. Used to check parser changes without touching the test split.",
+        "file": "sroie_train.parquet",
+        "sha256": "b03df42c8743ab1749d77b345998ac6e6cded5f4bd779e271c739fba53439e92",
+        "rows": 626,
+        "region": "Malaysia (MYR, English receipts)",
+    },
     "cord": {
         "name": "CORD v2 (Clova), test split",
         "url": "https://huggingface.co/datasets/naver-clova-ix/cord-v2/resolve/main/data/"
@@ -122,7 +133,7 @@ def _sroie_records(path: Path):
             ent = row["objects"]["entities"]
             img = row["image"]
             yield {
-                "id": Path(img.get("path") or "").stem,
+                "id": Path(img.get("path") or "").stem,  # SROIE file id, e.g. X51005200931
                 "image": img["bytes"],
                 "fields": {"merchant": ent.get("company"), "date": ent.get("date"), "total": ent.get("total"),
                            "address": ent.get("address"), "n_items": None},
@@ -163,7 +174,7 @@ def _cord_records(path: Path):
 
 def load(name: str):
     path = require(name)
-    return _sroie_records(path) if name == "sroie" else _cord_records(path)
+    return _sroie_records(path) if name.startswith("sroie") else _cord_records(path)
 
 
 def main() -> None:

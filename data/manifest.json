@@ -11,6 +11,18 @@
     "region": "Malaysia (MYR, English receipts)",
     "bytes": 182810878
   },
+  "sroie_train": {
+    "name": "ICDAR 2019 SROIE (deduplicated v2 mirror), train split - used as a DEVELOPMENT set",
+    "url": "https://huggingface.co/datasets/rth/sroie-2019-v2/resolve/main/data/train-00000-of-00001.parquet",
+    "page": "https://huggingface.co/datasets/rth/sroie-2019-v2",
+    "original": "https://rrc.cvc.uab.es/?ch=13",
+    "licence": "Same as sroie. Used to check parser changes without touching the test split.",
+    "file": "sroie_train.parquet",
+    "sha256": "b03df42c8743ab1749d77b345998ac6e6cded5f4bd779e271c739fba53439e92",
+    "rows": 626,
+    "region": "Malaysia (MYR, English receipts)",
+    "bytes": 318815373
+  },
   "cord": {
     "name": "CORD v2 (Clova), test split",
     "url": "https://huggingface.co/datasets/naver-clova-ix/cord-v2/resolve/main/data/test-00000-of-00001-9c204eb3f4e11791.parquet",

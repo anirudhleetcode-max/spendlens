@@ -1,0 +1,10 @@
+# Parser change check on the SROIE TRAIN split (never used for reported test numbers before).
+# Motivated by the error analysis of sroie_main: "Total incl. GST" lines were being skipped.
+name: sroie_dev_parser
+task: receipt_extraction
+dataset: sroie_train
+n: 150
+seed: 1
+variants:
+  - {name: parser_1_2, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: parser_1_1, ocr: {preprocess: true, dual: true, psm: 6}, parser: {legacy_total_rule: true}}

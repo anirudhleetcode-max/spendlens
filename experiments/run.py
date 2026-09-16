@@ -76,13 +76,15 @@ def run_receipts(cfg: dict, run_dir: Path) -> dict:
     for i, var in enumerate(cfg["variants"]):
         subset = records[: var["n"]] if var.get("n") else records
         t = time.time()
-        summary, rows, errors = evaluate(subset, ds, var["ocr"])
+        summary, rows, errors = evaluate(subset, ds, var["ocr"], parser_cfg=var.get("parser"))
         summary["wall_seconds"] = round(time.time() - t, 1)
         summary["ocr_settings"] = var["ocr"]
         out["variants"][var["name"]] = summary
         print(f"{var['name']}: {json.dumps({k: v for k, v in summary.items() if k in ('merchant', 'date', 'total', 'ocr')})}")
         if i == 0:
             write_errors(run_dir, errors, f"{cfg['name']} / {var['name']}")
+            from .analyse_errors import main as breakdown
+            breakdown(str(run_dir))
             with open(run_dir / "per_receipt.jsonl", "w") as f:
                 for r in rows:
                     f.write(json.dumps(r) + "\n")
