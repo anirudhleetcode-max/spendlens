@@ -124,7 +124,9 @@ def extract_date(lines) -> Field:
 
 # "Total (incl. GST)", "Total Sales Inclusive GST @6%", "Total with GST": the payable total, even though
 # the line mentions GST. Added in parser 1.2 after error analysis (see README "Error analysis").
-TAX_INCLUSIVE_TOTAL = re.compile(r"tota\w*\b.{0,25}\b(incl\w*|inclusive|includes|with)\b.{0,6}(gst|tax|vat)", re.I)
+TAX_INCLUSIVE_TOTAL = re.compile(
+    r"tota\w*\b.{0,25}\b(incl\w*|inclusive|includes|with)\b.{0,6}(gst|tax|vat)"   # Total incl. GST
+    r"|tota\w*\b.{0,12}\b(gst|tax|vat)\s*(incl\w*|inclusive)", re.I)                # TOTAL (GST INCL)
 
 
 def extract_total(lines, tax_inclusive_rule: bool = True) -> Field:

@@ -92,9 +92,13 @@ def ocr_key(ocr_cfg: dict) -> str:
 def cached_ocr(dataset: str, rec: dict, ocr_cfg: dict):
     from app.pipeline.ocr import OcrLine, OcrWord, run_ocr
     path = CACHE / dataset / ocr_key(ocr_cfg) / f"{rec['id']}.json"
+    d = None
     if path.exists():
-        d = json.loads(path.read_text())
-    else:
+        try:
+            d = json.loads(path.read_text())
+        except ValueError:  # half-written by an interrupted run: recompute
+            d = None
+    if d is None:
         t = time.perf_counter()
         try:
             r = run_ocr(rec["image"], preprocess_enabled=ocr_cfg.get("preprocess", True),
