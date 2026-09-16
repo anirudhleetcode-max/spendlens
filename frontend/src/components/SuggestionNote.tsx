@@ -2,6 +2,9 @@ import { AlertTriangle, Info, Sparkles } from "lucide-react";
 import type { Category, Suggestion } from "../lib/types";
 import { pct } from "../lib/format";
 
+// A calibrated probability is never truly certain; don't round 0.996 up to "100%".
+const sure = (p: number) => (p >= 0.995 ? ">99%" : pct(p));
+
 type Props = {
   suggestion: Suggestion;
   chosen: Category | "";
@@ -44,7 +47,7 @@ export function SuggestionNote({ suggestion: s, chosen, onPick }: Props) {
       ) : (
         <>
           <Sparkles size={12} aria-hidden />
-          <span>Suggested <b>{s.category}</b> ({pct(s.confidence)} sure)</span>
+          <span>Suggested <b>{s.category}</b> ({sure(s.confidence)} sure)</span>
         </>
       )}
       {why.length > 0 && (
