@@ -10,6 +10,8 @@ os.environ["MONGO_DB"] = f"test_{uuid.uuid4().hex[:8]}"
 _tmp = Path(tempfile.mkdtemp())
 _src = Path(__file__).resolve().parent.parent / "ml" / "artifacts" / "category_model.joblib"
 shutil.copy(_src, _tmp / "model.joblib")
+if _src.with_name("category_model.card.json").exists():
+    shutil.copy(_src.with_name("category_model.card.json"), _tmp / "model.card.json")
 os.environ["MODEL_PATH"] = str(_tmp / "model.joblib")
 
 import pytest

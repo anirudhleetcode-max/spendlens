@@ -1,4 +1,7 @@
-"""Create / reset the demo account with ~75 days of realistic spending.
+"""Create / reset the DEMO account with ~75 days of made-up spending.
+
+Everything written here is demo data: the user has is_demo=True and every expense has demo=True, and
+the UI shows a "Demo data" badge for this account. None of it is real user activity.
 
     python -m scripts.seed
 Login: demo@spendlens.app / demo1234
@@ -61,13 +64,14 @@ def main() -> None:
     user = db.users.find_one({"email": EMAIL})
     if user:
         uid = user["_id"]
+        db.users.update_one({"_id": uid}, {"$set": {"is_demo": True, "name": "Demo User"}})
         for f in db["receipts.files"].find({"metadata.user_id": uid}, {"_id": 1}):
             fs.delete(f["_id"])
         for coll in ("expenses", "budgets", "merchant_overrides", "category_feedback"):
             db[coll].delete_many({"user_id": uid})
     else:
-        uid = db.users.insert_one({"name": "Aditi Rao", "email": EMAIL, "password_hash": hash_password(PASSWORD),
-                                   "created_at": now}).inserted_id
+        uid = db.users.insert_one({"name": "Demo User", "email": EMAIL, "password_hash": hash_password(PASSWORD),
+                                   "is_demo": True, "created_at": now}).inserted_id
 
     today = now.date()
     start = (today.replace(day=1) - timedelta(days=1)).replace(day=1) - timedelta(days=20)
@@ -78,9 +82,10 @@ def main() -> None:
         docs.append({"user_id": uid, "merchant": merchant, "merchant_key": merchant_key(merchant),
                      "amount": round(float(amount), 2), "tax": round(float(amount) * 0.05, 2) if cat in
                      ("Groceries", "Food & Dining") else 0.0, "date": dt, "category": cat,
-                     "suggested_category": cat, "payment_mode": mode,
-                     "items": [{"name": n, "qty": 1, "price": 0} for n in items], "notes": notes,
-                     "receipt_id": receipt_id, "source": source,
+                     # not a model prediction: seeded rows record no suggestion
+                     "suggested_category": None, "payment_mode": mode,
+                     "items": [], "notes": notes or ("Demo: " + ", ".join(items) if items else "Demo data"),
+                     "receipt_id": receipt_id, "source": source, "demo": True,
                      "created_at": dt + timedelta(hours=rng.randint(9, 21)), "updated_at": now})
 
     d = start
@@ -107,12 +112,14 @@ def main() -> None:
         buf = io.BytesIO()
         render(lines, rng).save(buf, "JPEG", quality=88)
         rid = fs.upload_from_stream("receipt.jpg", shrink_jpeg(buf.getvalue()),
-                                    metadata={"user_id": uid, "content_type": "image/jpeg", "uploaded_at": now})
+                                    metadata={"user_id": uid, "content_type": "image/jpeg", "uploaded_at": now,
+                                              "status": "attached", "synthetic": True})
         dd = today - timedelta(days=days_ago)
         add(dd, truth.merchant, truth.category, truth.total, truth.payment_mode,
             [i["name"].title() for i in truth.items], source="scan", receipt_id=rid)
         docs[-1]["items"] = [{"name": i["name"].title(), "qty": float(i["qty"]), "price": i["price"]} for i in truth.items]
         docs[-1]["tax"] = truth.tax
+        docs[-1]["notes"] = "Demo: synthetic receipt image"
 
     db.expenses.insert_many(docs)
     for cat, amt in BUDGETS.items():
@@ -121,7 +128,7 @@ def main() -> None:
     db.merchant_overrides.update_one({"user_id": uid, "merchant_key": "namma metro"},
                                      {"$set": {"merchant": "Namma Metro", "category": "Transport & Fuel",
                                                "updated_at": now}}, upsert=True)
-    print(f"seeded {len(docs)} expenses for {EMAIL} / {PASSWORD} in db '{s.mongo_db}'")
+    print(f"seeded {len(docs)} DEMO expenses for {EMAIL} / {PASSWORD} in db '{s.mongo_db}'")
 
 
 if __name__ == "__main__":

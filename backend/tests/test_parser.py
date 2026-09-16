@@ -99,3 +99,35 @@ def test_item_row_with_ocr_punctuation():
                           "PARLE G 800G 2 x 90.00 180.00", "Sub Total 432.00"))
     assert [(i["name"], i["qty"], i["price"]) for i in items] == [
         ("Amul Taaza 1L", 3, 204.0), ("Eggs 6PC", 1, 48.0), ("Parle G 800G", 2, 180.0)]
+
+
+def test_checks_explain_why_a_total_is_flagged():
+    out = parse_receipt(L("CAFE X", "Sub Total 100.00", "CGST @2.5% 2.50", "SGST @2.5% 2.50", "TOTAL 150.00"))
+    c = {x["id"]: x for x in out["checks"]}
+    assert c["total_arithmetic"]["status"] == "fail"
+    assert "₹150.00 ≠ subtotal ₹100.00 + tax ₹5.00 = ₹105.00" in c["total_arithmetic"]["message"]
+    assert out["fields"]["total"]["confidence"] <= 0.6
+
+
+def test_checks_pass_repair_fallback_and_missing():
+    ok = parse_receipt(L("DMART", "Date: 01/09/2026", "Sub Total 100.00", "CGST 2.50", "SGST 2.50",
+                         "GRAND TOTAL 105.00"))
+    assert {x["id"]: x["status"] for x in ok["checks"]}["total_arithmetic"] == "pass"
+    repaired = parse_receipt(L("MORE", "Sub Total 514.00", "CGST 12.85", "SGST 12.85", "Round Off +0.30",
+                               "NET AMOUNT 540.06"))
+    rc = {x["id"]: x for x in repaired["checks"]}["total_arithmetic"]
+    assert rc["status"] == "warn" and "Corrected to ₹540.00" in rc["message"]
+    assert repaired["fields"]["total"]["source"].endswith("digit-repair")
+    fb = parse_receipt(L("Tea Stall", "Tea 2 20.00", "65.00"))
+    ids = {x["id"] for x in fb["checks"]}
+    assert {"total_source", "date_missing", "merchant_unknown"} <= ids
+    none = parse_receipt(L("hello"))
+    assert "total_missing" in {x["id"] for x in none["checks"]}
+
+
+def test_field_evidence_points_at_source_line():
+    lines = L("RELIANCE FRESH", "Date: 02/09/2026", "GRAND TOTAL Rs.160.00")
+    f = parse_receipt(lines)["fields"]
+    assert f["merchant"]["line"] == 0 and f["merchant"]["source"] == "lexicon"
+    assert f["date"]["line"] == 1 and f["total"]["line"] == 2
+    assert f["total"]["source"] == "keyword:grand total"

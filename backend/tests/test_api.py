@@ -23,6 +23,7 @@ def test_health_reports_ocr(client):
     assert body["db"] == "connected"
     assert set(body["ocr"]) >= {"available", "version"}
     assert body["classifier"] is True
+    assert body["model"]["status"] == "ready" and body["status"] in ("ok", "degraded")
 
 
 def test_requires_auth(client):
@@ -62,7 +63,8 @@ def test_scan_receipt_end_to_end(client, new_user):
                                                           for i in body["items"]])
     assert saved["source"] == "scan" and saved["category"] == "Other"
     again = client.post("/api/categories/suggest", json={"merchant": truth.merchant}, headers=new_user).json()
-    assert again == {"category": "Other", "confidence": 1.0, "source": "your correction", "alternatives": []}
+    assert {k: again[k] for k in ("category", "confidence", "source", "alternatives", "status")} == {
+        "category": "Other", "confidence": 1.0, "source": "your correction", "alternatives": [], "status": "override"}
 
     # deleting the expense removes the image
     assert client.delete(f"/api/expenses/{saved['id']}", headers=new_user).status_code == 204
@@ -84,7 +86,12 @@ def test_scan_without_tesseract_still_stores_image(client, new_user, monkeypatch
 def test_scan_validation(client, auth_headers):
     r = client.post("/api/receipts/scan", files={"file": ("a.pdf", b"%PDF", "application/pdf")}, headers=auth_headers)
     assert r.status_code == 415
+    # content-type says JPEG, bytes say otherwise: rejected by magic-byte sniffing
     r = client.post("/api/receipts/scan", files={"file": ("a.jpg", b"garbage", "image/jpeg")}, headers=auth_headers)
+    assert r.status_code == 415
+    # right magic bytes, broken body: Pillow can't parse it
+    r = client.post("/api/receipts/scan", files={"file": ("a.jpg", b"\xff\xd8\xff\xe0" + b"0" * 200, "image/jpeg")},
+                    headers=auth_headers)
     assert r.status_code == 422
     big = io.BytesIO()
     Image.effect_noise((4200, 4200), 90).convert("RGB").save(big, "PNG")
@@ -197,6 +204,7 @@ def test_overview_and_anomalies(client, new_user):
     assert o["top_merchants"][0]["merchant"] == "Barbeque Nation"
     assert [a["id"] for a in o["anomalies"]] == [big["id"]]
     assert "your usual Food & Dining spend" in o["anomalies"][0]["anomaly"]["reason"]
+    assert "robust z" in o["anomalies"][0]["anomaly"]["detail"]
     listed = client.get("/api/expenses", headers=new_user).json()["items"]
     assert next(e for e in listed if e["id"] == big["id"])["anomaly"]["ratio"] >= 6
 
@@ -215,10 +223,19 @@ def test_export_csv(client, new_user):
     assert "Dosa x2" in lines[1]
 
 
-def test_retrain_folds_in_feedback(client, new_user):
+def test_retrain_is_admin_only_and_folds_in_feedback(client, new_user, monkeypatch):
     e = expense(client, new_user, merchant="Kumar Tiffin Centre", amount=90, category="Food & Dining",
                 suggested_category="Other")
     assert e["category"] == "Food & Dining"
     r = client.post("/api/categories/retrain", headers=new_user)
+    assert r.status_code == 403
+    me = client.get("/api/auth/me", headers=new_user).json()
+    from app.config import get_settings
+    monkeypatch.setattr(get_settings(), "admin_emails", me["email"])
+    r = client.post("/api/categories/retrain", headers=new_user)
     assert r.status_code == 200, r.text
     assert r.json()["feedback_rows"] >= 1
+    card = client.get("/api/model").json()["category_model"]["card"]
+    assert card["training_data"]["synthetic"] is True
+    assert card["training_data"]["user_corrections"] >= 1
+    assert "not been re-evaluated" in card["evaluation"]["note"]
