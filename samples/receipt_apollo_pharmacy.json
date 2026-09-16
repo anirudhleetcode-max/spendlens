@@ -1,0 +1,22 @@
+{
+  "merchant": "Apollo Pharmacy",
+  "date": "2026-09-07",
+  "total": 184.0,
+  "tax": 19.68,
+  "payment_mode": "Card",
+  "category": "Health",
+  "items": [
+    {
+      "name": "CETIRIZINE 10MG",
+      "qty": 2,
+      "price": 36.0
+    },
+    {
+      "name": "SAVLON 100ML",
+      "qty": 2,
+      "price": 128.0
+    }
+  ],
+  "date_text": "07 Sep 2026",
+  "total_label": "GRAND TOTAL"
+}

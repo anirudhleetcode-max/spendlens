@@ -1,0 +1,188 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { AlertTriangle, ArrowDownRight, ArrowUpRight, Loader2, ScanLine } from "lucide-react";
+import { api } from "../lib/api";
+import type { Overview as OverviewT } from "../lib/types";
+import { MonthPicker } from "../components/MonthPicker";
+import { SpendLine } from "../components/SpendLine";
+import { BudgetBar, BudgetStatus } from "../components/Status";
+import { dayMonth, inr, inr0, monthLabel, monthName, thisMonth, todayISO } from "../lib/format";
+import { useAuth } from "../lib/auth";
+
+export default function Overview() {
+  const { user } = useAuth();
+  const [month, setMonth] = useState(thisMonth());
+  const [data, setData] = useState<OverviewT | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let live = true;
+    api<OverviewT>(`/api/insights/overview?month=${month}`)
+      .then((d) => { if (live) { setData(d); setError(null); } })
+      .catch((e) => live && setError(e instanceof Error ? e.message : "Could not load"));
+    return () => { live = false; };
+  }, [month]);
+
+  const current = month === thisMonth();
+  const uptoDay = current ? Number(todayISO().slice(8, 10)) : data?.daily.length ?? 31;
+  const maxCat = Math.max(...(data?.by_category.map((c) => c.total) ?? [1]), 1);
+  const flagged = data?.budgets.filter((b) => b.status !== "ok").length ?? 0;
+
+  return (
+    <>
+      <div className="page-head">
+        <div>
+          <p className="eyebrow">{current ? `Hello, ${user?.name.split(" ")[0]}` : "Looking back"}</p>
+          <h1>{monthLabel(month)}</h1>
+        </div>
+        <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+          <MonthPicker value={month} onChange={(m) => { setData(null); setMonth(m); }} />
+          <Link to="/scan" className="btn btn-primary"><ScanLine aria-hidden />Scan receipt</Link>
+        </div>
+      </div>
+
+      {error && <div className="notice error" role="alert"><AlertTriangle aria-hidden />{error}</div>}
+      {!data && !error && <div className="loading"><Loader2 className="spin" aria-hidden />Adding it up…</div>}
+
+      {data && (
+        <>
+          <div className="figures" data-testid="figures">
+            <div className="figure hero">
+              <p className="eyebrow">Spent {current ? "so far" : "in total"}</p>
+              <p className="value" data-testid="month-total">{inr(data.total)}</p>
+              <p className="sub">{data.count} expense{data.count === 1 ? "" : "s"}</p>
+            </div>
+            <div className="figure">
+              <p className="eyebrow">vs {monthName(data.previous_month)}</p>
+              <p className="value">
+                {data.change_pct === null ? "—" : (
+                  <span className={data.change_pct > 0 ? "delta-up" : "delta-down"} style={{ display: "inline-flex", alignItems: "center" }}>
+                    {data.change_pct > 0 ? <ArrowUpRight size={22} aria-hidden /> : <ArrowDownRight size={22} aria-hidden />}
+                    {Math.abs(data.change_pct)}%
+                  </span>
+                )}
+              </p>
+              <p className="sub num">
+                {data.compared_days
+                  ? `${inr0(data.previous_to_date)} by ${data.compared_days} ${monthName(data.previous_month).slice(0, 3)}`
+                  : `${inr0(data.previous_total)} that month`}
+              </p>
+            </div>
+            <div className="figure">
+              <p className="eyebrow">GST paid</p>
+              <p className="value num">{inr0(data.tax)}</p>
+              <p className="sub">from itemised bills</p>
+            </div>
+            <div className="figure">
+              <p className="eyebrow">Budgets</p>
+              <p className="value num">{data.budgets.length ? `${data.budgets.length - flagged}/${data.budgets.length}` : "—"}</p>
+              <p className="sub">{data.budgets.length ? (flagged ? `${flagged} need attention` : "all on track") : <Link to="/budgets">Set a budget</Link>}</p>
+            </div>
+          </div>
+
+          {data.count === 0 ? (
+            <div className="empty">
+              <h3>Nothing recorded for {monthLabel(month)}</h3>
+              <p>Scan a bill or add an expense and this page fills in. <Link to="/scan">Scan your first receipt</Link>.</p>
+            </div>
+          ) : (
+            <>
+              <div className="grid-2">
+                <div>
+<section className="section" aria-labelledby="pace-h">
+                  <div className="section-head"><h2 id="pace-h">Spending pace</h2><span className="muted small">running total by day</span></div>
+                  <SpendLine month={month} prevMonth={data.previous_month} current={data.daily} previous={data.previous_daily} uptoDay={uptoDay} />
+                </section>
+<section className="section" aria-labelledby="cat-h">
+                  <div className="section-head"><h2 id="cat-h">Where it went</h2><span className="muted small">vs {monthName(data.previous_month)}</span></div>
+                  <table className="ledger cat-bars" data-testid="category-split">
+                    <thead><tr><th>Category</th><th className="barcell hide-sm"><span className="visually-hidden">Share</span></th><th className="amt">Amount</th><th className="amt">Change</th></tr></thead>
+                    <tbody>
+                      {data.by_category.map((c) => {
+                        const diff = c.previous ? Math.round((100 * (c.total - c.previous)) / c.previous) : null;
+                        return (
+                          <tr key={c.category}>
+                            <td>
+                              <Link to="/expenses" style={{ color: "inherit", textDecoration: "none" }}>{c.category}</Link>
+                              <div className="share num">{Math.round((100 * c.total) / data.total)}% · {c.count}</div>
+                            </td>
+                            <td className="barcell hide-sm">
+                              <div className="bar-track" title={`${inr(c.total)}`}>
+                                <div className="bar-fill" style={{ width: `${(100 * c.total) / maxCat}%` }} />
+                              </div>
+                            </td>
+                            <td className="amt">{inr(c.total)}</td>
+                            <td className="amt small">
+                              {diff === null ? <span className="muted">new</span>
+                                : <span className={diff > 0 ? "delta-up" : "delta-down"}>{diff > 0 ? "+" : ""}{diff}%</span>}
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </section>
+                </div>
+                <div>
+<section className="section" aria-labelledby="budget-h" data-testid="overview-budgets">
+                  <div className="section-head"><h2 id="budget-h">Budgets</h2><Link to="/budgets">Edit</Link></div>
+                  {data.budgets.length === 0 ? (
+                    <p className="muted">No budgets yet. <Link to="/budgets">Set monthly limits</Link> and we'll warn you when the pace looks high.</p>
+                  ) : (
+                    <ul className="budget-list">
+                      {data.budgets.map((b) => (
+                        <li key={b.category}>
+                          <div className="top">
+                            <span>{b.category}</span>
+                            <span className="num">{inr0(b.spent)} <span className="muted">/ {inr0(b.budget)}</span></span>
+                          </div>
+                          <BudgetBar row={b} />
+                          <div className="top" style={{ marginTop: 6, marginBottom: 0 }}>
+                            <BudgetStatus status={b.status} />
+                            {current && b.status !== "ok" && <span className="small muted num">heading for {inr0(b.projected)}</span>}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+<section className="section" aria-labelledby="anom-h" data-testid="anomalies">
+                    <div className="section-head"><h2 id="anom-h">Worth a look</h2><span className="muted small">unusual for you</span></div>
+                    {data.anomalies.length === 0 ? (
+                      <p className="muted">Nothing out of the ordinary this month.</p>
+                    ) : (
+                      <ul className="anomalies">
+                        {data.anomalies.map((a) => (
+                          <li key={a.id}>
+                            <div>
+                              <div style={{ fontWeight: 500 }}>{a.merchant} <span className="muted small num">· {dayMonth(a.date)}</span></div>
+                              <div className="small" style={{ color: "var(--terra-ink)" }}>{a.anomaly?.reason}</div>
+                            </div>
+                            <span className="amt">{inr0(a.amount)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </section>
+<section className="section" aria-labelledby="merch-h">
+                    <div className="section-head"><h2 id="merch-h">Top merchants</h2></div>
+                    <table className="ledger">
+                      <tbody>
+                        {data.top_merchants.map((t) => (
+                          <tr key={t.merchant}>
+                            <td><div style={{ fontWeight: 500 }}>{t.merchant}</div><div className="share">{t.category} · {t.count} visit{t.count > 1 ? "s" : ""}</div></td>
+                            <td className="amt">{inr(t.total)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </section>
+                </div>
+              </div>
+            </>
+          )}
+        </>
+      )}
+    </>
+  );
+}

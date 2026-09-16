@@ -1,0 +1,27 @@
+{
+  "merchant": "DMart",
+  "date": "2026-09-01",
+  "total": 497.0,
+  "tax": 23.64,
+  "payment_mode": "Cash",
+  "category": "Groceries",
+  "items": [
+    {
+      "name": "TOOR DAL 1KG",
+      "qty": 1,
+      "price": 142.0
+    },
+    {
+      "name": "AMUL BUTTER 500G",
+      "qty": 1,
+      "price": 275.0
+    },
+    {
+      "name": "TATA SALT 1KG",
+      "qty": 2,
+      "price": 56.0
+    }
+  ],
+  "date_text": "01.09.26",
+  "total_label": "GRAND TOTAL"
+}

@@ -1,0 +1,37 @@
+{
+  "merchant": "Saravana Bhavan",
+  "date": "2026-05-31",
+  "total": 1444.0,
+  "tax": 68.76,
+  "payment_mode": "Card",
+  "category": "Food & Dining",
+  "items": [
+    {
+      "name": "RAS MALAI",
+      "qty": 3,
+      "price": 270.0
+    },
+    {
+      "name": "FILTER COFFEE",
+      "qty": 3,
+      "price": 135.0
+    },
+    {
+      "name": "GULAB JAMUN",
+      "qty": 2,
+      "price": 140.0
+    },
+    {
+      "name": "VEG THALI",
+      "qty": 3,
+      "price": 660.0
+    },
+    {
+      "name": "IDLI VADA",
+      "qty": 2,
+      "price": 170.0
+    }
+  ],
+  "date_text": "2026-05-31",
+  "total_label": "BILL AMOUNT"
+}
