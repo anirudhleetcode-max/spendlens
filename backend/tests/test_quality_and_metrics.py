@@ -64,15 +64,18 @@ def test_noise_sigma_estimate():
 
 
 def test_quality_flags_follow_degradation(receipt):
+    codes = lambda q: [i["code"] for i in q["issues"]]  # noqa: E731
     clean = image_quality(decode(receipt))
     blurred = image_quality(decode(degrade(receipt, "gaussian_blur", 4.5)))
-    dark = image_quality(decode(degrade(receipt, "dark", 0.22)))
-    faded = image_quality(decode(degrade(receipt, "low_contrast", 0.15)))
-    assert blurred["sharpness"] < clean["sharpness"] / 3
-    assert "blurry" in [i["code"] for i in blurred["issues"]]
-    assert "dark" in [i["code"] for i in dark["issues"]]
-    assert faded["contrast"] < clean["contrast"] / 3
-    assert "low_contrast" in [i["code"] for i in faded["issues"]]
+    assert clean["issues"] == []
+    assert blurred["sharpness"] < clean["sharpness"] / 3 and "blurry" in codes(blurred)
+    # moderate damage that OCR still reads well is not flagged (limits sit where accuracy collapses)
+    assert codes(image_quality(decode(degrade(receipt, "dark", 0.5)))) == []
+    assert codes(image_quality(decode(degrade(receipt, "low_contrast", 0.4)))) == []
+    # extreme cases are
+    assert "dark" in codes(image_quality(decode(degrade(receipt, "dark", 0.1))))
+    assert "low_contrast" in codes(image_quality(decode(degrade(receipt, "low_contrast", 0.08))))
+    assert "noisy" in codes(image_quality(decode(degrade(receipt, "noise", 80))))
 
 
 @pytest.mark.parametrize("kind", list(CORRUPTIONS))
@@ -116,9 +119,32 @@ def test_ocr_cache_key_keeps_old_paths():
 
 def test_scan_checks_from_quality_and_corrections():
     from app.routers.receipts import quality_checks
-    checks = quality_checks({"issues": [{"code": "blurry", "message": "blurred"}]},
+    checks = quality_checks({"width": 900, "height": 1200, "sharpness": 3.0, "contrast": 70.0, "brightness": 180.0, "noise": 1.0},
                             [{"line": 3, "from": "T0TAL", "to": "TOTAL", "kind": "keyword"},
                              {"line": 3, "from": "1 . 50", "to": "1.50", "kind": "spacing"}])
     assert [c["id"] for c in checks] == ["photo_blurry", "ocr_corrections"]
     assert "T0TAL → TOTAL" in checks[1]["message"] and "Fixed 1 likely OCR misread:" in checks[1]["message"]
-    assert quality_checks({"issues": []}, []) == []
+    ok = {"width": 900, "height": 1200, "sharpness": 300.0, "contrast": 70.0, "brightness": 180.0, "noise": 1.0}
+    assert quality_checks(ok, [], 85.0) == []
+    assert [c["id"] for c in quality_checks(ok, [], 41.0)] == ["photo_ocr_unsure"]
+
+
+def test_contrast_stretch_restores_faded_print():
+    from app.pipeline.preprocess import normalize_contrast
+    faded = np.full((100, 100), 200, np.uint8)
+    faded[40:60, 10:90] = 180                     # ink only 20 grey levels below the paper
+    out = normalize_contrast(faded)
+    assert int(out[50, 50]) < 30 and int(out[0, 0]) > 225
+    blank = np.full((50, 50), 128, np.uint8)
+    assert np.array_equal(normalize_contrast(blank), blank)  # nothing to stretch
+
+
+def test_adaptive_denoise_strength_follows_noise():
+    rng = np.random.default_rng(2)
+    base = np.full((200, 200), 200, np.uint8)
+    base[90:110, 20:180] = 60
+    for sigma in (5, 30):
+        noisy = np.clip(base + rng.normal(0, sigma, base.shape), 0, 255).astype(np.uint8)
+        out = denoise(noisy, "nlmeans_adaptive")
+        assert out[:80].std() < noisy[:80].std() * 0.6   # paper area smoothed at both noise levels
+        assert out[95:105, 40:160].mean() < 110           # the dark stroke survives

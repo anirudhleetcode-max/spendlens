@@ -98,7 +98,8 @@ def label_total(s) -> float | None:
 
 # ---------- OCR with cache ----------
 
-OCR_DEFAULTS = {"oem": 1, "threshold": "adaptive_gaussian", "denoise": "nlmeans", "deskew": True}
+# normalize (contrast stretch) and nlmeans_adaptive are experimental options, off in production.
+OCR_DEFAULTS = {"oem": 1, "threshold": "adaptive_gaussian", "denoise": "nlmeans", "deskew": True, "normalize": False}
 
 
 def ocr_key(ocr_cfg: dict) -> str:

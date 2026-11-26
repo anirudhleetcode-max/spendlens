@@ -1,0 +1,11 @@
+# Preprocessing 1.1 candidates under degradation, on the synthetic DEVELOPMENT seed (42), not the
+# held-out seed used in quality_synthetic.
+name: quality11_synthetic_dev
+task: image_quality
+dataset: synthetic
+n: 30
+seed: 42
+workers: 2
+variants:
+  - {name: v1_0, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: normalize_adaptive, ocr: {preprocess: true, dual: true, psm: 6, normalize: true, denoise: nlmeans_adaptive}}

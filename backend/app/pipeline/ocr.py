@@ -127,7 +127,7 @@ def _preview(img: np.ndarray, lines: list[OcrLine], width: int = 720) -> dict:
 
 def run_ocr(data: bytes, preprocess_enabled: bool = True, psm: int = DEFAULT_PSM, dual: bool = True,
             want_preview: bool = False, oem: int = DEFAULT_OEM, threshold: str = "adaptive_gaussian",
-            denoise: str = "nlmeans", deskew: bool = True) -> dict:
+            denoise: str = "nlmeans", deskew: bool = True, normalize: bool = False) -> dict:
     """Full image -> lines step. Raises ValueError for unreadable images.
 
     preprocess_enabled=False sends the plain grayscale photo to Tesseract (ablation baseline).
@@ -149,7 +149,7 @@ def run_ocr(data: bytes, preprocess_enabled: bool = True, psm: int = DEFAULT_PSM
         if want_preview:
             out["preview"] = _preview(gray, lines)
         return out
-    prep = preprocess(img, denoise_method=denoise, threshold_method=threshold, deskew=deskew)
+    prep = preprocess(img, denoise_method=denoise, threshold_method=threshold, deskew=deskew, normalize=normalize)
     t_pre = time.perf_counter()
     # Adaptive threshold rescues shadows and uneven light but can eat faint thermal print; the denoised
     # grayscale keeps thin strokes. Read both (two tesseract processes in parallel) and keep the read

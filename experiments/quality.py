@@ -144,12 +144,15 @@ def quality_correlations(rows: list[dict]) -> dict:
         out["spearman_vs_total_correct"] = {m: spearman([r["quality"][m] for r in sub],
                                                         [float(r["total"]["exact"]) for r in sub])
                                             for m in ("sharpness", "contrast", "brightness", "noise")}
-        flagged = [r for r in sub if r["quality"]["issues"]]
-        ok = [r for r in sub if not r["quality"]["issues"]]
+        # hints recomputed from the stored measures with the current limits (cached `issues` may be older)
+        from app.pipeline.preprocess import quality_issues
+        hint = {id(r): [i["code"] for i in quality_issues(r["quality"], r.get("mean_conf"))] for r in sub}
+        flagged = [r for r in sub if hint[id(r)]]
+        ok = [r for r in sub if not hint[id(r)]]
         acc = lambda rs: round(sum(r["total"]["exact"] for r in rs) / len(rs), 4) if rs else None  # noqa: E731
         out["retake_hint"] = {"share_flagged": round(len(flagged) / len(sub), 4),
                               "total_accuracy_flagged": acc(flagged), "total_accuracy_not_flagged": acc(ok),
-                              "issue_counts": _count([i for r in flagged for i in r["quality"]["issues"]])}
+                              "issue_counts": _count([i for r in flagged for i in hint[id(r)]])}
     return out
 
 
@@ -158,6 +161,14 @@ def _count(xs):
     for x in xs:
         out[x] = out.get(x, 0) + 1
     return dict(sorted(out.items(), key=lambda kv: -kv[1]))
+
+
+def rescore(run_dir) -> dict:
+    """Recompute quality_vs_errors for a finished run from per_image.jsonl (e.g. after changing the limits)."""
+    import json
+    from pathlib import Path
+    rows = [json.loads(line) for line in open(Path(run_dir) / "per_image.jsonl")]
+    return {v: quality_correlations([r for r in rows if r["variant"] == v]) for v in dict.fromkeys(r["variant"] for r in rows)}
 
 
 def run_quality(cfg: dict, run_dir, load_records) -> dict:

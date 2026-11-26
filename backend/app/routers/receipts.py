@@ -15,7 +15,7 @@ from ..categories import UNCATEGORISED
 from ..config import get_settings
 from ..db import get_bucket, get_db
 from ..pipeline.ocr import ocr_status, run_ocr
-from ..pipeline.preprocess import decode
+from ..pipeline.preprocess import decode, quality_issues
 from ..pipeline.receipt import parse_lines
 from ..security import current_user
 from ..services import classifier
@@ -32,10 +32,11 @@ def _empty_fields() -> dict:
             {"merchant": "", "date": None, "total": None, "tax": 0.0, "payment_mode": "Unknown"}.items()}
 
 
-def quality_checks(quality: dict, corrections: list[dict]) -> list[dict]:
-    """Photo problems (retake hints) and OCR misreads that were repaired, in the same shape as the
-    parser's validation checks so the review screen lists them together."""
-    out = [{"id": f"photo_{i['code']}", "status": "warn", "field": "image", "message": i["message"]} for i in quality["issues"]]
+def quality_checks(quality: dict, corrections: list[dict], mean_conf: float | None = None) -> list[dict]:
+    """Photo problems and low OCR confidence (retake hints) and OCR misreads that were repaired, in the same
+    shape as the parser's validation checks so the review screen lists them together."""
+    out = [{"id": f"photo_{i['code']}", "status": "warn", "field": "image", "message": i["message"]}
+           for i in quality_issues(quality, mean_conf)]
     fixes = [c for c in corrections if c["kind"] != "spacing"]
     if fixes:
         shown = ", ".join(f"{c['from']} → {c['to']}" for c in fixes[:4])
@@ -53,7 +54,7 @@ def _process(data: bytes, ocr_on: bool) -> tuple[bytes, dict | None]:
         return stored, None
     ocr = run_ocr(data, want_preview=True)
     parsed = parse_lines(ocr["lines"])
-    parsed["checks"] = quality_checks(ocr["quality"], parsed["corrections"]) + parsed["checks"]
+    parsed["checks"] = quality_checks(ocr["quality"], parsed["corrections"], ocr["mean_conf"]) + parsed["checks"]
     parsed["ocr"] = {"mean_conf": ocr["mean_conf"], "skew": ocr["skew"], "cropped": ocr["cropped"],
                      "variant": ocr["variant"], "ms": ocr["ms"], "timing_ms": ocr["timing_ms"],
                      "quality": ocr["quality"], "corrections": parsed["corrections"],

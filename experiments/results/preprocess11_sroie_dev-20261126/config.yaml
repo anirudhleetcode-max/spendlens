@@ -1,0 +1,12 @@
+# Preprocessing 1.1 candidates (from the image-quality study) on real receipts before changing production.
+# v1_0 = current production; normalize = contrast stretch before NL-means;
+# normalize_adaptive = stretch + NL-means strength set from the measured noise.
+name: preprocess11_sroie_dev
+task: receipt_extraction
+dataset: sroie_train
+n: 60
+seed: 2
+variants:
+  - {name: v1_0, n: 60, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: normalize, n: 60, ocr: {preprocess: true, dual: true, psm: 6, normalize: true}}
+  - {name: normalize_adaptive, n: 60, ocr: {preprocess: true, dual: true, psm: 6, normalize: true, denoise: nlmeans_adaptive}}

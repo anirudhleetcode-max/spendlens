@@ -135,22 +135,40 @@ def rotate(img: np.ndarray, angle: float) -> np.ndarray:
     return cv2.warpAffine(img, M, (nw, nh), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
 
 
+def normalize_contrast(gray: np.ndarray, low_pct: float = 1.0, high_pct: float = 99.0) -> np.ndarray:
+    """Stretch grey levels so the 1st percentile becomes 0 and the 99th 255. Faded thermal print and dark
+    photos otherwise leave ink only a few grey levels from the paper, and NL-means (fixed strength h)
+    then smooths the text away. Experimental, off by default: it fixed faded and dark synthetic photos but
+    raised CER on real SROIE scans (0.165 -> 0.194) and CORD photos (0.403 -> 0.487); see
+    experiments/reports/ocr_quality.md, section 4."""
+    lo, hi = np.percentile(gray, [low_pct, high_pct])
+    if hi - lo < 8:  # blank page: nothing to stretch
+        return gray
+    out = (gray.astype(np.float32) - lo) * (255.0 / (hi - lo))
+    return np.clip(out, 0, 255).astype(np.uint8)
+
+
 # ---------- denoising and thresholding (selectable, so experiments can compare them) ----------
 
-DENOISE_METHODS = ("nlmeans", "median", "bilateral", "gaussian", "none")
+DENOISE_METHODS = ("nlmeans", "nlmeans_adaptive", "median", "bilateral", "gaussian", "none")
 THRESHOLD_METHODS = ("adaptive_gaussian", "adaptive_mean", "otsu", "sauvola", "none")
 
 
 def denoise(gray: np.ndarray, method: str = "nlmeans") -> np.ndarray:
     """Noise removal on a grayscale image.
 
-    nlmeans    non-local means (production): averages similar patches, keeps stroke edges sharp
+    nlmeans    non-local means with a fixed strength h=12: averages similar patches, keeps edges sharp
+    nlmeans_adaptive  the same with h = 1.5 x the measured noise sigma, clamped to [4, 30]: light on clean
+               or faint print (which a fixed h smooths away), strong on grainy low-light photos
     median     3x3 median: removes salt-and-pepper specks, can close thin gaps in 0/8/6
     bilateral  edge-preserving smoothing; cheaper than NL-means, weaker on sensor noise
     gaussian   3x3 Gaussian blur: removes noise and softens edges
     none       pass-through (ablation)"""
     if method == "nlmeans":
         return cv2.fastNlMeansDenoising(gray, None, h=12, templateWindowSize=7, searchWindowSize=15)
+    if method == "nlmeans_adaptive":
+        h = float(np.clip(1.5 * noise_sigma(gray), 4.0, 30.0))
+        return cv2.fastNlMeansDenoising(gray, None, h=h, templateWindowSize=7, searchWindowSize=15)
     if method == "median":
         return cv2.medianBlur(gray, 3)
     if method == "bilateral":
@@ -196,11 +214,13 @@ def threshold(gray: np.ndarray, method: str = "adaptive_gaussian") -> np.ndarray
 
 # ---------- image quality ----------
 
-# Hand-set limits for the retake hint. They were checked against the degradation study
-# (experiments/configs/quality_synthetic.yaml): below them CER rises steeply. Not learned.
-QUALITY_LIMITS = {"sharpness_min": 60.0, "contrast_min": 35.0, "brightness_min": 70.0, "brightness_max": 235.0,
-                  "short_side_min": 600, "noise_max": 12.0}
-
+# Limits for the retake hints, set from the degradation study (experiments/reports/ocr_quality.md, section 4):
+# each sits where extraction accuracy starts to collapse, not where the image merely looks worse. Contrast
+# and brightness only flag extreme cases: real receipts with little ink read fine at low RMS contrast. Motion blur, shadows
+# and heavy JPEG are not visible to these measures; the OCR-confidence hint (OCR_CONF_MIN) catches them.
+QUALITY_LIMITS = {"sharpness_min": 10.0, "contrast_min": 10.0, "brightness_min": 30.0, "brightness_max": 235.0,
+                  "short_side_min": 300, "noise_max": 20.0}
+OCR_CONF_MIN = 60.0  # Tesseract mean word confidence; below it 79% of SROIE totals were wrong (vs 37% above)
 
 def noise_sigma(gray: np.ndarray) -> float:
     """Immerkaer's fast noise estimate: std of a Laplacian-difference kernel that cancels smooth
@@ -228,22 +248,30 @@ def image_quality(img: np.ndarray) -> dict:
          "contrast": round(float(gray.std()), 1),
          "brightness": round(float(gray.mean()), 1),
          "noise": round(noise_sigma(norm), 2)}
+    q["issues"] = quality_issues(q)
+    return q
+
+
+def quality_issues(q: dict, mean_conf: float | None = None) -> list[dict]:
+    """User-facing retake hints from image_quality() measures and, after OCR, Tesseract's mean confidence."""
     L = QUALITY_LIMITS
     issues = []
-    if q["sharpness"] < L["sharpness_min"]:
+    if q["sharpness"] < L["sharpness_min"] and q["noise"] < L["noise_max"]:  # noise inflates the Laplacian
         issues.append({"code": "blurry", "message": "The photo looks blurred. Hold the phone steady and tap to focus."})
     if q["contrast"] < L["contrast_min"]:
-        issues.append({"code": "low_contrast", "message": "The print is faint or washed out. Try more even light."})
+        issues.append({"code": "low_contrast", "message": "The print is very faint. Try more even light."})
     if q["brightness"] < L["brightness_min"]:
-        issues.append({"code": "dark", "message": "The photo is dark. Move to better light."})
+        issues.append({"code": "dark", "message": "The photo is very dark. Move to better light."})
     elif q["brightness"] > L["brightness_max"]:
         issues.append({"code": "overexposed", "message": "The photo is overexposed. Avoid flash glare."})
-    if min(h, w) < L["short_side_min"]:
+    if min(q["height"], q["width"]) < L["short_side_min"]:
         issues.append({"code": "low_resolution", "message": "The photo is small. Move closer so the bill fills the frame."})
     if q["noise"] > L["noise_max"]:
         issues.append({"code": "noisy", "message": "The photo is grainy. More light will help."})
-    q["issues"] = issues
-    return q
+    if mean_conf is not None and mean_conf < OCR_CONF_MIN:
+        issues.append({"code": "ocr_unsure", "message": f"The text was hard to read (OCR confidence {mean_conf:.0f}%). "
+                       "A sharper, flatter, evenly lit photo will help; check every field."})
+    return issues
 
 
 @dataclass
@@ -256,7 +284,7 @@ class Prepared:
 
 
 def preprocess(img: np.ndarray, crop: bool = True, denoise_method: str = "nlmeans",
-               threshold_method: str = "adaptive_gaussian", deskew: bool = True) -> Prepared:
+               threshold_method: str = "adaptive_gaussian", deskew: bool = True, normalize: bool = False) -> Prepared:
     """Defaults are the production pipeline; the keyword arguments exist for experiments."""
     t = time.perf_counter()
     ms = {}
@@ -273,6 +301,8 @@ def preprocess(img: np.ndarray, crop: bool = True, denoise_method: str = "nlmean
             img = perspective_crop(img, corners); cropped = True
         tick("crop")
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    if normalize:
+        gray = normalize_contrast(gray)
     gray = denoise(gray, denoise_method); tick("denoise")
     skew = estimate_skew(gray) if deskew else 0.0
     if abs(skew) > 0.3:
