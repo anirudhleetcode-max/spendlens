@@ -1,0 +1,1481 @@
+{
+  "dataset": {
+    "name": "synthetic",
+    "generator": "backend/ml/receipts_synth.py",
+    "seed": 42,
+    "synthetic": true,
+    "note": "",
+    "subset_ids_sha256_16": "8848958dcb38907a",
+    "n_selected": 30
+  },
+  "workers": 2,
+  "note": "Latency is not comparable here: images were OCR'd several at a time.",
+  "variants": {
+    "v1_0": {
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      },
+      "curves": {
+        "clean": [
+          {
+            "level": null,
+            "cer": 0.003,
+            "wer": 0.0196,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 719.0,
+              "contrast": 76.8,
+              "brightness": 182.4,
+              "noise": 2.6,
+              "share_with_issues": 0.0
+            },
+            "seconds": 15.6
+          }
+        ],
+        "gaussian_blur": [
+          {
+            "level": 1.0,
+            "cer": 0.0027,
+            "wer": 0.0243,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 95.4,
+              "contrast": 75.0,
+              "brightness": 182.4,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 19.4
+          },
+          {
+            "level": 2.0,
+            "cer": 0.0196,
+            "wer": 0.1134,
+            "merchant": 1.0,
+            "date": 0.9667,
+            "total": 0.9,
+            "total_auto_precision": 0.8966,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 12.7,
+              "contrast": 73.3,
+              "brightness": 182.4,
+              "noise": 0.3,
+              "share_with_issues": 0.067
+            },
+            "seconds": 15.2
+          },
+          {
+            "level": 3.0,
+            "cer": 0.49,
+            "wer": 0.9866,
+            "merchant": 0.9,
+            "date": 0.0667,
+            "total": 0.0667,
+            "total_auto_precision": 0.0,
+            "total_flagged": 0.9,
+            "mean_quality": {
+              "sharpness": 3.2,
+              "contrast": 72.4,
+              "brightness": 182.4,
+              "noise": 0.2,
+              "share_with_issues": 1.0
+            },
+            "seconds": 17.4
+          },
+          {
+            "level": 4.5,
+            "cer": 0.7621,
+            "wer": 1.169,
+            "merchant": 0.0,
+            "date": 0.0,
+            "total": 0.0,
+            "total_auto_precision": null,
+            "total_flagged": 1.0,
+            "mean_quality": {
+              "sharpness": 1.3,
+              "contrast": 71.5,
+              "brightness": 182.4,
+              "noise": 0.1,
+              "share_with_issues": 1.0
+            },
+            "seconds": 17.6
+          }
+        ],
+        "motion_blur": [
+          {
+            "level": 5,
+            "cer": 0.0541,
+            "wer": 0.207,
+            "merchant": 1.0,
+            "date": 0.0333,
+            "total": 0.2667,
+            "total_auto_precision": 0.2143,
+            "total_flagged": 0.0667,
+            "mean_quality": {
+              "sharpness": 136.7,
+              "contrast": 74.8,
+              "brightness": 182.4,
+              "noise": 0.6,
+              "share_with_issues": 0.0
+            },
+            "seconds": 15.9
+          },
+          {
+            "level": 11,
+            "cer": 0.5635,
+            "wer": 0.9283,
+            "merchant": 0.9,
+            "date": 0.0,
+            "total": 0.0,
+            "total_auto_precision": 0.0,
+            "total_flagged": 0.9333,
+            "mean_quality": {
+              "sharpness": 61.3,
+              "contrast": 73.3,
+              "brightness": 182.4,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 17.6
+          },
+          {
+            "level": 17,
+            "cer": 0.775,
+            "wer": 1.067,
+            "merchant": 0.0,
+            "date": 0.0,
+            "total": 0.0,
+            "total_auto_precision": null,
+            "total_flagged": 1.0,
+            "mean_quality": {
+              "sharpness": 40.6,
+              "contrast": 72.6,
+              "brightness": 182.4,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 21.3
+          },
+          {
+            "level": 25,
+            "cer": 0.8077,
+            "wer": 1.0408,
+            "merchant": 0.0,
+            "date": 0.0,
+            "total": 0.0,
+            "total_auto_precision": null,
+            "total_flagged": 1.0,
+            "mean_quality": {
+              "sharpness": 29.3,
+              "contrast": 71.8,
+              "brightness": 182.4,
+              "noise": 0.3,
+              "share_with_issues": 0.0
+            },
+            "seconds": 20.8
+          }
+        ],
+        "noise": [
+          {
+            "level": 10,
+            "cer": 0.0032,
+            "wer": 0.0212,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9655,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 1464.9,
+              "contrast": 76.5,
+              "brightness": 181.0,
+              "noise": 5.9,
+              "share_with_issues": 0.0
+            },
+            "seconds": 12.5
+          },
+          {
+            "level": 20,
+            "cer": 0.0106,
+            "wer": 0.0507,
+            "merchant": 1.0,
+            "date": 0.9667,
+            "total": 0.9333,
+            "total_auto_precision": 0.931,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 3460.0,
+              "contrast": 76.4,
+              "brightness": 179.3,
+              "noise": 10.1,
+              "share_with_issues": 0.0
+            },
+            "seconds": 17.2
+          },
+          {
+            "level": 35,
+            "cer": 0.0529,
+            "wer": 0.2046,
+            "merchant": 0.9667,
+            "date": 0.9,
+            "total": 0.8,
+            "total_auto_precision": 0.8148,
+            "total_flagged": 0.1,
+            "mean_quality": {
+              "sharpness": 8509.2,
+              "contrast": 77.3,
+              "brightness": 176.2,
+              "noise": 16.3,
+              "share_with_issues": 0.0
+            },
+            "seconds": 22.7
+          },
+          {
+            "level": 55,
+            "cer": 0.5771,
+            "wer": 1.2833,
+            "merchant": 0.5333,
+            "date": 0.5333,
+            "total": 0.2333,
+            "total_auto_precision": 0.5,
+            "total_flagged": 0.7333,
+            "mean_quality": {
+              "sharpness": 18093.4,
+              "contrast": 79.9,
+              "brightness": 172.2,
+              "noise": 24.0,
+              "share_with_issues": 0.9
+            },
+            "seconds": 49.3
+          }
+        ],
+        "jpeg": [
+          {
+            "level": 40,
+            "cer": 0.0023,
+            "wer": 0.019,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 461.0,
+              "contrast": 76.6,
+              "brightness": 182.4,
+              "noise": 0.8,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.1
+          },
+          {
+            "level": 20,
+            "cer": 0.0031,
+            "wer": 0.0235,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 428.3,
+              "contrast": 76.8,
+              "brightness": 182.5,
+              "noise": 0.5,
+              "share_with_issues": 0.0
+            },
+            "seconds": 16.0
+          },
+          {
+            "level": 10,
+            "cer": 0.0062,
+            "wer": 0.04,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9333,
+            "total_auto_precision": 0.9333,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 422.3,
+              "contrast": 77.0,
+              "brightness": 182.9,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.0
+          },
+          {
+            "level": 5,
+            "cer": 0.0233,
+            "wer": 0.1268,
+            "merchant": 1.0,
+            "date": 0.9,
+            "total": 0.6667,
+            "total_auto_precision": 0.6897,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 456.4,
+              "contrast": 77.1,
+              "brightness": 182.7,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.7
+          }
+        ],
+        "downscale": [
+          {
+            "level": 0.7,
+            "cer": 0.0034,
+            "wer": 0.0261,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 259.3,
+              "contrast": 76.0,
+              "brightness": 182.4,
+              "noise": 0.8,
+              "share_with_issues": 0.0
+            },
+            "seconds": 12.5
+          },
+          {
+            "level": 0.5,
+            "cer": 0.0024,
+            "wer": 0.0225,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 188.2,
+              "contrast": 76.0,
+              "brightness": 182.5,
+              "noise": 0.5,
+              "share_with_issues": 0.0
+            },
+            "seconds": 11.3
+          },
+          {
+            "level": 0.35,
+            "cer": 0.0153,
+            "wer": 0.084,
+            "merchant": 1.0,
+            "date": 0.9667,
+            "total": 0.9667,
+            "total_auto_precision": 0.9655,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 66.3,
+              "contrast": 75.1,
+              "brightness": 182.4,
+              "noise": 0.3,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.3
+          },
+          {
+            "level": 0.25,
+            "cer": 0.0778,
+            "wer": 0.3324,
+            "merchant": 1.0,
+            "date": 0.4667,
+            "total": 0.7333,
+            "total_auto_precision": 0.75,
+            "total_flagged": 0.0667,
+            "mean_quality": {
+              "sharpness": 25.4,
+              "contrast": 74.5,
+              "brightness": 182.4,
+              "noise": 0.3,
+              "share_with_issues": 1.0
+            },
+            "seconds": 8.3
+          }
+        ],
+        "low_contrast": [
+          {
+            "level": 0.6,
+            "cer": 0.0032,
+            "wer": 0.0244,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 265.1,
+              "contrast": 46.0,
+              "brightness": 188.8,
+              "noise": 1.6,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.5
+          },
+          {
+            "level": 0.4,
+            "cer": 0.0024,
+            "wer": 0.0223,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 118.5,
+              "contrast": 30.6,
+              "brightness": 192.5,
+              "noise": 1.1,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.1
+          },
+          {
+            "level": 0.25,
+            "cer": 0.0177,
+            "wer": 0.1399,
+            "merchant": 1.0,
+            "date": 0.9667,
+            "total": 0.9333,
+            "total_auto_precision": 0.931,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 47.5,
+              "contrast": 19.1,
+              "brightness": 195.3,
+              "noise": 0.8,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.1
+          },
+          {
+            "level": 0.15,
+            "cer": 0.4312,
+            "wer": 0.9155,
+            "merchant": 0.2667,
+            "date": 0.1333,
+            "total": 0.5667,
+            "total_auto_precision": 0.7391,
+            "total_flagged": 0.2333,
+            "mean_quality": {
+              "sharpness": 18.7,
+              "contrast": 11.5,
+              "brightness": 197.1,
+              "noise": 0.5,
+              "share_with_issues": 0.233
+            },
+            "seconds": 14.5
+          }
+        ],
+        "dark": [
+          {
+            "level": 0.7,
+            "cer": 0.0024,
+            "wer": 0.0182,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 357.7,
+              "contrast": 53.7,
+              "brightness": 127.1,
+              "noise": 1.9,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.7
+          },
+          {
+            "level": 0.5,
+            "cer": 0.0028,
+            "wer": 0.0238,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 181.2,
+              "contrast": 38.3,
+              "brightness": 91.0,
+              "noise": 1.3,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.5
+          },
+          {
+            "level": 0.35,
+            "cer": 0.0032,
+            "wer": 0.0293,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 90.5,
+              "contrast": 26.7,
+              "brightness": 63.3,
+              "noise": 1.0,
+              "share_with_issues": 0.0
+            },
+            "seconds": 16.0
+          },
+          {
+            "level": 0.22,
+            "cer": 0.0716,
+            "wer": 0.3567,
+            "merchant": 0.8,
+            "date": 0.8333,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 38.0,
+              "contrast": 17.0,
+              "brightness": 39.9,
+              "noise": 0.7,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.7
+          }
+        ],
+        "shadow": [
+          {
+            "level": 0.3,
+            "cer": 0.0682,
+            "wer": 0.0914,
+            "merchant": 1.0,
+            "date": 0.9667,
+            "total": 0.8667,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.1667,
+            "mean_quality": {
+              "sharpness": 541.7,
+              "contrast": 68.9,
+              "brightness": 154.3,
+              "noise": 2.2,
+              "share_with_issues": 0.0
+            },
+            "seconds": 15.1
+          },
+          {
+            "level": 0.5,
+            "cer": 0.1916,
+            "wer": 0.2208,
+            "merchant": 1.0,
+            "date": 0.8667,
+            "total": 0.6,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.4667,
+            "mean_quality": {
+              "sharpness": 447.4,
+              "contrast": 68.6,
+              "brightness": 136.0,
+              "noise": 2.0,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.7
+          },
+          {
+            "level": 0.7,
+            "cer": 0.3244,
+            "wer": 0.3771,
+            "merchant": 0.9667,
+            "date": 0.8333,
+            "total": 0.4667,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.7333,
+            "mean_quality": {
+              "sharpness": 375.5,
+              "contrast": 72.4,
+              "brightness": 117.7,
+              "noise": 1.7,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.2
+          },
+          {
+            "level": 0.85,
+            "cer": 0.4448,
+            "wer": 0.5102,
+            "merchant": 0.9333,
+            "date": 0.6667,
+            "total": 0.3,
+            "total_auto_precision": null,
+            "total_flagged": 1.0,
+            "mean_quality": {
+              "sharpness": 336.2,
+              "contrast": 77.5,
+              "brightness": 104.0,
+              "noise": 1.6,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.1
+          }
+        ],
+        "rotation": [
+          {
+            "level": 3,
+            "cer": 0.0026,
+            "wer": 0.0223,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 456.8,
+              "contrast": 78.2,
+              "brightness": 173.2,
+              "noise": 1.5,
+              "share_with_issues": 0.0
+            },
+            "seconds": 19.0
+          },
+          {
+            "level": 8,
+            "cer": 0.0033,
+            "wer": 0.027,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 486.9,
+              "contrast": 78.3,
+              "brightness": 161.4,
+              "noise": 1.5,
+              "share_with_issues": 0.0
+            },
+            "seconds": 15.6
+          },
+          {
+            "level": 15,
+            "cer": 0.0028,
+            "wer": 0.0215,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 553.2,
+              "contrast": 76.8,
+              "brightness": 150.2,
+              "noise": 1.7,
+              "share_with_issues": 0.0
+            },
+            "seconds": 15.5
+          },
+          {
+            "level": 25,
+            "cer": 0.0028,
+            "wer": 0.0241,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9655,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 645.3,
+              "contrast": 74.2,
+              "brightness": 140.6,
+              "noise": 2.2,
+              "share_with_issues": 0.0
+            },
+            "seconds": 15.0
+          }
+        ]
+      }
+    },
+    "normalize_adaptive": {
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "normalize": true,
+        "denoise": "nlmeans_adaptive"
+      },
+      "curves": {
+        "clean": [
+          {
+            "level": null,
+            "cer": 0.0051,
+            "wer": 0.0306,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 719.0,
+              "contrast": 76.8,
+              "brightness": 182.4,
+              "noise": 2.6,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.3
+          }
+        ],
+        "gaussian_blur": [
+          {
+            "level": 1.0,
+            "cer": 0.0024,
+            "wer": 0.0223,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 95.4,
+              "contrast": 75.0,
+              "brightness": 182.4,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 12.2
+          },
+          {
+            "level": 2.0,
+            "cer": 0.0078,
+            "wer": 0.0541,
+            "merchant": 1.0,
+            "date": 0.9,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 12.7,
+              "contrast": 73.3,
+              "brightness": 182.4,
+              "noise": 0.3,
+              "share_with_issues": 0.067
+            },
+            "seconds": 14.6
+          },
+          {
+            "level": 3.0,
+            "cer": 0.1061,
+            "wer": 0.4237,
+            "merchant": 0.8333,
+            "date": 0.5667,
+            "total": 0.3,
+            "total_auto_precision": 0.32,
+            "total_flagged": 0.1667,
+            "mean_quality": {
+              "sharpness": 3.2,
+              "contrast": 72.4,
+              "brightness": 182.4,
+              "noise": 0.2,
+              "share_with_issues": 1.0
+            },
+            "seconds": 14.1
+          },
+          {
+            "level": 4.5,
+            "cer": 0.5482,
+            "wer": 1.1903,
+            "merchant": 0.1667,
+            "date": 0.0,
+            "total": 0.0667,
+            "total_auto_precision": 0.0,
+            "total_flagged": 0.9333,
+            "mean_quality": {
+              "sharpness": 1.3,
+              "contrast": 71.5,
+              "brightness": 182.4,
+              "noise": 0.1,
+              "share_with_issues": 1.0
+            },
+            "seconds": 15.2
+          }
+        ],
+        "motion_blur": [
+          {
+            "level": 5,
+            "cer": 0.0547,
+            "wer": 0.1993,
+            "merchant": 1.0,
+            "date": 0.2333,
+            "total": 0.1333,
+            "total_auto_precision": 0.1111,
+            "total_flagged": 0.1,
+            "mean_quality": {
+              "sharpness": 136.7,
+              "contrast": 74.8,
+              "brightness": 182.4,
+              "noise": 0.6,
+              "share_with_issues": 0.0
+            },
+            "seconds": 15.8
+          },
+          {
+            "level": 11,
+            "cer": 0.5128,
+            "wer": 0.9273,
+            "merchant": 0.8667,
+            "date": 0.0,
+            "total": 0.0,
+            "total_auto_precision": 0.0,
+            "total_flagged": 0.9667,
+            "mean_quality": {
+              "sharpness": 61.3,
+              "contrast": 73.3,
+              "brightness": 182.4,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 16.3
+          },
+          {
+            "level": 17,
+            "cer": 0.7469,
+            "wer": 1.0099,
+            "merchant": 0.0,
+            "date": 0.0,
+            "total": 0.0,
+            "total_auto_precision": null,
+            "total_flagged": 1.0,
+            "mean_quality": {
+              "sharpness": 40.6,
+              "contrast": 72.6,
+              "brightness": 182.4,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 16.5
+          },
+          {
+            "level": 25,
+            "cer": 0.8092,
+            "wer": 1.0483,
+            "merchant": 0.0,
+            "date": 0.0,
+            "total": 0.0,
+            "total_auto_precision": null,
+            "total_flagged": 1.0,
+            "mean_quality": {
+              "sharpness": 29.3,
+              "contrast": 71.8,
+              "brightness": 182.4,
+              "noise": 0.3,
+              "share_with_issues": 0.0
+            },
+            "seconds": 22.8
+          }
+        ],
+        "noise": [
+          {
+            "level": 10,
+            "cer": 0.0054,
+            "wer": 0.0308,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 1464.9,
+              "contrast": 76.5,
+              "brightness": 181.0,
+              "noise": 5.9,
+              "share_with_issues": 0.0
+            },
+            "seconds": 12.1
+          },
+          {
+            "level": 20,
+            "cer": 0.011,
+            "wer": 0.0483,
+            "merchant": 1.0,
+            "date": 0.9667,
+            "total": 0.8667,
+            "total_auto_precision": 0.8621,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 3460.0,
+              "contrast": 76.4,
+              "brightness": 179.3,
+              "noise": 10.1,
+              "share_with_issues": 0.0
+            },
+            "seconds": 17.5
+          },
+          {
+            "level": 35,
+            "cer": 0.0215,
+            "wer": 0.1073,
+            "merchant": 1.0,
+            "date": 0.8333,
+            "total": 0.6333,
+            "total_auto_precision": 0.6333,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 8509.2,
+              "contrast": 77.3,
+              "brightness": 176.2,
+              "noise": 16.3,
+              "share_with_issues": 0.0
+            },
+            "seconds": 12.8
+          },
+          {
+            "level": 55,
+            "cer": 0.1496,
+            "wer": 0.4481,
+            "merchant": 0.9667,
+            "date": 0.7,
+            "total": 0.3,
+            "total_auto_precision": 0.35,
+            "total_flagged": 0.3333,
+            "mean_quality": {
+              "sharpness": 18093.4,
+              "contrast": 79.9,
+              "brightness": 172.2,
+              "noise": 24.0,
+              "share_with_issues": 0.9
+            },
+            "seconds": 26.1
+          }
+        ],
+        "jpeg": [
+          {
+            "level": 40,
+            "cer": 0.0036,
+            "wer": 0.0249,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 461.0,
+              "contrast": 76.6,
+              "brightness": 182.4,
+              "noise": 0.8,
+              "share_with_issues": 0.0
+            },
+            "seconds": 18.1
+          },
+          {
+            "level": 20,
+            "cer": 0.0039,
+            "wer": 0.0253,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 428.3,
+              "contrast": 76.8,
+              "brightness": 182.5,
+              "noise": 0.5,
+              "share_with_issues": 0.0
+            },
+            "seconds": 15.7
+          },
+          {
+            "level": 10,
+            "cer": 0.0055,
+            "wer": 0.0382,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9,
+            "total_auto_precision": 0.931,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 422.3,
+              "contrast": 77.0,
+              "brightness": 182.9,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 10.9
+          },
+          {
+            "level": 5,
+            "cer": 0.0233,
+            "wer": 0.1298,
+            "merchant": 1.0,
+            "date": 0.9333,
+            "total": 0.6667,
+            "total_auto_precision": 0.6897,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 456.4,
+              "contrast": 77.1,
+              "brightness": 182.7,
+              "noise": 0.4,
+              "share_with_issues": 0.0
+            },
+            "seconds": 11.2
+          }
+        ],
+        "downscale": [
+          {
+            "level": 0.7,
+            "cer": 0.0026,
+            "wer": 0.0219,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 259.3,
+              "contrast": 76.0,
+              "brightness": 182.4,
+              "noise": 0.8,
+              "share_with_issues": 0.0
+            },
+            "seconds": 16.7
+          },
+          {
+            "level": 0.5,
+            "cer": 0.0021,
+            "wer": 0.0193,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 188.2,
+              "contrast": 76.0,
+              "brightness": 182.5,
+              "noise": 0.5,
+              "share_with_issues": 0.0
+            },
+            "seconds": 16.6
+          },
+          {
+            "level": 0.35,
+            "cer": 0.0167,
+            "wer": 0.0925,
+            "merchant": 1.0,
+            "date": 0.9,
+            "total": 0.9333,
+            "total_auto_precision": 0.931,
+            "total_flagged": 0.0333,
+            "mean_quality": {
+              "sharpness": 66.3,
+              "contrast": 75.1,
+              "brightness": 182.4,
+              "noise": 0.3,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.4
+          },
+          {
+            "level": 0.25,
+            "cer": 0.0851,
+            "wer": 0.3541,
+            "merchant": 1.0,
+            "date": 0.3333,
+            "total": 0.6,
+            "total_auto_precision": 0.64,
+            "total_flagged": 0.1667,
+            "mean_quality": {
+              "sharpness": 25.4,
+              "contrast": 74.5,
+              "brightness": 182.4,
+              "noise": 0.3,
+              "share_with_issues": 1.0
+            },
+            "seconds": 12.1
+          }
+        ],
+        "low_contrast": [
+          {
+            "level": 0.6,
+            "cer": 0.0052,
+            "wer": 0.0309,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 265.1,
+              "contrast": 46.0,
+              "brightness": 188.8,
+              "noise": 1.6,
+              "share_with_issues": 0.0
+            },
+            "seconds": 18.7
+          },
+          {
+            "level": 0.4,
+            "cer": 0.0049,
+            "wer": 0.0278,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 118.5,
+              "contrast": 30.6,
+              "brightness": 192.5,
+              "noise": 1.1,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.4
+          },
+          {
+            "level": 0.25,
+            "cer": 0.004,
+            "wer": 0.025,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 47.5,
+              "contrast": 19.1,
+              "brightness": 195.3,
+              "noise": 0.8,
+              "share_with_issues": 0.0
+            },
+            "seconds": 17.2
+          },
+          {
+            "level": 0.15,
+            "cer": 0.0039,
+            "wer": 0.0265,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9333,
+            "total_auto_precision": 0.9333,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 18.7,
+              "contrast": 11.5,
+              "brightness": 197.1,
+              "noise": 0.5,
+              "share_with_issues": 0.233
+            },
+            "seconds": 18.2
+          }
+        ],
+        "dark": [
+          {
+            "level": 0.7,
+            "cer": 0.0041,
+            "wer": 0.0286,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 357.7,
+              "contrast": 53.7,
+              "brightness": 127.1,
+              "noise": 1.9,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.8
+          },
+          {
+            "level": 0.5,
+            "cer": 0.0053,
+            "wer": 0.0318,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 181.2,
+              "contrast": 38.3,
+              "brightness": 91.0,
+              "noise": 1.3,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.0
+          },
+          {
+            "level": 0.35,
+            "cer": 0.0045,
+            "wer": 0.0257,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 90.5,
+              "contrast": 26.7,
+              "brightness": 63.3,
+              "noise": 1.0,
+              "share_with_issues": 0.0
+            },
+            "seconds": 12.4
+          },
+          {
+            "level": 0.22,
+            "cer": 0.0042,
+            "wer": 0.027,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 38.0,
+              "contrast": 17.0,
+              "brightness": 39.9,
+              "noise": 0.7,
+              "share_with_issues": 0.0
+            },
+            "seconds": 16.0
+          }
+        ],
+        "shadow": [
+          {
+            "level": 0.3,
+            "cer": 0.0083,
+            "wer": 0.0434,
+            "merchant": 0.9667,
+            "date": 1.0,
+            "total": 0.9,
+            "total_auto_precision": 0.9643,
+            "total_flagged": 0.0667,
+            "mean_quality": {
+              "sharpness": 541.7,
+              "contrast": 68.9,
+              "brightness": 154.3,
+              "noise": 2.2,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.4
+          },
+          {
+            "level": 0.5,
+            "cer": 0.09,
+            "wer": 0.1268,
+            "merchant": 0.9667,
+            "date": 0.9667,
+            "total": 0.7667,
+            "total_auto_precision": 0.9167,
+            "total_flagged": 0.2,
+            "mean_quality": {
+              "sharpness": 447.4,
+              "contrast": 68.6,
+              "brightness": 136.0,
+              "noise": 2.0,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.3
+          },
+          {
+            "level": 0.7,
+            "cer": 0.1745,
+            "wer": 0.2077,
+            "merchant": 1.0,
+            "date": 0.8333,
+            "total": 0.6333,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.4,
+            "mean_quality": {
+              "sharpness": 375.5,
+              "contrast": 72.4,
+              "brightness": 117.7,
+              "noise": 1.7,
+              "share_with_issues": 0.0
+            },
+            "seconds": 13.6
+          },
+          {
+            "level": 0.85,
+            "cer": 0.3541,
+            "wer": 0.4078,
+            "merchant": 1.0,
+            "date": 0.7667,
+            "total": 0.3,
+            "total_auto_precision": 0.6667,
+            "total_flagged": 0.8,
+            "mean_quality": {
+              "sharpness": 336.2,
+              "contrast": 77.5,
+              "brightness": 104.0,
+              "noise": 1.6,
+              "share_with_issues": 0.0
+            },
+            "seconds": 12.6
+          }
+        ],
+        "rotation": [
+          {
+            "level": 3,
+            "cer": 0.0046,
+            "wer": 0.0321,
+            "merchant": 1.0,
+            "date": 0.9667,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 456.8,
+              "contrast": 78.2,
+              "brightness": 173.2,
+              "noise": 1.5,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.3
+          },
+          {
+            "level": 8,
+            "cer": 0.0053,
+            "wer": 0.0333,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 1.0,
+            "total_auto_precision": 1.0,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 486.9,
+              "contrast": 78.3,
+              "brightness": 161.4,
+              "noise": 1.5,
+              "share_with_issues": 0.0
+            },
+            "seconds": 11.6
+          },
+          {
+            "level": 15,
+            "cer": 0.0043,
+            "wer": 0.0269,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 553.2,
+              "contrast": 76.8,
+              "brightness": 150.2,
+              "noise": 1.7,
+              "share_with_issues": 0.0
+            },
+            "seconds": 12.8
+          },
+          {
+            "level": 25,
+            "cer": 0.005,
+            "wer": 0.0282,
+            "merchant": 1.0,
+            "date": 1.0,
+            "total": 0.9667,
+            "total_auto_precision": 0.9667,
+            "total_flagged": 0.0,
+            "mean_quality": {
+              "sharpness": 645.3,
+              "contrast": 74.2,
+              "brightness": 140.6,
+              "noise": 2.2,
+              "share_with_issues": 0.0
+            },
+            "seconds": 14.1
+          }
+        ]
+      }
+    }
+  },
+  "quality_vs_errors": {
+    "v1_0": {
+      "n_images": 1110,
+      "spearman_vs_cer": {
+        "sharpness": -0.382,
+        "contrast": 0.025,
+        "brightness": 0.115,
+        "noise": -0.325,
+        "tesseract_mean_conf": -0.826
+      },
+      "spearman_vs_wer": {
+        "sharpness": -0.407,
+        "contrast": -0.015,
+        "brightness": 0.13,
+        "noise": -0.339,
+        "tesseract_mean_conf": -0.823
+      },
+      "spearman_vs_total_correct": {
+        "sharpness": 0.304,
+        "contrast": -0.105,
+        "brightness": -0.07,
+        "noise": 0.288
+      },
+      "retake_hint": {
+        "share_flagged": 0.2045,
+        "total_accuracy_flagged": 0.1674,
+        "total_accuracy_not_flagged": 0.8777,
+        "issue_counts": {
+          "ocr_unsure": 191,
+          "blurry": 67,
+          "low_resolution": 30,
+          "noisy": 27,
+          "low_contrast": 3
+        }
+      }
+    },
+    "normalize_adaptive": {
+      "n_images": 1110,
+      "spearman_vs_cer": {
+        "sharpness": -0.216,
+        "contrast": 0.191,
+        "brightness": 0.037,
+        "noise": -0.228,
+        "tesseract_mean_conf": -0.797
+      },
+      "spearman_vs_wer": {
+        "sharpness": -0.244,
+        "contrast": 0.198,
+        "brightness": 0.068,
+        "noise": -0.275,
+        "tesseract_mean_conf": -0.807
+      },
+      "spearman_vs_total_correct": {
+        "sharpness": 0.247,
+        "contrast": -0.172,
+        "brightness": -0.041,
+        "noise": 0.254
+      },
+      "retake_hint": {
+        "share_flagged": 0.1955,
+        "total_accuracy_flagged": 0.2166,
+        "total_accuracy_not_flagged": 0.8735,
+        "issue_counts": {
+          "ocr_unsure": 129,
+          "blurry": 67,
+          "low_resolution": 30,
+          "noisy": 27,
+          "low_contrast": 3
+        }
+      }
+    }
+  },
+  "run_id": "quality11_synthetic_dev-20261126",
+  "seconds": 1356.4
+}
