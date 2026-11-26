@@ -1,0 +1,25 @@
+# OCR configuration comparison: one change at a time against production
+# (preprocess -> adaptive Gaussian threshold + NL-means denoise + deskew, read binary AND gray, PSM 6, LSTM).
+# Tesseract's legacy engine (OEM 0/2) is not compared: the installed eng.traineddata is LSTM-only.
+# CORD test: phone photos (backgrounds, perspective, shadows) - where preprocessing should matter.
+# Totals use Indonesian formatting (40.000), so look at CER / WER first.
+name: ocr_configs_cord
+task: receipt_extraction
+dataset: cord
+n: 100
+seed: 0
+variants:
+  - {name: production, n: 50, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: raw_gray, n: 50, ocr: {preprocess: false, dual: false, psm: 6}}
+  - {name: binary_only, n: 50, ocr: {preprocess: true, dual: false, psm: 6}}
+  - {name: thr_adaptive_mean, n: 50, ocr: {preprocess: true, dual: true, psm: 6, threshold: adaptive_mean}}
+  - {name: thr_otsu, n: 50, ocr: {preprocess: true, dual: true, psm: 6, threshold: otsu}}
+  - {name: thr_sauvola, n: 50, ocr: {preprocess: true, dual: true, psm: 6, threshold: sauvola}}
+  - {name: thr_none_gray_only, n: 50, ocr: {preprocess: true, dual: true, psm: 6, threshold: none}}
+  - {name: dn_median, n: 50, ocr: {preprocess: true, dual: true, psm: 6, denoise: median}}
+  - {name: dn_bilateral, n: 50, ocr: {preprocess: true, dual: true, psm: 6, denoise: bilateral}}
+  - {name: dn_none, n: 50, ocr: {preprocess: true, dual: true, psm: 6, denoise: none}}
+  - {name: no_deskew, n: 50, ocr: {preprocess: true, dual: true, psm: 6, deskew: false}}
+  - {name: psm3_auto, n: 50, ocr: {preprocess: true, dual: true, psm: 3}}
+  - {name: psm4_column, n: 50, ocr: {preprocess: true, dual: true, psm: 4}}
+  - {name: psm11_sparse, n: 50, ocr: {preprocess: true, dual: true, psm: 11}}

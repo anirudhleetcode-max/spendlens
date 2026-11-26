@@ -1,0 +1,1102 @@
+{
+  "dataset": {
+    "name": "cord",
+    "title": "CORD v2 (Clova), test split",
+    "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7",
+    "licence": "CC-BY-4.0",
+    "synthetic": false,
+    "region": "Indonesia (IDR, '.' as thousands separator, no decimals)",
+    "subset_ids_sha256_16": "94acab96a1159652",
+    "n_selected": 100
+  },
+  "variants": {
+    "production": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.2979,
+        "normalised": 0.3404,
+        "coverage": 0.617,
+        "within_1pct": 0.3404,
+        "precision": 0.4828,
+        "recall": 0.2979,
+        "f1": 0.3685,
+        "tp": 14,
+        "fp": 15,
+        "fn": 33,
+        "auto": {
+          "precision": 0.6,
+          "recall": 0.2553,
+          "f1": 0.3582,
+          "tp": 12,
+          "fp": 8,
+          "fn": 35
+        },
+        "abs_error_median_when_wrong": 29970.0,
+        "accuracy_when_not_flagged": 0.6,
+        "accuracy_when_flagged": 0.0741,
+        "share_flagged": 0.5745
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.403,
+        "cer_median": 0.3564,
+        "wer_mean": 0.7611,
+        "wer_median": 0.75,
+        "word_recall_mean": 0.5121
+      },
+      "ocr_seconds_mean": 0.58,
+      "latency_ms": {
+        "decode": {
+          "mean": 51.1,
+          "p50": 27.7,
+          "p95": 234.8
+        },
+        "preprocess": {
+          "mean": 229.7,
+          "p50": 206.8,
+          "p95": 396.8
+        },
+        "ocr": {
+          "mean": 303.3,
+          "p50": 283.8,
+          "p95": 409.8
+        },
+        "parse": {
+          "mean": 13.3,
+          "p50": 12.1,
+          "p95": 26.5
+        },
+        "total": {
+          "mean": 597.5,
+          "p50": 549.6,
+          "p95": 999.4,
+          "max": 1158.5
+        }
+      },
+      "corrections_per_receipt": 0.12,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 0.7,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "raw_gray": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.1915,
+        "normalised": 0.2553,
+        "coverage": 0.4681,
+        "within_1pct": 0.1915,
+        "precision": 0.4091,
+        "recall": 0.1915,
+        "f1": 0.2609,
+        "tp": 9,
+        "fp": 13,
+        "fn": 38,
+        "auto": {
+          "precision": 0.4615,
+          "recall": 0.1277,
+          "f1": 0.2,
+          "tp": 6,
+          "fp": 7,
+          "fn": 41
+        },
+        "abs_error_median_when_wrong": 45954.0,
+        "accuracy_when_not_flagged": 0.4615,
+        "accuracy_when_flagged": 0.0882,
+        "share_flagged": 0.7234
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.9261,
+        "cer_median": 0.7822,
+        "wer_mean": 1.7734,
+        "wer_median": 1.0,
+        "word_recall_mean": 0.372
+      },
+      "ocr_seconds_mean": 0.64,
+      "latency_ms": {
+        "decode": {
+          "mean": 54.5,
+          "p50": 28.7,
+          "p95": 240.7
+        },
+        "preprocess": {
+          "mean": 31.9,
+          "p50": 21.1,
+          "p95": 97.7
+        },
+        "ocr": {
+          "mean": 550.2,
+          "p50": 364.3,
+          "p95": 1550.5
+        },
+        "parse": {
+          "mean": 11.5,
+          "p50": 11.4,
+          "p95": 24.3
+        },
+        "total": {
+          "mean": 648.1,
+          "p50": 428.5,
+          "p95": 1866.7,
+          "max": 2783.6
+        }
+      },
+      "corrections_per_receipt": 0.14,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 32.5,
+      "ocr_settings": {
+        "preprocess": false,
+        "dual": false,
+        "psm": 6
+      }
+    },
+    "binary_only": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.3191,
+        "normalised": 0.3404,
+        "coverage": 0.6383,
+        "within_1pct": 0.3617,
+        "precision": 0.5,
+        "recall": 0.3191,
+        "f1": 0.3896,
+        "tp": 15,
+        "fp": 15,
+        "fn": 32,
+        "auto": {
+          "precision": 0.5714,
+          "recall": 0.2553,
+          "f1": 0.3529,
+          "tp": 12,
+          "fp": 9,
+          "fn": 35
+        },
+        "abs_error_median_when_wrong": 999.09,
+        "accuracy_when_not_flagged": 0.5714,
+        "accuracy_when_flagged": 0.1154,
+        "share_flagged": 0.5532
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.4365,
+        "cer_median": 0.3564,
+        "wer_mean": 0.902,
+        "wer_median": 0.7692,
+        "word_recall_mean": 0.5076
+      },
+      "ocr_seconds_mean": 0.71,
+      "latency_ms": {
+        "decode": {
+          "mean": 53.8,
+          "p50": 28.6,
+          "p95": 245.4
+        },
+        "preprocess": {
+          "mean": 408.3,
+          "p50": 378.0,
+          "p95": 714.1
+        },
+        "ocr": {
+          "mean": 243.5,
+          "p50": 232.3,
+          "p95": 410.2
+        },
+        "parse": {
+          "mean": 13.2,
+          "p50": 13.4,
+          "p95": 25.1
+        },
+        "total": {
+          "mean": 718.9,
+          "p50": 630.3,
+          "p95": 1215.1,
+          "max": 1308.0
+        }
+      },
+      "corrections_per_receipt": 0.12,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 36.0,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": false,
+        "psm": 6
+      }
+    },
+    "thr_adaptive_mean": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.3191,
+        "normalised": 0.3617,
+        "coverage": 0.5745,
+        "within_1pct": 0.3404,
+        "precision": 0.5556,
+        "recall": 0.3191,
+        "f1": 0.4054,
+        "tp": 15,
+        "fp": 12,
+        "fn": 32,
+        "auto": {
+          "precision": 0.6667,
+          "recall": 0.2553,
+          "f1": 0.3692,
+          "tp": 12,
+          "fp": 6,
+          "fn": 35
+        },
+        "abs_error_median_when_wrong": 39960.0,
+        "accuracy_when_not_flagged": 0.6667,
+        "accuracy_when_flagged": 0.1034,
+        "share_flagged": 0.617
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.4299,
+        "cer_median": 0.339,
+        "wer_mean": 0.8673,
+        "wer_median": 0.8,
+        "word_recall_mean": 0.5218
+      },
+      "ocr_seconds_mean": 0.86,
+      "latency_ms": {
+        "decode": {
+          "mean": 58.1,
+          "p50": 27.8,
+          "p95": 273.4
+        },
+        "preprocess": {
+          "mean": 407.8,
+          "p50": 368.9,
+          "p95": 757.2
+        },
+        "ocr": {
+          "mean": 391.7,
+          "p50": 400.3,
+          "p95": 577.5
+        },
+        "parse": {
+          "mean": 12.0,
+          "p50": 12.5,
+          "p95": 22.3
+        },
+        "total": {
+          "mean": 869.6,
+          "p50": 779.9,
+          "p95": 1471.5,
+          "max": 1857.1
+        }
+      },
+      "corrections_per_receipt": 0.1,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 43.5,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "threshold": "adaptive_mean"
+      }
+    },
+    "thr_otsu": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.2766,
+        "normalised": 0.2979,
+        "coverage": 0.4468,
+        "within_1pct": 0.2979,
+        "precision": 0.619,
+        "recall": 0.2766,
+        "f1": 0.3823,
+        "tp": 13,
+        "fp": 8,
+        "fn": 34,
+        "auto": {
+          "precision": 0.6667,
+          "recall": 0.2128,
+          "f1": 0.3226,
+          "tp": 10,
+          "fp": 5,
+          "fn": 37
+        },
+        "abs_error_median_when_wrong": 45954.0,
+        "accuracy_when_not_flagged": 0.6667,
+        "accuracy_when_flagged": 0.0938,
+        "share_flagged": 0.6809
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.5363,
+        "cer_median": 0.5625,
+        "wer_mean": 0.927,
+        "wer_median": 1.0,
+        "word_recall_mean": 0.4449
+      },
+      "ocr_seconds_mean": 0.75,
+      "latency_ms": {
+        "decode": {
+          "mean": 54.4,
+          "p50": 28.1,
+          "p95": 247.2
+        },
+        "preprocess": {
+          "mean": 351.8,
+          "p50": 333.7,
+          "p95": 682.5
+        },
+        "ocr": {
+          "mean": 342.9,
+          "p50": 313.8,
+          "p95": 487.4
+        },
+        "parse": {
+          "mean": 9.1,
+          "p50": 8.1,
+          "p95": 20.6
+        },
+        "total": {
+          "mean": 758.1,
+          "p50": 669.9,
+          "p95": 1383.0,
+          "max": 1477.3
+        }
+      },
+      "corrections_per_receipt": 0.1,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 38.0,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "threshold": "otsu"
+      }
+    },
+    "thr_sauvola": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.3404,
+        "normalised": 0.4043,
+        "coverage": 0.5745,
+        "within_1pct": 0.3404,
+        "precision": 0.5926,
+        "recall": 0.3404,
+        "f1": 0.4324,
+        "tp": 16,
+        "fp": 11,
+        "fn": 31,
+        "auto": {
+          "precision": 0.7368,
+          "recall": 0.2979,
+          "f1": 0.4243,
+          "tp": 14,
+          "fp": 5,
+          "fn": 33
+        },
+        "abs_error_median_when_wrong": 45954.0,
+        "accuracy_when_not_flagged": 0.7368,
+        "accuracy_when_flagged": 0.0714,
+        "share_flagged": 0.5957
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.4112,
+        "cer_median": 0.339,
+        "wer_mean": 0.8023,
+        "wer_median": 0.8,
+        "word_recall_mean": 0.4939
+      },
+      "ocr_seconds_mean": 0.83,
+      "latency_ms": {
+        "decode": {
+          "mean": 54.6,
+          "p50": 29.6,
+          "p95": 242.5
+        },
+        "preprocess": {
+          "mean": 408.4,
+          "p50": 379.7,
+          "p95": 731.1
+        },
+        "ocr": {
+          "mean": 360.7,
+          "p50": 342.7,
+          "p95": 511.6
+        },
+        "parse": {
+          "mean": 12.3,
+          "p50": 11.5,
+          "p95": 27.7
+        },
+        "total": {
+          "mean": 836.0,
+          "p50": 781.6,
+          "p95": 1525.7,
+          "max": 1724.5
+        }
+      },
+      "corrections_per_receipt": 0.1,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 41.9,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "threshold": "sauvola"
+      }
+    },
+    "thr_none_gray_only": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.234,
+        "normalised": 0.2766,
+        "coverage": 0.4681,
+        "within_1pct": 0.2553,
+        "precision": 0.5,
+        "recall": 0.234,
+        "f1": 0.3188,
+        "tp": 11,
+        "fp": 11,
+        "fn": 36,
+        "auto": {
+          "precision": 0.6,
+          "recall": 0.1915,
+          "f1": 0.2903,
+          "tp": 9,
+          "fp": 6,
+          "fn": 38
+        },
+        "abs_error_median_when_wrong": 39960.0,
+        "accuracy_when_not_flagged": 0.6,
+        "accuracy_when_flagged": 0.0625,
+        "share_flagged": 0.6809
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.5277,
+        "cer_median": 0.5543,
+        "wer_mean": 0.9147,
+        "wer_median": 0.9608,
+        "word_recall_mean": 0.4468
+      },
+      "ocr_seconds_mean": 0.59,
+      "latency_ms": {
+        "decode": {
+          "mean": 51.4,
+          "p50": 27.5,
+          "p95": 241.6
+        },
+        "preprocess": {
+          "mean": 246.9,
+          "p50": 218.1,
+          "p95": 416.5
+        },
+        "ocr": {
+          "mean": 295.4,
+          "p50": 281.7,
+          "p95": 430.8
+        },
+        "parse": {
+          "mean": 9.3,
+          "p50": 9.2,
+          "p95": 18.8
+        },
+        "total": {
+          "mean": 603.1,
+          "p50": 542.5,
+          "p95": 1033.8,
+          "max": 1138.8
+        }
+      },
+      "corrections_per_receipt": 0.1,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 30.2,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "threshold": "none"
+      }
+    },
+    "dn_median": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.2766,
+        "normalised": 0.2979,
+        "coverage": 0.5957,
+        "within_1pct": 0.3191,
+        "precision": 0.4643,
+        "recall": 0.2766,
+        "f1": 0.3467,
+        "tp": 13,
+        "fp": 15,
+        "fn": 34,
+        "auto": {
+          "precision": 0.6,
+          "recall": 0.1915,
+          "f1": 0.2903,
+          "tp": 9,
+          "fp": 6,
+          "fn": 38
+        },
+        "abs_error_median_when_wrong": 13264.0,
+        "accuracy_when_not_flagged": 0.6,
+        "accuracy_when_flagged": 0.125,
+        "share_flagged": 0.6809
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.5017,
+        "cer_median": 0.4052,
+        "wer_mean": 1.0933,
+        "wer_median": 0.95,
+        "word_recall_mean": 0.5483
+      },
+      "ocr_seconds_mean": 0.54,
+      "latency_ms": {
+        "decode": {
+          "mean": 52.1,
+          "p50": 27.6,
+          "p95": 256.7
+        },
+        "preprocess": {
+          "mean": 44.2,
+          "p50": 31.4,
+          "p95": 122.7
+        },
+        "ocr": {
+          "mean": 438.0,
+          "p50": 397.0,
+          "p95": 770.2
+        },
+        "parse": {
+          "mean": 12.1,
+          "p50": 13.5,
+          "p95": 24.4
+        },
+        "total": {
+          "mean": 546.4,
+          "p50": 473.1,
+          "p95": 967.9,
+          "max": 1018.3
+        }
+      },
+      "corrections_per_receipt": 0.1,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 27.4,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "denoise": "median"
+      }
+    },
+    "dn_bilateral": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.3404,
+        "normalised": 0.3617,
+        "coverage": 0.5319,
+        "within_1pct": 0.3404,
+        "precision": 0.64,
+        "recall": 0.3404,
+        "f1": 0.4444,
+        "tp": 16,
+        "fp": 9,
+        "fn": 31,
+        "auto": {
+          "precision": 0.7778,
+          "recall": 0.2979,
+          "f1": 0.4308,
+          "tp": 14,
+          "fp": 4,
+          "fn": 33
+        },
+        "abs_error_median_when_wrong": 39993.0,
+        "accuracy_when_not_flagged": 0.7778,
+        "accuracy_when_flagged": 0.069,
+        "share_flagged": 0.617
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.497,
+        "cer_median": 0.3984,
+        "wer_mean": 0.8968,
+        "wer_median": 0.85,
+        "word_recall_mean": 0.4369
+      },
+      "ocr_seconds_mean": 0.47,
+      "latency_ms": {
+        "decode": {
+          "mean": 52.4,
+          "p50": 27.6,
+          "p95": 245.5
+        },
+        "preprocess": {
+          "mean": 52.2,
+          "p50": 41.5,
+          "p95": 110.7
+        },
+        "ocr": {
+          "mean": 370.3,
+          "p50": 341.3,
+          "p95": 582.5
+        },
+        "parse": {
+          "mean": 11.9,
+          "p50": 12.8,
+          "p95": 27.2
+        },
+        "total": {
+          "mean": 486.7,
+          "p50": 428.8,
+          "p95": 813.4,
+          "max": 1000.1
+        }
+      },
+      "corrections_per_receipt": 0.04,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 24.4,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "denoise": "bilateral"
+      }
+    },
+    "dn_none": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.2979,
+        "normalised": 0.3404,
+        "coverage": 0.617,
+        "within_1pct": 0.3404,
+        "precision": 0.4828,
+        "recall": 0.2979,
+        "f1": 0.3685,
+        "tp": 14,
+        "fp": 15,
+        "fn": 33,
+        "auto": {
+          "precision": 0.6471,
+          "recall": 0.234,
+          "f1": 0.3437,
+          "tp": 11,
+          "fp": 6,
+          "fn": 36
+        },
+        "abs_error_median_when_wrong": 39960.0,
+        "accuracy_when_not_flagged": 0.6471,
+        "accuracy_when_flagged": 0.1,
+        "share_flagged": 0.6383
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.5731,
+        "cer_median": 0.5538,
+        "wer_mean": 1.1875,
+        "wer_median": 1.0,
+        "word_recall_mean": 0.5231
+      },
+      "ocr_seconds_mean": 0.6,
+      "latency_ms": {
+        "decode": {
+          "mean": 51.5,
+          "p50": 28.1,
+          "p95": 243.7
+        },
+        "preprocess": {
+          "mean": 40.7,
+          "p50": 31.3,
+          "p95": 95.0
+        },
+        "ocr": {
+          "mean": 509.7,
+          "p50": 453.9,
+          "p95": 917.7
+        },
+        "parse": {
+          "mean": 13.0,
+          "p50": 13.5,
+          "p95": 24.3
+        },
+        "total": {
+          "mean": 614.9,
+          "p50": 522.0,
+          "p95": 1113.8,
+          "max": 1281.2
+        }
+      },
+      "corrections_per_receipt": 0.16,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 30.8,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "denoise": "none"
+      }
+    },
+    "no_deskew": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.234,
+        "normalised": 0.3191,
+        "coverage": 0.617,
+        "within_1pct": 0.2553,
+        "precision": 0.3793,
+        "recall": 0.234,
+        "f1": 0.2894,
+        "tp": 11,
+        "fp": 18,
+        "fn": 36,
+        "auto": {
+          "precision": 0.4167,
+          "recall": 0.2128,
+          "f1": 0.2817,
+          "tp": 10,
+          "fp": 14,
+          "fn": 37
+        },
+        "abs_error_median_when_wrong": 48982.4,
+        "accuracy_when_not_flagged": 0.4167,
+        "accuracy_when_flagged": 0.0435,
+        "share_flagged": 0.4894
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.4181,
+        "cer_median": 0.3375,
+        "wer_mean": 0.8397,
+        "wer_median": 0.75,
+        "word_recall_mean": 0.5005
+      },
+      "ocr_seconds_mean": 0.57,
+      "latency_ms": {
+        "decode": {
+          "mean": 51.0,
+          "p50": 27.7,
+          "p95": 242.5
+        },
+        "preprocess": {
+          "mean": 223.8,
+          "p50": 202.2,
+          "p95": 392.1
+        },
+        "ocr": {
+          "mean": 296.8,
+          "p50": 284.3,
+          "p95": 451.2
+        },
+        "parse": {
+          "mean": 11.6,
+          "p50": 13.1,
+          "p95": 20.0
+        },
+        "total": {
+          "mean": 583.2,
+          "p50": 514.0,
+          "p95": 1003.1,
+          "max": 1225.4
+        }
+      },
+      "corrections_per_receipt": 0.12,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 29.2,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6,
+        "deskew": false
+      }
+    },
+    "psm3_auto": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.1702,
+        "normalised": 0.2128,
+        "coverage": 0.4255,
+        "within_1pct": 0.1915,
+        "precision": 0.4,
+        "recall": 0.1702,
+        "f1": 0.2388,
+        "tp": 8,
+        "fp": 12,
+        "fn": 39,
+        "auto": {
+          "precision": 0.5385,
+          "recall": 0.1489,
+          "f1": 0.2333,
+          "tp": 7,
+          "fp": 6,
+          "fn": 40
+        },
+        "abs_error_median_when_wrong": 10999.0,
+        "accuracy_when_not_flagged": 0.5385,
+        "accuracy_when_flagged": 0.0294,
+        "share_flagged": 0.7234
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.44,
+        "cer_median": 0.3846,
+        "wer_mean": 0.6812,
+        "wer_median": 0.75,
+        "word_recall_mean": 0.4564
+      },
+      "ocr_seconds_mean": 0.58,
+      "latency_ms": {
+        "decode": {
+          "mean": 53.5,
+          "p50": 27.5,
+          "p95": 250.2
+        },
+        "preprocess": {
+          "mean": 240.7,
+          "p50": 211.5,
+          "p95": 423.5
+        },
+        "ocr": {
+          "mean": 281.5,
+          "p50": 261.1,
+          "p95": 430.5
+        },
+        "parse": {
+          "mean": 13.1,
+          "p50": 14.0,
+          "p95": 21.9
+        },
+        "total": {
+          "mean": 588.8,
+          "p50": 511.8,
+          "p95": 1100.8,
+          "max": 1236.5
+        }
+      },
+      "corrections_per_receipt": 0.08,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 29.5,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 3
+      }
+    },
+    "psm4_column": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.2553,
+        "normalised": 0.2979,
+        "coverage": 0.4468,
+        "within_1pct": 0.2766,
+        "precision": 0.5714,
+        "recall": 0.2553,
+        "f1": 0.3529,
+        "tp": 12,
+        "fp": 9,
+        "fn": 35,
+        "auto": {
+          "precision": 0.7692,
+          "recall": 0.2128,
+          "f1": 0.3334,
+          "tp": 10,
+          "fp": 3,
+          "fn": 37
+        },
+        "abs_error_median_when_wrong": 16483.2,
+        "accuracy_when_not_flagged": 0.7692,
+        "accuracy_when_flagged": 0.0588,
+        "share_flagged": 0.7234
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.4604,
+        "cer_median": 0.4809,
+        "wer_mean": 0.6722,
+        "wer_median": 0.7083,
+        "word_recall_mean": 0.4287
+      },
+      "ocr_seconds_mean": 0.58,
+      "latency_ms": {
+        "decode": {
+          "mean": 52.9,
+          "p50": 28.1,
+          "p95": 249.9
+        },
+        "preprocess": {
+          "mean": 238.0,
+          "p50": 214.1,
+          "p95": 417.1
+        },
+        "ocr": {
+          "mean": 286.7,
+          "p50": 267.6,
+          "p95": 407.2
+        },
+        "parse": {
+          "mean": 12.9,
+          "p50": 13.6,
+          "p95": 21.6
+        },
+        "total": {
+          "mean": 590.5,
+          "p50": 527.7,
+          "p95": 1028.7,
+          "max": 1543.3
+        }
+      },
+      "corrections_per_receipt": 0.06,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 29.6,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 4
+      }
+    },
+    "psm11_sparse": {
+      "n_receipts": 50,
+      "total": {
+        "n_labelled": 47,
+        "exact": 0.0426,
+        "normalised": 0.0638,
+        "coverage": 0.1702,
+        "within_1pct": 0.0426,
+        "precision": 0.25,
+        "recall": 0.0426,
+        "f1": 0.0728,
+        "tp": 2,
+        "fp": 6,
+        "fn": 45,
+        "auto": {
+          "precision": 0.5,
+          "recall": 0.0213,
+          "f1": 0.0409,
+          "tp": 1,
+          "fp": 1,
+          "fn": 46
+        },
+        "abs_error_median_when_wrong": 59940.0,
+        "accuracy_when_not_flagged": 0.5,
+        "accuracy_when_flagged": 0.0222,
+        "share_flagged": 0.9574
+      },
+      "items": {
+        "n_labelled": 50,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.7939,
+        "cer_median": 0.8343,
+        "wer_mean": 1.3024,
+        "wer_median": 1.075,
+        "word_recall_mean": 0.4535
+      },
+      "ocr_seconds_mean": 0.69,
+      "latency_ms": {
+        "decode": {
+          "mean": 54.9,
+          "p50": 29.4,
+          "p95": 245.7
+        },
+        "preprocess": {
+          "mean": 245.0,
+          "p50": 216.4,
+          "p95": 467.3
+        },
+        "ocr": {
+          "mean": 385.4,
+          "p50": 373.5,
+          "p95": 625.1
+        },
+        "parse": {
+          "mean": 10.4,
+          "p50": 9.0,
+          "p95": 27.4
+        },
+        "total": {
+          "mean": 695.8,
+          "p50": 641.8,
+          "p95": 1137.5,
+          "max": 1527.8
+        }
+      },
+      "corrections_per_receipt": 0.04,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 34.9,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 11
+      }
+    }
+  },
+  "run_id": "ocr_configs_cord-20261126",
+  "seconds": 429.6
+}

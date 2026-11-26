@@ -1,0 +1,15 @@
+{
+  "n_errors": 33,
+  "by_field_and_cause": {
+    "total": {
+      "not_found": 18,
+      "wrong_keyword_line": 5,
+      "amount_format": 5,
+      "ocr_digit": 3,
+      "fallback_largest": 2
+    }
+  },
+  "confidently_wrong_(conf>=0.6)": {
+    "total": 8
+  }
+}
