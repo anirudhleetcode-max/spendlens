@@ -294,6 +294,31 @@ are stored under `experiments/results/`. Real and synthetic results are kept apa
 | same, after the total-line fix | **1.2** | 150 | 26.0% | 78.7% | **68.7%** | 0.189 | 1.9 |
 | SROIE test subset re-scored with 1.2 (**post-hoc**, the fix came from its errors) | 1.2 | 200 | 23.5% | 78.5% | 57.5% | 0.197 | — |
 | CORD test (Indonesia; no merchant/date labels) — `cord_main-r2` | 1.2 | 100 (95 with total) | — | — | 24.2% | 0.534 | 1.1 |
+| SROIE train / dev — `sroie_dev_correction` (seed 0 subset) | 1.2 → **1.3** | 150 | 28.0% | 82.0% | 58.4% → **62.4%** | 0.165 | 1.0 |
+| SROIE test, blind (1.3 frozen on dev first) — `sroie_main_parser13` | 1.2 → **1.3** | 200 | 23.5% | 78.5% | 57.5% → **60.5%** | 0.197 | 1.1 |
+| CORD test — `cord_main_parser13` | 1.2 → **1.3** | 100 (95 with total) | — | — | 24.2% → 25.3% | 0.535 | 0.7 |
+
+Parser 1.3 adds OCR-error correction and stops the total fallback from picking cash-tendered lines
+(details and the dev-split check in [`experiments/reports/ocr_quality.md`](experiments/reports/ocr_quality.md)).
+The 1.3 rows were measured on 2026-11-26 on a 4-CPU container.
+
+**Field-level precision / recall (parser 1.3, SROIE test, 200 receipts).** Precision = correct / filled
+in, recall = correct / labelled. "Auto" counts only values the app accepts without asking (confidence ≥ 0.6).
+
+| field | precision | recall | F1 | auto precision | auto recall |
+|---|---|---|---|---|---|
+| merchant | 26.4% | 23.5% | 0.249 | 0% (1 accepted) | 0% |
+| date | 89.2% | 78.5% | 0.835 | 89.4% | 72.0% |
+| total | 62.7% | 60.5% | 0.616 | 70.8% | 54.5% |
+
+Total within 1% of the label: 69.0%. OCR word error rate (WER): 0.442 on SROIE, 1.06 on CORD (WER
+counts insertions, so it can exceed 1 when OCR reads background clutter as words).
+
+**OCR configurations** (one change at a time; full table and discussion in `ocr_quality.md`). On CORD's
+phone photos, preprocessing cuts CER from 0.926 to 0.403; NL-means denoising is the step that matters
+most (median filtering costs 13 points of SROIE totals); local thresholds beat Otsu on photos; page
+segmentation is the biggest lever (PSM 3/4 split label and amount columns, dropping synthetic totals
+from 95% to 20%). Production settings were kept: no alternative was better on all three sets.
 
 These are receipts from other countries. SROIE merchants are Malaysian companies whose headers
 often start with a person's name, and CORD writes `40.000` for forty thousand. Low merchant and CORD
