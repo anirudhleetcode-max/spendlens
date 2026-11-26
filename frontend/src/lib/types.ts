@@ -55,6 +55,11 @@ export type OcrPreview = {
   boxes: { x: number; y: number; w: number; h: number; conf: number; text: string }[];
 };
 
+export type ImageQuality = { width: number; height: number; sharpness: number; contrast: number;
+  brightness: number; noise: number; issues: { code: string; message: string }[] };
+
+export type OcrCorrection = { line: number; from: string; to: string; kind: "number" | "keyword" | "spacing" };
+
 export type ScanResult = {
   receipt_id: string;
   ocr_available: boolean;
@@ -71,7 +76,9 @@ export type ScanResult = {
   review_threshold?: number;
   parser_version?: string | null;
   ocr: null | { mean_conf: number; skew: number; cropped: boolean; variant: string; ms: number;
-    lines: { text: string; conf: number }[]; preview?: OcrPreview | null };
+    lines: { text: string; conf: number }[]; preview?: OcrPreview | null;
+    timing_ms?: { decode: number; preprocess: number; ocr: number };
+    quality?: ImageQuality; corrections?: OcrCorrection[] };
   stored_bytes: number;
   expires_hours?: number;
 };

@@ -1,0 +1,38 @@
+{
+  "id": "receipt_apollo_pharmacy",
+  "image": "samples/receipt_apollo_pharmacy.jpg",
+  "fields": {
+    "merchant": "Apollo Pharmacy",
+    "date": "2026-09-07",
+    "total": "184.00",
+    "tax": "19.68",
+    "payment_mode": "Card",
+    "category": "Health"
+  },
+  "transcription": [
+    "APOLLO PHARMACY",
+    "APOLLO HEALTHCO LIMITED",
+    "T NAGAR, CHENNAI 600017",
+    "GSTIN: 12AABG9815K1Z5",
+    "Ph: 056-81397604",
+    "TAX INVOICE",
+    "Bill No: 85514 Dt: 07 Sep 2026",
+    "Time: 19:45 Cashier: SURESH",
+    "Item Qty Rate Amount",
+    "CETIRIZINE 10MG 2 18.00 36.00",
+    "SAVLON 100ML 2 64.00 128.00",
+    "Total Qty: 4 Items: 2",
+    "Sub Total 164.00",
+    "CGST @6.0% 9.84",
+    "SGST @6.0% 9.84",
+    "Round Off +0.32",
+    "GRAND TOTAL Rs.184.00",
+    "Payment Mode: RUPAY DEBIT CARD",
+    "THANK YOU! VISIT AGAIN"
+  ],
+  "annotator": "manual: transcribed by reading the image, then cross-checked against the receipt arithmetic",
+  "annotated_on": "2026-11-26",
+  "verified": true,
+  "synthetic_image": true,
+  "note": "Rendered by backend/ml/receipts_synth.py, photographed-style. Transcription and fields were typed by hand from the picture, not copied from the generator."
+}

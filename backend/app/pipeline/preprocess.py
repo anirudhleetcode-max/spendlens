@@ -5,6 +5,10 @@ decode (EXIF-aware, pixel-limit guarded) -> resize (long side <= 2000 px, short 
 -> grayscale -> non-local-means denoise -> deskew (text-line blobs + minAreaRect, Hough fallback)
 -> adaptive Gaussian threshold.
 
+Alternatives for the denoise and threshold steps (median / bilateral / Gaussian; Otsu / Sauvola / mean)
+are selectable for experiments; the defaults are the production choice. `image_quality()` measures
+blur, contrast, brightness and noise so the app can ask for a retake.
+
 Every step is a small pure function on numpy arrays so it can be unit-tested and ablated.
 Bump PREPROCESS_VERSION whenever the output of `preprocess()` changes; it is written into model cards
 and experiment results.
@@ -131,6 +135,117 @@ def rotate(img: np.ndarray, angle: float) -> np.ndarray:
     return cv2.warpAffine(img, M, (nw, nh), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
 
 
+# ---------- denoising and thresholding (selectable, so experiments can compare them) ----------
+
+DENOISE_METHODS = ("nlmeans", "median", "bilateral", "gaussian", "none")
+THRESHOLD_METHODS = ("adaptive_gaussian", "adaptive_mean", "otsu", "sauvola", "none")
+
+
+def denoise(gray: np.ndarray, method: str = "nlmeans") -> np.ndarray:
+    """Noise removal on a grayscale image.
+
+    nlmeans    non-local means (production): averages similar patches, keeps stroke edges sharp
+    median     3x3 median: removes salt-and-pepper specks, can close thin gaps in 0/8/6
+    bilateral  edge-preserving smoothing; cheaper than NL-means, weaker on sensor noise
+    gaussian   3x3 Gaussian blur: removes noise and softens edges
+    none       pass-through (ablation)"""
+    if method == "nlmeans":
+        return cv2.fastNlMeansDenoising(gray, None, h=12, templateWindowSize=7, searchWindowSize=15)
+    if method == "median":
+        return cv2.medianBlur(gray, 3)
+    if method == "bilateral":
+        return cv2.bilateralFilter(gray, 7, 50, 7)
+    if method == "gaussian":
+        return cv2.GaussianBlur(gray, (3, 3), 0)
+    if method == "none":
+        return gray
+    raise ValueError(f"unknown denoise method {method!r}; choose from {DENOISE_METHODS}")
+
+
+def sauvola(gray: np.ndarray, window: int = 31, k: float = 0.2, r: float = 128.0) -> np.ndarray:
+    """Sauvola local threshold T = m * (1 + k * (s / r - 1)) with mean m and std s over a window.
+    Good for uneven lighting and faded print; computed with box filters (O(1) per pixel)."""
+    g = gray.astype(np.float64)
+    mean = cv2.boxFilter(g, -1, (window, window), borderType=cv2.BORDER_REPLICATE)
+    sq = cv2.boxFilter(g * g, -1, (window, window), borderType=cv2.BORDER_REPLICATE)
+    std = np.sqrt(np.maximum(sq - mean * mean, 0))
+    t = mean * (1 + k * (std / r - 1))
+    return np.where(g > t, 255, 0).astype(np.uint8)
+
+
+def threshold(gray: np.ndarray, method: str = "adaptive_gaussian") -> np.ndarray:
+    """Binarisation: black text on white.
+
+    adaptive_gaussian  Gaussian-weighted local mean - C over a 31 px window (production)
+    adaptive_mean      plain local mean - C
+    otsu               one global threshold that best separates the two histogram modes; fails on shadows
+    sauvola            local mean and contrast (document-binarisation classic)
+    none               keep grayscale (Tesseract binarises internally with Otsu)"""
+    if method == "adaptive_gaussian":
+        return cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 15)
+    if method == "adaptive_mean":
+        return cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 31, 15)
+    if method == "otsu":
+        return cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+    if method == "sauvola":
+        return sauvola(gray)
+    if method == "none":
+        return gray
+    raise ValueError(f"unknown threshold method {method!r}; choose from {THRESHOLD_METHODS}")
+
+
+# ---------- image quality ----------
+
+# Hand-set limits for the retake hint. They were checked against the degradation study
+# (experiments/configs/quality_synthetic.yaml): below them CER rises steeply. Not learned.
+QUALITY_LIMITS = {"sharpness_min": 60.0, "contrast_min": 35.0, "brightness_min": 70.0, "brightness_max": 235.0,
+                  "short_side_min": 600, "noise_max": 12.0}
+
+
+def noise_sigma(gray: np.ndarray) -> float:
+    """Immerkaer's fast noise estimate: std of a Laplacian-difference kernel that cancels smooth
+    structure. Gives sigma in grey levels for additive Gaussian noise."""
+    k = np.array([[1, -2, 1], [-2, 4, -2], [1, -2, 1]], np.float64)
+    h, w = gray.shape
+    conv = cv2.filter2D(gray.astype(np.float64), -1, k, borderType=cv2.BORDER_REFLECT)
+    return float(np.sum(np.abs(conv[1:-1, 1:-1])) * np.sqrt(0.5 * np.pi) / (6 * (w - 2) * (h - 2)))
+
+
+def image_quality(img: np.ndarray) -> dict:
+    """Cheap, reference-free quality measures of the photo as uploaded.
+
+    sharpness   variance of the Laplacian on a 1000 px-wide copy (low = blurred / out of focus)
+    contrast    RMS contrast = std of grey levels (low = faded thermal print, fog, glare)
+    brightness  mean grey level (low = dark photo, high = overexposed)
+    noise       Immerkaer noise sigma (high = grainy low-light photo)
+    issues      the measures outside QUALITY_LIMITS, as user-facing hints"""
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) if img.ndim == 3 else img
+    h, w = gray.shape
+    scale = 1000 / w
+    norm = cv2.resize(gray, None, fx=scale, fy=scale, interpolation=cv2.INTER_AREA if scale < 1 else cv2.INTER_CUBIC)
+    q = {"width": int(w), "height": int(h),
+         "sharpness": round(float(cv2.Laplacian(norm, cv2.CV_64F).var()), 1),
+         "contrast": round(float(gray.std()), 1),
+         "brightness": round(float(gray.mean()), 1),
+         "noise": round(noise_sigma(norm), 2)}
+    L = QUALITY_LIMITS
+    issues = []
+    if q["sharpness"] < L["sharpness_min"]:
+        issues.append({"code": "blurry", "message": "The photo looks blurred. Hold the phone steady and tap to focus."})
+    if q["contrast"] < L["contrast_min"]:
+        issues.append({"code": "low_contrast", "message": "The print is faint or washed out. Try more even light."})
+    if q["brightness"] < L["brightness_min"]:
+        issues.append({"code": "dark", "message": "The photo is dark. Move to better light."})
+    elif q["brightness"] > L["brightness_max"]:
+        issues.append({"code": "overexposed", "message": "The photo is overexposed. Avoid flash glare."})
+    if min(h, w) < L["short_side_min"]:
+        issues.append({"code": "low_resolution", "message": "The photo is small. Move closer so the bill fills the frame."})
+    if q["noise"] > L["noise_max"]:
+        issues.append({"code": "noisy", "message": "The photo is grainy. More light will help."})
+    q["issues"] = issues
+    return q
+
+
 @dataclass
 class Prepared:
     gray: np.ndarray
@@ -140,7 +255,9 @@ class Prepared:
     steps_ms: dict = field(default_factory=dict)
 
 
-def preprocess(img: np.ndarray, crop: bool = True) -> Prepared:
+def preprocess(img: np.ndarray, crop: bool = True, denoise_method: str = "nlmeans",
+               threshold_method: str = "adaptive_gaussian", deskew: bool = True) -> Prepared:
+    """Defaults are the production pipeline; the keyword arguments exist for experiments."""
     t = time.perf_counter()
     ms = {}
 
@@ -156,14 +273,12 @@ def preprocess(img: np.ndarray, crop: bool = True) -> Prepared:
             img = perspective_crop(img, corners); cropped = True
         tick("crop")
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    gray = cv2.fastNlMeansDenoising(gray, None, h=12, templateWindowSize=7, searchWindowSize=15); tick("denoise")
-    skew = estimate_skew(gray)
+    gray = denoise(gray, denoise_method); tick("denoise")
+    skew = estimate_skew(gray) if deskew else 0.0
     if abs(skew) > 0.3:
         gray = rotate(gray, skew)
     tick("deskew")
     # no median blur afterwards: it closes the inner stroke of slashed/dotted zeros (0 -> 6/8)
-    binary = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 31, 15)
+    binary = threshold(gray, threshold_method)
     tick("threshold")
     return Prepared(gray=gray, binary=binary, skew=round(skew, 2), cropped=cropped, steps_ms=ms)
-
-

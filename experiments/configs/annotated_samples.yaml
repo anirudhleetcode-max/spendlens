@@ -1,0 +1,11 @@
+# Hand-annotated ground truth (data/annotations/samples): 3 receipts, every line transcribed by hand.
+# The images are synthetic renders, so this checks the metric code end to end; it is far too small to
+# measure accuracy. Add your own verified set (experiments/annotations.py) and copy this config.
+name: annotated_samples
+task: receipt_extraction
+dataset: annotated:samples
+seed: 0
+variants:
+  - {name: production, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: no_correction, ocr: {preprocess: true, dual: true, psm: 6}, parser: {correct_ocr: false}}
+  - {name: raw_gray_psm6, ocr: {preprocess: false, dual: false, psm: 6}}

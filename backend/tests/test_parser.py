@@ -143,3 +143,10 @@ def test_tax_inclusive_total_line_is_a_total_candidate():
     assert old["parser_version"] == "1.1"
     # a GST summary line is still not a total
     assert parse_receipt(L("X", "Total GST 1.27", "NET AMOUNT 22.45"))["fields"]["total"]["value"] == 22.45
+
+
+def test_fallback_ignores_cash_tendered():
+    # total line unreadable ("Inel." for "Incl."): the fallback must not pick the cash handed over
+    lines = L("POPULAR BOOK CO", "R RING 500'S 2.65", "Total RM Inel. of GST 9.65", "Cash -50.00", "CHANGE 40.35")
+    assert parse_receipt(lines)["fields"]["total"]["value"] == 9.65
+    assert parse_receipt(lines, version="1.2")["fields"]["total"]["value"] == 50.0

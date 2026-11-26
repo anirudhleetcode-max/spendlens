@@ -226,6 +226,8 @@ function Review({ stage, onSave, onCancel }: {
               {r.ocr.cropped && <span>edges found and flattened</span>}
               {Math.abs(r.ocr.skew) > 0.3 && <span>straightened {Math.abs(r.ocr.skew).toFixed(1)}°</span>}
               <span>{(r.ocr.ms / 1000).toFixed(1)} s</span>
+              {r.ocr.quality && <span title="Variance of the Laplacian; below 60 the photo is treated as blurred">
+                sharpness {Math.round(r.ocr.quality.sharpness)}</span>}
             </div>
             <details className="ocr-text">
               <summary>Show the text we read</summary>

@@ -129,7 +129,7 @@ TAX_INCLUSIVE_TOTAL = re.compile(
     r"|tota\w*\b.{0,12}\b(gst|tax|vat)\s*(incl\w*|inclusive)", re.I)                # TOTAL (GST INCL)
 
 
-def extract_total(lines, tax_inclusive_rule: bool = True) -> Field:
+def extract_total(lines, tax_inclusive_rule: bool = True, skip_tendered: bool = True) -> Field:
     candidates: list[Field] = []
     n = len(lines)
     for i, ln in enumerate(lines):
@@ -156,7 +156,9 @@ def extract_total(lines, tax_inclusive_rule: bool = True) -> Field:
         return max(candidates, key=lambda f: f.confidence)
     best: Field | None = None
     for i, ln in enumerate(lines):
-        if re.search(r"gstin|ph[:.]|phone|mob|vehicle|bill\s*no|invoice\s*no|card|xxxx|saved", ln.text, re.I):
+        # cash tendered / change are often larger than the bill (parser 1.3, found on the SROIE dev split)
+        if re.search(r"gstin|ph[:.]|phone|mob|vehicle|bill\s*no|invoice\s*no|card|xxxx|saved", ln.text, re.I) or (
+                skip_tendered and re.search(r"\bcash\b|change|tender|paid|balance|rounding", ln.text, re.I)):
             continue
         for v in decimal_amounts(ln.text):
             if 0 < v < 1e6 and (best is None or v > best.value):

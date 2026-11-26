@@ -226,7 +226,9 @@ def render(lines: list[tuple[str, str]], rng: random.Random, clean: bool = False
     return Image.merge("RGB", (r, g, b))
 
 
-def generate(n: int, seed: int = 42, on: date | None = None) -> list[tuple[bytes, Truth]]:
+def generate(n: int, seed: int = 42, on: date | None = None, with_lines: bool = False) -> list[tuple]:
+    """(jpeg bytes, Truth) per receipt; with_lines=True adds the printed text lines (ground truth for
+    CER / WER, separator rows dropped). The random stream is the same either way, so images match."""
     rng = random.Random(seed)
     out = []
     for i in range(n):
@@ -235,7 +237,11 @@ def generate(n: int, seed: int = 42, on: date | None = None) -> list[tuple[bytes
         img = render(lines, rng)
         buf = io.BytesIO()
         img.save(buf, "JPEG", quality=rng.randint(78, 90))
-        out.append((buf.getvalue(), truth))
+        if with_lines:
+            text = [" ".join(t.split()) for _, t in lines if t.strip() and not set(t.strip()) <= set("-=*_ ")]
+            out.append((buf.getvalue(), truth, text))
+        else:
+            out.append((buf.getvalue(), truth))
     return out
 
 

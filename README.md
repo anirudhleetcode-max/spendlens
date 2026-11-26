@@ -74,8 +74,9 @@ flowchart LR
 | stage | code | what happens |
 |---|---|---|
 | input | `routers/receipts.py`, `services/uploads.py` | JPG/PNG/WebP up to 8 MB. Type decided by magic bytes; images over 40 MP refused. |
-| 1. preprocess | `app/pipeline/preprocess.py` | EXIF rotation → resize (long side ≤ 2000 px, short side ≥ 900 px) → find the paper (largest convex 4-point contour) and warp it flat → grayscale → non-local-means denoise → deskew (text lines smeared into blobs, `minAreaRect` long-edge angle, Hough fallback) → adaptive Gaussian threshold |
-| 2. OCR | `app/pipeline/ocr.py` | Tesseract 5 (LSTM, PSM 6) on the thresholded **and** the denoised grayscale image in parallel; keeps the read with the higher mean word confidence. Words, boxes and confidences are kept for the preview. |
+| 1. preprocess | `app/pipeline/preprocess.py` | EXIF rotation → resize (long side ≤ 2000 px, short side ≥ 900 px) → find the paper (largest convex 4-point contour) and warp it flat → grayscale → non-local-means denoise → deskew (text lines smeared into blobs, `minAreaRect` long-edge angle, Hough fallback) → adaptive Gaussian threshold. Median / bilateral / Gaussian denoising and Otsu / Sauvola / mean thresholding are selectable for experiments. `image_quality()` measures sharpness (Laplacian variance), contrast, brightness and noise (Immerkær) and turns values outside fixed limits into retake hints. |
+| 2. OCR | `app/pipeline/ocr.py` | Tesseract 5 (LSTM, PSM 6) on the thresholded **and** the denoised grayscale image in parallel; keeps the read with the higher mean word confidence. Words, boxes and confidences are kept for the preview. PSM, engine mode, threshold, denoise and deskew are parameters; per-stage timings are returned. |
+| 2b. correct | `app/pipeline/correct.py` | repairs typical misreads before extraction: letters inside numbers (`1,2O4.5O` → `1,204.50`, `4S.00` → `45.00`, `1O/O3/2O18`), spaced decimals (`12 . 50`), and keywords one confusable character off (`T0TAL`, `TOTA1`, `CGS7`). Never touches units (`500g`) or names (`Grano`). Every change is logged and shown on the review screen. |
 | 3. normalise | `app/pipeline/normalise.py` | amounts (`1,23,456.00`, `473,00`, `Rs .497.00`, `1,2O4.00`), day-first dates in about ten formats (future/impossible rejected), merchant keys |
 | 4. extract | `app/pipeline/extract.py` | merchant (fuzzy match against 328 Indian merchants, else the first name-like header line), date (labelled line wins), total (ranked keywords; subtotal/tax/qty lines excluded; tax-inclusive total lines allowed; largest-amount fallback), GST (CGST+SGST+IGST+cess), payment mode, line items |
 | 5. validate | `app/pipeline/validate.py` | subtotal + tax + round-off = total (or rate × litres); digit-swap repair when one confusable digit explains the gap; missing total/date; items vs subtotal. Returned as `checks` with a message. |
@@ -255,7 +256,15 @@ python -m experiments.summarise
 **Metrics and why these:**
 - Receipt fields use exact match. A total that is off by a paisa is wrong. There is also a
   normalised match (separators ignored) and fuzzy merchant match to see *how* things fail.
-- OCR quality is character error rate (CER) and word recall against the datasets' text labels.
+- OCR quality is character error rate (CER), word error rate (WER: word-level edit distance, so a
+  wrong word *order* also counts) and word recall against the datasets' text labels.
+- Every field gets precision (correct / filled in), recall (correct / labelled) and F1, plus the
+  same three counting only values the UI accepts without asking (confidence ≥ 0.6): what a user
+  who never opens the review screen would get.
+- Amounts also report "within 1%" and the median error of wrong amounts. Dates also count
+  day/month swaps.
+- Latency is measured per receipt and per stage (decode, preprocess, Tesseract, parse) on the first,
+  uncached OCR run: mean, p50 and p95.
 - For field confidence, the question is whether it is useful, so each run reports the accuracy of
   totals the UI would flag vs not flag.
 - The classifier reports accuracy and macro-F1 (every category matters to a user), log-loss and

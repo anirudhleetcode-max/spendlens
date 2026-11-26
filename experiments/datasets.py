@@ -118,6 +118,9 @@ def require(name: str) -> Path:
 
 
 def dataset_info(name: str) -> dict:
+    if name.startswith("annotated:"):
+        from .annotations import set_info
+        return set_info(name.split(":", 1)[1])
     src = SOURCES[name]
     return {"name": name, "title": src["name"], "sha256": src["sha256"], "licence": src["licence"],
             "synthetic": False, "region": src["region"]}
@@ -173,6 +176,10 @@ def _cord_records(path: Path):
 
 
 def load(name: str):
+    """`sroie`, `sroie_train`, `cord`, or `annotated:<set>` (data/annotations/<set>, see annotations.py)."""
+    if name.startswith("annotated:"):
+        from .annotations import load_annotated
+        return load_annotated(name.split(":", 1)[1])
     path = require(name)
     return _sroie_records(path) if name.startswith("sroie") else _cord_records(path)
 

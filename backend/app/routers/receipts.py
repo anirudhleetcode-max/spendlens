@@ -32,6 +32,20 @@ def _empty_fields() -> dict:
             {"merchant": "", "date": None, "total": None, "tax": 0.0, "payment_mode": "Unknown"}.items()}
 
 
+def quality_checks(quality: dict, corrections: list[dict]) -> list[dict]:
+    """Photo problems (retake hints) and OCR misreads that were repaired, in the same shape as the
+    parser's validation checks so the review screen lists them together."""
+    out = [{"id": f"photo_{i['code']}", "status": "warn", "field": "image", "message": i["message"]} for i in quality["issues"]]
+    fixes = [c for c in corrections if c["kind"] != "spacing"]
+    if fixes:
+        shown = ", ".join(f"{c['from']} → {c['to']}" for c in fixes[:4])
+        more = f" and {len(fixes) - 4} more" if len(fixes) > 4 else ""
+        out.append({"id": "ocr_corrections", "status": "info", "field": "ocr",
+                    "message": f"Fixed {len(fixes)} likely OCR misread{'s' if len(fixes) > 1 else ''}: {shown}{more}. "
+                               "Check these values against the photo."})
+    return out
+
+
 def _process(data: bytes, ocr_on: bool) -> tuple[bytes, dict | None]:
     decode(data)  # validates the image (format, pixel limit) before any work, raises ValueError
     stored = shrink_jpeg(data)
@@ -39,8 +53,10 @@ def _process(data: bytes, ocr_on: bool) -> tuple[bytes, dict | None]:
         return stored, None
     ocr = run_ocr(data, want_preview=True)
     parsed = parse_lines(ocr["lines"])
+    parsed["checks"] = quality_checks(ocr["quality"], parsed["corrections"]) + parsed["checks"]
     parsed["ocr"] = {"mean_conf": ocr["mean_conf"], "skew": ocr["skew"], "cropped": ocr["cropped"],
-                     "variant": ocr["variant"], "ms": ocr["ms"],
+                     "variant": ocr["variant"], "ms": ocr["ms"], "timing_ms": ocr["timing_ms"],
+                     "quality": ocr["quality"], "corrections": parsed["corrections"],
                      "lines": [{"text": l.text, "conf": l.conf} for l in ocr["lines"]],
                      "preview": ocr.get("preview")}
     return stored, parsed

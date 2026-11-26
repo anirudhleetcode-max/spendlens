@@ -1,0 +1,42 @@
+{
+  "id": "receipt_saravana_bhavan",
+  "image": "samples/receipt_saravana_bhavan.jpg",
+  "fields": {
+    "merchant": "Saravana Bhavan",
+    "date": "2026-05-31",
+    "total": "1444.00",
+    "tax": "68.76",
+    "payment_mode": "Card",
+    "category": "Food & Dining"
+  },
+  "transcription": [
+    "SARAVANA BHAVAN",
+    "HOTEL SARAVANA BHAVAN",
+    "BANJARA HILLS, HYDERABAD 500034",
+    "GSTIN: 25AABG9486K1Z1",
+    "Ph: 093-50135217",
+    "BILL",
+    "Bill No: 7407 Dt: 2026-05-31",
+    "Time: 19:33 Cashier: RAVI",
+    "Table: 23 Covers: 5",
+    "Item Qty Rate Amount",
+    "RAS MALAI 3 90.00 270.00",
+    "FILTER COFFEE 3 45.00 135.00",
+    "GULAB JAMUN 2 70.00 140.00",
+    "VEG THALI 3 220.00 660.00",
+    "IDLI VADA 2 85.00 170.00",
+    "Total Qty: 13 Items: 5",
+    "Sub Total 1,375.00",
+    "CGST @2.5% 34.38",
+    "SGST @2.5% 34.38",
+    "Round Off +0.24",
+    "BILL AMOUNT Rs.1,444.00",
+    "Payment Mode: PAID BY CARD",
+    "THANK YOU! VISIT AGAIN"
+  ],
+  "annotator": "manual: transcribed by reading the image, then cross-checked against the receipt arithmetic",
+  "annotated_on": "2026-11-26",
+  "verified": true,
+  "synthetic_image": true,
+  "note": "Rendered by backend/ml/receipts_synth.py, photographed-style. Transcription and fields were typed by hand from the picture, not copied from the generator."
+}
