@@ -30,7 +30,7 @@ def main() -> None:
           "| run | data | variant | parser | n | merchant | date | total | total (norm.) | CER | word recall | s/receipt |",
           "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for rid, m in runs.items():
-        if "variants" not in m:
+        if "variants" not in m or "workers" in m:  # image-quality runs have their own section
             continue
         ds = m["dataset"]
         kind = "synthetic" if ds.get("synthetic") else "real"
@@ -46,6 +46,8 @@ def main() -> None:
           "| run | variant | n | merchant P / R / F1 | date P / R / F1 | total P / R / F1 | total auto P / R | "
           "total within 1% | CER | WER |", "|---|---|---|---|---|---|---|---|---|---|"]
     for rid, m in runs.items():
+        if "workers" in m:
+            continue
         for vname, v in (m.get("variants") or {}).items():
             if "precision" not in (v.get("total") or v.get("date") or {}):
                 continue
@@ -86,7 +88,9 @@ def main() -> None:
                              f"{pct(c['total_flagged'])} | {q.get('sharpness', '—')} | "
                              f"{pct(q.get('share_with_issues'))} |")
             L.append("")
-        for vname, qv in (m.get("quality_vs_errors") or {}).items():
+        rescored = RES / rid / "retake_hints_rescored.json"
+        qve = json.loads(rescored.read_text())["quality_vs_errors"] if rescored.exists() else m.get("quality_vs_errors") or {}
+        for vname, qv in qve.items():
             L += [f"Quality measures vs errors ({vname}, {qv['n_images']} images): "
                   f"Spearman with CER {qv.get('spearman_vs_cer')}; with total correct "
                   f"{qv.get('spearman_vs_total_correct')}; retake hint {qv.get('retake_hint')}.", ""]
@@ -94,6 +98,8 @@ def main() -> None:
     L += ["", "## Is the total's confidence useful? (share flagged for review, accuracy of each group)", "",
           "| run | variant | flagged | accuracy if not flagged | accuracy if flagged |", "|---|---|---|---|---|"]
     for rid, m in runs.items():
+        if "workers" in m:
+            continue
         for vname, v in (m.get("variants") or {}).items():
             t = v.get("total")
             if t:

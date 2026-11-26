@@ -43,6 +43,23 @@ Tesseract (`RM 12.00` vs `RM12.00`). Precision is above recall for every field: 
 wrong it is more often because it found nothing than because it found the wrong thing. The review
 threshold trades about 6 points of total recall for 8 points of precision.
 
+## 2b. Processing latency
+
+Sequential, uncached run on a quiet 4-CPU container (`sroie_main_parser13-…-r2`, 200 SROIE receipts; the
+first `sroie_main_parser13` run overlapped a test run, so its timings are not used):
+
+| stage | mean | p50 | p95 |
+|---|---|---|---|
+| decode (+ quality measures) | 56 ms | 10 ms | 298 ms |
+| preprocess | 271 ms | 223 ms | 504 ms |
+| Tesseract (two reads in parallel) | 476 ms | 450 ms | 696 ms |
+| parse (correction, extraction, validation) | 14 ms | 14 ms | 20 ms |
+| **total** | **816 ms** | **767 ms** | **1,218 ms** |
+
+OCR correction costs about 1 ms per receipt (parse 12.9 → 14.1 ms). Tesseract is 58% of the time.
+Without preprocessing (raw grayscale) a CORD receipt takes about 0.5 s instead of 0.7 s; PSM 11 is the
+slowest configuration (about 1.5 s on SROIE).
+
 ## 3. OCR configuration comparison
 
 One change at a time against production. Production = preprocessing (resize, paper crop,
@@ -117,6 +134,37 @@ beyond σ ≈ 2**, **shadows** (the adaptive threshold copes with soft light, no
 the amount column), **strong noise**, and **JPEG below quality 10**. Resolution only matters below about
 a third of a normal photo. Rotation up to 25° costs nothing because of deskew.
 
+**Real scans (SROIE test, 30 receipts, `quality_sroie`)** - same corruptions on real thermal-print scans
+with line-level ground-truth text. Share of totals correct, production preprocessing (raw grayscale in
+brackets); clean: 60% (57%).
+
+| corruption | level 1 | level 2 | level 3 | level 4 |
+|---|---|---|---|---|
+| Gaussian blur | 47% (57%) | 30% (30%) | 10% (23%) | 3% (7%) |
+| motion blur | 37% (40%) | 13% (10%) | 7% (10%) | 0% (3%) |
+| noise | 63% (57%) | 57% (53%) | 43% (23%) | 13% (7%) |
+| JPEG | 60% (60%) | 63% (53%) | 50% (50%) | 43% (53%) |
+| downscale | 57% (63%) | 50% (60%) | 53% (30%) | 30% (20%) |
+| faded | 53% (57%) | 53% (60%) | 30% (60%) | 13% (60%) |
+| dark | 53% (67%) | 53% (60%) | 50% (63%) | 27% (67%) |
+| shadow | 47% (33%) | 43% (27%) | 27% (27%) | 20% (23%) |
+| rotation | 63% (53%) | 47% (27%) | 53% (13%) | 47% (0%) |
+
+The real scans confirm the synthetic picture, with smaller margins because they start lower:
+
+- **Blur is the main threat**, motion blur most of all: dates go to 0% from 11 px. Raw grayscale is no
+  better, so this needs a sharper photo, not more preprocessing.
+- **Preprocessing earns its keep on rotation** (25°: 47% vs 0%), **shadows** (level 1: 47% vs 33%),
+  **noise** (σ = 35: 43% vs 23%) and **small images** (0.35×: 53% vs 30%).
+- **It costs accuracy on faded and dark scans** (worst fading: 13% vs 60%), exactly as on synthetic
+  receipts. Raw grayscale holds steady (57-67% at every level), so the loss comes from the fixed-strength
+  NL-means and threshold steps, not from the information in the image.
+  This is the main open weakness of the current preprocessing; section "A fix that did not transfer"
+  explains why the obvious fix was not adopted.
+- Measured image quality again predicts errors less well than OCR confidence (Spearman with CER:
+  sharpness −0.32, noise −0.26, **mean confidence −0.72**). With the recalibrated hints, 40% of these
+  damaged scans are flagged; totals on them are right 17% of the time vs 56% on the rest.
+
 **Preprocessing vs none under damage** (raw grayscale, same images):
 
 - Preprocessing protects against **rotation** (raw: 30% totals at 8°, 0% at 15°), **downscaling**
@@ -133,6 +181,11 @@ noise. On real receipts it made things worse:
 |---|---|---|---|
 | SROIE dev, 60 (`preprocess11_sroie_dev`): CER / total | **0.165** / **65.0%** | 0.194 / 63.3% | 0.199 / 61.7% |
 | CORD photos, 50 (`preprocess11_cord`): CER / total | **0.403** / **29.8%** | 0.487 / 25.5% | 0.780 / 27.7% |
+
+Even on synthetic receipts it is a trade, not a win: on the development seed (`quality11_synthetic_dev`,
+30 receipts) it lifts the worst fading from 57% to 93% of totals, shadows (level 2) from 60% to 77% and
+Gaussian blur (σ = 3) from 7% to 30%, but loses noise σ = 35 (80% → 63%), mild motion blur (27% → 13%)
+and the smallest downscale (73% → 60%).
 
 Both stay as opt-in options (`normalize`, `nlmeans_adaptive`); production is unchanged. Triggering the
 stretch only on faded photos is not possible with RMS contrast: ordinary SROIE receipts with little ink

@@ -119,7 +119,7 @@ flowchart LR
 ```
 backend/
   app/
-    pipeline/        preprocess, ocr, normalise, extract, validate, confidence, receipt, lexicon
+    pipeline/        preprocess, ocr, correct, normalise, extract, validate, confidence, receipt, lexicon
     services/        classifier (serving), anomaly, uploads, images
     routers/         receipts, expenses, budgets, insights, categories (+ /api/model)
     main.py config.py db.py security.py auth.py schemas.py categories.py utils.py
@@ -137,7 +137,9 @@ backend/
   tests/             pytest: API, parser, OCR pipeline, ML, robustness, eval metrics
 frontend/src/        pages/, components/ (+ *.test.tsx), lib/
 experiments/         datasets.py, receipts_eval.py, run.py, analyse_errors.py, summarise.py,
+                     quality.py (degradation study), annotations.py (manual ground truth),
                      configs/, results/<run>/, reports/
+data/annotations/    manually annotated receipts (one JSON per receipt: fields + full transcription)
 data/                README.md (sources, licences), manifest.json (hashes); raw/ and cache/ are git-ignored
 e2e/                 test_e2e.py, run_e2e.sh
 docs/                AUDIT.md, screenshots/
@@ -244,6 +246,17 @@ the retrained model hasn't been re-evaluated.
 
 ## Evaluation
 
+Your own receipts, with manually checked ground truth:
+
+```powershell
+python -m experiments.annotations draft --images C:\path\to\bills --set mybills   # OCR pre-fills drafts
+# correct every field and line in data/annotations/mybills/*.json against the photo, set "verified": true
+python -m experiments.annotations check --set mybills
+# copy experiments/configs/annotated_samples.yaml, set dataset: annotated:mybills, then run it
+```
+
+Public datasets:
+
 ```powershell
 # from the project root
 python -m experiments.datasets download sroie
@@ -295,7 +308,7 @@ are stored under `experiments/results/`. Real and synthetic results are kept apa
 | SROIE test subset re-scored with 1.2 (**post-hoc**, the fix came from its errors) | 1.2 | 200 | 23.5% | 78.5% | 57.5% | 0.197 | — |
 | CORD test (Indonesia; no merchant/date labels) — `cord_main-r2` | 1.2 | 100 (95 with total) | — | — | 24.2% | 0.534 | 1.1 |
 | SROIE train / dev — `sroie_dev_correction` (seed 0 subset) | 1.2 → **1.3** | 150 | 28.0% | 82.0% | 58.4% → **62.4%** | 0.165 | 1.0 |
-| SROIE test, blind (1.3 frozen on dev first) — `sroie_main_parser13` | 1.2 → **1.3** | 200 | 23.5% | 78.5% | 57.5% → **60.5%** | 0.197 | 1.1 |
+| SROIE test, blind (1.3 frozen on dev first) — `sroie_main_parser13` (timing from `-r2`) | 1.2 → **1.3** | 200 | 23.5% | 78.5% | 57.5% → **60.5%** | 0.197 | 0.8 |
 | CORD test — `cord_main_parser13` | 1.2 → **1.3** | 100 (95 with total) | — | — | 24.2% → 25.3% | 0.535 | 0.7 |
 
 Parser 1.3 adds OCR-error correction and stops the total fallback from picking cash-tendered lines
@@ -319,6 +332,35 @@ phone photos, preprocessing cuts CER from 0.926 to 0.403; NL-means denoising is 
 most (median filtering costs 13 points of SROIE totals); local thresholds beat Otsu on photos; page
 segmentation is the biggest lever (PSM 3/4 split label and amount columns, dropping synthetic totals
 from 95% to 20%). Production settings were kept: no alternative was better on all three sets.
+
+**Processing latency** (200 SROIE receipts, sequential, uncached, 4-CPU container): mean 816 ms per
+receipt, p50 767 ms, p95 1.22 s. Tesseract 476 ms, preprocessing 271 ms, decode 56 ms, parsing 14 ms.
+
+**Image quality vs accuracy.** Each receipt was damaged one way at four severities (`quality_synthetic`,
+30 synthetic; `quality_sroie`, 30 real SROIE scans). Totals correct on the real scans, production
+preprocessing (clean: 60%):
+
+| damage | mild | → | → | severe |
+|---|---|---|---|---|
+| Gaussian blur | 47% | 30% | 10% | 3% |
+| motion blur | 37% | 13% | 7% | 0% |
+| noise | 63% | 57% | 43% | 13% |
+| JPEG | 60% | 63% | 50% | 43% |
+| downscale | 57% | 50% | 53% | 30% |
+| faded | 53% | 53% | 30% | 13% |
+| dark | 53% | 53% | 50% | 27% |
+| shadow | 47% | 43% | 27% | 20% |
+| rotation | 63% | 47% | 53% | 47% |
+
+- Blur (above all motion blur) is the main threat; preprocessing cannot recover it.
+- Preprocessing protects against rotation (25°: 47% vs 0% without it), shadows, noise and small images,
+  but loses to raw grayscale on faded and dark scans (worst fading 13% vs 60%). A contrast stretch fixed
+  that on synthetic receipts but raised CER on real SROIE and CORD, so it was not adopted.
+- Tesseract's mean confidence predicts errors far better than any image measure (Spearman with CER
+  −0.72 to −0.83, vs −0.32 to −0.39 for sharpness). The retake hints were recalibrated on this: they now
+  flag 7% of real SROIE receipts (totals right 21% vs 63%) instead of firing on most of them.
+
+Full tables, the failed fix and the hint calibration: [`experiments/reports/ocr_quality.md`](experiments/reports/ocr_quality.md).
 
 These are receipts from other countries. SROIE merchants are Malaysian companies whose headers
 often start with a person's name, and CORD writes `40.000` for forty thousand. Low merchant and CORD
@@ -554,7 +596,12 @@ shared CPU, against a few seconds locally. `OCR_TIMEOUT_S` is therefore raised t
 
 ## Limitations
 
-- No labelled Indian receipts: Indian-specific accuracy is only measured on synthetic bills.
+- No labelled Indian receipts: Indian-specific accuracy is only measured on synthetic bills. The
+  manual-annotation workflow (`experiments/annotations.py`) is ready for a real set; the three annotated
+  samples are synthetic images and only check the scoring code.
+- Preprocessing hurts faded and very dark photos (see Results); the retake hint asks for a better photo
+  instead.
+- Tesseract's legacy engine was not compared (the installed model is LSTM-only).
 - The category model is trained and evaluated only on synthetic text generated from a hand-written
   lexicon, which has some merchant-name overlaps of its own.
 - Field confidences are ranked scores, not calibrated probabilities.
@@ -575,17 +622,19 @@ shared CPU, against a few seconds locally. `OCR_TIMEOUT_S` is therefore raised t
 
 ## Testing
 
-Last full run (2026-09-16), all passing:
+Backend and frontend counts as of 2026-11-26 (CI on the pull request, all passing); e2e last run 2026-09-16:
 
 | suite | command | tests |
 |---|---|---|
-| backend (pytest, real MongoDB, throwaway `test_*` database) | `cd backend && python -m pytest -q` | 82 |
+| backend (pytest, real MongoDB, throwaway `test_*` database) | `cd backend && python -m pytest -q` | 129 |
 | frontend unit (vitest + Testing Library, jsdom) | `cd frontend && npm test` | 16 |
 | end-to-end (Playwright, headless Chromium) | `./e2e/run_e2e.sh` | 3 |
 
-- **Backend** covers the API, parser rules and validation checks, deskew, contour detection, OCR
-  accuracy on generated receipts, calibration helpers, baselines and the split, anomaly rule
-  boundaries, and robustness:
+- **Backend** covers the API, parser rules and validation checks, OCR-error correction (repairs and
+  the cases it must leave alone), every threshold and denoise method, the image-quality measures and
+  retake hints, every degradation, the evaluation metrics (CER, WER, precision/recall, percentiles,
+  Spearman), deskew, contour detection, OCR accuracy on generated receipts, calibration helpers,
+  baselines and the split, anomaly rule boundaries, and robustness:
   - empty, wrong-type, oversized and decompression-bomb uploads;
   - a blank image;
   - missing or corrupt model files and the degraded health state;
