@@ -218,7 +218,9 @@ def threshold(gray: np.ndarray, method: str = "adaptive_gaussian") -> np.ndarray
 # each sits where extraction accuracy starts to collapse, not where the image merely looks worse. Contrast
 # and brightness only flag extreme cases: real receipts with little ink read fine at low RMS contrast. Motion blur, shadows
 # and heavy JPEG are not visible to these measures; the OCR-confidence hint (OCR_CONF_MIN) catches them.
-QUALITY_LIMITS = {"sharpness_min": 10.0, "contrast_min": 10.0, "brightness_min": 30.0, "brightness_max": 235.0,
+# No over-exposure limit: a clean scan is mostly white paper (SROIE median mean brightness 239), so mean
+# brightness cannot tell glare from paper; glare that washes out text shows up as low OCR confidence.
+QUALITY_LIMITS = {"sharpness_min": 10.0, "contrast_min": 10.0, "brightness_min": 30.0,
                   "short_side_min": 300, "noise_max": 20.0}
 OCR_CONF_MIN = 60.0  # Tesseract mean word confidence; below it 79% of SROIE totals were wrong (vs 37% above)
 
@@ -262,8 +264,6 @@ def quality_issues(q: dict, mean_conf: float | None = None) -> list[dict]:
         issues.append({"code": "low_contrast", "message": "The print is very faint. Try more even light."})
     if q["brightness"] < L["brightness_min"]:
         issues.append({"code": "dark", "message": "The photo is very dark. Move to better light."})
-    elif q["brightness"] > L["brightness_max"]:
-        issues.append({"code": "overexposed", "message": "The photo is overexposed. Avoid flash glare."})
     if min(q["height"], q["width"]) < L["short_side_min"]:
         issues.append({"code": "low_resolution", "message": "The photo is small. Move closer so the bill fills the frame."})
     if q["noise"] > L["noise_max"]:

@@ -91,4 +91,75 @@ Indian photo set exists.
 
 ## 4. Image quality vs extraction accuracy
 
-<!-- filled from quality_synthetic / quality_sroie -->
+`experiments/quality.py` damages each receipt in one controlled way at four severities and re-runs the
+whole pipeline, with production preprocessing and with none (raw grayscale). Every receipt is its own
+control. Severities are defined for a ~1000 px wide image. Synthetic: 30 held-out receipts
+(`quality_synthetic`), with exact text and field labels.
+
+**Synthetic, production preprocessing: share of totals correct (CER in brackets)**
+
+| corruption | level 1 | level 2 | level 3 | level 4 |
+|---|---|---|---|---|
+| clean | 100% (0.004) | | | |
+| Gaussian blur σ = 1 / 2 / 3 / 4.5 px | 97% (0.003) | 80% (0.019) | 10% (0.508) | 0% (0.761) |
+| motion blur 5 / 11 / 17 / 25 px | 23% (0.051) | 0% (0.575) | 0% | 0% |
+| sensor noise σ = 10 / 20 / 35 / 55 | 97% (0.005) | 93% (0.011) | 80% (0.072) | 17% (0.594) |
+| JPEG quality 40 / 20 / 10 / 5 | 97% | 97% | 97% (0.007) | 57% (0.026) |
+| downscale 0.7 / 0.5 / 0.35 / 0.25 | 97% | 100% | 100% (0.016) | 60% (0.076) |
+| faded (contrast × 0.6 / 0.4 / 0.25 / 0.15) | 100% | 100% | 93% (0.028) | 63% (0.411) |
+| dark (brightness × 0.7 / 0.5 / 0.35 / 0.22) | 100% | 100% | 97% | 93% (0.084) |
+| shadow depth 0.3 / 0.5 / 0.7 / 0.85 | 87% (0.049) | 57% (0.164) | 50% (0.305) | 30% (0.436) |
+| rotation 3° / 8° / 15° / 25° | 97% | 97% | 100% | 97% (0.004) |
+
+What hurts most, in order: **motion blur** (even 5 px drops totals to 23% while CER is only 0.05:
+smeared decimal points and digit shapes are exactly what totals and dates need), **Gaussian blur
+beyond σ ≈ 2**, **shadows** (the adaptive threshold copes with soft light, not a hard shadow edge across
+the amount column), **strong noise**, and **JPEG below quality 10**. Resolution only matters below about
+a third of a normal photo. Rotation up to 25° costs nothing because of deskew.
+
+**Preprocessing vs none under damage** (raw grayscale, same images):
+
+- Preprocessing protects against **rotation** (raw: 30% totals at 8°, 0% at 15°), **downscaling**
+  (raw CER 0.984 at 0.25×; production 0.076) and **noise** (raw 0% at σ = 55; production 17%).
+- It is **worse on faded and very dark photos**: at contrast × 0.15 raw grayscale reads CER 0.013,
+  production 0.411. NL-means with a fixed strength smooths away ink that is only a few grey levels from
+  the paper.
+
+**A fix that did not transfer.** A contrast stretch before denoising, with or without a noise-adaptive
+NL-means strength, fixed faded and dark synthetic photos (CER 0.40 → 0.003) and helped shadows and
+noise. On real receipts it made things worse:
+
+| | production 1.0 | + contrast stretch | + stretch + adaptive NL-means |
+|---|---|---|---|
+| SROIE dev, 60 (`preprocess11_sroie_dev`): CER / total | **0.165** / **65.0%** | 0.194 / 63.3% | 0.199 / 61.7% |
+| CORD photos, 50 (`preprocess11_cord`): CER / total | **0.403** / **29.8%** | 0.487 / 25.5% | 0.780 / 27.7% |
+
+Both stay as opt-in options (`normalize`, `nlmeans_adaptive`); production is unchanged. Triggering the
+stretch only on faded photos is not possible with RMS contrast: ordinary SROIE receipts with little ink
+have contrast around 20, the same as a badly faded synthetic one. This is the clearest example in the
+project of a synthetic-only result that real data overturned.
+
+**Do the quality measures predict failure?** Spearman correlation with CER over 1,110 synthetic images
+(production): sharpness −0.39, noise −0.32, contrast +0.06, brightness +0.10, **Tesseract mean word
+confidence −0.83**. OCR's own confidence is by far the best predictor. Sharpness is fooled by noise
+(grain raises the Laplacian variance) and does not see motion blur, shadows or JPEG blocking at all.
+
+**Retake hints, recalibrated.** The first, hand-set limits flagged 43% of damaged synthetic images and
+separated them poorly (totals right on 59% of flagged vs 82% of unflagged). The limits now sit where
+accuracy collapses in the table above, and a hint fires when Tesseract's mean confidence is below 60%:
+
+| retake hints | share flagged | totals right if flagged | if not flagged |
+|---|---|---|---|
+| first limits (synthetic damage study) | 43.5% | 59.0% | 81.8% |
+| **recalibrated + OCR confidence** (same images) | 20.8% | 16.5% | 86.5% |
+| recalibrated, SROIE test (200 real, undamaged scans) | 7.0% | 21.4% | 63.4% |
+| recalibrated, CORD test (95 real photos) | 50.5% | 8.3% | 42.6% |
+
+The limits were set on the held-out synthetic study, so its row is optimistic; the SROIE and CORD rows
+use receipts the limits were not set on. A user who sees the hint is looking at a scan that is far more
+likely to be wrong.
+
+The first recalibration also kept an "overexposed" hint (mean brightness > 235). Checking it on SROIE
+showed it fired on 67% of ordinary scans, because a clean scan is mostly white paper, and barely
+predicted errors (57% vs 68% of totals right). It was removed; the OCR-confidence hint covers glare
+that actually washes out text.
