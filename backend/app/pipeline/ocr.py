@@ -34,6 +34,11 @@ DEFAULT_OEM = 1
 # Per Tesseract call; a pathological image must not hang a worker. Raise it on slow shared
 # CPUs (Render's free instance needs more than 30 s for a full-size photo).
 OCR_TIMEOUT_S = float(os.getenv("OCR_TIMEOUT_S", "30"))
+# Tesseract uses OpenMP and starts one busy-waiting thread per core. run_ocr() already runs two tesseract
+# processes in parallel, so on small machines (2-CPU CI runners, shared cloud instances) the threads starve
+# each other and calls hit the timeout. One thread per process is also faster for page-sized images.
+# The subprocess inherits this; an explicit setting in the environment wins.
+os.environ.setdefault("OMP_THREAD_LIMIT", "1")
 
 
 def _configure_tesseract() -> None:
