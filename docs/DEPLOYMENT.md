@@ -57,6 +57,10 @@ Seeding demo data is optional: from a machine that can reach Atlas, run
    variables are needed.
 3. Deploy and open the URL. Sign up, then run the main workflow once to confirm the rewrite
    reaches the API.
+4. Make sure the project stays connected to GitHub (Project → Settings → Git shows
+   `anirudhleetcode-max/spendlens`, production branch `main`). Then every push to `main` deploys the
+   frontend, the same way Render redeploys the API. A project first deployed from the CLI is not
+   connected: pushes do nothing and "Redeploy" rebuilds the old upload.
 
 ## Checking a deployment
 
