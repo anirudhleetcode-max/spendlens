@@ -60,9 +60,9 @@ def env_info() -> dict:
     }
 
 
-def run_receipts(cfg: dict, run_dir: Path) -> dict:
+def load_records(cfg: dict) -> tuple[list[dict], dict]:
     from .datasets import dataset_info
-    from .receipts_eval import evaluate, ids_hash, select, synthetic_records, write_errors
+    from .receipts_eval import ids_hash, select, synthetic_records
     ds = cfg["dataset"]
     if ds == "synthetic":
         records = synthetic_records(cfg["n"], cfg["seed"])
@@ -71,8 +71,14 @@ def run_receipts(cfg: dict, run_dir: Path) -> dict:
     else:
         records = select(ds, cfg.get("n"), cfg.get("seed", 0))
         info = dataset_info(ds)
-    out = {"dataset": info | {"n_selected": len(records), "subset_ids_sha256_16": ids_hash(records)},
-           "variants": {}}
+    return records, info | {"subset_ids_sha256_16": ids_hash(records)}
+
+
+def run_receipts(cfg: dict, run_dir: Path) -> dict:
+    from .receipts_eval import evaluate, write_errors
+    ds = cfg["dataset"]
+    records, info = load_records(cfg)
+    out = {"dataset": info | {"n_selected": len(records)}, "variants": {}}
     for i, var in enumerate(cfg["variants"]):
         subset = records[: var["n"]] if var.get("n") else records
         t = time.time()
@@ -96,7 +102,13 @@ def run_classifier(cfg: dict, run_dir: Path) -> dict:
     return run_clf(cfg, run_dir)
 
 
-TASKS = {"receipt_extraction": run_receipts, "category_classifier": run_classifier}
+def run_image_quality(cfg: dict, run_dir: Path) -> dict:
+    from .quality import run_quality
+    return run_quality(cfg, run_dir, load_records)
+
+
+TASKS = {"receipt_extraction": run_receipts, "category_classifier": run_classifier,
+         "image_quality": run_image_quality}
 
 
 def main() -> None:

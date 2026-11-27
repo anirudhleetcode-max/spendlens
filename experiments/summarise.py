@@ -30,7 +30,7 @@ def main() -> None:
           "| run | data | variant | parser | n | merchant | date | total | total (norm.) | CER | word recall | s/receipt |",
           "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for rid, m in runs.items():
-        if "variants" not in m:
+        if "variants" not in m or "workers" in m:  # image-quality runs have their own section
             continue
         ds = m["dataset"]
         kind = "synthetic" if ds.get("synthetic") else "real"
@@ -40,9 +40,66 @@ def main() -> None:
                      f"{pct((v.get('total') or {}).get('exact'))} | {pct((v.get('total') or {}).get('normalised'))} | "
                      f"{f3((v.get('ocr') or {}).get('cer_mean'))} | {pct((v.get('ocr') or {}).get('word_recall_mean'))} | "
                      f"{v.get('ocr_seconds_mean')} |")
+    L += ["", "## Field-level precision / recall / F1 and OCR error rates (runs with parser 1.3 metrics)", "",
+          "Precision = correct / filled in; recall = correct / labelled. *Auto* = only values the UI accepts "
+          "without asking (confidence >= 0.6).", "",
+          "| run | variant | n | merchant P / R / F1 | date P / R / F1 | total P / R / F1 | total auto P / R | "
+          "total within 1% | CER | WER |", "|---|---|---|---|---|---|---|---|---|---|"]
+    for rid, m in runs.items():
+        if "workers" in m:
+            continue
+        for vname, v in (m.get("variants") or {}).items():
+            if "precision" not in (v.get("total") or v.get("date") or {}):
+                continue
+            def prf(f):
+                x = v.get(f)
+                return "—" if not x else f"{pct(x['precision'])} / {pct(x['recall'])} / {f3(x['f1'])}"
+            t = v.get("total") or {}
+            L.append(f"| {rid} | {vname} | {v['n_receipts']} | {prf('merchant')} | {prf('date')} | {prf('total')} | "
+                     f"{pct((t.get('auto') or {}).get('precision'))} / {pct((t.get('auto') or {}).get('recall'))} | "
+                     f"{pct(t.get('within_1pct'))} | {f3((v.get('ocr') or {}).get('cer_mean'))} | "
+                     f"{f3((v.get('ocr') or {}).get('wer_mean'))} |")
+    L += ["", "## Processing latency (ms per receipt, uncached OCR, sequential runs)", "",
+          "| run | variant | decode | preprocess | tesseract | parse | total mean | total p50 | total p95 |",
+          "|---|---|---|---|---|---|---|---|---|"]
+    for rid, m in runs.items():
+        if "workers" in m:
+            continue  # parallel image-quality runs: latency not comparable
+        for vname, v in (m.get("variants") or {}).items():
+            lat = v.get("latency_ms") or {}
+            if "total" not in lat:
+                continue
+            g = lambda k: lat.get(k, {}).get("mean", "—")  # noqa: E731
+            L.append(f"| {rid} | {vname} | {g('decode')} | {g('preprocess')} | {g('ocr')} | {g('parse')} | "
+                     f"{lat['total']['mean']} | {lat['total']['p50']} | {lat['total']['p95']} |")
+    for rid, m in runs.items():
+        if "workers" not in m:
+            continue
+        L += ["", f"## Image quality vs accuracy - {rid} ({m['dataset']['name']}, "
+              f"{'synthetic' if m['dataset'].get('synthetic') else 'real'}, {m['dataset']['n_selected']} receipts)", ""]
+        for vname, v in m["variants"].items():
+            L += [f"### {vname}", "", "| corruption | level | CER | WER | merchant | date | total | total flagged | "
+                  "mean sharpness | images with a retake hint |", "|---|---|---|---|---|---|---|---|---|---|"]
+            for kind, pts in v["curves"].items():
+                for c in pts:
+                    q = c.get("mean_quality") or {}
+                    L.append(f"| {kind} | {c['level'] if c['level'] is not None else '—'} | {f3(c['cer'])} | "
+                             f"{f3(c['wer'])} | {pct(c['merchant'])} | {pct(c['date'])} | {pct(c['total'])} | "
+                             f"{pct(c['total_flagged'])} | {q.get('sharpness', '—')} | "
+                             f"{pct(q.get('share_with_issues'))} |")
+            L.append("")
+        rescored = RES / rid / "retake_hints_rescored.json"
+        qve = json.loads(rescored.read_text())["quality_vs_errors"] if rescored.exists() else m.get("quality_vs_errors") or {}
+        for vname, qv in qve.items():
+            L += [f"Quality measures vs errors ({vname}, {qv['n_images']} images): "
+                  f"Spearman with CER {qv.get('spearman_vs_cer')}; with total correct "
+                  f"{qv.get('spearman_vs_total_correct')}; retake hint {qv.get('retake_hint')}.", ""]
+
     L += ["", "## Is the total's confidence useful? (share flagged for review, accuracy of each group)", "",
           "| run | variant | flagged | accuracy if not flagged | accuracy if flagged |", "|---|---|---|---|---|"]
     for rid, m in runs.items():
+        if "workers" in m:
+            continue
         for vname, v in (m.get("variants") or {}).items():
             t = v.get("total")
             if t:

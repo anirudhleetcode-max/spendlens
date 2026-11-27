@@ -1,0 +1,75 @@
+{
+  "note": "quality_vs_errors recomputed from per_image.jsonl with the retake-hint limits in backend/app/pipeline/preprocess.py at commit time (recalibrated after this run; over-exposure hint removed).",
+  "quality_vs_errors": {
+    "production": {
+      "n_images": 1110,
+      "spearman_vs_cer": {
+        "sharpness": -0.392,
+        "contrast": 0.055,
+        "brightness": 0.103,
+        "noise": -0.323,
+        "tesseract_mean_conf": -0.832
+      },
+      "spearman_vs_wer": {
+        "sharpness": -0.423,
+        "contrast": 0.031,
+        "brightness": 0.121,
+        "noise": -0.347,
+        "tesseract_mean_conf": -0.844
+      },
+      "spearman_vs_total_correct": {
+        "sharpness": 0.291,
+        "contrast": -0.129,
+        "brightness": -0.043,
+        "noise": 0.28
+      },
+      "retake_hint": {
+        "share_flagged": 0.2081,
+        "total_accuracy_flagged": 0.1645,
+        "total_accuracy_not_flagged": 0.8646,
+        "issue_counts": {
+          "ocr_unsure": 193,
+          "blurry": 68,
+          "low_resolution": 30,
+          "noisy": 27,
+          "low_contrast": 3
+        }
+      }
+    },
+    "raw_gray": {
+      "n_images": 1110,
+      "spearman_vs_cer": {
+        "sharpness": -0.194,
+        "contrast": 0.207,
+        "brightness": -0.121,
+        "noise": -0.188,
+        "tesseract_mean_conf": -0.907
+      },
+      "spearman_vs_wer": {
+        "sharpness": -0.134,
+        "contrast": 0.243,
+        "brightness": -0.146,
+        "noise": -0.139,
+        "tesseract_mean_conf": -0.924
+      },
+      "spearman_vs_total_correct": {
+        "sharpness": 0.114,
+        "contrast": -0.243,
+        "brightness": 0.097,
+        "noise": 0.148
+      },
+      "retake_hint": {
+        "share_flagged": 0.291,
+        "total_accuracy_flagged": 0.1331,
+        "total_accuracy_not_flagged": 0.803,
+        "issue_counts": {
+          "ocr_unsure": 301,
+          "blurry": 68,
+          "low_resolution": 30,
+          "noisy": 27,
+          "low_contrast": 3
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+{"field": "total", "expected": "750.00", "got": 750.66, "confidence": 0.95, "source": "keyword:sale amount", "ocr_snippet": "Vehicle No: KA19AB2201 | SALE AMOUNT: Rs. 750.66 | Payment Mode: PAID VIA UPI", "id": "synth-1234-033"}
+{"field": "total", "expected": "2000.00", "got": 2000.6, "confidence": 0.95, "source": "keyword:amount", "ocr_snippet": "Vehicle No: KA52AB4109 | AMOUNT: Rs. 2,000.60 | Payment Mode: PAID VIA UPI", "id": "synth-1234-034"}
+{"field": "tax", "expected": "7.00", "got": 3.5, "confidence": 0.83, "source": "components:1", "ocr_snippet": "Sub Total 140.00 | CGST @2.5% 3.50 | SGST @2.5% 300", "id": "synth-1234-006"}
+{"field": "tax", "expected": "41.50", "got": null, "confidence": 0.3, "source": "none", "ocr_snippet": "RELIANCE FRESH | RELIANCE RETAIL LIMITED | SECTOR 18, NOIDA 201301 | GSTIN: 20AABE6045K1Z7", "id": "synth-1234-013"}

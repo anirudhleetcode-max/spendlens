@@ -1,0 +1,170 @@
+{
+  "dataset": {
+    "name": "cord",
+    "title": "CORD v2 (Clova), test split",
+    "sha256": "51c65f1788faff392abe2a0b55b023eb23e9be551c509138eaa3a832514224e7",
+    "licence": "CC-BY-4.0",
+    "synthetic": false,
+    "region": "Indonesia (IDR, '.' as thousands separator, no decimals)",
+    "subset_ids_sha256_16": "94acab96a1159652",
+    "n_selected": 100
+  },
+  "variants": {
+    "parser_1_3": {
+      "n_receipts": 100,
+      "total": {
+        "n_labelled": 95,
+        "exact": 0.2526,
+        "normalised": 0.2842,
+        "coverage": 0.5368,
+        "within_1pct": 0.2737,
+        "precision": 0.4706,
+        "recall": 0.2526,
+        "f1": 0.3287,
+        "tp": 24,
+        "fp": 27,
+        "fn": 71,
+        "auto": {
+          "precision": 0.5714,
+          "recall": 0.2105,
+          "f1": 0.3077,
+          "tp": 20,
+          "fp": 15,
+          "fn": 75
+        },
+        "abs_error_median_when_wrong": 19970.0,
+        "accuracy_when_not_flagged": 0.5714,
+        "accuracy_when_flagged": 0.0667,
+        "share_flagged": 0.6316
+      },
+      "items": {
+        "n_labelled": 100,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.5346,
+        "cer_median": 0.4455,
+        "wer_mean": 1.0618,
+        "wer_median": 0.8333,
+        "word_recall_mean": 0.5299
+      },
+      "ocr_seconds_mean": 0.65,
+      "latency_ms": {
+        "decode": {
+          "mean": 52.9,
+          "p50": 27.8,
+          "p95": 233.4
+        },
+        "preprocess": {
+          "mean": 241.8,
+          "p50": 212.1,
+          "p95": 430.8
+        },
+        "ocr": {
+          "mean": 356.4,
+          "p50": 315.1,
+          "p95": 666.1
+        },
+        "parse": {
+          "mean": 10.8,
+          "p50": 11.7,
+          "p95": 21.0
+        },
+        "total": {
+          "mean": 661.9,
+          "p50": 555.4,
+          "p95": 1157.5,
+          "max": 2937.9
+        }
+      },
+      "corrections_per_receipt": 0.06,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 66.3,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "parser_1_2": {
+      "n_receipts": 100,
+      "total": {
+        "n_labelled": 95,
+        "exact": 0.2421,
+        "normalised": 0.2737,
+        "coverage": 0.5368,
+        "within_1pct": 0.2632,
+        "precision": 0.451,
+        "recall": 0.2421,
+        "f1": 0.3151,
+        "tp": 23,
+        "fp": 28,
+        "fn": 72,
+        "auto": {
+          "precision": 0.5714,
+          "recall": 0.2105,
+          "f1": 0.3077,
+          "tp": 20,
+          "fp": 15,
+          "fn": 75
+        },
+        "abs_error_median_when_wrong": 24475.5,
+        "accuracy_when_not_flagged": 0.5714,
+        "accuracy_when_flagged": 0.05,
+        "share_flagged": 0.6316
+      },
+      "items": {
+        "n_labelled": 100,
+        "count_exact": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.5346,
+        "cer_median": 0.4455,
+        "wer_mean": 1.0618,
+        "wer_median": 0.8333,
+        "word_recall_mean": 0.5299
+      },
+      "ocr_seconds_mean": 0.65,
+      "latency_ms": {
+        "decode": {
+          "mean": 52.9,
+          "p50": 27.8,
+          "p95": 233.4
+        },
+        "preprocess": {
+          "mean": 241.8,
+          "p50": 212.1,
+          "p95": 430.8
+        },
+        "ocr": {
+          "mean": 356.4,
+          "p50": 315.1,
+          "p95": 666.1
+        },
+        "parse": {
+          "mean": 9.9,
+          "p50": 10.7,
+          "p95": 20.6
+        },
+        "total": {
+          "mean": 661.0,
+          "p50": 558.1,
+          "p95": 1157.1,
+          "max": 2932.5
+        }
+      },
+      "corrections_per_receipt": 0.0,
+      "ocr_failures": 0,
+      "parser_version": "1.2",
+      "wall_seconds": 1.0,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    }
+  },
+  "run_id": "cord_main_parser13-20261126",
+  "seconds": 67.9
+}

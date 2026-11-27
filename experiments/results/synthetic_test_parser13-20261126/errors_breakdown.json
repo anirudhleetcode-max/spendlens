@@ -1,0 +1,16 @@
+{
+  "n_errors": 4,
+  "by_field_and_cause": {
+    "total": {
+      "ocr_digit": 2
+    },
+    "tax": {
+      "ocr_digit": 1,
+      "not_found": 1
+    }
+  },
+  "confidently_wrong_(conf>=0.6)": {
+    "total": 2,
+    "tax": 1
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "dataset": {
+    "name": "annotated:samples",
+    "title": "Manually annotated set 'samples' (data/annotations/samples)",
+    "sha256": "f246e4a24ef659cc24d74e72c200561248c3be90dc96e847fe99d0da8b1a7f0d",
+    "licence": "own data",
+    "n_files": 3,
+    "n_verified": 3,
+    "synthetic": true,
+    "n_synthetic_images": 3,
+    "region": "India (target domain)",
+    "subset_ids_sha256_16": "580cb01eaa222ac8",
+    "n_selected": 3
+  },
+  "variants": {
+    "production": {
+      "n_receipts": 3,
+      "merchant": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "partial": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "date": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "labels_unparseable": 0,
+        "day_month_swapped": 0
+      },
+      "total": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "within_1pct": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abs_error_median_when_wrong": null,
+        "accuracy_when_not_flagged": 1.0,
+        "accuracy_when_flagged": null,
+        "share_flagged": 0.0
+      },
+      "tax": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "within_1pct": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abs_error_median_when_wrong": null,
+        "accuracy_when_not_flagged": 1.0,
+        "accuracy_when_flagged": null,
+        "share_flagged": 0.0
+      },
+      "payment_mode": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "category": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "coverage": 1.0,
+        "stored_exact": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abstained": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.0016,
+        "cer_median": 0.0023,
+        "wer_mean": 0.0187,
+        "wer_median": 0.027,
+        "word_recall_mean": 0.9907
+      },
+      "ocr_seconds_mean": 0.66,
+      "latency_ms": {
+        "decode": {
+          "mean": 18.3,
+          "p50": 14.8,
+          "p95": 25.6
+        },
+        "preprocess": {
+          "mean": 186.8,
+          "p50": 184.4,
+          "p95": 192.1
+        },
+        "ocr": {
+          "mean": 457.5,
+          "p50": 450.3,
+          "p95": 495.8
+        },
+        "parse": {
+          "mean": 5.8,
+          "p50": 5.5,
+          "p95": 7.6
+        },
+        "total": {
+          "mean": 668.5,
+          "p50": 653.9,
+          "p95": 708.0,
+          "max": 708.0
+        }
+      },
+      "corrections_per_receipt": 0.0,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 2.8,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "no_correction": {
+      "n_receipts": 3,
+      "merchant": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "partial": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "date": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "labels_unparseable": 0,
+        "day_month_swapped": 0
+      },
+      "total": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "within_1pct": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abs_error_median_when_wrong": null,
+        "accuracy_when_not_flagged": 1.0,
+        "accuracy_when_flagged": null,
+        "share_flagged": 0.0
+      },
+      "tax": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "within_1pct": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abs_error_median_when_wrong": null,
+        "accuracy_when_not_flagged": 1.0,
+        "accuracy_when_flagged": null,
+        "share_flagged": 0.0
+      },
+      "payment_mode": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "category": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "coverage": 1.0,
+        "stored_exact": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abstained": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.0016,
+        "cer_median": 0.0023,
+        "wer_mean": 0.0187,
+        "wer_median": 0.027,
+        "word_recall_mean": 0.9907
+      },
+      "ocr_seconds_mean": 0.66,
+      "latency_ms": {
+        "decode": {
+          "mean": 18.3,
+          "p50": 14.8,
+          "p95": 25.6
+        },
+        "preprocess": {
+          "mean": 186.8,
+          "p50": 184.4,
+          "p95": 192.1
+        },
+        "ocr": {
+          "mean": 457.5,
+          "p50": 450.3,
+          "p95": 495.8
+        },
+        "parse": {
+          "mean": 4.6,
+          "p50": 4.8,
+          "p95": 5.6
+        },
+        "total": {
+          "mean": 667.3,
+          "p50": 652.9,
+          "p95": 708.1,
+          "max": 708.1
+        }
+      },
+      "corrections_per_receipt": 0.0,
+      "ocr_failures": 0,
+      "parser_version": "1.3-nocorrect",
+      "wall_seconds": 0.0,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "raw_gray_psm6": {
+      "n_receipts": 3,
+      "merchant": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "partial": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "date": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "labels_unparseable": 0,
+        "day_month_swapped": 0
+      },
+      "total": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "within_1pct": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abs_error_median_when_wrong": null,
+        "accuracy_when_not_flagged": 1.0,
+        "accuracy_when_flagged": null,
+        "share_flagged": 0.0
+      },
+      "tax": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "normalised": 1.0,
+        "coverage": 1.0,
+        "within_1pct": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abs_error_median_when_wrong": null,
+        "accuracy_when_not_flagged": 1.0,
+        "accuracy_when_flagged": null,
+        "share_flagged": 0.0
+      },
+      "payment_mode": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "coverage": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        }
+      },
+      "category": {
+        "n_labelled": 3,
+        "exact": 1.0,
+        "coverage": 1.0,
+        "stored_exact": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0,
+        "auto": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "tp": 3,
+          "fp": 0,
+          "fn": 0
+        },
+        "abstained": 0.0
+      },
+      "ocr": {
+        "cer_mean": 0.0013,
+        "cer_median": 0.0,
+        "wer_mean": 0.0078,
+        "wer_median": 0.0,
+        "word_recall_mean": 0.9922
+      },
+      "ocr_seconds_mean": 0.52,
+      "latency_ms": {
+        "decode": {
+          "mean": 13.8,
+          "p50": 14.0,
+          "p95": 16.2
+        },
+        "preprocess": {
+          "mean": 18.8,
+          "p50": 18.0,
+          "p95": 21.0
+        },
+        "ocr": {
+          "mean": 481.8,
+          "p50": 459.5,
+          "p95": 540.6
+        },
+        "parse": {
+          "mean": 4.5,
+          "p50": 4.8,
+          "p95": 5.0
+        },
+        "total": {
+          "mean": 518.9,
+          "p50": 501.6,
+          "p95": 574.3,
+          "max": 574.3
+        }
+      },
+      "corrections_per_receipt": 0.0,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 1.6,
+      "ocr_settings": {
+        "preprocess": false,
+        "dual": false,
+        "psm": 6
+      }
+    }
+  },
+  "run_id": "annotated_samples-20261126",
+  "seconds": 4.4
+}

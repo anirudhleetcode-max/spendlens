@@ -1,0 +1,364 @@
+{
+  "dataset": {
+    "name": "sroie_train",
+    "title": "ICDAR 2019 SROIE (deduplicated v2 mirror), train split - used as a DEVELOPMENT set",
+    "sha256": "b03df42c8743ab1749d77b345998ac6e6cded5f4bd779e271c739fba53439e92",
+    "licence": "Same as sroie. Used to check parser changes without touching the test split.",
+    "synthetic": false,
+    "region": "Malaysia (MYR, English receipts)",
+    "subset_ids_sha256_16": "12900e418e728dea",
+    "n_selected": 150
+  },
+  "variants": {
+    "parser_1_3": {
+      "n_receipts": 150,
+      "merchant": {
+        "n_labelled": 150,
+        "exact": 0.28,
+        "normalised": 0.3067,
+        "partial": 0.4467,
+        "coverage": 0.9333,
+        "precision": 0.3,
+        "recall": 0.28,
+        "f1": 0.2897,
+        "tp": 42,
+        "fp": 98,
+        "fn": 108,
+        "auto": {
+          "precision": 0.6667,
+          "recall": 0.0133,
+          "f1": 0.0261,
+          "tp": 2,
+          "fp": 1,
+          "fn": 148
+        }
+      },
+      "date": {
+        "n_labelled": 150,
+        "exact": 0.82,
+        "normalised": 0.82,
+        "coverage": 0.8867,
+        "precision": 0.9248,
+        "recall": 0.82,
+        "f1": 0.8693,
+        "tp": 123,
+        "fp": 10,
+        "fn": 27,
+        "auto": {
+          "precision": 0.9286,
+          "recall": 0.78,
+          "f1": 0.8478,
+          "tp": 117,
+          "fp": 9,
+          "fn": 33
+        },
+        "labels_unparseable": 0,
+        "day_month_swapped": 0
+      },
+      "total": {
+        "n_labelled": 149,
+        "exact": 0.6242,
+        "normalised": 0.6242,
+        "coverage": 0.9732,
+        "within_1pct": 0.7248,
+        "precision": 0.6414,
+        "recall": 0.6242,
+        "f1": 0.6327,
+        "tp": 93,
+        "fp": 52,
+        "fn": 56,
+        "auto": {
+          "precision": 0.7236,
+          "recall": 0.5973,
+          "f1": 0.6544,
+          "tp": 89,
+          "fp": 34,
+          "fn": 60
+        },
+        "abs_error_median_when_wrong": 4.01,
+        "accuracy_when_not_flagged": 0.7236,
+        "accuracy_when_flagged": 0.1538,
+        "share_flagged": 0.1745
+      },
+      "ocr": {
+        "cer_mean": 0.1649,
+        "cer_median": 0.1359,
+        "wer_mean": 0.3932,
+        "wer_median": 0.3441,
+        "word_recall_mean": 0.7668
+      },
+      "ocr_seconds_mean": 1.03,
+      "latency_ms": {
+        "decode": {
+          "mean": 65.5,
+          "p50": 12.2,
+          "p95": 383.9
+        },
+        "preprocess": {
+          "mean": 352.5,
+          "p50": 293.1,
+          "p95": 682.2
+        },
+        "ocr": {
+          "mean": 612.8,
+          "p50": 583.1,
+          "p95": 887.1
+        },
+        "parse": {
+          "mean": 18.5,
+          "p50": 18.2,
+          "p95": 25.7
+        },
+        "total": {
+          "mean": 1049.3,
+          "p50": 967.3,
+          "p95": 1623.9,
+          "max": 1844.9
+        }
+      },
+      "corrections_per_receipt": 0.52,
+      "ocr_failures": 0,
+      "parser_version": "1.3",
+      "wall_seconds": 2.9,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "parser_1_3_no_correction": {
+      "n_receipts": 150,
+      "merchant": {
+        "n_labelled": 150,
+        "exact": 0.28,
+        "normalised": 0.3067,
+        "partial": 0.4467,
+        "coverage": 0.9333,
+        "precision": 0.3,
+        "recall": 0.28,
+        "f1": 0.2897,
+        "tp": 42,
+        "fp": 98,
+        "fn": 108,
+        "auto": {
+          "precision": 0.6667,
+          "recall": 0.0133,
+          "f1": 0.0261,
+          "tp": 2,
+          "fp": 1,
+          "fn": 148
+        }
+      },
+      "date": {
+        "n_labelled": 150,
+        "exact": 0.82,
+        "normalised": 0.82,
+        "coverage": 0.8867,
+        "precision": 0.9248,
+        "recall": 0.82,
+        "f1": 0.8693,
+        "tp": 123,
+        "fp": 10,
+        "fn": 27,
+        "auto": {
+          "precision": 0.9286,
+          "recall": 0.78,
+          "f1": 0.8478,
+          "tp": 117,
+          "fp": 9,
+          "fn": 33
+        },
+        "labels_unparseable": 0,
+        "day_month_swapped": 0
+      },
+      "total": {
+        "n_labelled": 149,
+        "exact": 0.604,
+        "normalised": 0.604,
+        "coverage": 0.9799,
+        "within_1pct": 0.7047,
+        "precision": 0.6164,
+        "recall": 0.604,
+        "f1": 0.6101,
+        "tp": 90,
+        "fp": 56,
+        "fn": 59,
+        "auto": {
+          "precision": 0.7107,
+          "recall": 0.5772,
+          "f1": 0.637,
+          "tp": 86,
+          "fp": 35,
+          "fn": 63
+        },
+        "abs_error_median_when_wrong": 4.8,
+        "accuracy_when_not_flagged": 0.7107,
+        "accuracy_when_flagged": 0.1429,
+        "share_flagged": 0.1879
+      },
+      "ocr": {
+        "cer_mean": 0.1649,
+        "cer_median": 0.1359,
+        "wer_mean": 0.3932,
+        "wer_median": 0.3441,
+        "word_recall_mean": 0.7668
+      },
+      "ocr_seconds_mean": 1.03,
+      "latency_ms": {
+        "decode": {
+          "mean": 65.5,
+          "p50": 12.2,
+          "p95": 383.9
+        },
+        "preprocess": {
+          "mean": 352.5,
+          "p50": 293.1,
+          "p95": 682.2
+        },
+        "ocr": {
+          "mean": 612.8,
+          "p50": 583.1,
+          "p95": 887.1
+        },
+        "parse": {
+          "mean": 17.8,
+          "p50": 17.6,
+          "p95": 25.9
+        },
+        "total": {
+          "mean": 1048.6,
+          "p50": 959.9,
+          "p95": 1617.2,
+          "max": 1836.8
+        }
+      },
+      "corrections_per_receipt": 0.0,
+      "ocr_failures": 0,
+      "parser_version": "1.3-nocorrect",
+      "wall_seconds": 2.8,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    },
+    "parser_1_2": {
+      "n_receipts": 150,
+      "merchant": {
+        "n_labelled": 150,
+        "exact": 0.28,
+        "normalised": 0.3067,
+        "partial": 0.4467,
+        "coverage": 0.9333,
+        "precision": 0.3,
+        "recall": 0.28,
+        "f1": 0.2897,
+        "tp": 42,
+        "fp": 98,
+        "fn": 108,
+        "auto": {
+          "precision": 0.6667,
+          "recall": 0.0133,
+          "f1": 0.0261,
+          "tp": 2,
+          "fp": 1,
+          "fn": 148
+        }
+      },
+      "date": {
+        "n_labelled": 150,
+        "exact": 0.82,
+        "normalised": 0.82,
+        "coverage": 0.8867,
+        "precision": 0.9248,
+        "recall": 0.82,
+        "f1": 0.8693,
+        "tp": 123,
+        "fp": 10,
+        "fn": 27,
+        "auto": {
+          "precision": 0.9286,
+          "recall": 0.78,
+          "f1": 0.8478,
+          "tp": 117,
+          "fp": 9,
+          "fn": 33
+        },
+        "labels_unparseable": 0,
+        "day_month_swapped": 0
+      },
+      "total": {
+        "n_labelled": 149,
+        "exact": 0.5839,
+        "normalised": 0.5839,
+        "coverage": 0.9799,
+        "within_1pct": 0.6711,
+        "precision": 0.5959,
+        "recall": 0.5839,
+        "f1": 0.5898,
+        "tp": 87,
+        "fp": 59,
+        "fn": 62,
+        "auto": {
+          "precision": 0.7059,
+          "recall": 0.5638,
+          "f1": 0.6269,
+          "tp": 84,
+          "fp": 35,
+          "fn": 65
+        },
+        "abs_error_median_when_wrong": 7.3,
+        "accuracy_when_not_flagged": 0.7059,
+        "accuracy_when_flagged": 0.1,
+        "share_flagged": 0.2013
+      },
+      "ocr": {
+        "cer_mean": 0.1649,
+        "cer_median": 0.1359,
+        "wer_mean": 0.3932,
+        "wer_median": 0.3441,
+        "word_recall_mean": 0.7668
+      },
+      "ocr_seconds_mean": 1.03,
+      "latency_ms": {
+        "decode": {
+          "mean": 65.5,
+          "p50": 12.2,
+          "p95": 383.9
+        },
+        "preprocess": {
+          "mean": 352.5,
+          "p50": 293.1,
+          "p95": 682.2
+        },
+        "ocr": {
+          "mean": 612.8,
+          "p50": 583.1,
+          "p95": 887.1
+        },
+        "parse": {
+          "mean": 18.3,
+          "p50": 18.4,
+          "p95": 27.9
+        },
+        "total": {
+          "mean": 1049.1,
+          "p50": 959.7,
+          "p95": 1616.9,
+          "max": 1836.0
+        }
+      },
+      "corrections_per_receipt": 0.0,
+      "ocr_failures": 0,
+      "parser_version": "1.2",
+      "wall_seconds": 2.8,
+      "ocr_settings": {
+        "preprocess": true,
+        "dual": true,
+        "psm": 6
+      }
+    }
+  },
+  "run_id": "sroie_dev_correction-20261126",
+  "seconds": 9.3
+}

@@ -26,13 +26,19 @@ import numpy as np
 from PIL import Image
 
 from ..config import get_settings
-from .preprocess import decode, preprocess
+from .preprocess import decode, image_quality, preprocess
 
 log = logging.getLogger(__name__)
 DEFAULT_PSM = 6
+DEFAULT_OEM = 1
 # Per Tesseract call; a pathological image must not hang a worker. Raise it on slow shared
 # CPUs (Render's free instance needs more than 30 s for a full-size photo).
 OCR_TIMEOUT_S = float(os.getenv("OCR_TIMEOUT_S", "30"))
+# Tesseract uses OpenMP and starts one busy-waiting thread per core. run_ocr() already runs two tesseract
+# processes in parallel, so on small machines (2-CPU CI runners, shared cloud instances) the threads starve
+# each other and calls hit the timeout. One thread per process is also faster for page-sized images.
+# The subprocess inherits this; an explicit setting in the environment wins.
+os.environ.setdefault("OMP_THREAD_LIMIT", "1")
 
 
 def _configure_tesseract() -> None:
@@ -77,10 +83,12 @@ class OcrLine:
     words: list[OcrWord] = field(default_factory=list)
 
 
-def run_tesseract(img: np.ndarray, psm: int = DEFAULT_PSM) -> list[OcrLine]:
+def run_tesseract(img: np.ndarray, psm: int = DEFAULT_PSM, oem: int = DEFAULT_OEM) -> list[OcrLine]:
+    """oem 1 = LSTM neural engine (production); 0 = legacy pattern matcher; 2 = both combined.
+    0 and 2 need the legacy model in eng.traineddata (present in the full `tessdata`, not in `tessdata_fast`)."""
     import pytesseract
     _configure_tesseract()
-    data = pytesseract.image_to_data(img, lang="eng", config=f"--oem 1 --psm {psm} -c preserve_interword_spaces=1",
+    data = pytesseract.image_to_data(img, lang="eng", config=f"--oem {oem} --psm {psm} -c preserve_interword_spaces=1",
                                      output_type=pytesseract.Output.DICT, timeout=OCR_TIMEOUT_S)
     groups: dict[tuple, list[OcrWord]] = {}
     for i, word in enumerate(data["text"]):
@@ -118,39 +126,57 @@ def _preview(img: np.ndarray, lines: list[OcrLine], width: int = 720) -> dict:
 
 
 def run_ocr(data: bytes, preprocess_enabled: bool = True, psm: int = DEFAULT_PSM, dual: bool = True,
-            want_preview: bool = False) -> dict:
+            want_preview: bool = False, oem: int = DEFAULT_OEM, threshold: str = "adaptive_gaussian",
+            denoise: str = "nlmeans", deskew: bool = True, normalize: bool = False) -> dict:
     """Full image -> lines step. Raises ValueError for unreadable images.
 
     preprocess_enabled=False sends the plain grayscale photo to Tesseract (ablation baseline).
-    dual=False only reads the thresholded image (ablation)."""
+    dual=False only reads the thresholded image (ablation). oem / threshold / denoise / deskew select
+    alternatives for the OCR-configuration comparison; the defaults are production.
+    `timing_ms` splits the latency into decode, preprocess and tesseract."""
     t0 = time.perf_counter()
     img = decode(data)
+    t_dec = time.perf_counter()
+    quality = image_quality(img)
     if not preprocess_enabled:
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        lines = run_tesseract(gray, psm)
+        t_pre = time.perf_counter()
+        lines = run_tesseract(gray, psm, oem)
+        t_ocr = time.perf_counter()
         out = {"lines": lines, "mean_conf": mean_conf(lines), "skew": 0.0, "cropped": False,
-               "variant": "raw", "steps_ms": {}, "ms": round((time.perf_counter() - t0) * 1000)}
+               "variant": "raw", "steps_ms": {}, "quality": quality, "ms": round((t_ocr - t0) * 1000),
+               "timing_ms": _timing(t0, t_dec, t_pre, t_ocr)}
         if want_preview:
             out["preview"] = _preview(gray, lines)
         return out
-    prep = preprocess(img)
+    prep = preprocess(img, denoise_method=denoise, threshold_method=threshold, deskew=deskew, normalize=normalize)
+    t_pre = time.perf_counter()
     # Adaptive threshold rescues shadows and uneven light but can eat faint thermal print; the denoised
     # grayscale keeps thin strokes. Read both (two tesseract processes in parallel) and keep the read
     # Tesseract itself is more confident about.
-    if dual:
+    if dual and threshold != "none":
         with ThreadPoolExecutor(max_workers=2) as pool:
-            bin_f = pool.submit(run_tesseract, prep.binary, psm)
-            gray_f = pool.submit(run_tesseract, prep.gray, psm)
+            bin_f = pool.submit(run_tesseract, prep.binary, psm, oem)
+            gray_f = pool.submit(run_tesseract, prep.gray, psm, oem)
             reads = {"binary": bin_f.result(), "gray": gray_f.result()}
+    elif threshold == "none":
+        reads = {"gray": run_tesseract(prep.gray, psm, oem)}
     else:
-        reads = {"binary": run_tesseract(prep.binary, psm)}
+        reads = {"binary": run_tesseract(prep.binary, psm, oem)}
+    t_ocr = time.perf_counter()
     variant = max(reads, key=lambda k: mean_conf(reads[k]))
     lines = reads[variant]
     out = {"lines": lines, "mean_conf": mean_conf(lines), "skew": prep.skew, "cropped": prep.cropped,
-           "variant": variant, "steps_ms": prep.steps_ms, "ms": round((time.perf_counter() - t0) * 1000)}
+           "variant": variant, "steps_ms": prep.steps_ms, "quality": quality,
+           "ms": round((t_ocr - t0) * 1000), "timing_ms": _timing(t0, t_dec, t_pre, t_ocr)}
     if want_preview:
         out["preview"] = _preview(prep.binary if variant == "binary" else prep.gray, lines)
     return out
+
+
+def _timing(t0: float, t_dec: float, t_pre: float, t_ocr: float) -> dict:
+    return {"decode": round((t_dec - t0) * 1000, 1), "preprocess": round((t_pre - t_dec) * 1000, 1),
+            "ocr": round((t_ocr - t_pre) * 1000, 1)}
 
 
 # backwards-compatible name used by earlier scripts

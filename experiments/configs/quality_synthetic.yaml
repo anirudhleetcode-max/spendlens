@@ -1,0 +1,12 @@
+# Image quality vs accuracy: every corruption at 4 severities, one at a time (experiments/quality.py).
+# Production OCR vs no preprocessing, to see whether preprocessing protects against bad photos.
+# SYNTHETIC Indian receipts (held-out seed): known merchant/date/total/GST and printed text.
+name: quality_synthetic
+task: image_quality
+dataset: synthetic
+n: 30
+seed: 1234
+workers: 3
+variants:
+  - {name: production, ocr: {preprocess: true, dual: true, psm: 6}}
+  - {name: raw_gray, ocr: {preprocess: false, dual: false, psm: 6}}
